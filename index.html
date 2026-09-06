@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zeusfyi | Live SWE and SRE Evaluations</title>
+  <meta name="description" content="Private, maintainer-authored environments for evaluating coding and operational agents through implementation, deployment, incidents, and recovery.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071014;
+      --bg-soft: #0b171c;
+      --panel: rgba(15, 31, 37, 0.78);
+      --panel-solid: #0f1e24;
+      --line: rgba(159, 197, 207, 0.18);
+      --line-bright: rgba(94, 234, 212, 0.42);
+      --text: #edf7f7;
+      --muted: #9bb1b5;
+      --cyan: #5eead4;
+      --cyan-strong: #2dd4bf;
+      --amber: #f8c56b;
+      --red: #fb7185;
+      --green: #6ee7a0;
+      --max: 1180px;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 74% 5%, rgba(45, 212, 191, 0.09), transparent 34rem),
+        radial-gradient(circle at 8% 42%, rgba(248, 197, 107, 0.05), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(159, 197, 207, 0.12);
+      background: rgba(7, 16, 20, 0.82);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 720; letter-spacing: -0.02em; }
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-bright);
+      color: var(--cyan);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      transform: rotate(45deg);
+    }
+    .brand-mark span { transform: rotate(-45deg); }
+    .nav-links { display: flex; gap: 28px; align-items: center; color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 19px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--cyan); color: #06201e; }
+    .btn-primary:hover { background: #83f2e0; }
+    .btn-secondary { border-color: var(--line); background: rgba(255,255,255,0.025); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--line-bright); }
+    .btn-small { min-height: 38px; padding: 0 15px; }
+
+    .hero {
+      min-height: 690px;
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      align-items: center;
+      gap: clamp(48px, 7vw, 96px);
+      padding: 92px 0 84px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 24px;
+      color: var(--cyan);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--cyan); }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 25px;
+      max-width: 760px;
+      font-size: clamp(48px, 6.8vw, 82px);
+      line-height: 0.99;
+      letter-spacing: -0.055em;
+      font-weight: 760;
+    }
+    h1 em { color: var(--cyan); font-style: normal; }
+    .hero-copy > p { max-width: 650px; color: #b4c6c9; font-size: clamp(18px, 2vw, 21px); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 35px; }
+    .microproof { display: flex; flex-wrap: wrap; gap: 9px 18px; margin-top: 28px; color: var(--muted); font-size: 13px; }
+    .microproof span::before { content: "✓"; color: var(--cyan); margin-right: 7px; }
+
+    .run-window {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line-bright);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(15, 31, 37, 0.94), rgba(8, 19, 24, 0.96));
+      box-shadow: 0 38px 90px rgba(0,0,0,0.42);
+    }
+    .run-window::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(94,234,212,0.025) 1px, transparent 1px);
+      background-size: 100% 5px;
+    }
+    .window-top { display: flex; justify-content: space-between; align-items: center; padding: 14px 17px; border-bottom: 1px solid var(--line); color: var(--muted); font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .lights { display: flex; gap: 6px; }
+    .lights i { width: 7px; height: 7px; border-radius: 50%; background: #41545a; }
+    .lights i:first-child { background: var(--cyan); }
+    .run-body { padding: 22px; }
+    .run-id { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 21px; font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); }
+    .run-id strong { color: var(--text); font-weight: 600; }
+    .timeline { display: grid; gap: 2px; }
+    .event { display: grid; grid-template-columns: 18px 1fr auto; gap: 12px; align-items: center; min-height: 49px; padding: 0 12px; border-left: 1px solid var(--line); font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .event .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(110,231,160,0.08); }
+    .event small { color: var(--muted); }
+    .event.incident { margin: 7px 0; border: 1px solid rgba(251,113,133,0.28); border-radius: 9px; background: rgba(251,113,133,0.065); }
+    .event.incident .dot { background: var(--red); box-shadow: 0 0 0 4px rgba(251,113,133,0.1); }
+    .event.incident small { color: #ff9daf; }
+    .event.recovery .dot { background: var(--amber); box-shadow: 0 0 0 4px rgba(248,197,107,0.09); }
+    .score-card { margin-top: 22px; padding: 16px; border: 1px solid var(--line); border-radius: 11px; background: rgba(0,0,0,0.16); }
+    .score-top { display: flex; justify-content: space-between; align-items: end; gap: 14px; margin-bottom: 11px; color: var(--muted); font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .score-top strong { color: var(--red); font-size: 28px; line-height: 1; }
+    .meter { position: relative; height: 7px; border-radius: 999px; background: #193037; overflow: hidden; }
+    .meter span { display: block; width: 43%; height: 100%; background: linear-gradient(90deg, var(--red), var(--amber)); }
+    .failure-note { margin: 12px 0 0; color: #ffc0ca; font-size: 12px; }
+
+    section { padding: 100px 0; border-top: 1px solid rgba(159, 197, 207, 0.1); }
+    .section-head { display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 64px; margin-bottom: 56px; }
+    .kicker { color: var(--cyan); font: 700 12px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.1em; text-transform: uppercase; }
+    h2 { margin-bottom: 18px; font-size: clamp(35px, 4.5vw, 56px); line-height: 1.05; letter-spacing: -0.045em; }
+    .section-head p { max-width: 680px; color: var(--muted); font-size: 18px; }
+
+    .flow-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .flow-step { min-height: 220px; padding: 26px; border-right: 1px solid var(--line); background: rgba(255,255,255,0.012); }
+    .flow-step:last-child { border-right: 0; }
+    .flow-step .n { display: block; margin-bottom: 53px; color: var(--cyan); font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .flow-step h3 { margin-bottom: 10px; font-size: 19px; }
+    .flow-step p { color: var(--muted); font-size: 14px; }
+
+    .contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .contrast-card { padding: 34px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+    .contrast-card.zeus { border-color: var(--line-bright); background: linear-gradient(145deg, rgba(17,43,47,0.8), rgba(11,24,29,0.92)); }
+    .contrast-card .label { color: var(--muted); font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+    .contrast-card.zeus .label { color: var(--cyan); }
+    .contrast-card h3 { margin: 17px 0 22px; font-size: 27px; letter-spacing: -0.03em; }
+    .contrast-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 13px; color: var(--muted); }
+    .contrast-card li { position: relative; padding-left: 22px; }
+    .contrast-card li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 8px; height: 1px; background: #62777c; }
+    .contrast-card.zeus li::before { background: var(--cyan); }
+
+    .pilot-shell { display: grid; grid-template-columns: 0.78fr 1.22fr; gap: 54px; align-items: start; }
+    .pilot-copy p { color: var(--muted); font-size: 18px; }
+    .pilot-list { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .pilot-row { display: grid; grid-template-columns: 70px 1fr auto; align-items: center; gap: 18px; min-height: 96px; padding: 18px 25px; border-bottom: 1px solid var(--line); }
+    .pilot-row:last-child { border: 0; }
+    .pilot-row .code { color: var(--cyan); font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .pilot-row h3 { margin: 0 0 5px; font-size: 17px; }
+    .pilot-row p { margin: 0; color: var(--muted); font-size: 14px; }
+    .pilot-row .tag { color: var(--amber); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; white-space: nowrap; }
+
+    .grading { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .grading-copy p { color: var(--muted); font-size: 18px; }
+    .axis { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+    .axis-title { display: flex; justify-content: space-between; gap: 18px; color: var(--muted); font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .axis-line { position: relative; height: 10px; margin: 42px 0 18px; border-radius: 8px; background: linear-gradient(90deg, var(--red) 0 50%, var(--amber) 50% 78%, var(--green) 78%); }
+    .axis-line::before { content: "FAILURE THRESHOLD"; position: absolute; left: 50%; top: -26px; transform: translateX(-50%); color: var(--red); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; white-space: nowrap; }
+    .axis-line::after { content: ""; position: absolute; left: 50%; top: -10px; width: 1px; height: 30px; background: var(--red); }
+    .axis-labels { display: flex; justify-content: space-between; color: var(--muted); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .failures { display: grid; gap: 9px; margin-top: 28px; }
+    .failure { display: flex; justify-content: space-between; gap: 12px; padding: 12px 14px; border-radius: 8px; background: rgba(255,255,255,0.025); font-size: 13px; }
+    .failure span:last-child { color: var(--red); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+    .security-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .security-item { min-height: 190px; padding: 28px; border: 1px solid var(--line); border-radius: 14px; }
+    .security-item .icon { display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: 29px; border: 1px solid var(--line-bright); border-radius: 8px; color: var(--cyan); font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .security-item h3 { margin-bottom: 8px; font-size: 17px; }
+    .security-item p { color: var(--muted); font-size: 14px; }
+
+    .closing { padding: 116px 0; }
+    .closing-box { position: relative; overflow: hidden; padding: clamp(36px, 7vw, 78px); border: 1px solid var(--line-bright); border-radius: 24px; background: linear-gradient(145deg, rgba(16,45,47,0.8), rgba(9,23,28,0.95)); }
+    .closing-box::after { content: "ZEUSFYI"; position: absolute; right: -24px; bottom: -48px; color: rgba(94,234,212,0.035); font-size: clamp(78px, 14vw, 190px); font-weight: 800; letter-spacing: -0.08em; pointer-events: none; }
+    .closing-box h2 { max-width: 760px; }
+    .closing-box p { max-width: 650px; color: var(--muted); font-size: 18px; }
+    .closing-box .hero-actions { position: relative; z-index: 1; }
+
+    footer { padding: 30px 0 44px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .footer-row { display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+    .footer-row a:hover { color: var(--text); }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.btn) { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 72px; }
+      .run-window { max-width: 650px; }
+      .section-head, .pilot-shell, .grading { grid-template-columns: 1fr; gap: 28px; }
+      .flow-grid { grid-template-columns: 1fr 1fr; }
+      .flow-step:nth-child(2) { border-right: 0; }
+      .flow-step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .security-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      .site-header .btn { display: none; }
+      .hero { padding: 58px 0 66px; }
+      h1 { font-size: clamp(43px, 14vw, 64px); }
+      section { padding: 76px 0; }
+      .flow-grid, .contrast { grid-template-columns: 1fr; }
+      .flow-step { min-height: 180px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .flow-step:nth-child(3) { border-bottom: 1px solid var(--line); }
+      .flow-step .n { margin-bottom: 32px; }
+      .pilot-row { grid-template-columns: 48px 1fr; }
+      .pilot-row .tag { display: none; }
+      .run-body { padding: 16px; }
+      .event { grid-template-columns: 15px 1fr; }
+      .event small { display: none; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Zeusfyi home"><span class="brand-mark"><span>Z</span></span><span>Zeusfyi</span></a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#environment">Environment</a>
+        <a href="#pilot">Pilot</a>
+        <a href="#method">Method</a>
+        <a class="btn btn-secondary btn-small" href="mailto:alex@zeus.fyi?subject=Olympus%20technical%20review">Technical review</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Private, maintainer-authored evals</div>
+        <h1>Evaluate coding agents where software <em>actually runs.</em></h1>
+        <p>Olympus carries frontier agents beyond the pull request and into deployment, telemetry, incidents, recovery, regression safety, and real operational consequences.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:alex@zeus.fyi?subject=Olympus%20paid%20pilot">Discuss a paid pilot</a>
+          <a class="btn btn-secondary" href="#environment">Explore the environment</a>
+        </div>
+        <div class="microproof" aria-label="Key properties">
+          <span>Private codebase</span>
+          <span>Resettable infrastructure</span>
+          <span>Original maintainer grading</span>
+        </div>
+      </div>
+
+      <div class="run-window" aria-label="Illustrative evaluation run">
+        <div class="window-top">
+          <div class="lights"><i></i><i></i><i></i></div>
+          <span>olympus / run-04</span>
+          <span>LIVE</span>
+        </div>
+        <div class="run-body">
+          <div class="run-id"><span>COMPOUND DEPLOYMENT TASK</span><strong>MODEL ROLLOUT 4/4</strong></div>
+          <div class="timeline">
+            <div class="event"><span class="dot"></span><span>feature_implemented</span><small>+18m</small></div>
+            <div class="event"><span class="dot"></span><span>tests_passed</span><small>+31m</small></div>
+            <div class="event"><span class="dot"></span><span>deployed_to_cluster</span><small>+39m</small></div>
+            <div class="event incident"><span class="dot"></span><span>sev_2: queue saturation</span><small>+47m</small></div>
+            <div class="event recovery"><span class="dot"></span><span>mitigation incomplete</span><small>+63m</small></div>
+          </div>
+          <div class="score-card">
+            <div class="score-top"><span>CONTINUOUS GRADER</span><strong>0.43</strong></div>
+            <div class="meter"><span></span></div>
+            <p class="failure-note">Meaningful failure: recovery restored throughput but violated data integrity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="environment">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">The environment</div>
+          <div>
+            <h2>Static tasks stop where production judgment begins.</h2>
+            <p>Olympus is a production software and infrastructure platform spanning distributed services, workflow execution, Postgres, Temporal, Kubernetes, and multi-cloud operations.</p>
+          </div>
+        </div>
+        <div class="flow-grid">
+          <article class="flow-step"><span class="n">01</span><h3>Implement</h3><p>The agent works inside an unfamiliar, private codebase with real architectural constraints.</p></article>
+          <article class="flow-step"><span class="n">02</span><h3>Deploy</h3><p>The change moves into an isolated runtime with services, workflows, databases, and clusters.</p></article>
+          <article class="flow-step"><span class="n">03</span><h3>Operate</h3><p>Telemetry, load, degraded dependencies, and reproducible incidents force live decisions.</p></article>
+          <article class="flow-step"><span class="n">04</span><h3>Grade</h3><p>Results reflect correctness, mitigation, recovery, regressions, cost, and engineering judgment.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">The difference</div>
+          <div><h2>The engineer who built the system authors the evaluation.</h2><p>That creates tasks around the failure modes, tradeoffs, and operational consequences that are usually invisible to external task writers.</p></div>
+        </div>
+        <div class="contrast">
+          <article class="contrast-card">
+            <div class="label">Repository-only evaluation</div>
+            <h3>Dead code and proxy judgment</h3>
+            <ul>
+              <li>Ends at tests or patch output</li>
+              <li>Task authors did not build the system</li>
+              <li>Operational consequences are simulated in prose</li>
+              <li>Binary graders hide partial and compound failures</li>
+            </ul>
+          </article>
+          <article class="contrast-card zeus">
+            <div class="label">Olympus live evaluation</div>
+            <h3>Running systems and maintainer judgment</h3>
+            <ul>
+              <li>Continues through deployment and runtime behavior</li>
+              <li>Authored by the platform’s original engineer</li>
+              <li>Reproduces Sev incidents with bounded cloud impact</li>
+              <li>Captures multiple meaningful failures per rollout</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pilot">
+      <div class="wrap pilot-shell">
+        <div class="pilot-copy">
+          <div class="kicker">Paid pilot</div>
+          <h2>Prove discrimination before scaling.</h2>
+          <p>A paid qualification validates task difficulty, environment compatibility, and grading quality before either side commits to the complete pilot.</p>
+          <a class="btn btn-primary" href="mailto:alex@zeus.fyi?subject=Olympus%20paid%20qualification">Review the qualification</a>
+        </div>
+        <div class="pilot-list">
+          <article class="pilot-row"><span class="code">Q0</span><div><h3>Qualification</h3><p>Validate environment integration and meaningful model discrimination.</p></div><span class="tag">GATE</span></article>
+          <article class="pilot-row"><span class="code">E1</span><div><h3>Production feature and deployment</h3><p>Implementation quality under live system constraints.</p></div><span class="tag">4+ ROLLOUTS</span></article>
+          <article class="pilot-row"><span class="code">E2</span><div><h3>Reproducible Sev incident response</h3><p>Diagnosis, mitigation, recovery, and regression safety.</p></div><span class="tag">4+ ROLLOUTS</span></article>
+          <article class="pilot-row"><span class="code">E3</span><div><h3>Compound implementation to recovery</h3><p>Long-horizon performance across code, deployment, and operations.</p></div><span class="tag">4+ ROLLOUTS</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="method">
+      <div class="wrap grading">
+        <div class="grading-copy">
+          <div class="kicker">Grading method</div>
+          <h2>Measure how the run fails, not only whether it passes.</h2>
+          <p>Continuous scores separate superficial completion from engineering-quality outcomes. A single rollout can expose multiple documented failure modes, including changes a senior engineer would reject despite passing tests.</p>
+        </div>
+        <div class="axis" aria-label="Illustrative grading axis">
+          <div class="axis-title"><span>ROLLOUT SCORE</span><span>0.00 TO 1.00</span></div>
+          <div class="axis-line"></div>
+          <div class="axis-labels"><span>0.00</span><span>0.50</span><span>0.90</span><span>1.00</span></div>
+          <div class="failures">
+            <div class="failure"><span>Service restored, data integrity violated</span><span>0.43</span></div>
+            <div class="failure"><span>Feature works, unsafe rollback path</span><span>0.58</span></div>
+            <div class="failure"><span>Correct patch, excessive cloud cost</span><span>0.71</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Controlled execution</div>
+          <div><h2>Live enough to matter. Bounded enough to repeat.</h2><p>Each evaluation runs in an isolated environment designed for reset, reproducibility, controlled credentials, and bounded infrastructure consequences.</p></div>
+        </div>
+        <div class="security-grid">
+          <article class="security-item"><div class="icon">01</div><h3>Private by design</h3><p>The Olympus codebase and evaluation materials remain confidential and access-controlled.</p></article>
+          <article class="security-item"><div class="icon">02</div><h3>Resettable state</h3><p>Services, databases, workflows, and incident conditions return to a known baseline between runs.</p></article>
+          <article class="security-item"><div class="icon">03</div><h3>Bounded consequences</h3><p>Cloud access, credentials, spending, and operational impact are constrained per evaluation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap">
+        <div class="closing-box">
+          <div class="eyebrow">Olympus by Zeusfyi</div>
+          <h2>Put a frontier coding agent inside a system that can push back.</h2>
+          <p>Review the private environment, qualification criteria, and proposed three-eval pilot with the engineer who built Olympus.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:alex@zeus.fyi?subject=Olympus%2025-minute%20technical%20review">Request a 25-minute technical review</a>
+            <a class="btn btn-secondary" href="mailto:alex@zeus.fyi?subject=Olympus%20confidential%20specification">Request the confidential specification</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <a class="brand" href="#top"><span class="brand-mark"><span>Z</span></span><span>Zeusfyi</span></a>
+      <span>Private evaluation infrastructure for frontier SWE and SRE agents.</span>
+      <a href="mailto:alex@zeus.fyi">alex@zeus.fyi</a>
+    </div>
+  </footer>
+</body>
+</html>
