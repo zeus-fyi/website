@@ -39,6 +39,7 @@ for(const width of widths){
       await expect(page.locator('[data-passages] mark').first()).toBeVisible();
       expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
       const image=page.locator('[data-page-host] [data-source-image]');
+      await image.scrollIntoViewIfNeeded();
       await expect(image).toBeVisible();
       await expect.poll(()=>image.evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);
       const alignment=await page.locator('[data-page-host] [data-source-page]').evaluate(el=>{
