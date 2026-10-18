@@ -1,0 +1,37 @@
+name: Patent research website
+on:
+  push:
+    branches: [main, feat/patent-research-site]
+    paths: ['patents/**', 'patent-site/**', 'package*.json', 'playwright.config.mjs', '.github/workflows/patent-site.yml']
+  pull_request:
+    paths: ['patents/**', 'patent-site/**', 'package*.json', 'playwright.config.mjs', '.github/workflows/patent-site.yml']
+permissions:
+  contents: read
+concurrency:
+  group: patent-site-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build:patents
+      - run: npm run check:patents
+      - run: node --test patent-site/dom.test.mjs
+      - run: git diff --exit-code -- patents/
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run test:patents
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: patent-site-browser-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14

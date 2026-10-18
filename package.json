@@ -1,0 +1,15 @@
+{
+  "name": "zeusfyi-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:patents": "node patent-site/build.mjs",
+    "check:patents": "python3 patent-site/check.py",
+    "test:patents": "playwright test",
+    "test:patents:dom": "node --test patent-site/dom.test.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "jsdom": "30.1.3"
+  }
+}
