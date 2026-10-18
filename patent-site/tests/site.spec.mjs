@@ -38,7 +38,48 @@ for(const width of widths){
       await expect(page.locator('[data-field="label"]')).toContainText(id==='1pre'?'1pre':id);
       await expect(page.locator('[data-passages] mark').first()).toBeVisible();
       expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
-      if(id==='P2') await expect(page.locator('[data-source-kind]')).toContainText('Summary');
+      const image=page.locator('[data-page-host] [data-source-image]');
+      await expect(image).toBeVisible();
+      await expect.poll(()=>image.evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);
+      const alignment=await page.locator('[data-page-host] [data-source-page]').evaluate(el=>{
+        const image=el.querySelector('img').getBoundingClientRect();
+        return [...el.querySelectorAll('[data-source-highlights] span')].every(mark=>{
+          const r=mark.getBoundingClientRect(),x=parseFloat(mark.style.left)/100,y=parseFloat(mark.style.top)/100;
+          return Math.abs(r.left-image.left-x*image.width)<1 && Math.abs(r.top-image.top-y*image.height)<1 && r.right<=image.right+1 && r.bottom<=image.bottom+1;
+        });
+      });
+      expect(alignment,'highlights must stay aligned with the original page').toBe(true);
+      if(id==='P2') await expect(page.locator('[data-source-note]')).toContainText('combination rationale');
+    }
+    await expect(page.locator('[data-page-label]')).toHaveText('Printed p. 27 · PDF page 30 of 74');
+    await expect(page.locator('[data-original-pdf]')).toHaveAttribute('href',/#page=30$/);
+    await page.locator('[data-toggle-highlights]').click();
+    await expect(page.locator('[data-page-host] [data-source-highlights]')).toBeHidden();
+    await page.locator('[data-toggle-highlights]').click();
+    await page.locator('[data-enlarge]').click();
+    const dialog=page.locator('[data-source-dialog]');
+    await expect(dialog).toBeVisible();
+    await expect(page.locator('[data-dialog-original]')).toHaveAttribute('href',/#page=30$/);
+    await page.locator('[data-dialog-zoom]').click();
+    await expect(page.locator('[data-dialog-zoom]')).toHaveAttribute('aria-pressed','true');
+    const scroll=page.locator('[data-dialog-scroll]');
+    expect(await scroll.evaluate(el=>el.scrollTop)).toBeGreaterThan(0);
+    const firstHighlight=dialog.locator('[data-source-highlights] span').first();
+    const viewport=await scroll.boundingBox(), highlight=await firstHighlight.boundingBox();
+    expect(highlight.y).toBeGreaterThanOrEqual(viewport.y-1);
+    expect(highlight.y+highlight.height).toBeLessThanOrEqual(viewport.y+viewport.height+1);
+    await page.locator('[data-dialog-highlights]').click();
+    await expect(dialog.locator('[data-source-highlights]')).toBeHidden();
+    await page.locator('[data-dialog-highlights]').click();
+    await page.keyboard.press('Escape');
+    await expect(dialog).toBeHidden();
+    await expect(page.locator('[data-enlarge]')).toBeFocused();
+    await page.locator('[data-score="16a"]').click();
+    await expect(page.locator('[data-source-pages] button')).toHaveCount(4);
+    for(const number of [13,23,40,44]){
+      await page.locator('[data-source-pages]').getByRole('button',{name:new RegExp('printed page '+number+'$')}).click();
+      await expect(page.locator('[data-page-host] [data-source-image]')).toHaveAttribute('src',new RegExp('sma-'+number+'\\.png$'));
+      await expect(page.locator('[data-original-pdf]')).toHaveAttribute('href',new RegExp('#page='+number+'$'));
     }
     await page.locator('.reading-details summary').click();
     await expect(page.locator('.all-notes article')).toHaveCount(9);
@@ -85,12 +126,23 @@ test('research and contact remain usable without JavaScript',async({browser})=>{
   const page=await context.newPage();
   await page.goto('http://127.0.0.1:4173/research/cyboenergy-9331488/');
   await expect(page.locator('[data-passages] mark').first()).toBeVisible();
+  await expect(page.locator('[data-source-image]')).toBeVisible();
+  await expect(page.locator('[data-original-pdf]')).toHaveAttribute('href',/#page=30$/);
   await page.locator('.reading-details summary').click();
   await expect(page.locator('.all-notes article')).toHaveCount(9);
   await page.goto('http://127.0.0.1:4173/contact/');
   await expect(page.locator('noscript a')).toHaveAttribute('href','mailto:alex@zeus.fyi');
   await expect(page.locator('[data-inquiry]')).toBeHidden();
   await context.close();
+});
+
+test('original source links survive an image load failure',async({page})=>{
+  await page.route('**/assets/sources/*.png',route=>route.abort());
+  await page.goto('/research/cyboenergy-9331488/');
+  await page.locator('[data-source-image]').scrollIntoViewIfNeeded();
+  await expect(page.locator('[data-image-error]')).toBeVisible();
+  await expect(page.getByRole('link',{name:'Open original PDF',exact:true})).toHaveAttribute('href',/#page=30$/);
+  await expect(page.locator('[data-passages]')).toContainText('temperature limitation');
 });
 
 test('404 has working local navigation and styling',async({page})=>{
@@ -109,6 +161,13 @@ for(const width of [390,768,1440]){
       const name=(route.split('/').pop()||'home')+'-'+width+'.png';
       const screenshot=await page.screenshot({fullPage:true});
       await testInfo.attach(name,{body:screenshot,contentType:'image/png'});
+      if(route==='research/cyboenergy-9331488'){
+        await page.locator('[data-evidence]').scrollIntoViewIfNeeded();
+        await testInfo.attach('evidence-'+width+'.png',{body:await page.locator('[data-evidence]').screenshot(),contentType:'image/png'});
+        await page.locator('[data-enlarge]').click();
+        await page.locator('[data-dialog-zoom]').click();
+        await testInfo.attach('original-page-zoom-'+width+'.png',{body:await page.screenshot(),contentType:'image/png'});
+      }
     }
   });
 }

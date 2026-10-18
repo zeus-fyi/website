@@ -25,12 +25,27 @@ for (const route of ['', 'research/cyboenergy-9331488/']) {
       assert.ok(d.querySelector('[data-field="pinpoint"]').textContent.length>10);
     }
     d.querySelector('[data-score="P2"]').click();
-    assert.match(d.querySelector('[data-source-kind]').textContent,/Summary/);
-    assert.match(d.querySelector('.source-sheet-footer').textContent,/not a quotation/);
+    assert.equal(d.querySelectorAll('[data-source-pages] button').length,2);
+    assert.match(d.querySelector('[data-source-note]').textContent,/combination rationale/);
     d.querySelector('[data-score="16c2"]').click();
     assert.match(d.querySelector('[data-field="label"]').textContent,/C 50/);
-    assert.match(d.querySelector('[data-source-kind]').textContent,/Typeset excerpt/);
+    assert.match(d.querySelector('[data-source-kind]').textContent,/Original reference/);
+    assert.match(d.querySelector('[data-source-image]').src,/sunways-27\.png$/);
+    assert.match(d.querySelector('[data-original-pdf]').href,/#page=30$/);
+    assert.equal(d.querySelectorAll('[data-source-highlights] span').length,6);
     assert.equal(d.querySelectorAll('[data-passages] mark').length,2);
+    d.querySelector('[data-toggle-highlights]').click();
+    assert.equal(d.querySelector('[data-source-highlights]').hidden,true);
+    d.querySelector('[data-score="16a"]').click();
+    assert.equal(d.querySelectorAll('[data-source-pages] button').length,4);
+    d.querySelectorAll('[data-source-pages] button')[1].click();
+    assert.match(d.querySelector('[data-page-label]').textContent,/Printed p. 23/);
+    assert.match(d.querySelector('[data-source-image]').src,/sma-23\.png$/);
+    assert.match(d.querySelector('[data-passages]').textContent,/DC inputs is defective/);
+    assert.match(d.querySelector('[data-original-pdf]').href,/#page=23$/);
+    assert.equal(d.querySelector('[data-source-highlights]').hidden,true);
+    d.querySelector('[data-toggle-highlights]').click();
+    assert.equal(d.querySelector('[data-source-highlights]').hidden,false);
     dom.window.close();
   });
 }

@@ -40,7 +40,20 @@ for path in sorted(ROOT.rglob('*.html')):
         evidence = json.loads(data[1])
         assert len(evidence) == 9 and evidence['P2']['summary'] is True
         assert 'C 50' in evidence['16c2']['label']
-        assert all(x.get('passages') and x.get('limit') for x in evidence.values())
+        for record in evidence.values():
+            assert record.get('views') and record.get('limit')
+            for view in record['views']:
+                assert view['fragments'] and view['pdfPage'] <= view['pageCount']
+                assert view['originalUrl'].endswith('#page=' + str(view['pdfPage']))
+                image = (path.parent / view['image']).resolve()
+                assert image.is_relative_to(ROOT.resolve()) and image.is_file()
+                assert image.read_bytes().startswith(b'\x89PNG\r\n\x1a\n')
+                for fragment in view['fragments']:
+                    assert fragment['quote'] and fragment['rects']
+                    for x, y, width, height in fragment['rects']:
+                        assert 0 <= x < 100 and 0 <= y < 100
+                        assert width > 0 and height > 0
+                        assert x + width <= 100 and y + height <= 100
     pages[path.resolve()] = parsed
 
 for path, page in pages.items():
