@@ -1,36 +1,146 @@
 (function () {
 'use strict';
-/* No dependencies, network requests or client-side routing. */
+/* No dependencies, external data requests or client-side routing. */
 document.querySelectorAll('[data-evidence]').forEach(function (module) {
   var records;
   try { records = JSON.parse(module.querySelector('[data-evidence-data]').textContent); }
   catch (_) { return; }
   var buttons = module.querySelectorAll('[data-score]');
+  var currentRecord, currentView, highlightsVisible = true;
+  var dialog = module.querySelector('[data-source-dialog]');
+  var enlarge = module.querySelector('[data-enlarge]');
+  var pageTabs = module.querySelector('[data-source-pages]');
+  var imageError = module.querySelector('[data-image-error]');
+  function makePage(view) {
+    var page = document.createElement('div');
+    page.className = 'source-page';
+    page.setAttribute('data-source-page', '');
+    var image = document.createElement('img');
+    image.setAttribute('data-source-image', '');
+    image.width = view.width; image.height = view.height;
+    image.loading = 'lazy';
+    image.alt = view.document + ', printed page ' + view.printedPage + '. The cited passages are highlighted; their text appears beside the page.';
+    image.addEventListener('error', function () { imageError.hidden = false; });
+    image.src = view.image;
+    page.appendChild(image);
+    var layer = document.createElement('div');
+    layer.className = 'source-highlights';
+    layer.setAttribute('data-source-highlights', '');
+    layer.setAttribute('aria-hidden', 'true');
+    view.fragments.forEach(function (fragment) {
+      fragment.rects.forEach(function (rect) {
+        var highlight = document.createElement('span');
+        highlight.style.left = rect[0] + '%'; highlight.style.top = rect[1] + '%';
+        highlight.style.width = rect[2] + '%'; highlight.style.height = rect[3] + '%';
+        layer.appendChild(highlight);
+      });
+    });
+    page.appendChild(layer);
+    return page;
+  }
+  function updateHighlights() {
+    module.querySelectorAll('[data-source-highlights]').forEach(function (layer) { layer.hidden = !highlightsVisible; });
+    module.querySelectorAll('[data-toggle-highlights], [data-dialog-highlights]').forEach(function (button) {
+      button.textContent = highlightsVisible ? 'Hide highlights' : 'Show highlights';
+      button.setAttribute('aria-pressed', String(highlightsVisible));
+    });
+  }
+  function showView(index) {
+    var view = currentRecord.views[index];
+    if (!view) return;
+    currentView = view;
+    module.querySelector('[data-document-title]').textContent = view.document;
+    module.querySelector('[data-document-edition]').textContent = view.edition;
+    module.querySelector('[data-page-label]').textContent = 'Printed p. ' + view.printedPage + ' · PDF page ' + view.pdfPage + ' of ' + view.pageCount;
+    module.querySelector('[data-source-kind]').textContent = 'Original reference · ' + view.reference;
+    module.querySelector('[data-original-pdf]').href = view.originalUrl;
+    module.querySelector('[data-archive-date]').textContent = 'Archived ' + view.archiveDate + ' from the manufacturer’s website.';
+    module.querySelector('[data-quote-reference]').textContent = view.reference + ' · ' + view.document + ' · Printed p. ' + view.printedPage;
+    module.querySelector('[data-source-note]').textContent = currentRecord.summary
+      ? 'P2 is the researcher’s combination rationale. These original pages show its cited sources.'
+      : 'Original document page. Highlights identify the quoted passages.';
+    var passages = module.querySelector('[data-passages]');
+    passages.textContent = '';
+    view.fragments.forEach(function (fragment) {
+      var quote = document.createElement('blockquote'), p = document.createElement('p'), mark = document.createElement('mark');
+      mark.textContent = fragment.quote;
+      p.appendChild(mark); quote.appendChild(p); passages.appendChild(quote);
+    });
+    var host = module.querySelector('[data-page-host]');
+    host.textContent = ''; imageError.hidden = true;
+    host.appendChild(makePage(view));
+    pageTabs.querySelectorAll('button').forEach(function (button, buttonIndex) { button.setAttribute('aria-pressed', String(buttonIndex === index)); });
+    updateHighlights();
+    module.querySelector('[data-evidence-status]').textContent = currentRecord.label + '. ' + view.reference + ', printed page ' + view.printedPage + '.';
+  }
   function select(id) {
     var record = records[id];
     if (!record) return;
+    currentRecord = record;
     module.querySelectorAll('[data-field]').forEach(function (field) {
       field.textContent = record[field.getAttribute('data-field')] || '';
     });
-    var passages = module.querySelector('[data-passages]');
-    passages.textContent = '';
-    record.passages.forEach(function (entry) {
-      var p = document.createElement('p');
-      if (entry[1]) {
-        var mark = document.createElement('mark');
-        mark.textContent = entry[0];
-        p.appendChild(mark);
-      } else { p.textContent = entry[0]; }
-      passages.appendChild(p);
+    pageTabs.textContent = '';
+    record.views.forEach(function (view, index) {
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = view.reference + ' · p. ' + view.printedPage;
+      button.setAttribute('aria-label', view.reference + ', ' + view.document + ', printed page ' + view.printedPage);
+      button.addEventListener('click', function () { showView(index); });
+      pageTabs.appendChild(button);
     });
-    module.querySelector('[data-source-kind]').textContent = record.summary ? 'Researcher rationale · Summary' : 'Source text · Typeset excerpt';
-    module.querySelector('.source-sheet-footer').textContent = record.summary ? 'This is the researcher’s combination rationale, not a quotation from a source.' : 'Highlighted text from the reference cited in the research record.';
+    pageTabs.hidden = record.views.length < 2;
+    showView(0);
     buttons.forEach(function (button) { button.setAttribute('aria-pressed', String(button.getAttribute('data-score') === id)); });
   }
   buttons.forEach(function (button) {
     button.addEventListener('click', function () { select(button.getAttribute('data-score')); });
     button.disabled = false;
   });
+  module.querySelectorAll('[data-toggle-highlights], [data-dialog-highlights]').forEach(function (button) {
+    button.hidden = false;
+    button.addEventListener('click', function () { highlightsVisible = !highlightsVisible; updateHighlights(); });
+  });
+  enlarge.hidden = false;
+  enlarge.addEventListener('click', function () {
+    if (typeof dialog.showModal !== 'function') {
+      window.open(currentView.image, '_blank', 'noopener');
+      return;
+    }
+    module.querySelector('[data-dialog-title]').textContent = currentView.reference + ' · ' + currentView.document + ' · p. ' + currentView.printedPage;
+    module.querySelector('[data-dialog-original]').href = currentView.originalUrl;
+    var host = module.querySelector('[data-dialog-page]');
+    host.textContent = '';
+    var page = makePage(currentView);
+    page.querySelector('img').loading = 'eager';
+    host.appendChild(page);
+    host.classList.remove('is-zoomed');
+    var zoom = module.querySelector('[data-dialog-zoom]');
+    zoom.textContent = 'Zoom in'; zoom.setAttribute('aria-pressed', 'false');
+    updateHighlights();
+    dialog.showModal();
+    document.documentElement.classList.add('source-dialog-open');
+    var scroll = module.querySelector('[data-dialog-scroll]');
+    scroll.scrollTop = 0; scroll.scrollLeft = 0;
+  });
+  module.querySelector('[data-dialog-zoom]').addEventListener('click', function (event) {
+    var host = module.querySelector('[data-dialog-page]');
+    var zoomed = host.classList.toggle('is-zoomed');
+    event.currentTarget.textContent = zoomed ? 'Fit page' : 'Zoom in';
+    event.currentTarget.setAttribute('aria-pressed', String(zoomed));
+    var scroll = module.querySelector('[data-dialog-scroll]');
+    if (zoomed) {
+      var page = host.querySelector('[data-source-page]'), rect = currentView.fragments[0].rects[0];
+      scroll.scrollLeft = (rect[0] + rect[2] / 2) / 100 * page.clientWidth - scroll.clientWidth / 2;
+      scroll.scrollTop = (rect[1] + rect[3] / 2) / 100 * page.clientHeight - scroll.clientHeight / 2;
+    } else { scroll.scrollTop = 0; scroll.scrollLeft = 0; }
+  });
+  module.querySelector('[data-close-dialog]').addEventListener('click', function () { dialog.close(); });
+  dialog.addEventListener('close', function () {
+    document.documentElement.classList.remove('source-dialog-open');
+    enlarge.focus();
+  });
+  select('16c2');
 });
 
 var inquiry = document.querySelector('[data-inquiry]');

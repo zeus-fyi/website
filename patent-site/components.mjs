@@ -1,5 +1,6 @@
 import path from 'node:path';
 import { evidence } from './evidence.mjs';
+import { sourceDocuments, sourcePages } from './source-pages.mjs';
 
 export const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 export const routes = [['', 'Home'], ['services', 'Services'], ['research', 'Research examples'], ['method', 'Our method'], ['about', 'Expertise'], ['contact', 'Discuss a matter']];
@@ -59,24 +60,49 @@ export function caseCard(c, item) {
   return `<article class="case-card"><p class="eyebrow">${escape(item.topic)}</p><h3><a href="${c.url('research/' + item.slug)}">${escape(item.title)}</a></h3><p class="case-meta">${escape(item.owner)} · ${escape(item.patent)} · Claim ${item.claim}</p><p>${escape(item.summary)}</p><a class="text-link" href="${c.url('research/' + item.slug)}">Read the research example</a></article>`;
 }
 
-export function evidenceView({ compact = false } = {}) {
-  const selected = evidence['16c2'];
+export function evidenceView(c, { compact = false } = {}) {
+  const records = Object.fromEntries(Object.entries(evidence).map(([id, entry]) => [id, {
+    label: entry.label, title: entry.title, mapping: entry.mapping, limit: entry.limit,
+    pinpoint: entry.pinpoint, summary: Boolean(entry.summary),
+    views: entry.sourceViews.map(([pageId, fragmentIds]) => {
+      const page = sourcePages[pageId], doc = sourceDocuments[page.document];
+      return { pageId, reference: doc.reference, document: doc.title, edition: doc.edition,
+        archiveDate: doc.archiveDate, originalUrl: `${doc.url}#page=${page.pdfPage}`,
+        printedPage: page.printedPage, pdfPage: page.pdfPage, pageCount: doc.pageCount,
+        image: c.asset(page.image), width: page.width, height: page.height,
+        fragments: fragmentIds.map(fragmentId => page.fragments[fragmentId]) };
+    })
+  }]));
+  const selected = records['16c2'], firstView = selected.views[0];
   const scores = [['1pre','A',97,'Preamble'],['16a','A',95,'Monitoring'],['16b','A',97,'LED control'],['16c1','B',75,'Working'],['16c2','C',50,'Warnings'],['16c3','B',75,'Inverter error'],['16c4','B',75,'Grid error'],['16c5','B',75,'Off'],['P2','B',78,'Combination']];
   const scoreButtons = scores.map(([id, grade, score, label]) => `<button type="button" class="score grade-${grade.toLowerCase()}" data-score="${id}" aria-pressed="${id === '16c2'}" aria-controls="evidence-detail" disabled><span>${id}</span><strong>${grade} <b>${score}</b></strong><small>${label}</small></button>`).join('');
-  const source = entry => entry.passages.map(([text, highlighted]) => `<p>${highlighted ? `<mark>${escape(text)}</mark>` : escape(text)}</p>`).join('');
+  const pageLabel = view => `Printed p. ${view.printedPage} · PDF page ${view.pdfPage} of ${view.pageCount}`;
+  const quotes = view => view.fragments.map(fragment => `<blockquote><p><mark>${escape(fragment.quote)}</mark></p></blockquote>`).join('');
+  const pageImage = view => `<div class="source-page" data-source-page><img data-source-image src="${escape(view.image)}" width="${view.width}" height="${view.height}" loading="lazy" alt="${escape(view.document)}, printed page ${view.printedPage}. The cited passages are highlighted; their text appears beside the page."><div class="source-highlights" data-source-highlights aria-hidden="true">${view.fragments.flatMap(fragment => fragment.rects.map(([x,y,w,h]) => `<span style="left:${x}%;top:${y}%;width:${w}%;height:${h}%"></span>`)).join('')}</div></div>`;
   return `<section class="evidence-module${compact ? ' evidence-compact' : ''}" data-evidence aria-labelledby="evidence-heading">
     <div class="section-heading"><div><p class="eyebrow">Inside a submitted claim chart</p><h2 id="evidence-heading">Every limitation. Its evidence. Its limits.</h2></div><p class="caption">CyboEnergy · US 9,331,488 B2<br>Claim 16 · Ground 2</p></div>
-    <p class="evidence-instruction">Select a limitation to inspect its assessment and highlighted source passage.</p>
+    <p class="evidence-instruction">Select a limitation to inspect the original reference page and its highlighted evidence.</p>
     <div class="score-strip" role="group" aria-label="Claim limitation assessments">${scoreButtons}</div>
     <div class="score-legend"><span>A · Strong · 90–100</span><span>B · Strong combination · 75–89</span><span>C · Arguable · 45–74</span><span>D · Thin · 20–44</span><span>E · Weak · 0–19</span></div>
-    <div id="evidence-detail" class="evidence-spread" aria-live="polite" aria-atomic="true">
-      <div class="evidence-reading"><p class="eyebrow" data-field="label">${selected.label}</p><h3 data-field="title">${selected.title}</h3><p data-field="mapping">${selected.mapping}</p><div class="reading-note"><p class="eyebrow">What the score reflects</p><p data-field="limit">${selected.limit}</p></div><p class="caption" data-field="pinpoint">${selected.pinpoint}</p></div>
-      <div class="source-sheet"><div class="source-sheet-header"><span data-field="document">${selected.document}</span><span data-field="page">${selected.page}</span></div><p class="eyebrow" data-source-kind>Source text · Typeset excerpt</p><h3 data-field="sourceTitle">${selected.sourceTitle}</h3><div data-passages>${source(selected)}</div><p class="source-sheet-footer">Highlighted text from the reference cited in the research record.</p></div>
+    <p class="visually-hidden" role="status" data-evidence-status></p>
+    <div id="evidence-detail" class="evidence-spread">
+      <div class="evidence-reading"><p class="eyebrow" data-field="label">${selected.label}</p><h3 data-field="title">${selected.title}</h3><p data-field="mapping">${selected.mapping}</p><div class="source-quotation"><p class="eyebrow">Passages on the original page</p><div data-passages>${quotes(firstView)}</div><p class="caption" data-quote-reference>${firstView.reference} · ${firstView.document} · Printed p. ${firstView.printedPage}</p></div><div class="reading-note"><p class="eyebrow">What the score reflects</p><p data-field="limit">${selected.limit}</p></div><p class="caption" data-field="pinpoint">${selected.pinpoint}</p></div>
+      <figure class="source-viewer">
+        <figcaption><p class="eyebrow" data-source-kind>Original reference · ${firstView.reference}</p><h3 data-document-title>${firstView.document}</h3><p class="caption" data-document-edition>${firstView.edition}</p></figcaption>
+        <div class="source-page-tabs" data-source-pages role="group" aria-label="Cited source pages" hidden></div>
+        <div class="source-toolbar"><span data-page-label>${pageLabel(firstView)}</span><button type="button" data-enlarge hidden>Enlarge page</button></div>
+        <div data-page-host>${pageImage(firstView)}</div>
+        <p class="caption source-image-error" data-image-error hidden>The page image could not load. Open the original PDF below to inspect the reference.</p>
+        <div class="source-reference-links"><a data-original-pdf href="${escape(firstView.originalUrl)}" target="_blank" rel="noopener">Open original PDF</a><button type="button" data-toggle-highlights aria-pressed="true" hidden>Hide highlights</button></div>
+        <p class="caption" data-archive-date>Archived ${firstView.archiveDate} from the manufacturer’s website.</p>
+        <p class="source-viewer-note" data-source-note>Original document page. Highlights identify the quoted passages.</p>
+      </figure>
     </div>
     <p class="caption score-context">Recorded assessment: 15 October 2026. Scores assess the evidence for this ground; they are not probabilities of invalidity. P2 is the reason to combine, a claim-wide point.</p>
-    <noscript><p>The warning-state excerpt is shown above. ${compact ? 'Open the full case example for all limitation notes.' : 'All limitation notes are available below without JavaScript.'}</p></noscript>
-    ${compact ? '' : `<details class="reading-details"><summary>Read all limitation notes</summary><div class="all-notes">${scores.map(([id]) => `<article><h3>${escape(evidence[id].label)}</h3><p>${escape(evidence[id].mapping)}</p><p>${escape(evidence[id].limit)}</p><p class="caption">${escape(evidence[id].pinpoint)}</p></article>`).join('')}</div></details>`}
-    <script type="application/json" data-evidence-data>${JSON.stringify(evidence).replaceAll('<','\\u003c')}</script>
+    <noscript><p>The original warning-state reference page is shown above. ${compact ? 'Open the full case example for all limitation notes and source links.' : 'All limitation notes and source links are available below without JavaScript.'}</p></noscript>
+    ${compact ? '' : `<details class="reading-details"><summary>Read all limitation notes</summary><div class="all-notes">${scores.map(([id]) => `<article><h3>${escape(records[id].label)}</h3><p>${escape(records[id].mapping)}</p><p>${escape(records[id].limit)}</p><p class="caption">${escape(records[id].pinpoint)}</p><p class="note-source-links">${records[id].views.map(view => `<a href="${escape(view.originalUrl)}" target="_blank" rel="noopener">${view.reference} · Original p. ${view.printedPage}</a>`).join(' ')}</p></article>`).join('')}</div></details>`}
+    <dialog class="source-dialog" aria-labelledby="source-dialog-title" data-source-dialog><header><div><p class="eyebrow">Original reference page</p><h2 id="source-dialog-title" data-dialog-title></h2></div><button type="button" data-close-dialog>Close</button></header><div class="dialog-toolbar"><a data-dialog-original target="_blank" rel="noopener">Open original PDF</a><button type="button" data-dialog-zoom aria-pressed="false">Zoom in</button><button type="button" data-dialog-highlights aria-pressed="true">Hide highlights</button></div><p class="caption dialog-instruction">Zoom in to read the page; scroll to inspect the highlighted passages.</p><div class="document-scroll" data-dialog-scroll tabindex="0" aria-label="Scrollable original document page"><div data-dialog-page></div></div></dialog>
+    <script type="application/json" data-evidence-data>${JSON.stringify(records).replaceAll('<','\\u003c')}</script>
   </section>`;
 }
 
