@@ -70,5 +70,17 @@ export const cases = [
     mapping: 'The passage supports part of the connection analysis for limitation 14e. Additional passages describe parallel converters and the supply’s use of the DC links.',
     limit: 'This passage alone does not establish the claimed low-power condition or the complete dedicated-channel behavior. Those questions remain separate in the full mapping.',
     proof: 'Connections made inspectable', proofText: 'Follow the electrical path and distinguish what is stated from what still needs support.'
+  },
+  {
+    slug: 'nordicunmanned-2035276', owner: 'Nordic Unmanned', patent: 'EP 2 035 276 B1', claim: '1', field: 'Aerospace', topic: 'Multirotor aircraft',
+    title: 'Multirotor aircraft with coaxial drive units', headline: 'Two claims, two charts, one invention.',
+    summary: 'Counter-rotating coaxial rotors on individually speed-controlled electric motors, charted against a 2005 quadrotor testbed and a 1991 coaxial model craft.',
+    question: 'Which earlier aircraft already combined three or more drive units, each with two counter-rotating rotors on their own speed-controlled electric motors, under autonomous attitude and position control?',
+    approach: 'The research charted the European patent and its American sibling separately, each from its own claim language. It followed the drive unit from radio-controlled coaxial models through ducted-fan designs to a university quadrotor testbed, and kept the German claim’s wording apart from the English chart that reads it.',
+    source: 'STARMAC · IEEE/RSJ IROS 2005', sourceUrl: 'https://people.eecs.berkeley.edu/~tomlin/papers/conferences/whjt05_iros.pdf', pinpoint: 'Printed page 470',
+    quote: 'Applying the concept of spectral separation, inner loop control of attitude and altitude is performed by commanding motor voltages, and outer loop position control is performed by commanding attitude requests for the inner loop.',
+    mapping: 'Charted for the means for autonomous attitude and position control: the on-board loops that the European claim’s “Regelung” requires.',
+    limit: 'Neither STARMAC paper says in so many words where the outer position loop runs. That open point stays visible in both charts.',
+    proof: 'Two claims, two charts', proofText: 'Chart each claim on its own words and keep the weakest limitation of each in view.'
   }
 ];

@@ -59,8 +59,9 @@ for (const [route, charts] of chartPages) {
           assert.deepEqual([...m.querySelectorAll('[data-passages] mark')].map(x=>x.textContent),fragmentIds.map(f=>page.fragments[f].quote));
           const rects=fragmentIds.flatMap(f=>page.fragments[f].rects);
           assert.equal(m.querySelectorAll('[data-page-host] [data-source-highlights] span').length,rects.length,pageId);
-          if(page.textLayer===false) assert.ok(note.includes('Highlights are not available for this scanned page'),pageId);
-          else if(entry.summary) assert.ok(note.includes(id+' is the researcher’s combination rationale')||Boolean(entry.note),id);
+          if(entry.note) assert.equal(note,entry.note,id);
+          else if(entry.summary) assert.ok(note.includes(id+' is the researcher’s combination rationale'),id);
+          else if(page.textLayer===false) assert.ok(note.includes('Highlights are not available for this scanned page'),pageId);
           else assert.ok(note.includes('Highlights identify the quoted passages'),pageId);
           assert.equal(m.querySelector('[data-archive-date]').textContent,doc.sourceNote||'Archived '+doc.archiveDate+' from the manufacturer’s website.',pageId);
         });

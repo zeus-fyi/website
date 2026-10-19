@@ -52,7 +52,7 @@ for(const [slug,charts] of Object.entries(caseEvidence)){
               });
               expect(alignment,pageId+': highlights must stay aligned with the original page').toBe(true);
             } else {
-              await expect(module.locator('[data-source-note]')).toContainText('Highlights are not available for this scanned page');
+              await expect(module.locator('[data-source-note]')).toContainText(entry.note||'Highlights are not available for this scanned page');
             }
           }
         }

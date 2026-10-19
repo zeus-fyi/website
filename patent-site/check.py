@@ -93,6 +93,6 @@ for path, page in pages.items():
         if url.fragment and target.suffix == '.html':
             assert url.fragment in pages[target].ids, (path, 'missing fragment', link)
 
-assert len(pages) == 14, f'Expected 13 pages plus 404; found {len(pages)}'
-assert len(list((ROOT / 'research').glob('*/index.html'))) == 6
+assert len(pages) == 15, f'Expected 14 pages plus 404; found {len(pages)}'
+assert len(list((ROOT / 'research').glob('*/index.html'))) == 7
 print(f'Passed: {len(pages)} HTML pages, metadata, unique IDs, internal links, evidence records and brand checks.')

@@ -17,6 +17,69 @@ export const sourceDocuments = {
     "url": "https://web.archive.org/web/20100525025008id_/http://www.sunways.eu/static/sites/default/downloads/en/products/solar-inverters/at/Sunways_SI_AT_Manual_GB_09-07.pdf",
     "sha256": "c9ed5494a3c6f747aa4ddb96416afc388f03c3fc7557c157bd17fae6cb18909b",
     "pageCount": 74
+  },
+  "brand-503": {
+    "reference": "R1",
+    "title": "Brand et al., US 5,764,503 A",
+    "edition": "United States patent · Digital Equipment Corporation · Issued 9 June 1998",
+    "url": "https://patentimages.storage.googleapis.com/6b/a1/06/6702d1cc15910b/US5764503.pdf",
+    "sha256": "b53b8b8a2f2e32f529f5844f5f2d3b8728de5574ce259b4d28ebe8317852e4b4",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 19
+  },
+  "starmac-iros": {
+    "reference": "R10",
+    "title": "STARMAC: Multi-Agent Quadrotor Testbed Control Design",
+    "edition": "Waslander, Hoffmann, Jang and Tomlin · IEEE/RSJ IROS 2005, Edmonton, 2–6 August 2005 · Authors’ copy",
+    "url": "https://people.eecs.berkeley.edu/~tomlin/papers/conferences/whjt05_iros.pdf",
+    "sha256": "e4275469658105d0836475a6c1f0bc196ac26b68554ce3690857858aab4ef7d9",
+    "sourceNote": "Authors’ copy of the conference paper, hosted on the authors’ university pages. Printed pages 468–473.",
+    "pageCount": 6
+  },
+  "starmac-dasc": {
+    "reference": "R10-DASC",
+    "title": "The Stanford Testbed of Autonomous Rotorcraft for Multi Agent Control (STARMAC)",
+    "edition": "Hoffmann et al. · 23rd Digital Avionics Systems Conference, Salt Lake City, 24–28 October 2004 · Authors’ copy",
+    "url": "https://people.eecs.berkeley.edu/~tomlin/papers/conferences/hrwdjt04_dasc.pdf",
+    "sha256": "d91b5addc85ea20a868fea83aafa5e8869217fdd3d3c2015304cdec16873f735",
+    "sourceNote": "Authors’ copy of the conference paper, hosted on the authors’ university pages. Printed pages 12.E.4-1 to 12.E.4-10.",
+    "pageCount": 10
+  },
+  "kinoshita-383": {
+    "reference": "R2",
+    "title": "Kinoshita, US 5,071,383",
+    "edition": "United States patent · Radio-controlled flying apparatus · Issued 10 December 1991",
+    "url": "https://patentimages.storage.googleapis.com/61/a9/f1/3216608039ca31/US5071383A.pdf",
+    "sha256": "b623b885c32875d808576e977ad486da87712922b6277a351b01b92b7b3e5673",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 12
+  },
+  "spirov-357": {
+    "reference": "R5",
+    "title": "Spirov and Pedersen, WO 2004/101357 A2",
+    "edition": "International application · Homeostatic flying hovercraft · Published 25 November 2004",
+    "url": "https://patentimages.storage.googleapis.com/03/d0/57/31e28c8fc701c9/WO2004101357A2.pdf",
+    "sha256": "ca91783b160f73f0cac018b11e0eb4ebecf58c6054b55994d31e18d8cace221c",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 57
+  },
+  "louvel-921": {
+    "reference": "R1",
+    "title": "Louvel, US 2002/0104921 A1",
+    "edition": "United States patent application publication · Electrical remote-control and remote-power flying saucer · 8 August 2002",
+    "url": "https://patentimages.storage.googleapis.com/b7/ab/e2/52a8a6f7cfe2c8/US20020104921A1.pdf",
+    "sha256": "8b167c5323a9eca8fbab616e6005584df76a20fe66a44c3503bff3b6141789eb",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 12
+  },
+  "pauli-916": {
+    "reference": "R3",
+    "title": "Pauli, DE 102 56 916 A1",
+    "edition": "German patent application · Hubschrauber · Published 9 September 2004 · German original; the translation is the researcher’s",
+    "url": "https://patentimages.storage.googleapis.com/0c/7b/a9/b2ee4ce66c257a/DE10256916A1.pdf",
+    "sha256": "684522301247997ac22e76b815638e5354fdba53a21ccd25699ea3263774efad",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 8
   }
 };
 export const sourcePages = {
@@ -334,11 +397,956 @@ export const sourcePages = {
           [
             10.4756,
             25.9457,
-            27.76,
+            1.6964,
+            1.2668
+          ],
+          [
+            12.8568,
+            25.9457,
+            25.3788,
             1.2668
           ]
         ]
       }
     }
+  },
+  "brand-503-12": {
+    "document": "brand-503",
+    "printedPage": 12,
+    "pdfPage": 12,
+    "image": "sources/brand-503-12.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "field": {
+        "quote": "This invention relates to the field of electrical power supplies and, more particularly, power supplies which",
+        "rects": [
+          [
+            10.819,
+            17.0388,
+            15.468,
+            1.9372
+          ],
+          [
+            26.6379,
+            17.0388,
+            22.3276,
+            1.9372
+          ],
+          [
+            9.3103,
+            18.1034,
+            35.5603,
+            1.9372
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 1–2"
+  },
+  "brand-503-14": {
+    "document": "brand-503",
+    "printedPage": 14,
+    "pdfPage": 14,
+    "image": "sources/brand-503-14.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "regulator": {
+        "quote": "Voltage regulator 208 does filtering, power factor correction and ultimately outputs a regulated DC voltage 210 (in the preferred embodiment +/-200 volts) to current controlled AC voltage source 212.",
+        "rects": [
+          [
+            8.8793,
+            83.0699,
+            39.2371,
+            1.9502
+          ],
+          [
+            8.8793,
+            84.2869,
+            39.1954,
+            1.9476
+          ],
+          [
+            8.8362,
+            85.5671,
+            39.3233,
+            1.9521
+          ],
+          [
+            8.8793,
+            86.7796,
+            15.7759,
+            1.9437
+          ]
+        ]
+      },
+      "sensor": {
+        "quote": "Current voltage sensor 22 monitors the total voltage and total current being supplied by one (or more) transverters operating in a particular voltage phase. The monitored voltage sense 26 and monitored current sense 24 are fed back to system control module 18 as hereinbefore described.",
+        "rects": [
+          [
+            84.569,
+            75.9815,
+            5.7143,
+            1.943
+          ],
+          [
+            50.6034,
+            77.1822,
+            39.6244,
+            1.9424
+          ],
+          [
+            50.6034,
+            78.3603,
+            39.7414,
+            1.9476
+          ],
+          [
+            50.6034,
+            79.5114,
+            39.7845,
+            1.9502
+          ],
+          [
+            50.6034,
+            80.833,
+            39.7629,
+            1.8848
+          ],
+          [
+            50.6034,
+            82.1161,
+            29.9138,
+            1.6296
+          ]
+        ]
+      },
+      "receives": {
+        "quote": "Current controlled voltage source 212 receives transverter control current 20, as an input 214 having a return 216.",
+        "rects": [
+          [
+            25.2586,
+            86.7796,
+            22.9167,
+            1.9437
+          ],
+          [
+            8.8793,
+            88.0561,
+            39.3678,
+            1.9424
+          ],
+          [
+            8.8362,
+            89.2055,
+            13.319,
+            2.0012
+          ]
+        ]
+      },
+      "switching": {
+        "quote": "FET switch controller 224, controls FET switch assemblies 226, 228, 230 and 232 which generate current through secondary winding 219 such that the flux in transformer 218 maintains balance.",
+        "rects": [
+          [
+            61.681,
+            28.8495,
+            29.1236,
+            1.6819
+          ],
+          [
+            50.9483,
+            29.9099,
+            39.5636,
+            1.943
+          ],
+          [
+            50.9483,
+            31.034,
+            39.5043,
+            1.9424
+          ],
+          [
+            50.9052,
+            32.3598,
+            23.0172,
+            1.5765
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 5–6"
+  },
+  "brand-503-15": {
+    "document": "brand-503",
+    "printedPage": 15,
+    "pdfPage": 15,
+    "image": "sources/brand-503-15.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "plurality": {
+        "quote": "In FIG. 14, a plurality 248 of transverters",
+        "rects": [
+          [
+            20.9483,
+            17.206,
+            26.6379,
+            1.9372
+          ]
+        ]
+      },
+      "parallel": {
+        "quote": "on the same power source voltage phase, are interconnected such that their outputs 249 are in parallel",
+        "rects": [
+          [
+            8.7931,
+            19.6048,
+            39.5659,
+            1.8848
+          ],
+          [
+            8.8362,
+            20.8457,
+            27.931,
+            1.9372
+          ]
+        ]
+      },
+      "series": {
+        "quote": "However, transverter control signal 20 is fed to and through plurality 248 over series interconnection 250",
+        "rects": [
+          [
+            11.5517,
+            28.2219,
+            36.796,
+            1.9372
+          ],
+          [
+            8.7069,
+            29.4157,
+            38.125,
+            1.8848
+          ]
+        ]
+      },
+      "same": {
+        "quote": "such that each of the transverters of plurality 248 receive the same transverter",
+        "rects": [
+          [
+            33.5776,
+            30.7529,
+            14.6839,
+            1.5707
+          ],
+          [
+            8.6638,
+            31.8593,
+            38.9224,
+            1.8848
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 7–8"
+  },
+  "starmac-iros-468": {
+    "document": "starmac-iros",
+    "printedPage": 468,
+    "pdfPage": 1,
+    "image": "sources/starmac-iros-468.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "vehicle": {
+        "quote": "The base vehicle for STARMAC is a four rotor aircraft with fixed pitch blades, referred to as a quadrotor, or an X4-flyer.",
+        "rects": [
+          [
+            35.1835,
+            52.735,
+            14.7941,
+            1.2361
+          ],
+          [
+            10.4412,
+            54.2179,
+            39.534,
+            1.2361
+          ],
+          [
+            10.4412,
+            55.7019,
+            27.6451,
+            1.2361
+          ]
+        ]
+      },
+      "hover": {
+        "quote": "The first major milestone for STARMAC was autonomous hover control, with closed loop control of attitude, altitude and position. Using inertial sensing, the attitude of the aircraft is simple to control, by applying small variations in the relative speeds of the blades.",
+        "rects": [
+          [
+            54.3516,
+            35.1178,
+            37.9304,
+            1.2361
+          ],
+          [
+            52.752,
+            36.6018,
+            39.5359,
+            1.2361
+          ],
+          [
+            52.752,
+            38.0847,
+            39.5354,
+            1.2361
+          ],
+          [
+            52.752,
+            39.5676,
+            39.541,
+            1.2361
+          ],
+          [
+            52.752,
+            41.0516,
+            22.2878,
+            1.2361
+          ]
+        ]
+      }
+    }
+  },
+  "starmac-iros-470": {
+    "document": "starmac-iros",
+    "printedPage": 470,
+    "pdfPage": 3,
+    "image": "sources/starmac-iros-470.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "loops": {
+        "quote": "Applying the concept of spectral separation, inner loop control of attitude and altitude is performed by commanding motor voltages, and outer loop position control is performed by commanding attitude requests for the inner loop.",
+        "rects": [
+          [
+            12.0409,
+            18.2422,
+            37.9374,
+            1.2361
+          ],
+          [
+            10.4413,
+            19.7251,
+            39.5279,
+            1.2361
+          ],
+          [
+            10.4413,
+            21.2091,
+            39.5322,
+            1.2361
+          ],
+          [
+            10.4413,
+            22.692,
+            33.3333,
+            1.2361
+          ]
+        ]
+      }
+    }
+  },
+  "starmac-dasc-1": {
+    "document": "starmac-dasc",
+    "printedPage": 1,
+    "pdfPage": 1,
+    "image": "sources/starmac-dasc-1.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "frame": {
+        "quote": "The quadrotor helicopter, or X4 flyer, has four fixed-pitch rotors mounted at the four ends of a simple cross frame.",
+        "rects": [
+          [
+            12.9412,
+            69.6131,
+            33.9467,
+            1.5347
+          ],
+          [
+            9.4118,
+            71.204,
+            34.488,
+            1.5347
+          ],
+          [
+            9.4118,
+            72.8024,
+            14.0114,
+            1.5347
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Printed p. 12.E.4-1"
+  },
+  "starmac-dasc-4": {
+    "document": "starmac-dasc",
+    "printedPage": 4,
+    "pdfPage": 4,
+    "image": "sources/starmac-dasc-4.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "pwm": {
+        "quote": "The Control PIC is connected to each of the motors via PWM outputs",
+        "rects": [
+          [
+            42.7664,
+            16.4996,
+            3.2426,
+            1.5347
+          ],
+          [
+            9.4118,
+            18.0904,
+            36.8376,
+            1.5347
+          ],
+          [
+            9.4118,
+            19.6889,
+            10.024,
+            1.5347
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Printed p. 12.E.4-4"
+  },
+  "starmac-dasc-8": {
+    "document": "starmac-dasc",
+    "printedPage": 8,
+    "pdfPage": 8,
+    "image": "sources/starmac-dasc-8.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "onboard": {
+        "quote": "This controller was implemented in floating point onboard the X4 flyer.",
+        "rects": [
+          [
+            31.7662,
+            45.7268,
+            14.3216,
+            1.5347
+          ],
+          [
+            9.4118,
+            47.3253,
+            37.357,
+            1.5347
+          ]
+        ]
+      },
+      "thrust": {
+        "quote": "The control inputs for each rotor corresponding to pitch, roll and yaw are computed separately, and then added to the altitude input and the nominal thrust to yield the net thrust value for each rotor.",
+        "rects": [
+          [
+            9.4118,
+            48.9161,
+            36.4485,
+            1.5347
+          ],
+          [
+            9.4118,
+            50.5146,
+            35.3352,
+            1.5347
+          ],
+          [
+            9.4118,
+            52.1131,
+            34.7917,
+            1.5347
+          ],
+          [
+            9.4118,
+            53.7115,
+            34.8427,
+            1.5347
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Printed p. 12.E.4-8"
+  },
+  "kinoshita-383-11": {
+    "document": "kinoshita-383",
+    "printedPage": 11,
+    "pdfPage": 11,
+    "image": "sources/kinoshita-383-11.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "opposite": {
+        "quote": "The variable speed motors are attached to propellers 18 and 24 which rotate in opposite directions.",
+        "rects": [
+          [
+            53.5776,
+            72.1551,
+            36.1077,
+            1.4194
+          ],
+          [
+            51.2931,
+            73.3037,
+            30.7327,
+            1.4869
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 3–4"
+  },
+  "kinoshita-383-12": {
+    "document": "kinoshita-383",
+    "printedPage": 12,
+    "pdfPage": 12,
+    "image": "sources/kinoshita-383-12.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "independent": {
+        "quote": "being rotated in opposite directions, each of said propellers being rotated at a rotational speed independent of the other propeller",
+        "rects": [
+          [
+            24.181,
+            60.3225,
+            10.1231,
+            1.5782
+          ],
+          [
+            34.6121,
+            60.3225,
+            1.8103,
+            1.5782
+          ],
+          [
+            36.7672,
+            60.3225,
+            14.3926,
+            1.5782
+          ],
+          [
+            15.7759,
+            61.6843,
+            35.444,
+            1.4311
+          ],
+          [
+            15.7759,
+            62.7842,
+            27.9612,
+            1.6318
+          ]
+        ]
+      },
+      "speed": {
+        "quote": "each of said propellers being rotated at a rotational speed independent of the other propeller",
+        "rects": [
+          [
+            15.7759,
+            61.6843,
+            35.444,
+            1.4311
+          ],
+          [
+            15.7759,
+            62.7842,
+            27.9612,
+            1.6318
+          ]
+        ]
+      },
+      "shaft": {
+        "quote": "said second propeller securely attached to a rod shaft which extends longitudinally through said sleeve shaft",
+        "rects": [
+          [
+            15.7759,
+            73.1416,
+            35.5316,
+            1.4463
+          ],
+          [
+            15.7759,
+            74.3135,
+            35.3448,
+            1.5794
+          ],
+          [
+            15.7328,
+            75.6083,
+            8.319,
+            1.538
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 5–6"
+  },
+  "spirov-357-19": {
+    "document": "spirov-357",
+    "printedPage": 19,
+    "pdfPage": 20,
+    "image": "sources/spirov-357-19.png",
+    "width": 1680,
+    "height": 2378,
+    "fragments": {
+      "pair": {
+        "quote": "In an alternate embodiment that provides for more efficiency, each of the ducted fans 40 has two counter-rotating multi-bladed units.",
+        "rects": []
+      }
+    },
+    "textLayer": false
+  },
+  "louvel-921-7": {
+    "document": "louvel-921",
+    "printedPage": 7,
+    "pdfPage": 7,
+    "image": "sources/louvel-921-7.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "aircraft": {
+        "quote": "The invention is an aircraft, remotely controlled",
+        "rects": [
+          [
+            16.5948,
+            66.0014,
+            32.8879,
+            1.9372
+          ]
+        ]
+      },
+      "powered": {
+        "quote": "powered by propellers driven by electric motors, whose characteristics enable this device to perform",
+        "rects": [
+          [
+            26.9397,
+            67.1242,
+            23.4052,
+            1.8848
+          ],
+          [
+            10.7328,
+            68.5367,
+            39.3103,
+            1.7801
+          ],
+          [
+            10.7328,
+            69.5811,
+            5.1724,
+            1.8848
+          ]
+        ]
+      },
+      "propellers": {
+        "quote": "the aircraft includes four propellers (10), (11), (12), (13) with vertical axis, that provides the lift thrust.",
+        "rects": [
+          [
+            89.4828,
+            75.6498,
+            2.5287,
+            1.9372
+          ],
+          [
+            52.7586,
+            76.8448,
+            39.4289,
+            1.9895
+          ],
+          [
+            52.6724,
+            78.0886,
+            26.4224,
+            1.8848
+          ]
+        ]
+      },
+      "independent": {
+        "quote": "Each propeller is driven independently by an",
+        "rects": [
+          [
+            58.75,
+            81.1228,
+            29.0517,
+            1.9372
+          ]
+        ]
+      },
+      "motor": {
+        "quote": "The propeller (10) is driven by the motor (20).",
+        "rects": [
+          [
+            60.0862,
+            82.3826,
+            31.2931,
+            1.9895
+          ]
+        ]
+      },
+      "frame": {
+        "quote": "The frame that bears the motors is made of two rectangular boards (30) and (31), arranged in a vertical plane and that intersect in the central part of the aircraft.",
+        "rects": [
+          [
+            58.5776,
+            88.0205,
+            33.5776,
+            1.9372
+          ],
+          [
+            52.7155,
+            89.1217,
+            39.3588,
+            1.9895
+          ],
+          [
+            52.7155,
+            90.452,
+            37.5,
+            1.8848
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 7"
+  },
+  "louvel-921-8": {
+    "document": "louvel-921",
+    "printedPage": 8,
+    "pdfPage": 8,
+    "image": "sources/louvel-921-8.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "sensors": {
+        "quote": "The aircraft is fitted with three attitude sensors whose purpose is to provide information for the closed loop control.",
+        "rects": [
+          [
+            58.5776,
+            17.5392,
+            33.5776,
+            1.9372
+          ],
+          [
+            52.6724,
+            18.7535,
+            39.4073,
+            1.8848
+          ],
+          [
+            52.7155,
+            20.2089,
+            4.9138,
+            1.466
+          ]
+        ]
+      },
+      "boards": {
+        "quote": "The board (30) bears the motors (10) and (12). The other board (31) bears the motors (11) and (13)",
+        "rects": [
+          [
+            16.6379,
+            12.8347,
+            33.6351,
+            1.9895
+          ],
+          [
+            10.7328,
+            14.0377,
+            30.1034,
+            1.9895
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 8"
+  },
+  "louvel-921-9": {
+    "document": "louvel-921",
+    "printedPage": 9,
+    "pdfPage": 9,
+    "image": "sources/louvel-921-9.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "pwm": {
+        "quote": "The function of the control unit (3) is to control the speed of each electric motor by adjusting the current in each of them by a pulse width modulation (PWM) current drive.",
+        "rects": [
+          [
+            16.5948,
+            26.1856,
+            33.477,
+            1.9895
+          ],
+          [
+            10.7328,
+            27.3619,
+            39.4935,
+            1.8848
+          ],
+          [
+            10.7328,
+            28.5871,
+            38.6638,
+            1.9895
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 9"
+  },
+  "louvel-921-10": {
+    "document": "louvel-921",
+    "printedPage": 10,
+    "pdfPage": 10,
+    "image": "sources/louvel-921-10.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "loop": {
+        "quote": "When there is no action on the handle, the control loop uses the data coming from the various sensors (61), (62) and (63) to converge towards the horizontal normal attitude of the aircraft and to cancel the yaw movement.",
+        "rects": [
+          [
+            16.6379,
+            54.7165,
+            33.5037,
+            1.9372
+          ],
+          [
+            10.7328,
+            55.8539,
+            39.319,
+            1.9895
+          ],
+          [
+            10.7328,
+            57.1005,
+            39.5115,
+            1.9895
+          ],
+          [
+            10.7759,
+            58.3742,
+            37.1121,
+            1.8848
+          ]
+        ]
+      },
+      "tilt": {
+        "quote": "If the information supplied by the sensor (61) indicates that the aircraft is tilting towards the right side, then the correction consists in increasing the speed of the propeller 11, decreasing the speed of the propeller 13, meanwhile the speeds of the propellers 10 and 12 remain unchanged.",
+        "rects": [
+          [
+            58.6207,
+            25.7495,
+            33.4698,
+            1.9895
+          ],
+          [
+            52.7155,
+            27.0364,
+            39.3017,
+            1.8848
+          ],
+          [
+            52.7155,
+            28.2443,
+            39.3534,
+            1.8848
+          ],
+          [
+            52.7155,
+            29.3538,
+            9.2385,
+            1.8848
+          ],
+          [
+            62.2845,
+            29.3538,
+            29.7845,
+            1.8848
+          ],
+          [
+            52.7586,
+            30.6763,
+            39.4109,
+            1.8848
+          ],
+          [
+            52.6724,
+            31.7215,
+            7.3707,
+            1.8848
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 10"
+  },
+  "pauli-916-2": {
+    "document": "pauli-916",
+    "printedPage": 2,
+    "pdfPage": 2,
+    "image": "sources/pauli-916-2.png",
+    "width": 1680,
+    "height": 2378,
+    "fragments": {
+      "opposite": {
+        "quote": "Der obere und untere Propeller werden zur gegengesetzten Rotation unabhängig voneinander durch entsprechende Triebwerke gebracht.",
+        "translation": "The upper and lower propellers are driven to opposite rotation, independently of each other, by respective engines.",
+        "rects": [
+          [
+            57.4744,
+            32.1131,
+            33.4932,
+            1.3201
+          ],
+          [
+            51.4282,
+            33.5382,
+            12.4391,
+            1.3201
+          ],
+          [
+            64.3401,
+            33.5382,
+            6.7192,
+            1.3201
+          ],
+          [
+            71.5421,
+            33.5382,
+            9.236,
+            1.3201
+          ],
+          [
+            81.2608,
+            33.5382,
+            9.708,
+            1.3201
+          ],
+          [
+            51.4282,
+            34.9634,
+            31.6971,
+            1.3201
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 2"
   }
 };

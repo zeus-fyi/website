@@ -18,6 +18,8 @@ import fitz
 
 ROOT = Path(__file__).resolve().parent.parent
 IMAGE_WIDTH = 1680  # Sharp at 2x density in the page viewer, with room to enlarge.
+# Ligatures (fi, ff) are expanded and hyphenated line breaks joined, so a quote matches the words as printed.
+SEARCH_FLAGS = fitz.TEXT_DEHYPHENATE | fitz.TEXT_MEDIABOX_CLIP
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36'
 PATENT_NOTE = 'Public copy of the patent document as published by its patent office; served by Google Patents.'
 DOCUMENTS = {
@@ -36,6 +38,64 @@ DOCUMENTS = {
         'archiveDate': '25 May 2010',
         'url': 'https://web.archive.org/web/20100525025008id_/http://www.sunways.eu/static/sites/default/downloads/en/products/solar-inverters/at/Sunways_SI_AT_Manual_GB_09-07.pdf',
         'sha256': 'c9ed5494a3c6f747aa4ddb96416afc388f03c3fc7557c157bd17fae6cb18909b',
+    },
+    # GridScale Solutions, US 8,842,454 B2: the submitted anticipation by US 5,764,503 A.
+    'brand-503': {
+        'reference': 'R1',
+        'title': 'Brand et al., US 5,764,503 A',
+        'edition': 'United States patent · Digital Equipment Corporation · Issued 9 June 1998',
+        'url': 'https://patentimages.storage.googleapis.com/6b/a1/06/6702d1cc15910b/US5764503.pdf',
+        'sha256': 'b53b8b8a2f2e32f529f5844f5f2d3b8728de5574ce259b4d28ebe8317852e4b4',
+        'sourceNote': PATENT_NOTE,
+    },
+    # Nordic Unmanned, EP 2 035 276 B1 and US 8,328,128 B2: the two submitted charts' references.
+    'starmac-iros': {
+        'reference': 'R10',
+        'title': 'STARMAC: Multi-Agent Quadrotor Testbed Control Design',
+        'edition': 'Waslander, Hoffmann, Jang and Tomlin · IEEE/RSJ IROS 2005, Edmonton, 2–6 August 2005 · Authors’ copy',
+        'url': 'https://people.eecs.berkeley.edu/~tomlin/papers/conferences/whjt05_iros.pdf',
+        'sha256': 'e4275469658105d0836475a6c1f0bc196ac26b68554ce3690857858aab4ef7d9',
+        'sourceNote': 'Authors’ copy of the conference paper, hosted on the authors’ university pages. Printed pages 468–473.',
+    },
+    'starmac-dasc': {
+        'reference': 'R10-DASC',
+        'title': 'The Stanford Testbed of Autonomous Rotorcraft for Multi Agent Control (STARMAC)',
+        'edition': 'Hoffmann et al. · 23rd Digital Avionics Systems Conference, Salt Lake City, 24–28 October 2004 · Authors’ copy',
+        'url': 'https://people.eecs.berkeley.edu/~tomlin/papers/conferences/hrwdjt04_dasc.pdf',
+        'sha256': 'd91b5addc85ea20a868fea83aafa5e8869217fdd3d3c2015304cdec16873f735',
+        'sourceNote': 'Authors’ copy of the conference paper, hosted on the authors’ university pages. Printed pages 12.E.4-1 to 12.E.4-10.',
+    },
+    'kinoshita-383': {
+        'reference': 'R2',
+        'title': 'Kinoshita, US 5,071,383',
+        'edition': 'United States patent · Radio-controlled flying apparatus · Issued 10 December 1991',
+        'url': 'https://patentimages.storage.googleapis.com/61/a9/f1/3216608039ca31/US5071383A.pdf',
+        'sha256': 'b623b885c32875d808576e977ad486da87712922b6277a351b01b92b7b3e5673',
+        'sourceNote': PATENT_NOTE,
+    },
+    'spirov-357': {
+        'reference': 'R5',
+        'title': 'Spirov and Pedersen, WO 2004/101357 A2',
+        'edition': 'International application · Homeostatic flying hovercraft · Published 25 November 2004',
+        'url': 'https://patentimages.storage.googleapis.com/03/d0/57/31e28c8fc701c9/WO2004101357A2.pdf',
+        'sha256': 'ca91783b160f73f0cac018b11e0eb4ebecf58c6054b55994d31e18d8cace221c',
+        'sourceNote': PATENT_NOTE,
+    },
+    'louvel-921': {
+        'reference': 'R1',
+        'title': 'Louvel, US 2002/0104921 A1',
+        'edition': 'United States patent application publication · Electrical remote-control and remote-power flying saucer · 8 August 2002',
+        'url': 'https://patentimages.storage.googleapis.com/b7/ab/e2/52a8a6f7cfe2c8/US20020104921A1.pdf',
+        'sha256': '8b167c5323a9eca8fbab616e6005584df76a20fe66a44c3503bff3b6141789eb',
+        'sourceNote': PATENT_NOTE,
+    },
+    'pauli-916': {
+        'reference': 'R3',
+        'title': 'Pauli, DE 102 56 916 A1',
+        'edition': 'German patent application · Hubschrauber · Published 9 September 2004 · German original; the translation is the researcher’s',
+        'url': 'https://patentimages.storage.googleapis.com/0c/7b/a9/b2ee4ce66c257a/DE10256916A1.pdf',
+        'sha256': '684522301247997ac22e76b815638e5354fdba53a21ccd25699ea3263774efad',
+        'sourceNote': PATENT_NOTE,
     },
 }
 # Printed page, PDF page (one-based), and exact source quotations. Separately
@@ -69,6 +129,75 @@ PAGES = [
     }),
     ('sunways', 38, 41, {
         'grid': '2: Error in the area of the AC network',
+    }),
+    # GridScale: US 5,764,503 A. Its text layer is an OCR of the 1998 print, so each quote is a
+    # contiguous span the layer carries; the hyphenated line ends it drops are avoided.
+    ('brand-503', 'Columns 1–2', 12, {
+        'field': 'This invention relates to the field of electrical power supplies and, more particularly, power supplies which',
+    }),
+    ('brand-503', 'Columns 5–6', 14, {
+        'regulator': 'Voltage regulator 208 does filtering, power factor correction and ultimately outputs a regulated DC voltage 210 (in the preferred embodiment +/-200 volts) to current controlled AC voltage source 212.',
+        'sensor': 'Current voltage sensor 22 monitors the total voltage and total current being supplied by one (or more) transverters operating in a particular voltage phase. The monitored voltage sense 26 and monitored current sense 24 are fed back to system control module 18 as hereinbefore described.',
+        'receives': 'Current controlled voltage source 212 receives transverter control current 20, as an input 214 having a return 216.',
+        'switching': 'FET switch controller 224, controls FET switch assemblies 226, 228, 230 and 232 which generate current through secondary winding 219 such that the flux in transformer 218 maintains balance.',
+    }),
+    ('brand-503', 'Columns 7–8', 15, {
+        'plurality': 'In FIG. 14, a plurality 248 of transverters',
+        'parallel': 'on the same power source voltage phase, are interconnected such that their outputs 249 are in parallel',
+        'series': 'However, transverter control signal 20 is fed to and through plurality 248 over series interconnection 250',
+        'same': 'such that each of the transverters of plurality 248 receive the same transverter',
+    }),
+    # Nordic Unmanned: the STARMAC papers, Kinoshita, Spirov and Pedersen, Louvel and Pauli.
+    ('starmac-iros', 468, 1, {
+        'vehicle': 'The base vehicle for STARMAC is a four rotor aircraft with fixed pitch blades, referred to as a quadrotor, or an X4-flyer.',
+        'hover': 'The first major milestone for STARMAC was autonomous hover control, with closed loop control of attitude, altitude and position. Using inertial sensing, the attitude of the aircraft is simple to control, by applying small variations in the relative speeds of the blades.',
+    }),
+    ('starmac-iros', 470, 3, {
+        'loops': 'Applying the concept of spectral separation, inner loop control of attitude and altitude is performed by commanding motor voltages, and outer loop position control is performed by commanding attitude requests for the inner loop.',
+    }),
+    ('starmac-dasc', 'Printed p. 12.E.4-1', 1, {
+        'frame': 'The quadrotor helicopter, or X4 flyer, has four fixed-pitch rotors mounted at the four ends of a simple cross frame.',
+    }),
+    ('starmac-dasc', 'Printed p. 12.E.4-4', 4, {
+        'pwm': 'The Control PIC is connected to each of the motors via PWM outputs',
+    }),
+    ('starmac-dasc', 'Printed p. 12.E.4-8', 8, {
+        'onboard': 'This controller was implemented in floating point onboard the X4 flyer.',
+        'thrust': 'The control inputs for each rotor corresponding to pitch, roll and yaw are computed separately, and then added to the altitude input and the nominal thrust to yield the net thrust value for each rotor.',
+    }),
+    ('kinoshita-383', 'Columns 3–4', 11, {
+        'opposite': 'The variable speed motors are attached to propellers 18 and 24 which rotate in opposite directions.',
+    }),
+    ('kinoshita-383', 'Columns 5–6', 12, {
+        'independent': 'being rotated in opposite directions, each of said propellers being rotated at a rotational speed independent of the other propeller',
+        'speed': 'each of said propellers being rotated at a rotational speed independent of the other propeller',
+        'shaft': 'said second propeller securely attached to a rod shaft which extends longitudinally through said sleeve shaft',
+    }),
+    ('spirov-357', 19, 20, {
+        'pair': 'In an alternate embodiment that provides for more efficiency, each of the ducted fans 40 has two counter-rotating multi-bladed units.',
+    }),
+    ('louvel-921', 'Publication page 7', 7, {
+        'aircraft': 'The invention is an aircraft, remotely controlled',
+        'powered': 'powered by propellers driven by electric motors, whose characteristics enable this device to perform',
+        'propellers': 'the aircraft includes four propellers (10), (11), (12), (13) with vertical axis, that provides the lift thrust.',
+        'independent': 'Each propeller is driven independently by an',
+        'motor': 'The propeller (10) is driven by the motor (20).',
+        'frame': 'The frame that bears the motors is made of two rectangular boards (30) and (31), arranged in a vertical plane and that intersect in the central part of the aircraft.',
+    }),
+    ('louvel-921', 'Publication page 8', 8, {
+        'sensors': 'The aircraft is fitted with three attitude sensors whose purpose is to provide information for the closed loop control.',
+        'boards': 'The board (30) bears the motors (10) and (12). The other board (31) bears the motors (11) and (13)',
+    }),
+    ('louvel-921', 'Publication page 9', 9, {
+        'pwm': 'The function of the control unit (3) is to control the speed of each electric motor by adjusting the current in each of them by a pulse width modulation (PWM) current drive.',
+    }),
+    ('louvel-921', 'Publication page 10', 10, {
+        'loop': 'When there is no action on the handle, the control loop uses the data coming from the various sensors (61), (62) and (63) to converge towards the horizontal normal attitude of the aircraft and to cancel the yaw movement.',
+        'tilt': 'If the information supplied by the sensor (61) indicates that the aircraft is tilting towards the right side, then the correction consists in increasing the speed of the propeller 11, decreasing the speed of the propeller 13, meanwhile the speeds of the propellers 10 and 12 remain unchanged.',
+    }),
+    ('pauli-916', 'Publication page 2', 2, {
+        'opposite': ('Der obere und untere Propeller werden zur gegengesetzten Rotation unabhängig voneinander durch entsprechende Triebwerke gebracht.',
+                     'The upper and lower propellers are driven to opposite rotation, independently of each other, by respective engines.'),
     }),
 ]
 
@@ -114,11 +243,15 @@ def render(cache_directory):
         text_layer = bool(page.get_text().strip())
         fragments = {}
         for fragment_id, quote in quotes.items():
-            rectangles = page.search_for(quote) if text_layer else []
+            translation = None
+            if isinstance(quote, tuple):
+                quote, translation = quote  # a foreign-language passage with the researcher's translation
+            rectangles = page.search_for(quote, flags=SEARCH_FLAGS) if text_layer else []
             if text_layer and not rectangles:
                 raise ValueError(f'Quotation not found on {page_id}: {quote}')
             fragments[fragment_id] = {
                 'quote': quote,
+                **({'translation': translation} if translation else {}),
                 'rects': [[round(r.x0 / page.rect.width * 100, 4),
                            round(r.y0 / page.rect.height * 100, 4),
                            round(r.width / page.rect.width * 100, 4),
