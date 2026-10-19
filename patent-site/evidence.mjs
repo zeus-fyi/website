@@ -302,14 +302,25 @@ export const caseEvidence = {
           "title": "A network hypervisor for SDN-based virtualization.",
           "mapping": "OpenVirteX is presented as a network hypervisor that lets operators give their customers virtual software-defined networks; the patent itself names it as the prior network hypervisor.",
           "limit": "Literal and in plain words; the date is undisputed.",
-          "pinpoint": "R1(b) · OpenVirteX, ONS 2014 · p. 1",
+          "pinpoint": "R1(b) · OpenVirteX, ONS 2014 · p. 1 · R1(a) · HotSDN 2014 · p. 25",
           "sourceViews": [
             [
               "ovx-ons14-1",
               [
                 "hypervisor"
               ]
-            ]
+            ],
+            {
+              "reference": "R1(a)",
+              "document": "Al-Shabibi et al., OpenVirteX: Make Your Virtual SDNs Programmable",
+              "edition": "ACM HotSDN 2014, pp. 25–30 · 22 August 2014 · the publisher’s copy is not public",
+              "pageLabel": "Page 25",
+              "citation": "HotSDN 2014, p. 25, Abstract and Section 1",
+              "quotes": [
+                "We present OpenVirteX, a network virtualization platform that enables operators to create and manage virtual Software Defined Networks (vSDNs).",
+                "We present OVX as a network hypervisor that enables operators to provide this form of network virtualization to their customers."
+              ]
+            }
           ]
         },
         "1a": {
@@ -325,7 +336,28 @@ export const caseEvidence = {
               [
                 "request"
               ]
-            ]
+            ],
+            {
+              "reference": "R1(c)",
+              "document": "OpenVirteX documentation, pages Components and Operation and Subsystems",
+              "edition": "ovx.onlab.us · Wayback Machine captures of 22 November 2014",
+              "pageLabel": "Components, p. 7 of the capture",
+              "citation": "OpenVirteX documentation, Components (capture of 22 November 2014), p. 7",
+              "quotes": [
+                "flowStats : Flow table, entries keyed by tenant",
+                "portStats : port statistics keyed by port number"
+              ]
+            },
+            {
+              "reference": "R1(d)",
+              "document": "OpenVirteX source code, commit 78afebcd",
+              "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
+              "pageLabel": "OVXPortStatisticsRequest.java, lines 36–37",
+              "citation": "OpenVirteX source code, OVXPortStatisticsRequest.java, lines 36–37 (commit 78afebcd)",
+              "quotes": [
+                "public void devirtualizeStatistic(final OVXSwitch sw, final OVXStatisticsRequest msg)"
+              ]
+            }
           ]
         },
         "1b": {
@@ -357,7 +389,27 @@ export const caseEvidence = {
               [
                 "shared"
               ]
-            ]
+            ],
+            {
+              "reference": "R1(c)",
+              "document": "OpenVirteX documentation, pages Components and Operation and Subsystems",
+              "edition": "ovx.onlab.us · Wayback Machine captures of 22 November 2014",
+              "pageLabel": "Components, p. 9 of the capture",
+              "citation": "OpenVirteX documentation, Components (capture of 22 November 2014), p. 9",
+              "quotes": [
+                "The PhysicalPort maintains the mapping between it and the virtual ports that map to it in ovxPortMap. One PhysicalPort maps to at most one OVXPort per tenant network."
+              ]
+            },
+            {
+              "reference": "R1(d)",
+              "document": "OpenVirteX source code, commit 78afebcd",
+              "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
+              "pageLabel": "PhysicalPort.java, lines 172–181",
+              "citation": "OpenVirteX source code, PhysicalPort.java, lines 172–181 (commit 78afebcd)",
+              "quotes": [
+                "Gets list of virtual ports that map to this physical port for a given tenant ID. If tenant ID is null then returns all virtual ports that map to this port."
+              ]
+            }
           ]
         },
         "1c": {
@@ -379,7 +431,18 @@ export const caseEvidence = {
               [
                 "counters"
               ]
-            ]
+            ],
+            {
+              "reference": "R1(d)",
+              "document": "OpenVirteX source code, commit 78afebcd",
+              "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
+              "pageLabel": "OVXFlowStatisticsRequest.java, line 61, and OVXPortStatisticsRequest.java, lines 42–44",
+              "citation": "OpenVirteX source code, OVXFlowStatisticsRequest.java l. 61 and OVXPortStatisticsRequest.java ll. 42–44 (commit 78afebcd)",
+              "quotes": [
+                "List<OVXFlowStatisticsReply> reps = psw.getFlowStats(tid);",
+                "OVXPortStatisticsReply reply = p.getPhysicalPort().getParentSwitch().getPortStat(p.getPhysicalPort().getPortNumber());"
+              ]
+            }
           ]
         },
         "1c1": {
@@ -395,7 +458,27 @@ export const caseEvidence = {
               [
                 "replier"
               ]
-            ]
+            ],
+            {
+              "reference": "R1(d)",
+              "document": "OpenVirteX source code, commit 78afebcd",
+              "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
+              "pageLabel": "OVXFlowStatisticsRequest.java, line 61",
+              "citation": "OpenVirteX source code, OVXFlowStatisticsRequest.java, line 61 (commit 78afebcd)",
+              "quotes": [
+                "List<OVXFlowStatisticsReply> reps = psw.getFlowStats(tid);"
+              ]
+            },
+            {
+              "reference": "R1(c)",
+              "document": "OpenVirteX documentation, pages Components and Operation and Subsystems",
+              "edition": "ovx.onlab.us · Wayback Machine captures of 22 November 2014",
+              "pageLabel": "Components, p. 7 of the capture",
+              "citation": "OpenVirteX documentation, Components (capture of 22 November 2014), p. 7",
+              "quotes": [
+                "flowStats : Flow table, entries keyed by tenant"
+              ]
+            }
           ]
         },
         "1c2": {
@@ -411,7 +494,18 @@ export const caseEvidence = {
               [
                 "counters"
               ]
-            ]
+            ],
+            {
+              "reference": "R1(d)",
+              "document": "OpenVirteX source code, commit 78afebcd",
+              "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
+              "pageLabel": "OVXPortStatisticsRequest.java, lines 42–52",
+              "citation": "OpenVirteX source code, OVXPortStatisticsRequest.java, lines 42–52 (commit 78afebcd)",
+              "quotes": [
+                "OVXPortStatisticsReply reply = p.getPhysicalPort().getParentSwitch().getPortStat(p.getPhysicalPort().getPortNumber());",
+                "we index our port stats struct by physical port number (so this info is not lost) and we always rewrite the port num to the virtual port number."
+              ]
+            }
           ]
         },
         "W1": {
