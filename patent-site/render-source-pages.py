@@ -150,8 +150,8 @@ DOCUMENTS = {
     },
     'intel-314': {
         'reference': 'Ref. 8',
-        'title': 'US 2010/0008314 A1',
-        'edition': 'United States patent application publication · 14 January 2010',
+        'title': 'Maheshwari, Boariu and Wei, US 2010/0008314 A1',
+        'edition': 'United States patent application publication · Nokia Siemens Networks · 14 January 2010',
         'url': 'https://patentimages.storage.googleapis.com/16/77/ed/0102a198fd548b/US20100008314A1.pdf',
         'sha256': '71b2d6335954a9679a3c86558860aa589a6c2b99f60a5e9fc186a73a3e34ed0e',
         'sourceNote': PATENT_NOTE,
@@ -223,6 +223,106 @@ DOCUMENTS = {
         'url': 'https://web.archive.org/web/20240421163547id_/https://www.ericsson.com/4ac618/assets/local/reports-papers/research-papers/network-virtualization-and-resource-allocation-in-oenflow-based-wide-area-networks.pdf',
         'sha256': '55c3858510bf48dec169c4a0e0ab22ff98e4e86aa0c854aa7fc121b1b03db81a',
         'sourceNote': 'Authors’ copy, archived 21 April 2024 from the research-papers page of one author’s employer.',
+    },
+    # The backup grounds recorded beside the submitted charts. GridScale: grounds B to H.
+    'liebert-235': {
+        'reference': 'B',
+        'title': 'Blair et al., US 7,453,235 B2',
+        'edition': 'United States patent · Liebert Corporation · Issued 18 November 2008',
+        'url': 'https://patentimages.storage.googleapis.com/d2/fb/3b/8ed0e68ac317a6/US7453235.pdf',
+        'sha256': '1b3baeda973025df2096ba5e9c1e61e87957ec679482ba803c4c73550db3315e',
+        'sourceNote': PATENT_NOTE,
+    },
+    'mitsubishi-987': {
+        'reference': 'C',
+        'title': 'Mitsubishi Electric, US 7,485,987 B2',
+        'edition': 'United States patent · Issued 3 February 2009',
+        'url': 'https://patentimages.storage.googleapis.com/d3/86/9f/eb8623797cf6b0/US7485987.pdf',
+        'sha256': '33622746b5180c78a9d5a792ea0f2b7e58a776ffc81c7c6b0fe0a793ec3ad2ab',
+        'sourceNote': PATENT_NOTE,
+    },
+    'abb-323': {
+        'reference': 'C',
+        'title': 'ABB, US 2011/0222323 A1',
+        'edition': 'United States patent application publication · the national stage of WO 2009/087063 A1 · 15 September 2011',
+        'url': 'https://patentimages.storage.googleapis.com/6b/4c/a7/94277c92066059/US20110222323A1.pdf',
+        'sha256': 'e26978239fe0bf0e490304d1b9f4a558a91529da1369639410b2368cce8b5fec',
+        'sourceNote': PATENT_NOTE,
+    },
+    'ge-271': {
+        'reference': 'G',
+        'title': 'Garces, Liu, deRooij and Bose, US 2010/0067271 A1',
+        'edition': 'United States patent application publication · General Electric · 18 March 2010',
+        'url': 'https://patentimages.storage.googleapis.com/96/de/27/a48bf4cde5ae13/US20100067271A1.pdf',
+        'sha256': '3e489edd0a96e89c0ff3a6cc2aa5906fb40a97648843315f9dd89a8607721658',
+        'sourceNote': PATENT_NOTE,
+    },
+    'abb-297': {
+        'reference': 'E',
+        'title': 'Stulz et al., US 7,499,297 B2',
+        'edition': 'United States patent · ABB Schweiz · Issued 3 March 2009',
+        'url': 'https://patentimages.storage.googleapis.com/9e/d9/c6/4b9eae7b1899dd/US7499297.pdf',
+        'sha256': 'f8003643eebaff7b4053421f9eb58c88f6ca2786f24d65e584877c9e160c6335',
+        'sourceNote': PATENT_NOTE,
+    },
+    'nippon-149': {
+        'reference': 'F',
+        'title': 'Mizuno, Takaesu and Ishii, JP 2006-320149 A',
+        'edition': 'Japanese patent application publication · Nippon Oil · 24 November 2006 · Japanese original with the researcher’s translation',
+        'url': 'https://patentimages.storage.googleapis.com/5f/9c/83/57399ac1a43633/JP2006320149A.pdf',
+        'sha256': '6ac382e29c6c612c3e9bd69c0dcc8b2bf108e6315954dd0e59ddaccbefabefa0',
+        'sourceNote': PATENT_NOTE,
+    },
+    'em-032': {
+        'reference': 'H',
+        'title': 'Peterson, US 6,850,032 B1',
+        'edition': 'United States patent · E and M Power · Issued 1 February 2005',
+        'url': 'https://patentimages.storage.googleapis.com/21/4d/06/ebf14c87b8bebb/US6850032.pdf',
+        'sha256': '782b871ba65321d375ccd9041e6c1c3f963a5560db9123b5ae6e1dff59928041',
+        'sourceNote': PATENT_NOTE,
+    },
+    # Sol IP '894: ground 2 and the window chart.
+    'philips-319': {
+        'reference': 'Ref. 3',
+        'title': 'Husen, Serbetli and Wang, US 2011/0002319 A1',
+        'edition': 'United States patent application publication · Koninklijke Philips Electronics · 6 January 2011',
+        'url': 'https://patentimages.storage.googleapis.com/30/50/71/a20e1a5a86a206/US20110002319A1.pdf',
+        'sha256': '0782a44c4e5d97a32a2bd987e4b7c33ea16a745a825ef44f01914a2adc7b854f',
+        'sourceNote': PATENT_NOTE,
+    },
+    'ralink-232': {
+        'reference': 'Window',
+        'title': 'Ralink Technology, US 2011/0280232 A1',
+        'edition': 'United States patent application publication · 17 November 2011',
+        'url': 'https://patentimages.storage.googleapis.com/91/24/68/9fa681d0aa01a0/US20110280232A1.pdf',
+        'sha256': '3ed92e3189eaece3c52dd15cd37f9db8a2c284f207675acbee571c05b613ced9',
+        'sourceNote': PATENT_NOTE,
+    },
+    'liu-280': {
+        'reference': 'Window',
+        'title': 'Liu and Zhang, US 2011/0103280 A1',
+        'edition': 'United States patent application publication · 5 May 2011',
+        'url': 'https://patentimages.storage.googleapis.com/b2/83/f8/6df2aca3b3dbb5/US20110103280A1.pdf',
+        'sha256': '34d03dda1ed48c08f311a210693c6abe31e8cd98eea466c4fb3b7b4bb7efa803',
+        'sourceNote': PATENT_NOTE,
+    },
+    # Arc Link: the fallback ground's Nicira publication.
+    'nicira-118': {
+        'reference': 'R6',
+        'title': 'Nicira, US 2015/0312118 A1',
+        'edition': 'United States patent application publication · 29 October 2015',
+        'url': 'https://patentimages.storage.googleapis.com/aa/c2/19/02077a5bc3f2da/US20150312118A1.pdf',
+        'sha256': '36c366b6993f5cd4ae237e2e9f3b1469255a253b81830170c37c7f12a3e48659',
+        'sourceNote': PATENT_NOTE,
+    },
+    # Nordic Unmanned: Wobben, for the European fallback.
+    'wobben-910': {
+        'reference': 'R6',
+        'title': 'Wobben, US 2005/0061910 A1',
+        'edition': 'United States patent application publication · Aircraft · 24 March 2005',
+        'url': 'https://patentimages.storage.googleapis.com/a6/6c/17/d5d41326bbd45b/US20050061910A1.pdf',
+        'sha256': '50352d684f5c2784543acaa520b6d884bb78e9878232be5e86fbbb914c568250',
+        'sourceNote': PATENT_NOTE,
     },
 }
 # Printed page, PDF page (one-based), and exact source quotations. Separately
@@ -422,6 +522,102 @@ PAGES = [
     }),
     ('skoldstrom', 5, 5, {
         'counters': 'For example, for statistics monitoring, per-VN port counters could be implemented through per-VN FlowTable entries [15].',
+    }),
+    # The backup grounds. The Google Patents text layers are OCR of the prints (dropped hyphens, some
+    # capitalised words), so each quote is a contiguous span the layer carries.
+    ('liebert-235', 'Columns 1–2', 24, {
+        'modular': 'The modular design provides expandability and redundancy. Frame 1 can accommodate multiple power modules.',
+    }),
+    ('liebert-235', 'Columns 3–4', 25, {
+        'modules': 'The power modules 4 receive AC power from the utility input 7 and convert it to DC power, which is used to charge the batteries',
+    }),
+    ('liebert-235', 'Columns 5–6', 26, {
+        'controller': 'The power module control system is schematically depicted in FIG. 4. The primary control element is controller 100',
+    }),
+    ('liebert-235', 'Columns 7–8', 27, {
+        'power': 'then determines the appropriate output per module and sends instructions to modules, which adjust their individual outputs accordingly.',
+    }),
+    ('mitsubishi-987', 'Columns 3–4', 18, {
+        'supply': 'The single-phase inverters 4 each have an independent DC power supply 6 and output terminals 91, 92 from which a voltage of the DC power supply 6 is output during a desired period of time',
+    }),
+    ('mitsubishi-987', 'Columns 13–14', 23, {
+        'inverter': 'a power converting device of a third embodiment described below is used as a system interconnection inverter for converting DC power fed from a DC power source into AC power and thereby connecting the DC power source to a power system.',
+        'cpu': 'designated by the numeral 10 is a CPU, and designated by the numeral 60a are peripheral circuits of the CPU 10.',
+    }),
+    ('abb-323', 'Publication page 7', 7, {
+        'distributed': 'The basic principle of this control method is to perform switching of the submodules according to a pulsewidth modulation (PWM) in a distributed manner rather than in a centralized manner',
+    }),
+    ('ge-271', 'Publication page 6', 6, {
+        'system': 'FIG. 1 illustrates one embodiment of a distributed solar power generation system according to an aspect of the present technique.',
+        'modules': 'In the illustrated embodiment, the inverters 14 and 16 are coupled together to form a first phase A (18), a second phase B (20), and a third phase C (22).',
+        'sensing': 'In another embodiment, the sensing device 34 may be a current transformer configured to sense overall load current from all three phases at node 24.',
+        'pwm': 'Further, inverters may include pulse width modulators and control circuitry configured to receive reactive power commands.',
+        'coupled': 'the optimization controller 36 may be individually coupled to each of the inverters (14, 16, and 28).',
+    }),
+    ('abb-297', 'Columns 1–2', 10, {
+        'field': 'Polyphase converter circuits relating to the field of power electronics are disclosed.',
+    }),
+    ('abb-297', 'Columns 3–4', 11, {
+        'element': 'each converter circuit element 1 having a rectifier unit 2, a DC voltage circuit 3 which is connected to the rectifier unit 2 and an inverter unit 4',
+    }),
+    ('abb-297', 'Columns 7–8', 13, {
+        'higher': 'Furthermore, a higher-order controller unit 21 is provided which is connected to each local controller unit 20.',
+        'local': 'In the exemplary converter circuit shown in FIG. 3, each inverter unit 4 has an associated local controller unit 20, drivable power semiconductor switches S1, S2, S3, S4, S5, S6 of the inverter unit 4 being connected to the associated local controller unit 20.',
+    }),
+    # Nippon Oil: the page's own full-width text; a line break inside a quote is given as one space.
+    ('nippon-149', 'Publication page 2', 2, {
+        'claim': ('分散電源からの電力を受けて交流電力を出力する複数のパワーコンディショナと', 'a plurality of power conditioners that receive power from distributed power sources and output AC power'),
+    }),
+    ('nippon-149', 'Publication page 5', 5, {
+        'communication': ('通信部４０は、受信した制御信号をコントローラ２５ に転送し、コントローラ２５から受け取った状態信号をマスタコントローラ３２に送信す る。', 'The communication unit 40 transfers the received control signal to the controller 25 and sends the status signal received from the controller 25 to the master controller 32.'),
+    }),
+    ('nippon-149', 'Publication page 6', 6, {
+        'master': ('マスタコントローラ３２は、並列接続点Ａと配電盤１３との間の交流電力線３４での各 線間の電圧を計測する電圧センサ４１と、交流電力線３４の各線に流れる電流を計測する 電流センサ４２と', 'The master controller 32 has a voltage sensor 41 that measures the voltage between the lines of the AC power line 34 between the parallel connection point A and the switchboard 13, a current sensor 42 that measures the current flowing in each line of the AC power line 34'),
+    }),
+    ('em-032', 'Columns 7–8', 21, {
+        'system': 'The generator system 100 preferably includes a polyphase machine 102, such as a PMA, a polyphase inverter 104, a plurality of single-phase inverters 106A, 106B, and 106C',
+    }),
+    ('em-032', 'Columns 11–12', 23, {
+        'inputs': 'signals indicative of the respective voltages across the shunt capacitors (C) of the single-phase inverters 106A, 106B, and 106C and across the shunt capacitors (C) of the polyphase inverter 104 (these signals are collectively labeled Vout)',
+    }),
+    ('em-032', 'Columns 15–16', 25, {
+        'command': 'The command signal Cmd3 (which is utilized to control the polyphase inverter 104)',
+    }),
+    # Sol IP '894.
+    ('philips-319', 'Publication page 7', 7, {
+        'common': 'information relevant for all receivers',
+        'amount': 'the amount of the user data transmitted in the stream',
+    }),
+    ('philips-319', 'Publication page 8', 8, {
+        'user': 'user-stream specific settings and may be different for each user (receiver)',
+        'sequential': 'The above fields can be transmitted sequentially over the channel.',
+        'training': 'A MU training field 140',
+        'after': 'can happen only after the MU training field 140',
+        'streams': 'The number of USERSIG fields 150 is dependent on the number of spatial streams 160 (USER1 to USERn data) in the MU-MIMO transmissions.',
+    }),
+    ('ralink-232', 'Publication page 11', 11, {
+        'order': 'Arrange the L-TF field, the L-SIG field, the first VHT-SIG field, the VHT-STF field, the at least one VHT-LTF field and the second VHT-SIG field sequentially.',
+        'length': 'the length information, the CRC check, or tail bits',
+    }),
+    ('liu-280', 'Publication page 21', 21, {
+        'specific': 'the VHT-SIGB 80 includes information specific to a client station',
+    }),
+    ('liu-280', 'Publication page 24', 24, {
+        'verification': 'so that a receiving device can check whether a scrambler seed 304 also included in the service field 300 is correct',
+    }),
+    # Arc Link.
+    ('nicira-118', 'Publication page 25', 25, {
+        'exporters': 'statistics relating to one logical port can come from two flow stats exporters 125 and 130 on the two separate PFEs 115 and 120',
+    }),
+    # Nordic Unmanned.
+    ('wobben-910', 'Publication page 4', 4, {
+        'control': 'the aircraft according to the invention has a device for automatic control of the flight attitude and/or the flight altitude.',
+    }),
+    ('wobben-910', 'Publication page 5', 5, {
+        'inverter': 'Associated with each motor 10 is an inverter 14 which permits individual actuation of each motor 10.',
+    }),
+    ('spirov-357', 9, 10, {
+        'hover': 'The hover control system uses an XYZ sensor arrangement and associated control circuitry that dynamically determines an inertial gravitational reference for use in automatically and continuously determine the speed needed for each fan in order to keep the craft at a desired orientation.',
     }),
 ]
 

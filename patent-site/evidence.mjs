@@ -1685,6 +1685,1012 @@ export const backupGrounds = {
           "url": "https://patentimages.storage.googleapis.com/5e/a2/b1/153837f1d1e33a/US20100057267A1.pdf#page=10"
         }
       ]
+    },
+    {
+      "label": "Alternative ground B",
+      "title": "Anticipation by US 7,453,235 B2 (Liebert), the power measurement technique of its FIG. 13",
+      "references": [
+        {
+          "title": "US 7,453,235 B2 (Blair et al., Liebert Corporation)",
+          "url": "https://patents.google.com/patent/US7453235B2/en"
+        }
+      ],
+      "verdict": "Recorded as arguable, on its strong side: every limitation is met by the FIG. 13 embodiment in one reference. It ranks below the submitted ground because the reference measures the total output power by multiplying the output voltage and current rather than naming the total voltage and total current, because its claim 5 and FIG. 13 let the owner argue that the total is a sum of per-module powers, and because the embodiment is one paragraph, a figure and a claim.",
+      "limitations": [
+        {
+          "id": "1pre",
+          "text": "An apparatus to deliver alternating current (AC) power, the apparatus comprising:",
+          "quote": "The modular design provides expandability and redundancy. Frame 1 can accommodate multiple power modules.",
+          "pinpoint": "US 7,453,235 B2 · Column 2, lines 22–30 · FIG. 1",
+          "pageId": "liebert-235-24",
+          "fragmentIds": [
+            "modular"
+          ],
+          "note": "A modular uninterruptible power supply that provides continuous AC power to workstations, servers and telecommunications equipment."
+        },
+        {
+          "id": "1a",
+          "text": "A plurality of inverters configured to receive DC power from a respective DC power source and respectively provide AC power to an AC load.",
+          "quote": "The power modules 4 receive AC power from the utility input 7 and convert it to DC power, which is used to charge the batteries",
+          "pinpoint": "US 7,453,235 B2 · Column 3, lines 28–32 · FIG. 2",
+          "pageId": "liebert-235-25",
+          "fragmentIds": [
+            "modules"
+          ],
+          "note": "The sentence continues: the DC power also powers the power modules’ inverters, which produce stable, regulated AC power for the critical load at output 8."
+        },
+        {
+          "id": "1b",
+          "text": "A primary controller configured to generate a primary control signal based on total AC current and total AC voltage being delivered to the AC load by the plurality of inverters.",
+          "quote": "then determines the appropriate output per module and sends instructions to modules, which adjust their individual outputs accordingly.",
+          "pinpoint": "US 7,453,235 B2 · Column 7, lines 26–37 · FIG. 13",
+          "pageId": "liebert-235-27",
+          "fragmentIds": [
+            "power"
+          ],
+          "note": "The passage begins: using the power measurement technique, the total UPS output power is measured by the main controller 100, by multiplying the output voltage and current; the controller, in communication with the other modules over the CAN interface, then determines the output per module."
+        },
+        {
+          "id": "1c",
+          "text": "A plurality of secondary controllers configured to each receive the primary control signal and produce a respective secondary control signal that controls a corresponding one of the inverters.",
+          "quote": "The power module control system is schematically depicted in FIG. 4. The primary control element is controller 100",
+          "pinpoint": "US 7,453,235 B2 · Column 5, lines 38–43 · FIG. 4",
+          "pageId": "liebert-235-26",
+          "fragmentIds": [
+            "controller"
+          ],
+          "note": "Each power module has its own controller 100, which senses the module’s parameters, communicates over its CAN controller and produces the module’s PWM."
+        }
+      ]
+    },
+    {
+      "label": "Alternative ground C",
+      "title": "Obviousness over US 7,485,987 B2 (Mitsubishi Electric) in view of WO 2009/087063 A1 (ABB) or US 2008/0218320 A1 (LS Industrial)",
+      "references": [
+        {
+          "title": "US 7,485,987 B2 (Mitsubishi Electric)",
+          "url": "https://patents.google.com/patent/US7485987B2/en"
+        },
+        {
+          "title": "WO 2009/087063 A1 (ABB), published in the United States as US 2011/0222323 A1",
+          "url": "https://patents.google.com/patent/US20110222323A1/en"
+        },
+        {
+          "title": "US 2008/0218320 A1 (LS Industrial Systems)",
+          "url": "https://patents.google.com/patent/US20080218320A1/en"
+        }
+      ],
+      "verdict": "Recorded as arguable. The ground meets the owner’s narrowest readings at once: the DC sources are separate energy sources, the inverters are series-connected cells like the patent’s own embodiment, and the load is the power system. Its gap is limitation 1c, since Mitsubishi gates every cell from one central circuit, so the per-cell controllers come from ABB or LS with the motivation stated in those references. It is rated arguable rather than strong because Mitsubishi’s control is a staircase scheme rather than pulse-width modulation, and because its third embodiment is given a reference AC voltage instead of the source voltage.",
+      "limitations": [
+        {
+          "id": "1pre",
+          "text": "An apparatus to deliver alternating current (AC) power, the apparatus comprising:",
+          "quote": "a power converting device of a third embodiment described below is used as a system interconnection inverter for converting DC power fed from a DC power source into AC power and thereby connecting the DC power source to a power system.",
+          "pinpoint": "US 7,485,987 B2 · Column 13, lines 9–13 · FIG. 13",
+          "pageId": "mitsubishi-987-23",
+          "fragmentIds": [
+            "inverter"
+          ]
+        },
+        {
+          "id": "1a",
+          "text": "A plurality of inverters configured to receive DC power from a respective DC power source and respectively provide AC power to an AC load.",
+          "quote": "The single-phase inverters 4 each have an independent DC power supply 6 and output terminals 91, 92 from which a voltage of the DC power supply 6 is output during a desired period of time",
+          "pinpoint": "US 7,485,987 B2 · Column 3, lines 44–47 · FIG. 2",
+          "pageId": "mitsubishi-987-18",
+          "fragmentIds": [
+            "supply"
+          ]
+        },
+        {
+          "id": "1b",
+          "text": "A primary controller configured to generate a primary control signal based on total AC current and total AC voltage being delivered to the AC load by the plurality of inverters.",
+          "quote": "designated by the numeral 10 is a CPU, and designated by the numeral 60a are peripheral circuits of the CPU 10.",
+          "pinpoint": "US 7,485,987 B2 · Column 13, lines 25–31 · FIG. 13",
+          "pageId": "mitsubishi-987-23",
+          "fragmentIds": [
+            "cpu"
+          ],
+          "note": "The same sentence names current sensor 11a and voltage sensor 11d on the output; the CPU and its peripheral circuits together constitute the inverter driving circuit, which serves as the control device."
+        },
+        {
+          "id": "1c",
+          "text": "A plurality of secondary controllers configured to each receive the primary control signal and produce a respective secondary control signal that controls a corresponding one of the inverters.",
+          "quote": "The basic principle of this control method is to perform switching of the submodules according to a pulsewidth modulation (PWM) in a distributed manner rather than in a centralized manner",
+          "pinpoint": "US 2011/0222323 A1 · [0012] · WO 2009/087063 A1 · page 3, lines 23–26",
+          "pageId": "abb-323-7",
+          "fragmentIds": [
+            "distributed"
+          ],
+          "note": "Mitsubishi’s inverter control processing circuit generates the control signals for every cell in one place; ABB’s distributed modulation gives each submodule its own control unit, which applies the central reference voltage and carrier with its own delay and correction."
+        }
+      ]
+    },
+    {
+      "label": "Alternative ground C′",
+      "title": "Obviousness over Filho, Cao and Tolbert, IEEE APEC 2010, in view of WO 2009/087063 A1 (ABB)",
+      "references": [
+        {
+          "title": "F. Filho, Y. Cao and L. M. Tolbert, “11-level cascaded H-bridge grid-tied inverter interface with solar panels”, IEEE APEC 2010"
+        },
+        {
+          "title": "WO 2009/087063 A1 (ABB), published in the United States as US 2011/0222323 A1",
+          "url": "https://patents.google.com/patent/US20110222323A1/en"
+        }
+      ],
+      "verdict": "Recorded as arguable, with a date caveat. The paper is the patent’s own architecture, one solar panel per series H-bridge, grid-tied, with a control block fed by the grid voltage and the inverter output current and voltage, published nine months before the critical date. It is prior art under § 102(a) only, so the owner may try to antedate it; it is not an inventor publication, so no grace-period exception applies.",
+      "limitations": [
+        {
+          "id": "1pre and 1a",
+          "text": "The apparatus and its inverters, each fed by a respective DC power source.",
+          "quote": "This paper presents a single-phase 11-level (5 H-bridges) cascade multilevel DC-AC grid-tied inverter. Each inverter bridge is connected to a 200 W solar panel.",
+          "pinpoint": "Filho, Cao and Tolbert, APEC 2010 · p. 1, Abstract"
+        },
+        {
+          "id": "1b",
+          "text": "A primary controller configured to generate a primary control signal based on total AC current and total AC voltage being delivered to the AC load by the plurality of inverters.",
+          "quote": "The MPPT and grid synchronization algorithm are fed by output and voltage current signals to generate the gate driver signals as shown in Fig. 2.",
+          "pinpoint": "Filho, Cao and Tolbert, APEC 2010 · p. 1, Section II · Fig. 2"
+        },
+        {
+          "id": "1c",
+          "text": "A plurality of secondary controllers configured to each receive the primary control signal and produce a respective secondary control signal that controls a corresponding one of the inverters.",
+          "quote": "The basic principle of this control method is to perform switching of the submodules according to a pulsewidth modulation (PWM) in a distributed manner rather than in a centralized manner",
+          "pinpoint": "US 2011/0222323 A1 · [0012] · WO 2009/087063 A1 · page 3, lines 23–26",
+          "pageId": "abb-323-7",
+          "fragmentIds": [
+            "distributed"
+          ],
+          "note": "The paper generates all five modulation sets in one controller; ABB supplies a control unit per cell, each applying the central reference and carrier."
+        }
+      ]
+    },
+    {
+      "label": "Alternative ground D",
+      "title": "Obviousness over US 2010/0057267 A1 (General Electric) in view of US 2010/0067271 A1 (General Electric)",
+      "references": [
+        {
+          "title": "US 2010/0057267 A1 (Liu, Garces and Bose, General Electric)",
+          "url": "https://patents.google.com/patent/US20100057267A1/en"
+        },
+        {
+          "title": "US 2010/0067271 A1 (Garces, Liu, deRooij and Bose, General Electric)",
+          "url": "https://patents.google.com/patent/US20100067271A1/en"
+        }
+      ],
+      "verdict": "Recorded as arguable. It serves if the owner insists that the DC sources must be photovoltaic and attacks the ramp-rate reference’s “collective power output” as not being the total AC current and total AC voltage: the second GE publication supplies that sensing in so many words and sends one reactive power command to each inverter’s modulation controller, and the first supplies the broadcast command and the per-subsystem controllers.",
+      "limitations": [
+        {
+          "id": "1pre and 1a",
+          "text": "The apparatus and its inverters, each fed by a photovoltaic module.",
+          "quote": "In the illustrated embodiment, the inverters 14 and 16 are coupled together to form a first phase A (18), a second phase B (20), and a third phase C (22).",
+          "pinpoint": "US 2010/0067271 A1 · [0018], [0019] · FIG. 1",
+          "pageId": "ge-271-6",
+          "fragmentIds": [
+            "modules"
+          ],
+          "note": "The distributed solar power generation system includes multiple photovoltaic modules, each coupled to one or more inverters."
+        },
+        {
+          "id": "1b",
+          "text": "A primary controller configured to generate a primary control signal based on total AC current and total AC voltage being delivered to the AC load by the plurality of inverters.",
+          "quote": "In another embodiment, the sensing device 34 may be a current transformer configured to sense overall load current from all three phases at node 24.",
+          "pinpoint": "US 2010/0067271 A1 · [0020] · FIG. 1",
+          "pageId": "ge-271-6",
+          "fragmentIds": [
+            "sensing"
+          ]
+        },
+        {
+          "id": "1c",
+          "text": "A plurality of secondary controllers configured to each receive the primary control signal and produce a respective secondary control signal that controls a corresponding one of the inverters.",
+          "quote": "Further, inverters may include pulse width modulators and control circuitry configured to receive reactive power commands.",
+          "pinpoint": "US 2010/0067271 A1 · [0021]",
+          "pageId": "ge-271-6",
+          "fragmentIds": [
+            "pwm"
+          ],
+          "note": "US 2010/0057267 A1 adds the adaptive controller of each subsystem, which determines the power level command of its own inverter from the central ramp-rate command ([0035], [0044])."
+        }
+      ]
+    },
+    {
+      "label": "Alternative ground E",
+      "title": "Anticipation by US 7,499,297 B2 (ABB Schweiz), the distributed control of its FIG. 3",
+      "references": [
+        {
+          "title": "US 7,499,297 B2 (Stulz et al., ABB Schweiz)",
+          "url": "https://patents.google.com/patent/US7499297B2/en"
+        }
+      ],
+      "verdict": "Recorded as arguable, on its strong side. Every limitation is met by the FIG. 3 embodiment in one reference, with one voltage reference to every local controller and per-inverter switching signals in so many words. It ranks below the submitted ground because the higher-order controller is fed the three phase currents and, through an observer, the phase voltages rather than a quantity the reference calls a total, because the controller paragraph says “preferably”, and because the apparatus is a motor drive.",
+      "limitations": [
+        {
+          "id": "1pre",
+          "text": "An apparatus to deliver alternating current (AC) power, the apparatus comprising:",
+          "quote": "Polyphase converter circuits relating to the field of power electronics are disclosed.",
+          "pinpoint": "US 7,499,297 B2 · Column 1, lines 17–18",
+          "pageId": "abb-297-10",
+          "fragmentIds": [
+            "field"
+          ]
+        },
+        {
+          "id": "1a",
+          "text": "A plurality of inverters configured to receive DC power from a respective DC power source and respectively provide AC power to an AC load.",
+          "quote": "each converter circuit element 1 having a rectifier unit 2, a DC voltage circuit 3 which is connected to the rectifier unit 2 and an inverter unit 4",
+          "pinpoint": "US 7,499,297 B2 · Column 3, lines 55–60 · FIG. 2",
+          "pageId": "abb-297-11",
+          "fragmentIds": [
+            "element"
+          ],
+          "note": "A converter circuit element for each phase, its inverter unit fed from its own DC voltage circuit."
+        },
+        {
+          "id": "1b",
+          "text": "A primary controller configured to generate a primary control signal based on total AC current and total AC voltage being delivered to the AC load by the plurality of inverters.",
+          "quote": "Furthermore, a higher-order controller unit 21 is provided which is connected to each local controller unit 20.",
+          "pinpoint": "US 7,499,297 B2 · Column 8, line 62 to column 9, line 9 · FIG. 3",
+          "pageId": "abb-297-13",
+          "fragmentIds": [
+            "higher"
+          ],
+          "note": "The higher-order controller unit is fed the phase currents and, through an observer, the phase voltages; a voltage reference value at its output is fed to each local controller unit."
+        },
+        {
+          "id": "1c",
+          "text": "A plurality of secondary controllers configured to each receive the primary control signal and produce a respective secondary control signal that controls a corresponding one of the inverters.",
+          "quote": "In the exemplary converter circuit shown in FIG. 3, each inverter unit 4 has an associated local controller unit 20, drivable power semiconductor switches S1, S2, S3, S4, S5, S6 of the inverter unit 4 being connected to the associated local controller unit 20.",
+          "pinpoint": "US 7,499,297 B2 · Column 8, lines 58–62 · FIG. 3",
+          "pageId": "abb-297-13",
+          "fragmentIds": [
+            "local"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Alternative ground F",
+      "title": "Anticipation by JP 2006-320149 A (Nippon Oil), master controller 32 and slave power conditioners 31",
+      "references": [
+        {
+          "title": "JP 2006-320149 A (Mizuno, Takaesu and Ishii, Nippon Oil)",
+          "url": "https://patents.google.com/patent/JP2006320149A/en"
+        }
+      ],
+      "verdict": "Recorded as arguable. One reference, one inverter per solar cell string, a master controller whose voltage and current sensors sit on the common AC line, and control signals to every slave’s own controller. It ranks below the submitted ground because its primary control signal is a command to operate, stop or change the active and reactive power rather than a modulation reference, and because the chart quotes a Japanese original with the researcher’s translation.",
+      "limitations": [
+        {
+          "id": "1pre and 1a",
+          "text": "The apparatus and its inverters, each fed by a distributed power source.",
+          "quote": "分散電源からの電力を受けて交流電力を出力する複数のパワーコンディショナと",
+          "translation": "a plurality of power conditioners that receive power from distributed power sources and output AC power",
+          "pinpoint": "JP 2006-320149 A · Claim 1",
+          "pageId": "nippon-149-2",
+          "fragmentIds": [
+            "claim"
+          ],
+          "note": "A distributed power source system used interconnected with the grid, whose power conditioners’ AC outputs are connected in parallel under a master controller."
+        },
+        {
+          "id": "1b",
+          "text": "A primary controller configured to generate a primary control signal based on total AC current and total AC voltage being delivered to the AC load by the plurality of inverters.",
+          "quote": "マスタコントローラ３２は、並列接続点Ａと配電盤１３との間の交流電力線３４での各 線間の電圧を計測する電圧センサ４１と、交流電力線３４の各線に流れる電流を計測する 電流センサ４２と",
+          "translation": "The master controller 32 has a voltage sensor 41 that measures the voltage between the lines of the AC power line 34 between the parallel connection point A and the switchboard 13, a current sensor 42 that measures the current flowing in each line of the AC power line 34",
+          "pinpoint": "JP 2006-320149 A · [0023] · FIG. 3",
+          "pageId": "nippon-149-6",
+          "fragmentIds": [
+            "master"
+          ]
+        },
+        {
+          "id": "1c",
+          "text": "A plurality of secondary controllers configured to each receive the primary control signal and produce a respective secondary control signal that controls a corresponding one of the inverters.",
+          "quote": "通信部４０は、受信した制御信号をコントローラ２５ に転送し、コントローラ２５から受け取った状態信号をマスタコントローラ３２に送信す る。",
+          "translation": "The communication unit 40 transfers the received control signal to the controller 25 and sends the status signal received from the controller 25 to the master controller 32.",
+          "pinpoint": "JP 2006-320149 A · [0020] · FIG. 2",
+          "pageId": "nippon-149-5",
+          "fragmentIds": [
+            "communication"
+          ],
+          "note": "The slave’s own controller 25 controls its DC/DC converter and DC/AC inverter on the master’s operate, stop and power-change signals."
+        }
+      ]
+    },
+    {
+      "label": "Alternative ground G",
+      "title": "Anticipation by US 2010/0067271 A1 (General Electric), optimization controller 36 and its reactive power command",
+      "references": [
+        {
+          "title": "US 2010/0067271 A1 (Garces, Liu, deRooij and Bose, General Electric)",
+          "url": "https://patents.google.com/patent/US20100067271A1/en"
+        }
+      ],
+      "verdict": "Recorded as arguable. One reference, one photovoltaic module per inverter, a current transformer sensing the overall current of all three phases at the node where every inverter’s output joins, and one reactive power command transmitted to each inverter, whose own modulation controller receives it. It stands first behind the submitted ground because it survives the attack the owner is most likely to make on that ground, the reading of the DC source, and is in English. Its weakest limitation is 1b: the voltage is sensed “at various points in the grid”, in sentences written as alternative embodiments. Prior art under § 102(e) and § 102(a) only, so the owner may try to antedate it.",
+      "limitations": [
+        {
+          "id": "1pre",
+          "text": "An apparatus to deliver alternating current (AC) power, the apparatus comprising:",
+          "quote": "FIG. 1 illustrates one embodiment of a distributed solar power generation system according to an aspect of the present technique.",
+          "pinpoint": "US 2010/0067271 A1 · [0018] · FIG. 1",
+          "pageId": "ge-271-6",
+          "fragmentIds": [
+            "system"
+          ]
+        },
+        {
+          "id": "1a",
+          "text": "A plurality of inverters configured to receive DC power from a respective DC power source and respectively provide AC power to an AC load.",
+          "quote": "In the illustrated embodiment, the inverters 14 and 16 are coupled together to form a first phase A (18), a second phase B (20), and a third phase C (22).",
+          "pinpoint": "US 2010/0067271 A1 · [0019] · FIG. 1",
+          "pageId": "ge-271-6",
+          "fragmentIds": [
+            "modules"
+          ]
+        },
+        {
+          "id": "1b",
+          "text": "A primary controller configured to generate a primary control signal based on total AC current and total AC voltage being delivered to the AC load by the plurality of inverters.",
+          "quote": "In another embodiment, the sensing device 34 may be a current transformer configured to sense overall load current from all three phases at node 24.",
+          "pinpoint": "US 2010/0067271 A1 · [0020] · FIG. 1",
+          "pageId": "ge-271-6",
+          "fragmentIds": [
+            "sensing"
+          ]
+        },
+        {
+          "id": "1c",
+          "text": "A plurality of secondary controllers configured to each receive the primary control signal and produce a respective secondary control signal that controls a corresponding one of the inverters.",
+          "quote": "the optimization controller 36 may be individually coupled to each of the inverters (14, 16, and 28).",
+          "pinpoint": "US 2010/0067271 A1 · [0021]",
+          "pageId": "ge-271-6",
+          "fragmentIds": [
+            "coupled"
+          ],
+          "note": "The inverters include pulse width modulators and control circuitry configured to receive the reactive power commands."
+        }
+      ]
+    },
+    {
+      "label": "Alternative ground H",
+      "title": "Anticipation by US 6,850,032 B1 (E and M Power), controller 108 with its voltage and current regulators",
+      "references": [
+        {
+          "title": "US 6,850,032 B1 (Peterson, E and M Power)",
+          "url": "https://patents.google.com/patent/US6850032B1/en"
+        }
+      ],
+      "verdict": "Recorded as arguable on its weak side as an anticipation, and as the most literal provider of limitation 1b among the backups for a combination with a reference that supplies 1c. One signal, the modified error voltage, is formed from the aggregate output voltage at the paralleled output nodes and from the load current, and feeds the regulator chains that command the inverters. Its weakest limitation is 1c, the owner’s best argument being that the secondary controllers are software regulators inside one controller.",
+      "limitations": [
+        {
+          "id": "1pre and 1a",
+          "text": "The apparatus and its inverters.",
+          "quote": "The generator system 100 preferably includes a polyphase machine 102, such as a PMA, a polyphase inverter 104, a plurality of single-phase inverters 106A, 106B, and 106C",
+          "pinpoint": "US 6,850,032 B1 · Column 8, lines 1–6 · FIG. 4",
+          "pageId": "em-032-21",
+          "fragmentIds": [
+            "system"
+          ]
+        },
+        {
+          "id": "1b",
+          "text": "A primary controller configured to generate a primary control signal based on total AC current and total AC voltage being delivered to the AC load by the plurality of inverters.",
+          "quote": "signals indicative of the respective voltages across the shunt capacitors (C) of the single-phase inverters 106A, 106B, and 106C and across the shunt capacitors (C) of the polyphase inverter 104 (these signals are collectively labeled Vout)",
+          "pinpoint": "US 6,850,032 B1 · Column 12, lines 48–60 · FIG. 10",
+          "pageId": "em-032-23",
+          "fragmentIds": [
+            "inputs"
+          ],
+          "note": "The controller also receives signals indicative of the current into the polyphase load."
+        },
+        {
+          "id": "1c",
+          "text": "A plurality of secondary controllers configured to each receive the primary control signal and produce a respective secondary control signal that controls a corresponding one of the inverters.",
+          "quote": "The command signal Cmd3 (which is utilized to control the polyphase inverter 104)",
+          "pinpoint": "US 6,850,032 B1 · Column 16, lines 59–62",
+          "pageId": "em-032-25",
+          "fragmentIds": [
+            "command"
+          ],
+          "note": "The command is produced by taking the difference of the modified error voltage signal and a signal indicative of the inductor current."
+        }
+      ]
+    }
+  ],
+  "arc-link-11563655": [
+    {
+      "label": "Fallback ground",
+      "title": "Obviousness over OpenVirteX in view of the ICC 2012 paper, VeRTIGO, the 3GPP slicing study, the Nicira publication and the Ericsson patent, without the Delftvisor note",
+      "references": [
+        {
+          "title": "R1 · OpenVirteX, ONS 2014",
+          "url": "https://www.usenix.org/system/files/conference/ons2014/ons2014-paper-al_shabibi.pdf"
+        },
+        {
+          "title": "R9 · Sköldström and Yedavalli, IEEE ICC 2012",
+          "url": "https://web.archive.org/web/20240421163547id_/https://www.ericsson.com/4ac618/assets/local/reports-papers/research-papers/network-virtualization-and-resource-allocation-in-oenflow-based-wide-area-networks.pdf"
+        },
+        {
+          "title": "R7 · Doriguzzi Corin et al., VeRTIGO, IEEE EWSDN 2012"
+        },
+        {
+          "title": "R3 · 3GPP TR 28.801 V15.1.0, Study on management and orchestration of network slicing"
+        },
+        {
+          "title": "R6 · US 2015/0312118 A1 (Nicira)",
+          "url": "https://patents.google.com/patent/US20150312118A1/en"
+        },
+        {
+          "title": "R4 · US 9,912,582 B2 (Ericsson)",
+          "url": "https://patents.google.com/patent/US9912582B2/en"
+        },
+        {
+          "title": "R8 · Jin et al., CoVisor, NSDI 2015 (corroboration)"
+        }
+      ],
+      "verdict": "Recorded as arguable on its weak side, and weak if the slicing study is rejected as non-analogous art. The weakest limitation in every option is 1b, the determination itself: no reference performs it inside a network hypervisor, and this fallback lacks the design note’s statement that statistics on shared links need to be isolated, so no reference in it conditions the statistics computation on sharing.",
+      "rationale": "The ICC 2012 paper supplies in print the shared-port computation the design note suggests; VeRTIGO the condition of several virtual ports on one physical port inside an OpenFlow hypervisor; the Nicira publication derives a logical port’s statistics from the tenant’s tagged flow statistics; the slicing study states the shared or not-shared rule; the Ericsson patent the motivation, that statistics on shared resources leak between tenants.",
+      "limitations": [
+        {
+          "id": "1b",
+          "text": "Determine whether the physical resource is shared, and provide the tenant’s statistics accordingly.",
+          "quote": "For example, for statistics monitoring, per-VN port counters could be implemented through per-VN FlowTable entries [15].",
+          "pinpoint": "R9 · ICC 2012 · Section V, p. 5",
+          "pageId": "skoldstrom-5",
+          "fragmentIds": [
+            "counters"
+          ]
+        },
+        {
+          "id": "1b",
+          "text": "Several virtual ports on one physical port inside a hypervisor.",
+          "quote": "A single physical port can be mapped onto multiple virtual ports, depending on the number of virtual links instantiated on the physical link connected to that physical port.",
+          "pinpoint": "R7 · VeRTIGO · p. 3, Section III",
+          "url": "https://robertoriggio.net/papers/ewsdn2012.pdf",
+          "note": "The paper does not say the virtual links belong to different customers and says nothing about the statistics a controller receives."
+        },
+        {
+          "id": "1b",
+          "text": "A logical port’s statistics derived from the tenant’s flow statistics.",
+          "quote": "statistics relating to one logical port can come from two flow stats exporters 125 and 130 on the two separate PFEs 115 and 120",
+          "pinpoint": "R6 · US 2015/0312118 A1 · [0058]",
+          "pageId": "nicira-118-25",
+          "fragmentIds": [
+            "exporters"
+          ]
+        },
+        {
+          "id": "1b",
+          "text": "The rule written as two cases, shared and not shared.",
+          "quote": "For a NSSI shared by NSIs, the NSSMF identifies which NSI(s) the performance data are applicable to.",
+          "pinpoint": "R3 · 3GPP TR 28.801 V15.1.0 · clause 7.8, step 4",
+          "note": "For a dedicated subnet instance, all performance data is identified by the one slice instance using it; the study is a management document, which the owner will call non-analogous."
+        },
+        {
+          "id": "1pre, 1a, 1c, 1c1 and 1c2",
+          "text": "The remaining limitations, as in the submitted chart.",
+          "quote": "Here we present OpenVirteX, a network hypervisor that enables operators to provide this form of network virtualization to their customers.",
+          "pinpoint": "R1(b) · OpenVirteX, ONS 2014 · p. 1",
+          "pageId": "ovx-ons14-1",
+          "fragmentIds": [
+            "hypervisor"
+          ],
+          "note": "They rest on the OpenVirteX record read as one base, as charted above."
+        }
+      ]
+    }
+  ],
+  "sol-ip-10090894": [
+    {
+      "label": "Ground 2",
+      "title": "Obviousness over US 2005/0181800 A1 (Broadcom) in view of US 7,231,530 B1 (Cisco) and US 2011/0002319 A1 (Philips)",
+      "references": [
+        {
+          "title": "Ref. 1 · US 2005/0181800 A1 (Broadcom)",
+          "url": "https://patents.google.com/patent/US20050181800A1/en"
+        },
+        {
+          "title": "Ref. 2 · US 7,231,530 B1 (Cisco Technology)",
+          "url": "https://patents.google.com/patent/US7231530B1/en"
+        },
+        {
+          "title": "Ref. 3 · US 2011/0002319 A1 (Koninklijke Philips Electronics), published as WO 2009/109894 A1 in 2009",
+          "url": "https://patents.google.com/patent/US20110002319A1/en"
+        }
+      ],
+      "verdict": "Rated C, hold 39, in the re-score of 18 October 2026. It holds under the owner’s multi-user reading of the two signal fields as well as the patent’s own, so the two reading points of the submitted chart drop out, and it adds the reason to combine the Philips publication with the Broadcom frame, a three-reference chart against which the owner has colourable answers. The weakest limitation stays 7f2 at C 63.",
+      "rationale": "The Philips publication states the known goal, multi-user MIMO transmissions in WLANs under the IEEE 802.11 standards where the known systems were single-user, and answers it by dividing the transmission settings into a common signal field for all receivers and a signal field per user stream, sent after the multi-user training field so that each receiver decodes its own once it has estimated its channel. The places were already in the Broadcom frame: one signal field for every receiver, the extended preamble, then one additional signal field before each data unit.",
+      "limitations": [
+        {
+          "id": "7b1",
+          "text": "Generate a VHT-SIG A field.",
+          "quote": "information relevant for all receivers",
+          "pinpoint": "Ref. 3 · US 2011/0002319 A1 · [0023]",
+          "pageId": "philips-319-7",
+          "fragmentIds": [
+            "common"
+          ],
+          "note": "The common signal fields, containing the settings relevant for all receivers, as the common signal field of the Broadcom frame. Rated B 76."
+        },
+        {
+          "id": "7b2",
+          "text": "Generate a VHT-SIG B field.",
+          "quote": "user-stream specific settings and may be different for each user (receiver)",
+          "pinpoint": "Ref. 3 · [0037]",
+          "pageId": "philips-319-8",
+          "fragmentIds": [
+            "user"
+          ],
+          "note": "The per-user signal fields as the Broadcom frame’s additional signal fields. Rated B 76."
+        },
+        {
+          "id": "7b5",
+          "text": "Transmit the VHT-SIG A field.",
+          "quote": "The above fields can be transmitted sequentially over the channel.",
+          "pinpoint": "Ref. 3 · [0034]",
+          "pageId": "philips-319-8",
+          "fragmentIds": [
+            "sequential"
+          ],
+          "note": "Rated B 76."
+        },
+        {
+          "id": "7c",
+          "text": "Transmit a training field after transmitting the VHT-SIG A field.",
+          "quote": "A MU training field 140",
+          "pinpoint": "Ref. 3 · [0036] · FIG. 2",
+          "pageId": "philips-319-8",
+          "fragmentIds": [
+            "training"
+          ],
+          "note": "A training field by name after the common signal field, so the reading of the extended preamble as a training field is not needed. Rated B 76."
+        },
+        {
+          "id": "7d",
+          "text": "Transmit the VHT-SIG B field after transmitting the training field.",
+          "quote": "can happen only after the MU training field 140",
+          "pinpoint": "Ref. 3 · [0037] · FIG. 2",
+          "pageId": "philips-319-8",
+          "fragmentIds": [
+            "after"
+          ],
+          "note": "Rated B 76."
+        },
+        {
+          "id": "7e",
+          "text": "Transmit the service field after transmitting the VHT-SIG B field.",
+          "quote": "The number of USERSIG fields 150 is dependent on the number of spatial streams 160 (USER1 to USERn data) in the MU-MIMO transmissions.",
+          "pinpoint": "Ref. 3 · [0038] · FIG. 2",
+          "pageId": "philips-319-8",
+          "fragmentIds": [
+            "streams"
+          ],
+          "note": "Each user’s data follows its signal field; in the Broadcom frame each data unit opens with its service field. Rated B 76."
+        },
+        {
+          "id": "7f1",
+          "text": "The VHT-SIG B field includes bits relating to a length of the data unit and tail bits.",
+          "quote": "the amount of the user data transmitted in the stream",
+          "pinpoint": "Ref. 3 · [0022]",
+          "pageId": "philips-319-7",
+          "fragmentIds": [
+            "amount"
+          ],
+          "note": "The per-user field of the combination is the Broadcom frame’s additional signal field, with its 12-bit length and its tail bits; the Philips publication states the amount of user data and no tail bits. Rated B 76."
+        },
+        {
+          "id": "7pre, 7a, 7b, 7b3, 7b4, 7f and 7f2",
+          "text": "The remaining limitations, as in the submitted chart.",
+          "quote": "the integrity of at least one bit of the PLCP header, e.g., the SIGNAL field, is verified using a polynomial (CRC) check sequence located in at least one bit of the SERVICE field.",
+          "pinpoint": "Ref. 2 · US 7,231,530 B1 · Column 9, lines 41–44",
+          "pageId": "cisco-530-15",
+          "fragmentIds": [
+            "crc"
+          ],
+          "note": "Rated as in the submitted chart; the Philips publication adds nothing to 7f2."
+        }
+      ]
+    },
+    {
+      "label": "Window chart",
+      "title": "The chart under the later dates claim 7 may take: US 2011/0280232 A1 (Ralink) and US 2011/0103280 A1 (Liu and Zhang), with the Cisco patent",
+      "references": [
+        {
+          "title": "US 2011/0280232 A1 (Ralink Technology), as of its provisional of 15 May 2010",
+          "url": "https://patents.google.com/patent/US20110280232A1/en"
+        },
+        {
+          "title": "US 2011/0103280 A1 (Liu and Zhang), as of its provisional of 11 June 2010",
+          "url": "https://patents.google.com/patent/US20110103280A1/en"
+        },
+        {
+          "title": "US 2011/0002219 A1 (Broadcom), filed 8 June 2010",
+          "url": "https://patents.google.com/patent/US20110002219A1/en"
+        },
+        {
+          "title": "Ref. 2 · US 7,231,530 B1 (Cisco Technology)",
+          "url": "https://patents.google.com/patent/US7231530B1/en"
+        }
+      ],
+      "verdict": "Recorded as contingent, not the lead: it counts only if claim 7’s date moves from the contest’s date line of 11 March 2010 to 9 or 14 July 2010, the earliest filing that supports claim 7’s frame elements being of 9 July 2010. Under those dates the Ralink publication is prior art for its frame as of its provisional, and the Liu and Zhang publication arguably for its service field as of its provisional; the owner may try to antedate either. The Broadcom publication adds the field order and the tail bits with no provisional question.",
+      "limitations": [
+        {
+          "id": "7b1 to 7d",
+          "text": "The two signal fields, the training field and their order.",
+          "quote": "Arrange the L-TF field, the L-SIG field, the first VHT-SIG field, the VHT-STF field, the at least one VHT-LTF field and the second VHT-SIG field sequentially.",
+          "pinpoint": "US 2011/0280232 A1 · [0037], [0039] · FIGS. 1–2",
+          "pageId": "ralink-232-11",
+          "fragmentIds": [
+            "order"
+          ]
+        },
+        {
+          "id": "7f1",
+          "text": "The VHT-SIG B field includes bits relating to a length of the data unit and tail bits.",
+          "quote": "the length information, the CRC check, or tail bits",
+          "pinpoint": "US 2011/0280232 A1 · [0030]",
+          "pageId": "ralink-232-11",
+          "fragmentIds": [
+            "length"
+          ],
+          "note": "The second VHT-SIG field carries the per-user PSDU length with the CRC check or tail bits."
+        },
+        {
+          "id": "7b2",
+          "text": "Generate a VHT-SIG B field.",
+          "quote": "the VHT-SIGB 80 includes information specific to a client station",
+          "pinpoint": "US 2011/0103280 A1 · [0053] · FIG. 2C",
+          "pageId": "liu-280-21",
+          "fragmentIds": [
+            "specific"
+          ]
+        },
+        {
+          "id": "7f2",
+          "text": "The service field comprises bits relating to a scrambler and cyclic redundancy check (CRC) bits.",
+          "quote": "so that a receiving device can check whether a scrambler seed 304 also included in the service field 300 is correct",
+          "pinpoint": "US 2011/0103280 A1 · [0080] · FIG. 9A",
+          "pageId": "liu-280-24",
+          "fragmentIds": [
+            "verification"
+          ],
+          "note": "The provisional of 11 June 2010 gives the service field as a 7-bit scrambler seed and 9 reserved bits, with a CRC field or parity bits that may be put in the service field."
+        },
+        {
+          "id": "7b3, 7e and 7f",
+          "text": "The service field, where the provisional has none.",
+          "quote": "The remainder of the modulated payload, called the PLCP Service Data Unit (PSDU)",
+          "pinpoint": "Ref. 2 · US 7,231,530 B1 · Column 5, lines 42–46",
+          "pageId": "cisco-530-13",
+          "fragmentIds": [
+            "psdu"
+          ],
+          "note": "The Cisco patent’s SERVICE field follows the SIGNAL field and precedes the PSDU; it supplies the service field, its scrambler bits and its CRC under every date."
+        }
+      ]
+    }
+  ],
+  "sol-ip-9900067": [
+    {
+      "label": "Alternative ground",
+      "title": "The same ground with the TGac specification framework and the task group record, under claim 38’s working date of 9 July 2010",
+      "references": [
+        {
+          "title": "Ref. 1 · IEEE 802.11-09/0992r11, Specification Framework for TGac (adopted 20 May 2010)"
+        },
+        {
+          "title": "The IEEE 802.11 Task Group ac record uploaded before 9 July 2010 (11-10/0251r4, 0316r0, 0378r1, 0415r0, 0550r0, 0571r1, 0688r0)"
+        },
+        {
+          "title": "US 2011/0002219 A1 (Broadcom), corroboration",
+          "url": "https://patents.google.com/patent/US20110002219A1/en"
+        }
+      ],
+      "verdict": "Rated D, hold 8, in the re-score of 18 October 2026: every row that rests on the framework carries the working-date point at 65, and the weakest rows are 38f, 38g and 38h at D 38, so the chart takes the filed ground’s hold of 22. The framework is prior art only if claim 38 is entitled to no earlier date than 9 July 2010, which the examiner’s priority finding and the certified copies support but do not settle; the owner may argue the earlier date anew or try to antedate it.",
+      "limitations": [
+        {
+          "id": "38pre",
+          "text": "A communication device, comprising:",
+          "quote": "The VHT MF preamble shall permit a STA to auto detect 11a, HT MF, HT GF and VHT preambles.",
+          "pinpoint": "Ref. 1 · Specification Framework r11 · 3.2.1, R3.2.1.C · print p. 4",
+          "note": "The VHT station is the device. Rated C 63."
+        },
+        {
+          "id": "38a and 38b",
+          "text": "The processor and the memory, as in the filed ground.",
+          "quote": "The transceiver 274 may comprise a processor 282, a receiver 284, and a transmitter 286.",
+          "pinpoint": "Ref. 2 · US 2006/0182017 A1 · [0037]",
+          "pageId": "broadcom-017-15",
+          "fragmentIds": [
+            "processor"
+          ],
+          "note": "Rated B 87 and B 78, with the reason to build the framework’s station on an 802.11n transceiver: the draft shall maintain the 11n modulation, interleaving and coding architecture."
+        },
+        {
+          "id": "38c",
+          "text": "Transmit a first control field over a first frequency band, a bandwidth of the first frequency band being a multiple of 20 MHz.",
+          "quote": "The number of subcarriers and pilots, including subcarrier positions, of L-LTF, L-SIG, and VHT-SIG-A are the same as those for the 20 MHz 11n L-LTF and L-SIG in each 20 MHz subchannel.",
+          "pinpoint": "Ref. 1 · 3.2.3 · print p. 5",
+          "note": "VHT-SIG-A is the first control field, sent in every 20 MHz subchannel of a 20, 40, 80 or 160 MHz channel. Rated C 63."
+        },
+        {
+          "id": "38d",
+          "text": "Transmit a second control field over the first frequency band.",
+          "quote": "R3.2.1.F: The VHT MF PPDU format is shown in Figure 1.",
+          "pinpoint": "Ref. 1 · 3.2.2 and Figure 1 · print p. 5",
+          "note": "VHT-SIG-B is a second signal field of the same packet, after the VHT-LTFs; Motion #4 of 16 March 2010 adopted the two signal fields 65 to 0. Rated C 63."
+        },
+        {
+          "id": "38e",
+          "text": "The second control field comprises a first indicator indicating a length of subsequent user data.",
+          "quote": "Robert: per user information is needed plus longer lengths",
+          "pinpoint": "TGac MAC ad hoc minutes, 11-10/0688r0 · print p. 4",
+          "note": "The framework leaves VHT-SIG-B’s contents open; a length in it comes from the May 2010 minutes and the 802.11n layouts. Rated D 42."
+        },
+        {
+          "id": "38f and 38g",
+          "text": "The reserved bits after the length and the tail bits after them.",
+          "quote": "Rsvd 0-6(TBD)",
+          "pinpoint": "11-10/0550r0 · slide 4, Example of VHTSIG Bit Allocation for DLMU",
+          "note": "The example ends Rsvd, then CRC 4(TBD), then Tail 6, from a proposal without VHT-SIG-B. Rated D 38 each."
+        },
+        {
+          "id": "38h",
+          "text": "The number of bits of the first indicator when the first frequency band is 40 MHz is smaller than when the first frequency band is larger than 40 MHz.",
+          "quote": "Joshua Lo (Atheros): VHT can go above 1 Gbps, so PSDU length of 16 bits is not sufficient number of bits.",
+          "pinpoint": "11-10/0688r0 · print p. 2",
+          "note": "The filed ground’s argument with the framework’s numerology, against the fixed SIG-B lengths of the June and July 2010 filings. Rated D 38."
+        }
+      ]
+    }
+  ],
+  "cyboenergy-9331489": [
+    {
+      "label": "Ground 1",
+      "title": "Obviousness over JP 2001-255949 A (Morishima) in view of WO 2011/107555 A1 (Müller) and US 7,796,412 B2 (Fornage)",
+      "references": [
+        {
+          "title": "JP 2001-255949 A (Morishima, Toshiba)",
+          "url": "https://patents.google.com/patent/JP2001255949A/en"
+        },
+        {
+          "title": "WO 2011/107555 A1 (Müller, SMA Solar Technology)",
+          "url": "https://patents.google.com/patent/WO2011107555A1/en"
+        },
+        {
+          "title": "US 7,796,412 B2 (Fornage, Enphase Energy)",
+          "url": "https://patents.google.com/patent/US7796412B2/en"
+        }
+      ],
+      "verdict": "Rated D, hold 20, in the re-score of 18 October 2026: the alternative to the submitted Ground 2. Limitations 1pre to 14d are rated as in Ground 2; 14e falls to D 25 because, without Suekane, the switch of the supply onto the dedicated string rests on the broad reading that claim 14 states only the condition under which the supply takes that string’s power. Morishima’s diodes feed the supply from the highest string at low light whatever the controller detects, and the owner’s reply that nothing changes on the detection is strong.",
+      "limitations": [
+        {
+          "id": "1pre to 14d",
+          "text": "The inverter, its input channels, AC output, combiner and microcontroller, as in the submitted chart.",
+          "quote": "The present invention relates to a photovoltaic power generation inverter device that performs a DC-AC power conversion operation by using a plurality of solar cell assemblies as inputs.",
+          "pinpoint": "Morishima · JP 2001-255949 A · [0001] · English print p. 1",
+          "note": "Fornage’s power threshold gives 14d its low-power mode, as in Ground 2."
+        },
+        {
+          "id": "14e",
+          "text": "A DC power supply connected to all input channels through the DC power combiner, supplying the inverter’s electronic circuits, and configured to take DC power from a dedicated input channel and its solar panel when the microcontroller detects that the calculated input power is below a pre-determined value.",
+          "quote": "The on-board supply unit 14 takes electric energy both out of the DC voltage link 10 and the DC voltage link 6.",
+          "pinpoint": "Müller · WO 2011/107555 A1 · p. 10, lines 3–4",
+          "pageId": "muller-555-10",
+          "fragmentIds": [
+            "links"
+          ],
+          "note": "The supply fed from the common link as well as the input links, added to Morishima’s supply."
+        },
+        {
+          "id": "14e",
+          "text": "The dedicated channel under this ground.",
+          "quote": "Out of which the solar cell string outputting the highest voltage is operated.",
+          "pinpoint": "Morishima · [0072] · English print p. 6",
+          "note": "The diodes give the supply the highest string at low light without any act of the controller: the open point of this ground."
+        },
+        {
+          "id": "14e",
+          "text": "The pre-determined value.",
+          "quote": "At step 604, the method 600 performs calculations and checks if the input power is greater than a power threshold.",
+          "pinpoint": "Fornage · US 7,796,412 B2 · Column 6, lines 55–58",
+          "pageId": "fornage-412-12",
+          "fragmentIds": [
+            "threshold"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Ground 3",
+      "title": "Ground 2 further in view of JP H01-318519 A (Yoshimi), for the reading of “dedicated” as set apart from generation",
+      "references": [
+        {
+          "title": "JP 2001-255949 A (Morishima, Toshiba)",
+          "url": "https://patents.google.com/patent/JP2001255949A/en"
+        },
+        {
+          "title": "US 7,796,412 B2 (Fornage, Enphase Energy)",
+          "url": "https://patents.google.com/patent/US7796412B2/en"
+        },
+        {
+          "title": "US 2011/0169344 A1 (Suekane)",
+          "url": "https://patents.google.com/patent/US20110169344A1/en"
+        },
+        {
+          "title": "WO 2011/107555 A1 (Müller, SMA Solar Technology)",
+          "url": "https://patents.google.com/patent/WO2011107555A1/en"
+        },
+        {
+          "title": "JP H01-318519 A (Yoshimi)",
+          "url": "https://patents.google.com/patent/JPH01318519A/en"
+        }
+      ],
+      "verdict": "Rated D, hold 34, in the re-score of 18 October 2026: the further alternative. Rows 1pre to 14d are as in Ground 2, and 14e is D 42: under a reading of “dedicated” as set apart from generation, Yoshimi’s string, set apart by its switch, rises to near its open-circuit voltage and alone carries the control supply while the other strings keep generating, applied by stopping one string’s chopper in the low-power mode. The reason is inferred and it is a fifth reference, with the owner’s wasted-output answer and Yoshimi’s age and field colourable.",
+      "limitations": [
+        {
+          "id": "1pre to 14e",
+          "text": "The submitted Ground 2, which this ground adds to.",
+          "quote": "changes over the first switch from closed to open, when the power detected by the power detection unit becomes less than a night time decision value for deciding that it is night time",
+          "pinpoint": "Suekane · US 2011/0169344 A1 · Claim 1",
+          "pageId": "suekane-344-12",
+          "fragmentIds": [
+            "switch"
+          ],
+          "note": "As charted above; Ground 3 changes nothing in it."
+        },
+        {
+          "id": "14e",
+          "text": "The string set apart from generation.",
+          "quote": "when the switch 2-1 is opened due to charging of the storage battery 5, Since the load on the solar cells 1-1 disappears, the voltage of the solar cells 1-1 rises to near the open-circuit voltage.",
+          "pinpoint": "Yoshimi · JP H01-318519 A · English print, Example, p. 3",
+          "note": "The quote follows the English print of the Japanese original."
+        },
+        {
+          "id": "14e",
+          "text": "The set-apart string alone carrying the control supply.",
+          "quote": "through the fuse 9-1, the reverse current blocking diode 10-1, and the reverse current blocking diode 11 of the first control power supply circuit, Electric power is supplied from the solar cell 1-1 to the D/D converter 12",
+          "pinpoint": "Yoshimi · JP H01-318519 A · English print, Example, p. 3",
+          "note": "Yoshimi opens its switch for the battery’s charging and names no actor for it; applied to Morishima by stopping the string’s chopper in the low-power mode."
+        }
+      ]
+    }
+  ],
+  "nordicunmanned-2035276": [
+    {
+      "label": "Fallback for the European claim",
+      "title": "Ishigaki in view of Wobben and Louvel, under a broad reading of “drive unit”",
+      "references": [
+        {
+          "title": "R4 · JP 2002-347698 A (Ishigaki Foods)",
+          "url": "https://patents.google.com/patent/JP2002347698A/en"
+        },
+        {
+          "title": "R6 · US 2005/0061910 A1 (Wobben)",
+          "url": "https://patents.google.com/patent/US20050061910A1/en"
+        },
+        {
+          "title": "R1 · US 2002/0104921 A1 (Louvel)",
+          "url": "https://patents.google.com/patent/US20020104921A1/en"
+        }
+      ],
+      "verdict": "Recorded as a fallback only, not scored. Under a broad reading of “Antriebseinheit”, a functional pair of counter-rotating rotors each on its own motor, Ishigaki has three such pairs with individual prime movers, Wobben supplies the individually variable speeds and the autonomous attitude, altitude and position device, and Louvel the speed-based attitude regulation. The owner will argue the structural reading of claims 6 and 7, under which Ishigaki’s pairs are units opposite each other across the hub, not one unit, and its computer runs the engines so as to rotate at uniform speed; 1f then rests on Wobben and Louvel, not on Ishigaki.",
+      "limitations": [
+        {
+          "id": "1a, 1d and 1e",
+          "text": "At least three drive units, each with a second rotor turning opposite its first.",
+          "quote": "中心対称をなし、かつ反転する揚力発生用プロペラ(23)(23)を有する揚力発生用プロペラユニット(20)(20)が、３対設けられている",
+          "translation": "three pairs of lift-propeller units with centrally symmetrical, counter-rotating lift propellers are provided",
+          "pinpoint": "R4 · JP 2002-347698 A · [0024] · PDF p. 3",
+          "note": "Six units in three counter-rotating pairs, each propeller with its own prime mover; the Japanese original is quoted with the researcher’s translation."
+        },
+        {
+          "id": "1c",
+          "text": "Means for autonomous attitude and position control.",
+          "quote": "the aircraft according to the invention has a device for automatic control of the flight attitude and/or the flight altitude.",
+          "pinpoint": "R6 · US 2005/0061910 A1 · [0013]",
+          "pageId": "wobben-910-4",
+          "fragmentIds": [
+            "control"
+          ],
+          "note": "The device can also be coupled to a GPS system so as to head automatically for a predeterminable position."
+        },
+        {
+          "id": "1f",
+          "text": "The rotation speeds of the electric motors of each drive unit are varied individually.",
+          "quote": "Associated with each motor 10 is an inverter 14 which permits individual actuation of each motor 10.",
+          "pinpoint": "R6 · US 2005/0061910 A1 · [0029]",
+          "pageId": "wobben-910-5",
+          "fragmentIds": [
+            "inverter"
+          ]
+        },
+        {
+          "id": "1f",
+          "text": "The speed-based attitude regulation.",
+          "quote": "The function of the control unit (3) is to control the speed of each electric motor by adjusting the current in each of them by a pulse width modulation (PWM) current drive.",
+          "pinpoint": "R1 · US 2002/0104921 A1 · [0061]",
+          "pageId": "louvel-921-3",
+          "fragmentIds": [
+            "pwm"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Alternatives for the United States claim",
+      "title": "Spirov and Pedersen, or Ishigaki, as the primary reference",
+      "references": [
+        {
+          "title": "R5 · WO 2004/101357 A2 (Spirov and Pedersen)",
+          "url": "https://patents.google.com/patent/WO2004101357A2/en"
+        },
+        {
+          "title": "R4 · JP 2002-347698 A (Ishigaki Foods)",
+          "url": "https://patents.google.com/patent/JP2002347698A/en"
+        },
+        {
+          "title": "R1 · US 2002/0104921 A1 (Louvel)",
+          "url": "https://patents.google.com/patent/US20020104921A1/en"
+        },
+        {
+          "title": "R2 · US 5,071,383 A (Kinoshita)",
+          "url": "https://patents.google.com/patent/US5071383A/en"
+        }
+      ],
+      "verdict": "Recorded as alternative starting points, not scored. With Spirov and Pedersen as the primary: four electric lift units, each motor individually speed-controlled, an on-board automatic attitude loop and, in an alternate embodiment, a counter-rotating pair in every duct, with Kinoshita, Pauli or Xing adding a motor per rotor and the pair’s individual speed control; weaker than Louvel on 1g, the ducts sitting in a saucer body rather than on arms. With Ishigaki as the primary: six arms from a hub, counter-rotating pairs, one prime mover per propeller and computer control, with Louvel for the speed-based attitude control; weaker on 1g, the side rods joining the units, and on 1f, the computer running the engines at uniform speed. The chart also names US 2006/0016929 A1, a counter-rotating ducted fan whose two propeller stages have their own windings and controller, in place of Kinoshita, without a held copy or a quote.",
+      "limitations": [
+        {
+          "id": "1a",
+          "text": "Autonomous attitude and position control provided by at least three drive units.",
+          "quote": "The hover control system uses an XYZ sensor arrangement and associated control circuitry that dynamically determines an inertial gravitational reference for use in automatically and continuously determine the speed needed for each fan in order to keep the craft at a desired orientation.",
+          "pinpoint": "R5 · WO 2004/101357 A2 · p. 9",
+          "pageId": "spirov-357-9",
+          "fragmentIds": [
+            "hover"
+          ],
+          "note": "A scanned page: the quote is shown beside it without highlights."
+        },
+        {
+          "id": "1b to 1e",
+          "text": "A first and a second rotor in each unit, each on its own speed-controlled motor, turning opposite.",
+          "quote": "In an alternate embodiment that provides for more efficiency, each of the ducted fans 40 has two counter-rotating multi-bladed units.",
+          "pinpoint": "R5 · WO 2004/101357 A2 · p. 19",
+          "pageId": "spirov-357-19",
+          "fragmentIds": [
+            "pair"
+          ],
+          "note": "Kinoshita, Pauli or Xing add a motor per rotor and the pair’s individual speed control."
+        },
+        {
+          "id": "1a, 1g and 1h",
+          "text": "With Ishigaki as the primary: the drive units on arms from a central hub.",
+          "quote": "中心対称をなし、かつ反転する揚力発生用プロペラ(23)(23)を有する揚力発生用プロペラユニット(20)(20)が、３対設けられている",
+          "translation": "three pairs of lift-propeller units with centrally symmetrical, counter-rotating lift propellers are provided",
+          "pinpoint": "R4 · JP 2002-347698 A · [0024] · PDF p. 3",
+          "note": "Six arms from a hub; the side rods joining the units are the weakness on 1g."
+        },
+        {
+          "id": "1f and 1j",
+          "text": "Individually variable speeds and the speed-based attitude control.",
+          "quote": "The function of the control unit (3) is to control the speed of each electric motor by adjusting the current in each of them by a pulse width modulation (PWM) current drive.",
+          "pinpoint": "R1 · US 2002/0104921 A1 · [0061]",
+          "pageId": "louvel-921-3",
+          "fragmentIds": [
+            "pwm"
+          ]
+        },
+        {
+          "id": "1i",
+          "text": "The two rotors of each unit disposed coaxially.",
+          "quote": "said second propeller securely attached to a rod shaft which extends longitudinally through said sleeve shaft",
+          "pinpoint": "R2 · US 5,071,383 A · Claim 1, columns 5–6",
+          "pageId": "kinoshita-383-12",
+          "fragmentIds": [
+            "shaft"
+          ]
+        }
+      ]
     }
   ]
 };

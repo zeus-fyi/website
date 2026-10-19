@@ -137,8 +137,8 @@ export const sourceDocuments = {
   },
   "intel-314": {
     "reference": "Ref. 8",
-    "title": "US 2010/0008314 A1",
-    "edition": "United States patent application publication · 14 January 2010",
+    "title": "Maheshwari, Boariu and Wei, US 2010/0008314 A1",
+    "edition": "United States patent application publication · Nokia Siemens Networks · 14 January 2010",
     "url": "https://patentimages.storage.googleapis.com/16/77/ed/0102a198fd548b/US20100008314A1.pdf",
     "sha256": "71b2d6335954a9679a3c86558860aa589a6c2b99f60a5e9fc186a73a3e34ed0e",
     "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
@@ -217,6 +217,114 @@ export const sourceDocuments = {
     "sha256": "55c3858510bf48dec169c4a0e0ab22ff98e4e86aa0c854aa7fc121b1b03db81a",
     "sourceNote": "Authors’ copy, archived 21 April 2024 from the research-papers page of one author’s employer.",
     "pageCount": 5
+  },
+  "liebert-235": {
+    "reference": "B",
+    "title": "Blair et al., US 7,453,235 B2",
+    "edition": "United States patent · Liebert Corporation · Issued 18 November 2008",
+    "url": "https://patentimages.storage.googleapis.com/d2/fb/3b/8ed0e68ac317a6/US7453235.pdf",
+    "sha256": "1b3baeda973025df2096ba5e9c1e61e87957ec679482ba803c4c73550db3315e",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 33
+  },
+  "mitsubishi-987": {
+    "reference": "C",
+    "title": "Mitsubishi Electric, US 7,485,987 B2",
+    "edition": "United States patent · Issued 3 February 2009",
+    "url": "https://patentimages.storage.googleapis.com/d3/86/9f/eb8623797cf6b0/US7485987.pdf",
+    "sha256": "33622746b5180c78a9d5a792ea0f2b7e58a776ffc81c7c6b0fe0a793ec3ad2ab",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 26
+  },
+  "abb-323": {
+    "reference": "C",
+    "title": "ABB, US 2011/0222323 A1",
+    "edition": "United States patent application publication · the national stage of WO 2009/087063 A1 · 15 September 2011",
+    "url": "https://patentimages.storage.googleapis.com/6b/4c/a7/94277c92066059/US20110222323A1.pdf",
+    "sha256": "e26978239fe0bf0e490304d1b9f4a558a91529da1369639410b2368cce8b5fec",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 10
+  },
+  "ge-271": {
+    "reference": "G",
+    "title": "Garces, Liu, deRooij and Bose, US 2010/0067271 A1",
+    "edition": "United States patent application publication · General Electric · 18 March 2010",
+    "url": "https://patentimages.storage.googleapis.com/96/de/27/a48bf4cde5ae13/US20100067271A1.pdf",
+    "sha256": "3e489edd0a96e89c0ff3a6cc2aa5906fb40a97648843315f9dd89a8607721658",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 8
+  },
+  "abb-297": {
+    "reference": "E",
+    "title": "Stulz et al., US 7,499,297 B2",
+    "edition": "United States patent · ABB Schweiz · Issued 3 March 2009",
+    "url": "https://patentimages.storage.googleapis.com/9e/d9/c6/4b9eae7b1899dd/US7499297.pdf",
+    "sha256": "f8003643eebaff7b4053421f9eb58c88f6ca2786f24d65e584877c9e160c6335",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 15
+  },
+  "nippon-149": {
+    "reference": "F",
+    "title": "Mizuno, Takaesu and Ishii, JP 2006-320149 A",
+    "edition": "Japanese patent application publication · Nippon Oil · 24 November 2006 · Japanese original with the researcher’s translation",
+    "url": "https://patentimages.storage.googleapis.com/5f/9c/83/57399ac1a43633/JP2006320149A.pdf",
+    "sha256": "6ac382e29c6c612c3e9bd69c0dcc8b2bf108e6315954dd0e59ddaccbefabefa0",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 12
+  },
+  "em-032": {
+    "reference": "H",
+    "title": "Peterson, US 6,850,032 B1",
+    "edition": "United States patent · E and M Power · Issued 1 February 2005",
+    "url": "https://patentimages.storage.googleapis.com/21/4d/06/ebf14c87b8bebb/US6850032.pdf",
+    "sha256": "782b871ba65321d375ccd9041e6c1c3f963a5560db9123b5ae6e1dff59928041",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 32
+  },
+  "philips-319": {
+    "reference": "Ref. 3",
+    "title": "Husen, Serbetli and Wang, US 2011/0002319 A1",
+    "edition": "United States patent application publication · Koninklijke Philips Electronics · 6 January 2011",
+    "url": "https://patentimages.storage.googleapis.com/30/50/71/a20e1a5a86a206/US20110002319A1.pdf",
+    "sha256": "0782a44c4e5d97a32a2bd987e4b7c33ea16a745a825ef44f01914a2adc7b854f",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 10
+  },
+  "ralink-232": {
+    "reference": "Window",
+    "title": "Ralink Technology, US 2011/0280232 A1",
+    "edition": "United States patent application publication · 17 November 2011",
+    "url": "https://patentimages.storage.googleapis.com/91/24/68/9fa681d0aa01a0/US20110280232A1.pdf",
+    "sha256": "3ed92e3189eaece3c52dd15cd37f9db8a2c284f207675acbee571c05b613ced9",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 12
+  },
+  "liu-280": {
+    "reference": "Window",
+    "title": "Liu and Zhang, US 2011/0103280 A1",
+    "edition": "United States patent application publication · 5 May 2011",
+    "url": "https://patentimages.storage.googleapis.com/b2/83/f8/6df2aca3b3dbb5/US20110103280A1.pdf",
+    "sha256": "34d03dda1ed48c08f311a210693c6abe31e8cd98eea466c4fb3b7b4bb7efa803",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 28
+  },
+  "nicira-118": {
+    "reference": "R6",
+    "title": "Nicira, US 2015/0312118 A1",
+    "edition": "United States patent application publication · 29 October 2015",
+    "url": "https://patentimages.storage.googleapis.com/aa/c2/19/02077a5bc3f2da/US20150312118A1.pdf",
+    "sha256": "36c366b6993f5cd4ae237e2e9f3b1469255a253b81830170c37c7f12a3e48659",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 34
+  },
+  "wobben-910": {
+    "reference": "R6",
+    "title": "Wobben, US 2005/0061910 A1",
+    "edition": "United States patent application publication · Aircraft · 24 March 2005",
+    "url": "https://patentimages.storage.googleapis.com/a6/6c/17/d5d41326bbd45b/US20050061910A1.pdf",
+    "sha256": "50352d684f5c2784543acaa520b6d884bb78e9878232be5e86fbbb914c568250",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 7
   }
 };
 export const sourcePages = {
@@ -2708,5 +2816,2235 @@ export const sourcePages = {
         ]
       }
     }
+  },
+  "liebert-235-24": {
+    "document": "liebert-235",
+    "printedPage": 24,
+    "pdfPage": 24,
+    "image": "sources/liebert-235-24.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "modular": {
+        "quote": "The modular design provides expandability and redundancy. Frame 1 can accommodate multiple power modules.",
+        "rects": [
+          [
+            68.5937,
+            44.0569,
+            17.9297,
+            1.9465
+          ],
+          [
+            50.8203,
+            45.3117,
+            35.8594,
+            1.9465
+          ],
+          [
+            50.8203,
+            46.5745,
+            14.6875,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 1–2"
+  },
+  "liebert-235-25": {
+    "document": "liebert-235",
+    "printedPage": 25,
+    "pdfPage": 25,
+    "image": "sources/liebert-235-25.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "modules": {
+        "quote": "The power modules 4 receive AC power from the utility input 7 and convert it to DC power, which is used to charge the batteries",
+        "rects": [
+          [
+            22.1484,
+            44.2203,
+            26.4551,
+            1.9465
+          ],
+          [
+            12.7344,
+            45.4682,
+            35.7031,
+            1.9465
+          ],
+          [
+            12.7734,
+            46.7033,
+            11.25,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 3–4"
+  },
+  "liebert-235-26": {
+    "document": "liebert-235",
+    "printedPage": 26,
+    "pdfPage": 26,
+    "image": "sources/liebert-235-26.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "controller": {
+        "quote": "The power module control system is schematically depicted in FIG. 4. The primary control element is controller 100",
+        "rects": [
+          [
+            14.2578,
+            56.7721,
+            7.6875,
+            1.9465
+          ],
+          [
+            22.2656,
+            56.7721,
+            5.013,
+            1.9465
+          ],
+          [
+            27.6172,
+            56.7721,
+            4.6875,
+            1.9465
+          ],
+          [
+            32.7734,
+            56.7721,
+            4.6484,
+            1.9465
+          ],
+          [
+            37.8125,
+            56.7721,
+            1.5234,
+            1.9465
+          ],
+          [
+            39.8437,
+            56.7721,
+            8.6659,
+            1.9465
+          ],
+          [
+            12.7734,
+            58.1118,
+            35.7304,
+            1.9465
+          ],
+          [
+            12.8516,
+            59.3636,
+            1.8457,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 5–6"
+  },
+  "liebert-235-27": {
+    "document": "liebert-235",
+    "printedPage": 27,
+    "pdfPage": 27,
+    "image": "sources/liebert-235-27.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "power": {
+        "quote": "then determines the appropriate output per module and sends instructions to modules, which adjust their individual outputs accordingly.",
+        "rects": [
+          [
+            15.8594,
+            52.273,
+            32.7995,
+            1.9465
+          ],
+          [
+            12.8125,
+            53.6116,
+            35.625,
+            1.9465
+          ],
+          [
+            12.7734,
+            54.7974,
+            11.8359,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 7–8"
+  },
+  "mitsubishi-987-18": {
+    "document": "mitsubishi-987",
+    "printedPage": 18,
+    "pdfPage": 18,
+    "image": "sources/mitsubishi-987-18.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "supply": {
+        "quote": "The single-phase inverters 4 each have an independent DC power supply 6 and output terminals 91, 92 from which a voltage of the DC power supply 6 is output during a desired period of time",
+        "rects": [
+          [
+            14.2578,
+            64.2839,
+            34.5703,
+            1.9465
+          ],
+          [
+            12.7734,
+            65.5767,
+            35.7812,
+            1.9465
+          ],
+          [
+            12.7734,
+            66.7899,
+            35.7701,
+            1.9465
+          ],
+          [
+            12.7734,
+            68.0267,
+            8.3203,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 3–4"
+  },
+  "mitsubishi-987-23": {
+    "document": "mitsubishi-987",
+    "printedPage": 23,
+    "pdfPage": 23,
+    "image": "sources/mitsubishi-987-23.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "inverter": {
+        "quote": "a power converting device of a third embodiment described below is used as a system interconnection inverter for converting DC power fed from a DC power source into AC power and thereby connecting the DC power source to a power system.",
+        "rects": [
+          [
+            43.125,
+            19.7456,
+            5.5469,
+            1.9465
+          ],
+          [
+            12.7734,
+            21.1071,
+            35.5469,
+            1.9465
+          ],
+          [
+            12.7344,
+            22.4102,
+            36.1133,
+            1.9465
+          ],
+          [
+            12.7734,
+            23.7267,
+            35.8984,
+            1.9465
+          ],
+          [
+            12.7344,
+            24.9527,
+            35.0781,
+            1.9465
+          ]
+        ]
+      },
+      "cpu": {
+        "quote": "designated by the numeral 10 is a CPU, and designated by the numeral 60a are peripheral circuits of the CPU 10.",
+        "rects": [
+          [
+            36.8359,
+            43.1724,
+            11.6667,
+            1.9465
+          ],
+          [
+            12.7734,
+            44.4872,
+            35.7292,
+            1.9465
+          ],
+          [
+            12.7344,
+            45.7139,
+            19.0625,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 13–14"
+  },
+  "abb-323-7": {
+    "document": "abb-323",
+    "printedPage": 7,
+    "pdfPage": 7,
+    "image": "sources/abb-323-7.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "distributed": {
+        "quote": "The basic principle of this control method is to perform switching of the submodules according to a pulsewidth modulation (PWM) in a distributed manner rather than in a centralized manner",
+        "rects": [
+          [
+            27.0703,
+            17.2328,
+            21.3728,
+            1.9465
+          ],
+          [
+            12.7734,
+            18.4582,
+            35.7639,
+            1.9465
+          ],
+          [
+            12.7344,
+            19.8624,
+            35.931,
+            1.9465
+          ],
+          [
+            12.7734,
+            21.2646,
+            20.0056,
+            1.8384
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 7"
+  },
+  "ge-271-6": {
+    "document": "ge-271",
+    "printedPage": 6,
+    "pdfPage": 6,
+    "image": "sources/ge-271-6.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "system": {
+        "quote": "FIG. 1 illustrates one embodiment of a distributed solar power generation system according to an aspect of the present technique.",
+        "rects": [
+          [
+            24.4141,
+            52.7274,
+            24.1406,
+            1.9465
+          ],
+          [
+            12.7734,
+            53.8506,
+            35.8984,
+            1.9465
+          ],
+          [
+            12.7734,
+            55.1426,
+            18.4766,
+            1.9465
+          ]
+        ]
+      },
+      "modules": {
+        "quote": "In the illustrated embodiment, the inverters 14 and 16 are coupled together to form a first phase A (18), a second phase B (20), and a third phase C (22).",
+        "rects": [
+          [
+            12.8125,
+            64.2949,
+            35.6901,
+            1.8384
+          ],
+          [
+            12.7734,
+            65.4232,
+            35.789,
+            1.9465
+          ],
+          [
+            12.8125,
+            66.6998,
+            19.3359,
+            1.9465
+          ]
+        ]
+      },
+      "sensing": {
+        "quote": "In another embodiment, the sensing device 34 may be a current transformer configured to sense overall load current from all three phases at node 24.",
+        "rects": [
+          [
+            16.8359,
+            87.0752,
+            31.7773,
+            1.9465
+          ],
+          [
+            12.7734,
+            88.35,
+            35.7143,
+            1.9465
+          ],
+          [
+            12.7734,
+            89.5567,
+            19.4531,
+            1.9465
+          ]
+        ]
+      },
+      "pwm": {
+        "quote": "Further, inverters may include pulse width modulators and control circuitry configured to receive reactive power commands.",
+        "rects": [
+          [
+            81.3281,
+            56.3582,
+            5.0976,
+            1.9465
+          ],
+          [
+            50.8203,
+            57.6247,
+            35.6696,
+            1.9465
+          ],
+          [
+            50.8203,
+            58.8269,
+            33.5156,
+            1.9465
+          ]
+        ]
+      },
+      "coupled": {
+        "quote": "the optimization controller 36 may be individually coupled to each of the inverters (14, 16, and 28).",
+        "rects": [
+          [
+            54.1406,
+            55.0166,
+            32.3405,
+            1.9465
+          ],
+          [
+            50.8203,
+            56.3582,
+            29.8828,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 6"
+  },
+  "abb-297-10": {
+    "document": "abb-297",
+    "printedPage": 10,
+    "pdfPage": 10,
+    "image": "sources/abb-297-10.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "field": {
+        "quote": "Polyphase converter circuits relating to the field of power electronics are disclosed.",
+        "rects": [
+          [
+            14.2969,
+            30.1941,
+            34.3672,
+            1.9465
+          ],
+          [
+            12.7734,
+            31.6279,
+            14.6094,
+            1.5139
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 1–2"
+  },
+  "abb-297-11": {
+    "document": "abb-297",
+    "printedPage": 11,
+    "pdfPage": 11,
+    "image": "sources/abb-297-11.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "element": {
+        "quote": "each converter circuit element 1 having a rectifier unit 2, a DC voltage circuit 3 which is connected to the rectifier unit 2 and an inverter unit 4",
+        "rects": [
+          [
+            22.3437,
+            80.7887,
+            26.2109,
+            1.9465
+          ],
+          [
+            12.7734,
+            82.0902,
+            35.6445,
+            1.9465
+          ],
+          [
+            12.7344,
+            83.4461,
+            22.4609,
+            1.5139
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 3–4"
+  },
+  "abb-297-13": {
+    "document": "abb-297",
+    "printedPage": 13,
+    "pdfPage": 13,
+    "image": "sources/abb-297-13.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "higher": {
+        "quote": "Furthermore, a higher-order controller unit 21 is provided which is connected to each local controller unit 20.",
+        "rects": [
+          [
+            61.4453,
+            87.1003,
+            25.0586,
+            1.9465
+          ],
+          [
+            50.8203,
+            88.3577,
+            35.6836,
+            1.9465
+          ],
+          [
+            50.8203,
+            89.6091,
+            1.7969,
+            1.9465
+          ]
+        ]
+      },
+      "local": {
+        "quote": "In the exemplary converter circuit shown in FIG. 3, each inverter unit 4 has an associated local controller unit 20, drivable power semiconductor switches S1, S2, S3, S4, S5, S6 of the inverter unit 4 being connected to the associated local controller unit 20.",
+        "rects": [
+          [
+            52.3047,
+            82.0733,
+            34.2578,
+            1.9465
+          ],
+          [
+            50.8203,
+            83.3858,
+            35.651,
+            1.8384
+          ],
+          [
+            50.8203,
+            84.6111,
+            35.7812,
+            1.9465
+          ],
+          [
+            50.8203,
+            85.856,
+            35.6406,
+            1.9465
+          ],
+          [
+            50.8203,
+            87.1003,
+            10.2344,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 7–8"
+  },
+  "nippon-149-2": {
+    "document": "nippon-149",
+    "printedPage": 2,
+    "pdfPage": 2,
+    "image": "sources/nippon-149-2.png",
+    "width": 1680,
+    "height": 2376,
+    "fragments": {
+      "claim": {
+        "quote": "分散電源からの電力を受けて交流電力を出力する複数のパワーコンディショナと",
+        "translation": "a plurality of power conditioners that receive power from distributed power sources and output AC power",
+        "rects": [
+          [
+            11.5327,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            13.5484,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            15.5641,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            17.5798,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            19.5955,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            21.6113,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            23.627,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            25.6427,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            27.6584,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            29.6741,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            31.6898,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            33.7055,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            35.7212,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            37.7369,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            39.7526,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            41.7683,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            43.784,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            45.7998,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            47.8155,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            49.8312,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            51.8469,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            53.8626,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            55.8783,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            57.894,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            59.9097,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            61.9254,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            63.9411,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            65.9568,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            67.9725,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            69.9883,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            72.004,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            74.0197,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            76.0354,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            78.0511,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            80.0668,
+            12.8022,
+            1.596,
+            1.1285
+          ],
+          [
+            82.0825,
+            12.8022,
+            1.596,
+            1.1285
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 2"
+  },
+  "nippon-149-5": {
+    "document": "nippon-149",
+    "printedPage": 5,
+    "pdfPage": 5,
+    "image": "sources/nippon-149-5.png",
+    "width": 1680,
+    "height": 2376,
+    "fragments": {
+      "communication": {
+        "quote": "通信部４０は、受信した制御信号をコントローラ２５ に転送し、コントローラ２５から受け取った状態信号をマスタコントローラ３２に送信す る。",
+        "translation": "The communication unit 40 transfers the received control signal to the controller 25 and sends the status signal received from the controller 25 to the master controller 32.",
+        "rects": [
+          [
+            41.7683,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            43.784,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            45.7998,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            47.8155,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            49.8312,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            51.8469,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            53.8626,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            55.8783,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            57.894,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            59.9097,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            61.9254,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            63.9411,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            65.9568,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            67.9725,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            69.9883,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            72.004,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            74.0197,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            76.0354,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            78.0511,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            80.0668,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            82.0825,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            84.0982,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            86.1139,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            88.1296,
+            75.0223,
+            1.596,
+            1.1285
+          ],
+          [
+            9.517,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            11.5327,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            13.5484,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            15.5641,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            17.5798,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            19.5955,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            21.6113,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            23.627,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            25.6427,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            27.6584,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            29.6741,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            31.6898,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            33.7055,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            35.7212,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            37.7369,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            39.7526,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            41.7683,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            43.784,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            45.7998,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            47.8155,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            49.8312,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            51.8469,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            53.8626,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            55.8783,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            57.894,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            59.9097,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            61.9254,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            63.9411,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            65.9568,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            67.9725,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            69.9883,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            72.004,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            74.0197,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            76.0354,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            78.0511,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            80.0668,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            82.0825,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            84.0982,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            86.1139,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            88.1296,
+            76.7506,
+            1.596,
+            1.1285
+          ],
+          [
+            9.517,
+            78.4789,
+            1.596,
+            1.1285
+          ],
+          [
+            11.5327,
+            78.4789,
+            1.596,
+            1.1285
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 5"
+  },
+  "nippon-149-6": {
+    "document": "nippon-149",
+    "printedPage": 6,
+    "pdfPage": 6,
+    "image": "sources/nippon-149-6.png",
+    "width": 1680,
+    "height": 2376,
+    "fragments": {
+      "master": {
+        "quote": "マスタコントローラ３２は、並列接続点Ａと配電盤１３との間の交流電力線３４での各 線間の電圧を計測する電圧センサ４１と、交流電力線３４の各線に流れる電流を計測する 電流センサ４２と",
+        "translation": "The master controller 32 has a voltage sensor 41 that measures the voltage between the lines of the AC power line 34 between the parallel connection point A and the switchboard 13, a current sensor 42 that measures the current flowing in each line of the AC power line 34",
+        "rects": [
+          [
+            11.5327,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            13.5484,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            15.5641,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            17.5798,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            19.5955,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            21.6113,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            23.627,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            25.6427,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            27.6584,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            29.6741,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            31.6898,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            33.7055,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            35.7212,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            37.7369,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            39.7526,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            41.7683,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            43.784,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            45.7998,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            47.8155,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            49.8312,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            51.8469,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            53.8626,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            55.8783,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            57.894,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            59.9097,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            61.9254,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            63.9411,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            65.9568,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            67.9725,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            69.9883,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            72.004,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            74.0197,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            76.0354,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            78.0511,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            80.0668,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            82.0825,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            84.0982,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            86.1139,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            88.1296,
+            31.8139,
+            1.596,
+            1.1285
+          ],
+          [
+            9.517,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            11.5327,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            13.5484,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            15.5641,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            17.5798,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            19.5955,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            21.6113,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            23.627,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            25.6427,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            27.6584,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            29.6741,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            31.6898,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            33.7055,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            35.7212,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            37.7369,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            39.7526,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            41.7683,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            43.784,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            45.7998,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            47.8155,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            49.8312,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            51.8469,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            53.8626,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            55.8783,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            57.894,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            59.9097,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            61.9254,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            63.9411,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            65.9568,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            67.9725,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            69.9883,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            72.004,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            74.0197,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            76.0354,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            78.0511,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            80.0668,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            82.0825,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            84.0982,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            86.1139,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            88.1296,
+            33.5422,
+            1.596,
+            1.1285
+          ],
+          [
+            9.517,
+            35.2705,
+            1.596,
+            1.1285
+          ],
+          [
+            11.5327,
+            35.2705,
+            1.596,
+            1.1285
+          ],
+          [
+            13.5484,
+            35.2705,
+            1.596,
+            1.1285
+          ],
+          [
+            15.5641,
+            35.2705,
+            1.596,
+            1.1285
+          ],
+          [
+            17.5798,
+            35.2705,
+            1.596,
+            1.1285
+          ],
+          [
+            19.5955,
+            35.2705,
+            1.596,
+            1.1285
+          ],
+          [
+            21.6113,
+            35.2705,
+            1.596,
+            1.1285
+          ],
+          [
+            23.627,
+            35.2705,
+            1.596,
+            1.1285
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 6"
+  },
+  "em-032-21": {
+    "document": "em-032",
+    "printedPage": 21,
+    "pdfPage": 21,
+    "image": "sources/em-032-21.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "system": {
+        "quote": "The generator system 100 preferably includes a polyphase machine 102, such as a PMA, a polyphase inverter 104, a plurality of single-phase inverters 106A, 106B, and 106C",
+        "rects": [
+          [
+            77.3828,
+            11.3403,
+            9.171,
+            1.9465
+          ],
+          [
+            50.8203,
+            12.5437,
+            35.6934,
+            1.9465
+          ],
+          [
+            50.8203,
+            13.7579,
+            35.8594,
+            1.9465
+          ],
+          [
+            50.8203,
+            15.0049,
+            27.3516,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 7–8"
+  },
+  "em-032-23": {
+    "document": "em-032",
+    "printedPage": 23,
+    "pdfPage": 23,
+    "image": "sources/em-032-23.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "inputs": {
+        "quote": "signals indicative of the respective voltages across the shunt capacitors (C) of the single-phase inverters 106A, 106B, and 106C and across the shunt capacitors (C) of the polyphase inverter 104 (these signals are collectively labeled Vout)",
+        "rects": [
+          [
+            71.4453,
+            76.9261,
+            15.0521,
+            2.0546
+          ],
+          [
+            50.8203,
+            78.1516,
+            35.6771,
+            2.0546
+          ],
+          [
+            50.8203,
+            79.5232,
+            35.625,
+            1.9465
+          ],
+          [
+            50.8203,
+            80.7051,
+            35.6641,
+            2.0546
+          ],
+          [
+            50.8203,
+            81.9577,
+            21.8425,
+            2.0546
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 11–12"
+  },
+  "em-032-25": {
+    "document": "em-032",
+    "printedPage": 25,
+    "pdfPage": 25,
+    "image": "sources/em-032-25.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "command": {
+        "quote": "The command signal Cmd3 (which is utilized to control the polyphase inverter 104)",
+        "rects": [
+          [
+            52.2656,
+            83.2869,
+            34.2745,
+            2.0546
+          ],
+          [
+            50.8203,
+            84.4574,
+            16.4062,
+            2.0546
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 15–16"
+  },
+  "philips-319-7": {
+    "document": "philips-319",
+    "printedPage": 7,
+    "pdfPage": 7,
+    "image": "sources/philips-319-7.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "common": {
+        "quote": "information relevant for all receivers",
+        "rects": [
+          [
+            16.3189,
+            76.7442,
+            21.3568,
+            1.9465
+          ]
+        ]
+      },
+      "amount": {
+        "quote": "the amount of the user data transmitted in the stream",
+        "rects": [
+          [
+            46.0937,
+            60.0842,
+            2.3958,
+            1.9465
+          ],
+          [
+            12.7734,
+            61.537,
+            27.2879,
+            1.5139
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 7"
+  },
+  "philips-319-8": {
+    "document": "philips-319",
+    "printedPage": 8,
+    "pdfPage": 8,
+    "image": "sources/philips-319-8.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "user": {
+        "quote": "user-stream specific settings and may be different for each user (receiver)",
+        "rects": [
+          [
+            26.5625,
+            74.3352,
+            22.1484,
+            1.9465
+          ],
+          [
+            15.6641,
+            75.6991,
+            21.2926,
+            1.9465
+          ]
+        ]
+      },
+      "sequential": {
+        "quote": "The above fields can be transmitted sequentially over the channel.",
+        "rects": [
+          [
+            18.125,
+            56.5494,
+            30.3581,
+            1.9465
+          ],
+          [
+            12.7734,
+            57.9309,
+            9.9219,
+            1.5139
+          ]
+        ]
+      },
+      "training": {
+        "quote": "A MU training field 140",
+        "rects": [
+          [
+            19.6484,
+            61.721,
+            14.1797,
+            1.9465
+          ]
+        ]
+      },
+      "after": {
+        "quote": "can happen only after the MU training field 140",
+        "rects": [
+          [
+            25.0,
+            80.6325,
+            23.4619,
+            1.9465
+          ],
+          [
+            15.7031,
+            82.0521,
+            5.2734,
+            1.5139
+          ]
+        ]
+      },
+      "streams": {
+        "quote": "The number of USERSIG fields 150 is dependent on the number of spatial streams 160 (USER1 to USERn data) in the MU-MIMO transmissions.",
+        "rects": [
+          [
+            18.0859,
+            85.834,
+            30.5859,
+            1.9465
+          ],
+          [
+            12.7344,
+            87.1255,
+            35.8008,
+            1.9465
+          ],
+          [
+            12.7344,
+            88.3472,
+            17.5781,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 8"
+  },
+  "ralink-232-11": {
+    "document": "ralink-232",
+    "printedPage": 11,
+    "pdfPage": 11,
+    "image": "sources/ralink-232-11.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "order": {
+        "quote": "Arrange the L-TF field, the L-SIG field, the first VHT-SIG field, the VHT-STF field, the at least one VHT-LTF field and the second VHT-SIG field sequentially.",
+        "rects": [
+          [
+            62.2266,
+            49.5072,
+            24.1211,
+            2.0006
+          ],
+          [
+            50.7812,
+            50.901,
+            35.8724,
+            1.8384
+          ],
+          [
+            50.8203,
+            52.068,
+            34.4531,
+            1.9465
+          ]
+        ]
+      },
+      "length": {
+        "quote": "the length information, the CRC check, or tail bits",
+        "rects": [
+          [
+            46.0937,
+            46.2187,
+            2.3958,
+            1.9465
+          ],
+          [
+            12.7734,
+            47.4774,
+            26.9531,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 11"
+  },
+  "liu-280-21": {
+    "document": "liu-280",
+    "printedPage": 21,
+    "pdfPage": 21,
+    "image": "sources/liu-280-21.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "specific": {
+        "quote": "the VHT-SIGB 80 includes information specific to a client station",
+        "rects": [
+          [
+            20.3906,
+            70.3636,
+            28.0127,
+            1.9465
+          ],
+          [
+            12.7344,
+            71.6078,
+            10.0391,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 21"
+  },
+  "liu-280-24": {
+    "document": "liu-280",
+    "printedPage": 24,
+    "pdfPage": 24,
+    "image": "sources/liu-280-24.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "verification": {
+        "quote": "so that a receiving device can check whether a scrambler seed 304 also included in the service field 300 is correct",
+        "rects": [
+          [
+            46.6016,
+            80.7085,
+            1.875,
+            1.9465
+          ],
+          [
+            12.7344,
+            82.0818,
+            35.8594,
+            1.9465
+          ],
+          [
+            12.7734,
+            83.3227,
+            28.5107,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 24"
+  },
+  "nicira-118-25": {
+    "document": "nicira-118",
+    "printedPage": 25,
+    "pdfPage": 25,
+    "image": "sources/nicira-118-25.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "exporters": {
+        "quote": "statistics relating to one logical port can come from two flow stats exporters 125 and 130 on the two separate PFEs 115 and 120",
+        "rects": [
+          [
+            33.2812,
+            28.426,
+            15.3255,
+            1.9465
+          ],
+          [
+            12.7734,
+            29.6378,
+            35.8984,
+            1.9465
+          ],
+          [
+            12.8125,
+            30.9494,
+            24.5898,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 25"
+  },
+  "wobben-910-4": {
+    "document": "wobben-910",
+    "printedPage": 4,
+    "pdfPage": 4,
+    "image": "sources/wobben-910-4.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "control": {
+        "quote": "the aircraft according to the invention has a device for automatic control of the flight attitude and/or the flight altitude.",
+        "rects": [
+          [
+            78.9844,
+            26.0032,
+            2.2396,
+            2.0006
+          ],
+          [
+            81.7187,
+            26.0032,
+            4.7461,
+            2.0006
+          ],
+          [
+            50.8594,
+            27.3521,
+            35.6752,
+            1.9465
+          ],
+          [
+            50.8203,
+            28.619,
+            27.5,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 4"
+  },
+  "wobben-910-5": {
+    "document": "wobben-910",
+    "printedPage": 5,
+    "pdfPage": 5,
+    "image": "sources/wobben-910-5.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "inverter": {
+        "quote": "Associated with each motor 10 is an inverter 14 which permits individual actuation of each motor 10.",
+        "rects": [
+          [
+            18.125,
+            45.2648,
+            30.4883,
+            2.0006
+          ],
+          [
+            12.7344,
+            46.514,
+            30.9375,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 5"
+  },
+  "spirov-357-9": {
+    "document": "spirov-357",
+    "printedPage": 9,
+    "pdfPage": 10,
+    "image": "sources/spirov-357-9.png",
+    "width": 1680,
+    "height": 2378,
+    "fragments": {
+      "hover": {
+        "quote": "The hover control system uses an XYZ sensor arrangement and associated control circuitry that dynamically determines an inertial gravitational reference for use in automatically and continuously determine the speed needed for each fan in order to keep the craft at a desired orientation.",
+        "rects": []
+      }
+    },
+    "textLayer": false
   }
 };
