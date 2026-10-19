@@ -293,7 +293,7 @@ export const caseEvidence = {
       ],
       "assessed": "18 October 2026",
       "pointsNote": "W1 is the reading of “statistics virtualization module” and W2 the treatment of the OpenVirteX record as one base; both are claim-wide points.",
-      "staticNote": "The passage cited for the shared-port computation is shown above with its citation; its source is not a public page.",
+      "staticNote": "The original page cited for the shared-port computation is shown above.",
       "selected": "1b",
       "limitations": {
         "1pre": {
@@ -310,17 +310,13 @@ export const caseEvidence = {
                 "hypervisor"
               ]
             ],
-            {
-              "reference": "R1(a)",
-              "document": "Al-Shabibi et al., OpenVirteX: Make Your Virtual SDNs Programmable",
-              "edition": "ACM HotSDN 2014, pp. 25–30 · 22 August 2014 · the publisher’s copy is not public",
-              "pageLabel": "Page 25",
-              "citation": "HotSDN 2014, p. 25, Abstract and Section 1",
-              "quotes": [
-                "We present OpenVirteX, a network virtualization platform that enables operators to create and manage virtual Software Defined Networks (vSDNs).",
-                "We present OVX as a network hypervisor that enables operators to provide this form of network virtualization to their customers."
+            [
+              "ovx-hotsdn-25",
+              [
+                "platform",
+                "hypervisor"
               ]
-            }
+            ]
           ]
         },
         "1a": {
@@ -337,27 +333,19 @@ export const caseEvidence = {
                 "request"
               ]
             ],
-            {
-              "reference": "R1(c)",
-              "document": "OpenVirteX documentation, pages Components and Operation and Subsystems",
-              "edition": "ovx.onlab.us · Wayback Machine captures of 22 November 2014",
-              "pageLabel": "Components, p. 7 of the capture",
-              "citation": "OpenVirteX documentation, Components (capture of 22 November 2014), p. 7",
-              "quotes": [
-                "flowStats : Flow table, entries keyed by tenant",
-                "portStats : port statistics keyed by port number"
+            [
+              "ovx-components-7",
+              [
+                "flowStats",
+                "portStats"
               ]
-            },
-            {
-              "reference": "R1(d)",
-              "document": "OpenVirteX source code, commit 78afebcd",
-              "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
-              "pageLabel": "OVXPortStatisticsRequest.java, lines 36–37",
-              "citation": "OpenVirteX source code, OVXPortStatisticsRequest.java, lines 36–37 (commit 78afebcd)",
-              "quotes": [
-                "public void devirtualizeStatistic(final OVXSwitch sw, final OVXStatisticsRequest msg)"
+            ],
+            [
+              "ovx-port-stats-2",
+              [
+                "devirtualize"
               ]
-            }
+            ]
           ]
         },
         "1b": {
@@ -368,16 +356,12 @@ export const caseEvidence = {
           "limit": "The weakest limitation. No reference before the critical date performs the determination inside a network hypervisor; the two-branch rule rests on the design note, the paper and the mapping OpenVirteX holds. Scored at W1.",
           "pinpoint": "R2 · Delftvisor design note · lines 372–373 · R9 · ICC 2012 · Section V, p. 5",
           "sourceViews": [
-            {
-              "reference": "R2",
-              "document": "Delftvisor design note (TU Delft)",
-              "edition": "design/design.md at commit b1226578 · public on GitHub from 14 June 2017",
-              "pageLabel": "Lines 372–373",
-              "citation": "Delftvisor, design/design.md, lines 372–373 (GitHub, commit b1226578)",
-              "quotes": [
-                "Port statistics can be tricky since on shared links the traffic caused by each slices would need to be isolated. This could be done by remembering which flows cause packets to be forwarded to a port and query their statistics instead and aggregate those."
+            [
+              "delftvisor-design-13",
+              [
+                "shared"
               ]
-            },
+            ],
             [
               "skoldstrom-5",
               [
@@ -390,26 +374,18 @@ export const caseEvidence = {
                 "shared"
               ]
             ],
-            {
-              "reference": "R1(c)",
-              "document": "OpenVirteX documentation, pages Components and Operation and Subsystems",
-              "edition": "ovx.onlab.us · Wayback Machine captures of 22 November 2014",
-              "pageLabel": "Components, p. 9 of the capture",
-              "citation": "OpenVirteX documentation, Components (capture of 22 November 2014), p. 9",
-              "quotes": [
-                "The PhysicalPort maintains the mapping between it and the virtual ports that map to it in ovxPortMap. One PhysicalPort maps to at most one OVXPort per tenant network."
+            [
+              "ovx-components-9",
+              [
+                "portMap"
               ]
-            },
-            {
-              "reference": "R1(d)",
-              "document": "OpenVirteX source code, commit 78afebcd",
-              "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
-              "pageLabel": "PhysicalPort.java, lines 172–181",
-              "citation": "OpenVirteX source code, PhysicalPort.java, lines 172–181 (commit 78afebcd)",
-              "quotes": [
-                "Gets list of virtual ports that map to this physical port for a given tenant ID. If tenant ID is null then returns all virtual ports that map to this port."
+            ],
+            [
+              "ovx-physical-port-6",
+              [
+                "virtualPorts"
               ]
-            }
+            ]
           ]
         },
         "1c": {
@@ -432,17 +408,18 @@ export const caseEvidence = {
                 "counters"
               ]
             ],
-            {
-              "reference": "R1(d)",
-              "document": "OpenVirteX source code, commit 78afebcd",
-              "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
-              "pageLabel": "OVXFlowStatisticsRequest.java, line 61, and OVXPortStatisticsRequest.java, lines 42–44",
-              "citation": "OpenVirteX source code, OVXFlowStatisticsRequest.java l. 61 and OVXPortStatisticsRequest.java ll. 42–44 (commit 78afebcd)",
-              "quotes": [
-                "List<OVXFlowStatisticsReply> reps = psw.getFlowStats(tid);",
-                "OVXPortStatisticsReply reply = p.getPhysicalPort().getParentSwitch().getPortStat(p.getPhysicalPort().getPortNumber());"
+            [
+              "ovx-flow-stats-3",
+              [
+                "reps"
               ]
-            }
+            ],
+            [
+              "ovx-port-stats-2",
+              [
+                "portStat"
+              ]
+            ]
           ]
         },
         "1c1": {
@@ -459,26 +436,18 @@ export const caseEvidence = {
                 "replier"
               ]
             ],
-            {
-              "reference": "R1(d)",
-              "document": "OpenVirteX source code, commit 78afebcd",
-              "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
-              "pageLabel": "OVXFlowStatisticsRequest.java, line 61",
-              "citation": "OpenVirteX source code, OVXFlowStatisticsRequest.java, line 61 (commit 78afebcd)",
-              "quotes": [
-                "List<OVXFlowStatisticsReply> reps = psw.getFlowStats(tid);"
+            [
+              "ovx-flow-stats-3",
+              [
+                "reps"
               ]
-            },
-            {
-              "reference": "R1(c)",
-              "document": "OpenVirteX documentation, pages Components and Operation and Subsystems",
-              "edition": "ovx.onlab.us · Wayback Machine captures of 22 November 2014",
-              "pageLabel": "Components, p. 7 of the capture",
-              "citation": "OpenVirteX documentation, Components (capture of 22 November 2014), p. 7",
-              "quotes": [
-                "flowStats : Flow table, entries keyed by tenant"
+            ],
+            [
+              "ovx-components-7",
+              [
+                "flowStats"
               ]
-            }
+            ]
           ]
         },
         "1c2": {
@@ -495,17 +464,13 @@ export const caseEvidence = {
                 "counters"
               ]
             ],
-            {
-              "reference": "R1(d)",
-              "document": "OpenVirteX source code, commit 78afebcd",
-              "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
-              "pageLabel": "OVXPortStatisticsRequest.java, lines 42–52",
-              "citation": "OpenVirteX source code, OVXPortStatisticsRequest.java, lines 42–52 (commit 78afebcd)",
-              "quotes": [
-                "OVXPortStatisticsReply reply = p.getPhysicalPort().getParentSwitch().getPortStat(p.getPhysicalPort().getPortNumber());",
-                "we index our port stats struct by physical port number (so this info is not lost) and we always rewrite the port num to the virtual port number."
+            [
+              "ovx-port-stats-2",
+              [
+                "portStat",
+                "index"
               ]
-            }
+            ]
           ]
         },
         "W1": {
@@ -1098,16 +1063,12 @@ export const caseEvidence = {
           "limit": "Literal and in plain words. The Japanese original has no public copy; the English print is quoted.",
           "pinpoint": "Morishima · JP 2001-255949 A · [0001], [0030] · English print p. 1 and p. 3",
           "sourceViews": [
-            {
-              "reference": "Morishima",
-              "document": "Morishima, JP 2001-255949 A (Toshiba)",
-              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
-              "pageLabel": "Print page 1",
-              "citation": "JP 2001-255949 A, Print page 1 (English print of the Japanese original)",
-              "quotes": [
-                "The present invention relates to a photovoltaic power generation inverter device that performs a DC-AC power conversion operation by using a plurality of solar cell assemblies as inputs."
+            [
+              "morishima-949-1",
+              [
+                "field"
               ]
-            }
+            ]
           ]
         },
         "14a": {
@@ -1118,17 +1079,13 @@ export const caseEvidence = {
           "limit": "Morishima names neither cables nor connectors; its own text settles both, the input terminals being the connectors and the wiring from the roof-mounted strings the cable. Narrow.",
           "pinpoint": "Morishima · [0028], [0030]–[0033] · English print p. 3–4",
           "sourceViews": [
-            {
-              "reference": "Morishima",
-              "document": "Morishima, JP 2001-255949 A (Toshiba)",
-              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
-              "pageLabel": "Print page 3",
-              "citation": "JP 2001-255949 A, Print page 3 (English print of the Japanese original)",
-              "quotes": [
-                "Each input terminal (33a, 33b), (33c, 33d) and (33e, 33f) are connected to the positive and negative output terminals of the solar cell strings 35, 36, 37, respectively.",
-                "three boost chopper circuits 39a, 39b, 39c (corresponding to the DC power conversion circuit of the present invention) having the same circuit configuration and provided between the output terminals (34p, 34n) in one housing."
+            [
+              "morishima-949-3",
+              [
+                "terminals",
+                "choppers"
               ]
-            }
+            ]
           ]
         },
         "14b": {
@@ -1139,16 +1096,12 @@ export const caseEvidence = {
           "limit": "Literal and in plain words.",
           "pinpoint": "Morishima · [0027], [0036] · English print p. 3–4",
           "sourceViews": [
-            {
-              "reference": "Morishima",
-              "document": "Morishima, JP 2001-255949 A (Toshiba)",
-              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
-              "pageLabel": "Print page 3",
-              "citation": "JP 2001-255949 A, Print page 3 (English print of the Japanese original)",
-              "quotes": [
-                "Although not shown, a switch for connecting the AC output of the photovoltaic power generation inverter device 21 to an AC power supply 32 which is a power system is provided."
+            [
+              "morishima-949-3",
+              [
+                "switch"
               ]
-            }
+            ]
           ]
         },
         "14c": {
@@ -1159,16 +1112,12 @@ export const caseEvidence = {
           "limit": "The owner can argue “combiner”, a word Morishima does not use; its own description, every chopper’s output joined into one output, settles it.",
           "pinpoint": "Morishima · [0028], [0030], [0035] · English print p. 3–4",
           "sourceViews": [
-            {
-              "reference": "Morishima",
-              "document": "Morishima, JP 2001-255949 A (Toshiba)",
-              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
-              "pageLabel": "Print page 3",
-              "citation": "JP 2001-255949 A, Print page 3 (English print of the Japanese original)",
-              "quotes": [
-                "Thus, the modularized DC power supply circuit 22 with multiple inputs and one output can be replaced as appropriate according to the number of solar cell strings connected to the solar power generation inverter device 21."
+            [
+              "morishima-949-3",
+              [
+                "modular"
               ]
-            }
+            ]
           ]
         },
         "14d": {
@@ -1221,16 +1170,12 @@ export const caseEvidence = {
                 "switch"
               ]
             ],
-            {
-              "reference": "Morishima",
-              "document": "Morishima, JP 2001-255949 A (Toshiba)",
-              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
-              "pageLabel": "Print page 6",
-              "citation": "JP 2001-255949 A, Print page 6 (English print of the Japanese original)",
-              "quotes": [
-                "even when the output voltage of the solar cell strings 35, 36, and 37 is entirely reduced, such as in the morning and evening or on cloudy days, the control power supply circuit 28 secures a high input voltage"
+            [
+              "morishima-949-6",
+              [
+                "secures"
               ]
-            }
+            ]
           ]
         },
         "P1": {
@@ -1249,16 +1194,12 @@ export const caseEvidence = {
                 "threshold"
               ]
             ],
-            {
-              "reference": "Morishima",
-              "document": "Morishima, JP 2001-255949 A (Toshiba)",
-              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
-              "pageLabel": "Print page 6",
-              "citation": "JP 2001-255949 A, Print page 6 (English print of the Japanese original)",
-              "quotes": [
-                "even when the output voltage of the solar cell strings 35, 36, and 37 is entirely reduced, such as in the morning and evening or on cloudy days, the control power supply circuit 28 secures a high input voltage"
+            [
+              "morishima-949-6",
+              [
+                "secures"
               ]
-            }
+            ]
           ]
         }
       }
@@ -2563,6 +2504,10 @@ export const backupGrounds = {
           "text": "The inverter, its input channels, AC output, combiner and microcontroller, as in the submitted chart.",
           "quote": "The present invention relates to a photovoltaic power generation inverter device that performs a DC-AC power conversion operation by using a plurality of solar cell assemblies as inputs.",
           "pinpoint": "Morishima · JP 2001-255949 A · [0001] · English print p. 1",
+          "pageId": "morishima-949-1",
+          "fragmentIds": [
+            "field"
+          ],
           "note": "Fornage’s power threshold gives 14d its low-power mode, as in Ground 2."
         },
         {
@@ -2581,6 +2526,10 @@ export const backupGrounds = {
           "text": "The dedicated channel under this ground.",
           "quote": "Out of which the solar cell string outputting the highest voltage is operated.",
           "pinpoint": "Morishima · [0072] · English print p. 6",
+          "pageId": "morishima-949-6",
+          "fragmentIds": [
+            "highest"
+          ],
           "note": "The diodes give the supply the highest string at low light without any act of the controller: the open point of this ground."
         },
         {
@@ -2742,8 +2691,7 @@ export const backupGrounds = {
           "pageId": "spirov-357-9",
           "fragmentIds": [
             "hover"
-          ],
-          "note": "A scanned page: the quote is shown beside it without highlights."
+          ]
         },
         {
           "id": "1b to 1e",

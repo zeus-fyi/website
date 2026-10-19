@@ -73,7 +73,9 @@ export function rowLabel(id, entry, selected) {
 
 // A source view: an original page rendered by render-source-pages.py ([pageId, [fragmentIds]]),
 // or, for a document with no public copy, an inline entry {reference, document, edition, pageLabel,
-// citation, quotes, translations?} shown as its quotes with the citation and no page.
+// citation, quotes, translations?} shown as its quotes with the citation and no page. check.py
+// fails on an inline entry: every document the site cites has a public copy, shown as its page.
+// A print of a web page (webPage) links that page, which has no PDF page to open at.
 function sourceView(c, entry) {
   if (!Array.isArray(entry)) {
     return { reference: entry.reference, document: entry.document, edition: entry.edition,
@@ -82,13 +84,13 @@ function sourceView(c, entry) {
   }
   const [pageId, fragmentIds] = entry, page = sourcePages[pageId], doc = sourceDocuments[page.document];
   return { pageId, reference: doc.reference, document: doc.title, edition: doc.edition,
-    archiveDate: doc.archiveDate, originalUrl: `${doc.url}#page=${page.pdfPage}`,
+    archiveDate: doc.archiveDate, originalUrl: doc.webPage ? doc.url : `${doc.url}#page=${page.pdfPage}`,
     printedPage: page.printedPage, pdfPage: page.pdfPage, pageCount: doc.pageCount,
     image: c.asset(page.image), width: page.width, height: page.height,
     fragments: fragmentIds.map(fragmentId => page.fragments[fragmentId]),
     ...(page.pageLabel ? { pageLabel: page.pageLabel } : {}),
     ...(doc.sourceNote ? { sourceNote: doc.sourceNote } : {}),
-    ...(page.textLayer === false ? { highlights: false } : {}) };
+    ...(doc.webPage ? { webPage: true } : {}) };
 }
 
 export const UNAVAILABLE = 'The original page is not publicly available.';
@@ -113,12 +115,11 @@ export function evidenceView(c, chart, { compact = false, suffix = '' } = {}) {
   const pageLabel = view => view.unavailable ? escape(view.citation) : `${printed(view)} · PDF page ${view.pdfPage} of ${view.pageCount}`;
   const sourceNote = view => view.unavailable ? UNAVAILABLE : view.sourceNote || `Archived ${view.archiveDate} from the manufacturer’s website.`;
   const pageNote = view => view.unavailable ? 'The quoted passage is shown with its citation. ' + UNAVAILABLE
-    : view.highlights === false ? 'Original document page. Highlights are not available for this scanned page; the quoted passage appears beside it.'
     : 'Original document page. Highlights identify the quoted passages.';
   const quotes = view => view.fragments.map(fragment => `<blockquote><p><mark>${escape(fragment.quote)}</mark></p>${fragment.translation ? `<p class="caption">${escape(fragment.translation)}</p>` : ''}</blockquote>`).join('');
   const pageImage = view => view.unavailable
     ? `<div class="source-unavailable" data-source-unavailable><p>${UNAVAILABLE}</p><p class="caption">${escape(view.citation)}</p></div>`
-    : `<div class="source-page" data-source-page><img data-source-image src="${escape(view.image)}" width="${view.width}" height="${view.height}" loading="lazy" alt="${escape(view.document)}, ${view.pageLabel ? escape(view.pageLabel) : 'printed page ' + view.printedPage}. ${view.highlights === false ? 'The cited passage appears beside the page.' : 'The cited passages are highlighted; their text appears beside the page.'}"><div class="source-highlights" data-source-highlights aria-hidden="true">${view.fragments.flatMap(fragment => fragment.rects.map(([x,y,w,h]) => `<span style="left:${x}%;top:${y}%;width:${w}%;height:${h}%"></span>`)).join('')}</div></div>`;
+    : `<div class="source-page" data-source-page><img data-source-image src="${escape(view.image)}" width="${view.width}" height="${view.height}" loading="lazy" alt="${escape(view.document)}, ${view.pageLabel ? escape(view.pageLabel) : 'printed page ' + view.printedPage}. The cited passages are highlighted; their text appears beside the page."><div class="source-highlights" data-source-highlights aria-hidden="true">${view.fragments.flatMap(fragment => fragment.rects.map(([x,y,w,h]) => `<span style="left:${x}%;top:${y}%;width:${w}%;height:${h}%"></span>`)).join('')}</div></div>`;
   const noteLink = view => view.unavailable ? `<span>${escape(view.reference)} · ${escape(view.citation)}</span>` : `<a href="${escape(view.originalUrl)}" target="_blank" rel="noopener">${view.reference} · ${view.pageLabel ? escape(view.pageLabel) : 'Original p. ' + view.printedPage}</a>`;
   return `<section class="evidence-module${compact ? ' evidence-compact' : ''}" data-evidence aria-labelledby="evidence-heading${suffix}">
     <div class="section-heading"><div><p class="eyebrow">${escape(chart.eyebrow || 'Inside a submitted claim chart')}</p><h2 id="evidence-heading${suffix}">${escape(chart.heading || 'Every limitation. Its evidence. Its limits.')}</h2></div><p class="caption">${chart.caption.map(escape).join('<br>')}</p></div>
@@ -133,8 +134,8 @@ export function evidenceView(c, chart, { compact = false, suffix = '' } = {}) {
         <div class="source-page-tabs" data-source-pages role="group" aria-label="Cited source pages" hidden></div>
         <div class="source-toolbar"><span data-page-label>${pageLabel(firstView)}</span><button type="button" data-enlarge hidden>Enlarge page</button></div>
         <div data-page-host>${pageImage(firstView)}</div>
-        <p class="caption source-image-error" data-image-error hidden>The page image could not load. Open the original PDF below to inspect the reference.</p>
-        <div class="source-reference-links"><a data-original-pdf href="${firstView.unavailable ? '' : escape(firstView.originalUrl)}" target="_blank" rel="noopener"${firstView.unavailable ? ' hidden' : ''}>Open original PDF</a><button type="button" data-toggle-highlights aria-pressed="true" hidden>Hide highlights</button></div>
+        <p class="caption source-image-error" data-image-error hidden>The page image could not load. Open the original ${firstView.webPage ? 'page' : 'PDF'} below to inspect the reference.</p>
+        <div class="source-reference-links"><a data-original-pdf href="${firstView.unavailable ? '' : escape(firstView.originalUrl)}" target="_blank" rel="noopener"${firstView.unavailable ? ' hidden' : ''}>${firstView.webPage ? 'Open original page' : 'Open original PDF'}</a><button type="button" data-toggle-highlights aria-pressed="true" hidden>Hide highlights</button></div>
         <p class="caption" data-archive-date>${escape(sourceNote(firstView))}</p>
         <p class="source-viewer-note" data-source-note>${pageNote(firstView)}</p>
       </figure>

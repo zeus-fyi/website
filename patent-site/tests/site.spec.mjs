@@ -1,8 +1,8 @@
 import {test,expect} from '@playwright/test';
 import {pages} from '../pages.mjs';
 import {caseEvidence,backupGrounds} from '../evidence.mjs';
-import {sourcePages} from '../source-pages.mjs';
-// Every case page with chart data: each chart's strip, each row's source page and its highlights.
+import {sourceDocuments,sourcePages} from '../source-pages.mjs';
+// Every case page with chart data: each chart's strip, each row's source page and a drawn highlight for each passage.
 for(const [slug,charts] of Object.entries(caseEvidence)){
   for(const width of [390,1280]){
     test(`charts of ${slug}: every row opens its source page with aligned highlights at ${width}px`,async({page})=>{
@@ -25,34 +25,43 @@ for(const [slug,charts] of Object.entries(caseEvidence)){
           await expect(tabs).toHaveCount(entry.sourceViews.length);
           for(const [viewIndex,view] of entry.sourceViews.entries()){
             if(viewIndex>0) await tabs.nth(viewIndex).click();
-            if(!Array.isArray(view)){
-              await expect(module.locator('[data-page-host] [data-source-unavailable]')).toContainText('The original page is not publicly available.');
-              await expect(module.locator('[data-page-host] [data-source-unavailable]')).toContainText(view.citation);
-              await expect(module.locator('[data-passages] mark')).toHaveCount(view.quotes.length);
-              await expect(module.locator('[data-original-pdf]')).toBeHidden();
-              await expect(module.locator('[data-enlarge]')).toBeHidden();
-              continue;
-            }
+            expect(Array.isArray(view),id+' '+view.citation+': every source view shows its original page').toBe(true);
+            await expect(module.locator('[data-page-host] [data-source-unavailable]')).toHaveCount(0);
             const [pageId,fragmentIds]=view, source=sourcePages[pageId], rects=fragmentIds.flatMap(f=>source.fragments[f].rects);
-            const image=module.locator('[data-page-host] [data-source-image]');
+            const image=module.locator('[data-page-host] [data-source-image]'), original=module.locator('[data-original-pdf]');
             expect((await image.getAttribute('src')).endsWith('/'+source.image),pageId+' image').toBe(true);
-            expect((await module.locator('[data-original-pdf]').getAttribute('href')).endsWith('#page='+source.pdfPage),pageId+' original link').toBe(true);
+            if(sourceDocuments[source.document].webPage){
+              await expect(original).toHaveAttribute('href',sourceDocuments[source.document].url);
+              await expect(original).toHaveText('Open original page');
+            }else{
+              expect((await original.getAttribute('href')).endsWith('#page='+source.pdfPage),pageId+' original link').toBe(true);
+              await expect(original).toHaveText('Open original PDF');
+            }
             await expect(module.locator('[data-passages] mark')).toHaveCount(fragmentIds.length);
             await image.scrollIntoViewIfNeeded();
             await expect(image).toBeVisible();
             await expect.poll(()=>image.evaluate(el=>el.complete&&el.naturalWidth>0),{message:pageId+' image must load'}).toBe(true);
+            for(const f of fragmentIds) expect(source.fragments[f].rects.length,pageId+' '+f+': every quoted passage is highlighted').toBeGreaterThan(0);
             await expect(module.locator('[data-page-host] [data-source-highlights] span')).toHaveCount(rects.length);
-            if(rects.length){
-              const alignment=await module.locator('[data-page-host] [data-source-page]').evaluate(el=>{
-                const image=el.querySelector('img').getBoundingClientRect();
-                return [...el.querySelectorAll('[data-source-highlights] span')].every(mark=>{
-                  const r=mark.getBoundingClientRect(),x=parseFloat(mark.style.left)/100,y=parseFloat(mark.style.top)/100;
-                  return Math.abs(r.left-image.left-x*image.width)<1 && Math.abs(r.top-image.top-y*image.height)<1 && r.right<=image.right+1 && r.bottom<=image.bottom+1;
-                });
+            await expect(module.locator('[data-toggle-highlights]')).toBeVisible();
+            const alignment=await module.locator('[data-page-host] [data-source-page]').evaluate(el=>{
+              const image=el.querySelector('img').getBoundingClientRect();
+              return [...el.querySelectorAll('[data-source-highlights] span')].every(mark=>{
+                const r=mark.getBoundingClientRect(),x=parseFloat(mark.style.left)/100,y=parseFloat(mark.style.top)/100;
+                return Math.abs(r.left-image.left-x*image.width)<1 && Math.abs(r.top-image.top-y*image.height)<1 && r.right<=image.right+1 && r.bottom<=image.bottom+1;
               });
-              expect(alignment,pageId+': highlights must stay aligned with the original page').toBe(true);
-            } else {
-              await expect(module.locator('[data-source-note]')).toContainText(entry.note||'Highlights are not available for this scanned page');
+            });
+            expect(alignment,pageId+': highlights must stay aligned with the original page').toBe(true);
+            // The page draws each passage's highlights in order: every passage has at least one drawn, visible mark.
+            await expect(module.locator('[data-page-host] [data-source-highlights]')).toBeVisible();
+            const drawn=await module.locator('[data-page-host] [data-source-highlights] span').evaluateAll(marks=>marks.map(mark=>{
+              const r=mark.getBoundingClientRect(); return r.width>=1&&r.height>=1;
+            }));
+            let offset=0;
+            for(const f of fragmentIds){
+              const count=source.fragments[f].rects.length;
+              expect(drawn.slice(offset,offset+count).some(Boolean),pageId+' '+f+': the passage has a drawn highlight').toBe(true);
+              offset+=count;
             }
           }
         }

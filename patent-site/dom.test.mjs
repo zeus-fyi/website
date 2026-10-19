@@ -6,7 +6,6 @@ import { JSDOM } from 'jsdom';
 import { cases } from './cases.mjs';
 import { caseEvidence, backupGrounds } from './evidence.mjs';
 import { sourceDocuments, sourcePages } from './source-pages.mjs';
-import { UNAVAILABLE } from './components.mjs';
 const script = await readFile(new URL('../patents/assets/site.js',import.meta.url),'utf8');
 async function open(route='') {
   const html = await readFile(new URL('../patents/'+route+'index.html',import.meta.url),'utf8');
@@ -40,28 +39,27 @@ for (const [route, charts] of chartPages) {
         entry.sourceViews.forEach((view,viewIndex)=>{
           if(viewIndex>0) tabs[viewIndex].click();
           const note=m.querySelector('[data-source-note]').textContent;
-          if(!Array.isArray(view)){
-            assert.ok(m.querySelector('[data-page-host] [data-source-unavailable]'),id+' shows the unavailable notice');
-            assert.ok(m.querySelector('[data-page-host]').textContent.includes(UNAVAILABLE),id);
-            assert.ok(m.querySelector('[data-page-host]').textContent.includes(view.citation),id);
-            assert.equal(m.querySelector('[data-page-host] [data-source-image]'),null,id);
-            assert.equal(m.querySelector('[data-original-pdf]').hidden,true,id);
-            assert.equal(m.querySelector('[data-enlarge]').hidden,true,id);
-            assert.deepEqual([...m.querySelectorAll('[data-passages] mark')].map(x=>x.textContent),view.quotes,id);
-            assert.ok(entry.summary ? note.includes('combination rationale')||entry.note : note.includes(UNAVAILABLE),id);
-            return;
-          }
+          assert.ok(Array.isArray(view),id+' '+view.citation+': every source view shows its original page, not an inline quote');
+          assert.equal(m.querySelector('[data-page-host] [data-source-unavailable]'),null,id);
           const [pageId,fragmentIds]=view, page=sourcePages[pageId], doc=sourceDocuments[page.document];
           assert.ok(m.querySelector('[data-source-image]').src.endsWith('/assets/'+page.image),pageId);
-          assert.ok(m.querySelector('[data-original-pdf]').href.endsWith('#page='+page.pdfPage),pageId);
+          const original=m.querySelector('[data-original-pdf]');
+          if(doc.webPage){
+            assert.equal(original.href,doc.url,pageId+': a print of a web page links the page itself');
+            assert.equal(original.textContent,'Open original page',pageId);
+          }else{
+            assert.ok(original.href.endsWith('#page='+page.pdfPage),pageId);
+            assert.equal(original.textContent,'Open original PDF',pageId);
+          }
           assert.equal(m.querySelector('[data-original-pdf]').hidden,false,pageId);
           assert.equal(m.querySelector('[data-page-label]').textContent,(page.pageLabel||'Printed p. '+page.printedPage)+' · PDF page '+page.pdfPage+' of '+doc.pageCount);
           assert.deepEqual([...m.querySelectorAll('[data-passages] mark')].map(x=>x.textContent),fragmentIds.map(f=>page.fragments[f].quote));
+          fragmentIds.forEach(f=>assert.ok(page.fragments[f].rects.length,pageId+' '+f+': every quoted passage is highlighted, a page without a text layer too'));
           const rects=fragmentIds.flatMap(f=>page.fragments[f].rects);
           assert.equal(m.querySelectorAll('[data-page-host] [data-source-highlights] span').length,rects.length,pageId);
+          assert.equal(m.querySelector('[data-toggle-highlights]').hidden,false,pageId);
           if(entry.note) assert.equal(note,entry.note,id);
           else if(entry.summary) assert.ok(note.includes(id+' is the researcher’s combination rationale'),id);
-          else if(page.textLayer===false) assert.ok(note.includes('Highlights are not available for this scanned page'),pageId);
           else assert.ok(note.includes('Highlights identify the quoted passages'),pageId);
           assert.equal(m.querySelector('[data-archive-date]').textContent,doc.sourceNote||'Archived '+doc.archiveDate+' from the manufacturer’s website.',pageId);
         });
@@ -106,7 +104,7 @@ test('every chart row and backup limitation points at a rendered page and its fr
     assert.ok(row.pinpoint.length>8,slug+' '+id);
     assert.ok(row.sourceViews.length>0,slug+' '+id);
     for(const view of row.sourceViews){
-      if(!Array.isArray(view)){ assert.ok(view.citation&&view.quotes.length>0,slug+' '+id); continue; }
+      assert.ok(Array.isArray(view),slug+' '+id+' '+view.citation+': an inline source view without its page');
       const [pageId,fragmentIds]=view;
       assert.ok(sourcePages[pageId],slug+' '+id+' '+pageId);
       assert.ok(fragmentIds.length>0,slug+' '+id+' '+pageId);
@@ -118,6 +116,23 @@ test('every chart row and backup limitation points at a rendered page and its fr
       assert.ok(sourcePages[limitation.pageId],limitation.pageId);
       for(const f of limitation.fragmentIds) assert.equal(sourcePages[limitation.pageId].fragments[f].quote,limitation.quote,ground.label+' '+limitation.id);
     }
+  }
+});
+// At 80ea890 the Arc Link page printed this in its HTML and the '489 page showed it on its Morishima rows.
+test('no source view on the Arc Link and ’489 pages says its original page is not publicly available',async()=>{
+  for(const slug of ['arc-link-11563655','cyboenergy-9331489']){
+    const html=await readFile(new URL('../patents/research/'+slug+'/index.html',import.meta.url),'utf8');
+    assert.equal(html.includes('not publicly available'),false,slug+' static HTML');
+    const dom=await open('research/'+slug+'/'),d=dom.window.document;
+    for(const m of d.querySelectorAll('section.evidence-module')) for(const button of m.querySelectorAll('[data-score]')){
+      button.click();
+      for(const tab of [null,...m.querySelectorAll('[data-source-pages] button')]){
+        if(tab) tab.click();
+        assert.equal(m.textContent.includes('not publicly available'),false,slug+' '+button.dataset.score);
+        assert.equal(m.querySelector('[data-source-unavailable]'),null,slug+' '+button.dataset.score);
+      }
+    }
+    dom.window.close();
   }
 });
 test('the ’488 chart: the weakest row, the combination point and the highlight toggle',async()=>{

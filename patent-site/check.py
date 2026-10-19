@@ -34,6 +34,7 @@ class Page(HTMLParser):
             self.modules[-1].append((a['data-score'], a.get('aria-pressed')))
 
 pages = {}
+views = fragments = 0  # source views and their quoted passages over every chart on every page
 for path in sorted(ROOT.rglob('*.html')):
     content = path.read_text()
     parsed = Page(path)
@@ -56,20 +57,20 @@ for path in sorted(ROOT.rglob('*.html')):
             assert band in BANDS and BANDS[band][0] <= int(score) <= BANDS[band][1], (path, row, rated)
             for view in record['views']:
                 assert view['fragments'], (path, row)
-                if view.get('unavailable'):
-                    assert view['citation'] and all(not fragment['rects'] and fragment['quote'] for fragment in view['fragments']), (path, row, 'an unavailable page keeps its quotes and citation')
-                    continue
+                views += 1
+                assert not view.get('unavailable'), (path, row, view.get('citation'), 'an inline source view without its page: render the page from its public copy')
                 assert view['pdfPage'] <= view['pageCount']
-                assert view['originalUrl'].endswith('#page=' + str(view['pdfPage']))
+                if view.get('webPage'):  # a print of a web page links the page itself
+                    assert view['originalUrl'].startswith('https://') and '#' not in view['originalUrl'], (path, row, view['originalUrl'])
+                else:
+                    assert view['originalUrl'].endswith('#page=' + str(view['pdfPage']))
                 image = (path.parent / view['image']).resolve()
                 assert image.is_relative_to(ROOT.resolve()) and image.is_file()
                 assert image.read_bytes().startswith(b'\x89PNG\r\n\x1a\n')
                 for fragment in view['fragments']:
+                    fragments += 1
                     assert fragment['quote']
-                    if view.get('highlights') is False:
-                        assert not fragment['rects'], (path, row, 'a scanned page carries no highlight')
-                    else:
-                        assert fragment['rects'], (path, row, 'a quote without its highlight')
+                    assert fragment['rects'], (path, row, 'a quote without its highlight')
                     for x, y, width, height in fragment['rects']:
                         assert 0 <= x < 100 and 0 <= y < 100
                         assert width > 0 and height > 0
@@ -93,6 +94,18 @@ for path, page in pages.items():
         if url.fragment and target.suffix == '.html':
             assert url.fragment in pages[target].ids, (path, 'missing fragment', link)
 
+# Every rendered quotation is highlighted on its page, whether located in a text layer or, on a page
+# without one, by OCR word boxes; source-pages.mjs is two JSON exports, read here without the site.
+generated = (ROOT.parent / 'patent-site/source-pages.mjs').read_text()
+marker = 'export const sourcePages = '
+source_pages = json.loads(generated[generated.index(marker) + len(marker):].rstrip().removesuffix(';'))
+for page_id, source_page in source_pages.items():
+    for fragment_id, fragment in source_page['fragments'].items():
+        assert fragment['rects'], (page_id, fragment_id, 'a quotation without its highlight'
+                                   + (' on a page without a text layer' if source_page.get('textLayer') is False else ''))
+
 assert len(pages) == 15, f'Expected 14 pages plus 404; found {len(pages)}'
 assert len(list((ROOT / 'research').glob('*/index.html'))) == 7
-print(f'Passed: {len(pages)} HTML pages, metadata, unique IDs, internal links, evidence records and brand checks.')
+print(f'Passed: {len(pages)} HTML pages, metadata, unique IDs, internal links, evidence records and brand checks; '
+      f'{len(source_pages)} source pages, every quotation highlighted; {views} source views on the pages, all rendered, '
+      f'with {fragments} quoted passages, 0 without a highlight.')
