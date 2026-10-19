@@ -1,16 +1,22 @@
 """Render cited PDF pages and locate quotation highlights in PDF coordinates.
 
-Pass a cache directory. Each document is fetched from its public URL into that
-directory unless the cached copy already matches its recorded SHA-256, and no
-asset is written for a document whose bytes do not match the record. The record
-is the case's exhibit hash where the case holds the same document. Every
-quotation is located on its page and highlighted: by PyMuPDF's text search where
-the page has a text layer, and on a scanned page without one by the words
-Tesseract reads and their boxes (locate_in_ocr_words states the matching rule).
-A quotation the script cannot place is an error, scanned page or not, and
-source-pages.mjs is not written. Requires PyMuPDF, and Tesseract with its English data for scanned pages;
-generated page images and metadata are committed with the site. The tests in
-test_render_source_pages.py run with the same Python:
+Pass a cache directory and the case root (the folder holding the case data, such
+as live-fetch). Each document in DOCUMENTS is fetched from its public URL into the
+cache directory unless the cached copy already matches its recorded SHA-256, and
+no asset is written for a document whose bytes do not match the record. The record
+is the case's exhibit hash where the case holds the same document. A document in
+HELD_COPIES (a print of a public web page, or a publisher's PDF that refuses a
+scripted download) is read instead from the case's own copy under the case root,
+which must match its exhibit's SHA-256; it is never downloaded or cached, and its
+`url` is the public page a reader opens. Every quotation is located on its page and
+highlighted: by PyMuPDF's text search where the page has a text layer (where the
+search does not join a line break the quotation crosses, by the page's words, as
+locate_in_words states), and on a scanned page without one by the words Tesseract
+reads and their boxes (locate_in_ocr_words states the matching rule). A quotation
+the script cannot place is an error, scanned page or not, and source-pages.mjs is
+not written. Requires PyMuPDF, and Tesseract with its English data for scanned
+pages; generated page images and metadata are committed with the site. The tests
+in test_render_source_pages.py run with the same Python:
 python -m unittest discover -s patent-site -p 'test_*.py'.
 """
 import csv
@@ -336,6 +342,83 @@ DOCUMENTS = {
         'sha256': '50352d684f5c2784543acaa520b6d884bb78e9878232be5e86fbbb914c568250',
         'sourceNote': PATENT_NOTE,
     },
+    # Read from the case's copies (HELD_COPIES). Arc Link: the HotSDN paper, which ACM serves free to
+    # read but refuses to a script, and the prints of the OpenVirteX and Delftvisor pages it cites.
+    # A print of a web page carries webPage: its link opens that page, which has no PDF page numbers.
+    'ovx-hotsdn': {
+        'reference': 'R1(a)',
+        'title': 'Al-Shabibi et al., OpenVirteX: Make Your Virtual SDNs Programmable',
+        'edition': 'ACM HotSDN 2014, pp. 25–30 · 22 August 2014 · Publisher’s copy',
+        'url': 'https://dl.acm.org/doi/pdf/10.1145/2620728.2620741',
+        'sha256': '1153905c6e7b4a25220a7fa45fb1d705c93441ebae5fea62e744ee7f422ab63e',
+        'sourceNote': 'The publisher’s PDF, free to read in the ACM Digital Library. Printed pages 25–30.',
+    },
+    'ovx-components': {
+        'reference': 'R1(c)',
+        'title': 'OpenVirteX documentation, pages Components and Operation and Subsystems',
+        'edition': 'ovx.onlab.us · Wayback Machine captures of 22 November 2014',
+        'url': 'https://web.archive.org/web/20141122081331/http://ovx.onlab.us/documentation/architecture/components/',
+        'sha256': '7b4105c391cbcefeac601727ff4cd472dcdc7595cc8549c93a6f2771b86b7753',
+        'sourceNote': 'Print of the Wayback Machine capture of the page Components, 22 November 2014.',
+        'webPage': True,
+    },
+    'ovx-port-stats': {
+        'reference': 'R1(d)',
+        'title': 'OpenVirteX source code, commit 78afebcd',
+        'edition': 'github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014',
+        'url': 'https://github.com/opennetworkinglab/OpenVirteX/blob/78afebcd7445b44deaba56ac4bf92b8f1d20ea71/src/main/java/net/onrc/openvirtex/messages/statistics/OVXPortStatisticsRequest.java',
+        'sha256': 'e7c549529e339d6d6ae76828e90960a08c1f5938c0f4ac3dfe19d2184368108a',
+        'sourceNote': 'Print of the file OVXPortStatisticsRequest.java on GitHub at commit 78afebcd.',
+        'webPage': True,
+    },
+    'ovx-flow-stats': {
+        'reference': 'R1(d)',
+        'title': 'OpenVirteX source code, commit 78afebcd',
+        'edition': 'github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014',
+        'url': 'https://github.com/opennetworkinglab/OpenVirteX/blob/78afebcd7445b44deaba56ac4bf92b8f1d20ea71/src/main/java/net/onrc/openvirtex/messages/statistics/OVXFlowStatisticsRequest.java',
+        'sha256': '5d0ad591eab22dc6b1035f6a646516593a76e6e616637ef7ef92bfbadd33cb78',
+        'sourceNote': 'Print of the file OVXFlowStatisticsRequest.java on GitHub at commit 78afebcd.',
+        'webPage': True,
+    },
+    'ovx-physical-port': {
+        'reference': 'R1(d)',
+        'title': 'OpenVirteX source code, commit 78afebcd',
+        'edition': 'github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014',
+        'url': 'https://github.com/opennetworkinglab/OpenVirteX/blob/78afebcd7445b44deaba56ac4bf92b8f1d20ea71/src/main/java/net/onrc/openvirtex/elements/port/PhysicalPort.java',
+        'sha256': 'c7d942a1c33710c6a14358d1a0b756be9fc9916ac49b9b92b23ce7aa06bb5498',
+        'sourceNote': 'Print of the file PhysicalPort.java on GitHub at commit 78afebcd.',
+        'webPage': True,
+    },
+    'delftvisor-design': {
+        'reference': 'R2',
+        'title': 'Delftvisor design note (TU Delft)',
+        'edition': 'design/design.md at commit b1226578 · public on GitHub from 14 June 2017',
+        'url': 'https://github.com/TUDelftNAS/Delftvisor/blob/b1226578c1822c27234b7e59084a64e53cf8f0fd/design/design.md',
+        'sha256': 'b7f446bb7c35bce9004eb6ab2bed0ba60f3237fb75eab18866e5a13da20e56c0',
+        'sourceNote': 'Print of the file design/design.md on GitHub at commit b1226578.',
+        'webPage': True,
+    },
+    # CyboEnergy '489: Morishima, the primary, quoted from the English print of its Google Patents page.
+    'morishima-949': {
+        'reference': 'Morishima',
+        'title': 'Morishima, JP 2001-255949 A (Toshiba)',
+        'edition': 'Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print',
+        'url': 'https://patents.google.com/patent/JP2001255949A/en',
+        'sha256': 'f67222a7e27fad553bc62d47ed263a07b3ae1c3cef44616728fa8c61c50f98bc',
+        'sourceNote': 'Print of the Google Patents page of JP 2001-255949 A, with Google’s English machine translation of the Japanese publication.',
+        'webPage': True,
+    },
+}
+# The case's own copies of the documents above that are not fetched: paths under the case root
+# (the second argument), each an exhibit of its case with the SHA-256 DOCUMENTS records for it.
+HELD_COPIES = {
+    'ovx-hotsdn': 'arc-link-655/pdfs/ovx-hotsdn2014.pdf',  # Arc Link E17
+    'ovx-components': 'arc-link-655/pdfs/submission/ovx-docs-components-2014-11-22.pdf',  # E9
+    'ovx-port-stats': 'arc-link-655/pdfs/submission/ovx-OVXPortStatisticsRequest.pdf',  # E1
+    'ovx-flow-stats': 'arc-link-655/pdfs/submission/ovx-OVXFlowStatisticsRequest.pdf',  # E2
+    'ovx-physical-port': 'arc-link-655/pdfs/submission/ovx-PhysicalPort.pdf',  # E5
+    'delftvisor-design': 'arc-link-655/pdfs/submission/delftvisor-design-md-b1226578.pdf',  # E12
+    'morishima-949': 'cyboenergy-us9331489/exhibits/submission/JP2001255949A-en.pdf',  # CyboEnergy E01, the print
 }
 # Printed page, PDF page (one-based), and exact source quotations. Separately
 # selectable fragments let several limitations highlight the same original page.
@@ -497,7 +580,7 @@ PAGES = [
     ('nec-050', 'Columns 15–16', 20, {
         'estimate': 'Thus, by using this encoding technique, the theoretical minimum number of bits required for signalling a contiguous resource allocation can be estimated for different bandwidths as follows (where each frequency block is assumed to be 20 MHz):',
     }),
-    # CyboEnergy '489 (the Japanese primary, Morishima, has no public copy; Müller's WO is a scan without a text layer).
+    # CyboEnergy '489 (Müller's WO is a scan without a text layer; Morishima, the primary, is at the end, from the case's copy).
     ('fornage-412', 'Columns 5–6', 12, {
         'threshold': 'At step 604, the method 600 performs calculations and checks if the input power is greater than a power threshold.',
         'microcontroller': 'those skilled in the art will realize that a microprocessor or microcontroller may also be used to generate the control signals in view of the DC current, DC voltage and AC phase.',
@@ -631,6 +714,47 @@ PAGES = [
     ('spirov-357', 9, 10, {
         'hover': 'The hover control system uses an XYZ sensor arrangement and associated control circuitry that dynamically determines an inertial gravitational reference for use in automatically and continuously determine the speed needed for each fan in order to keep the craft at a desired orientation.',
     }),
+    # Arc Link, from the case's copies. A print of a GitHub file is labelled by the file and the
+    # lines the page shows; the chart's pinpoints keep the cited lines.
+    ('ovx-hotsdn', 25, 1, {
+        'platform': 'We present OpenVirteX, a network virtualization platform that enables operators to create and manage virtual Software Defined Networks (vSDNs).',
+        'hypervisor': 'We present OVX as a network hypervisor that enables operators to provide this form of network virtualization to their customers.',
+    }),
+    ('ovx-components', 'Components, p. 7 of the capture', 7, {
+        'flowStats': 'flowStats : Flow table, entries keyed by tenant',
+        'portStats': 'portStats : port statistics keyed by port number',
+    }),
+    ('ovx-components', 'Components, p. 9 of the capture', 9, {
+        'portMap': 'The PhysicalPort maintains the mapping between it and the virtual ports that map to it in ovxPortMap. One PhysicalPort maps to at most one OVXPort per tenant network.',
+    }),
+    ('ovx-port-stats', 'OVXPortStatisticsRequest.java, lines 21–57', 2, {
+        'devirtualize': 'public void devirtualizeStatistic(final OVXSwitch sw, final OVXStatisticsRequest msg)',
+        'portStat': 'OVXPortStatisticsReply reply = p.getPhysicalPort().getParentSwitch().getPortStat(p.getPhysicalPort().getPortNumber());',
+        'index': 'we index our port stats struct by physical port number (so this info is not lost) and we always rewrite the port num to the virtual port number.',
+    }),
+    ('ovx-flow-stats', 'OVXFlowStatisticsRequest.java, lines 58–94', 3, {
+        'reps': 'List<OVXFlowStatisticsReply> reps = psw.getFlowStats(tid);',
+    }),
+    ('ovx-physical-port', 'PhysicalPort.java, lines 169–205', 6, {
+        'virtualPorts': 'Gets list of virtual ports that map to this physical port for a given tenant ID. If tenant ID is null then returns all virtual ports that map to this port.',
+    }),
+    ('delftvisor-design', 'Lines 372–373', 13, {
+        'shared': 'Port statistics can be tricky since on shared links the traffic caused by each slices would need to be isolated. This could be done by remembering which flows cause packets to be forwarded to a port and query their statistics instead and aggregate those.',
+    }),
+    # CyboEnergy '489: Morishima's English print, its pages numbered as the print's own.
+    ('morishima-949', 'Print page 1', 1, {
+        'field': 'The present invention relates to a photovoltaic power generation inverter device that performs a DC-AC power conversion operation by using a plurality of solar cell assemblies as inputs.',
+    }),
+    ('morishima-949', 'Print page 3', 3, {
+        'terminals': 'Each input terminal (33a, 33b), (33c, 33d) and (33e, 33f) are connected to the positive and negative output terminals of the solar cell strings 35, 36, 37, respectively.',
+        'choppers': 'three boost chopper circuits 39a, 39b, 39c (corresponding to the DC power conversion circuit of the present invention) having the same circuit configuration and provided between the output terminals (34p, 34n) in one housing.',
+        'switch': 'Although not shown, a switch for connecting the AC output of the photovoltaic power generation inverter device 21 to an AC power supply 32 which is a power system is provided.',
+        'modular': 'Thus, the modularized DC power supply circuit 22 with multiple inputs and one output can be replaced as appropriate according to the number of solar cell strings connected to the solar power generation inverter device 21.',
+    }),
+    ('morishima-949', 'Print page 6', 6, {
+        'secures': 'even when the output voltage of the solar cell strings 35, 36, and 37 is entirely reduced, such as in the morning and evening or on cloudy days, the control power supply circuit 28 secures a high input voltage',
+        'highest': 'Out of which the solar cell string outputting the highest voltage is operated.',
+    }),
 ]
 
 
@@ -757,6 +881,50 @@ def locate_in_ocr_words(words, quote, page_id):
     return list(lines.values())
 
 
+def locate_in_words(page, quote, page_id):
+    """Find a quotation in a page's text layer by its words, where the text search found nothing.
+
+    PyMuPDF's search does not join every line break a quotation crosses: a hyphen its
+    dehyphenation keeps ("plat-" and "form" on the next line), a reference numeral broken across
+    lines ("33" and "d"), or a line of code wrapped in a print. Here the page's words, in the text
+    layer's order, and the quotation are compared by their letters and digits only, case-folded
+    (ocr_token), so spaces, punctuation and line breaks do not count. The quotation must occur
+    exactly once on the page: none, or a second occurrence, is an error. Returns one rectangle per
+    text line the occurrence covers, the union of the boxes of the words it touches.
+    """
+    words = page.get_text('words', flags=fitz.TEXT_MEDIABOX_CLIP)  # ligatures expanded, as in the search
+    characters, owners = [], []
+    for index, word in enumerate(words):
+        token = ocr_token(word[4])
+        characters.append(token)
+        owners.extend([index] * len(token))
+    text, target = ''.join(characters), ocr_token(quote)
+    start = text.find(target) if target else -1
+    if start < 0:
+        raise ValueError(f'Quotation not found on {page_id}: {quote}')
+    if text.find(target, start + len(target)) >= 0:
+        raise ValueError(f'Quotation found at two places on {page_id}: {quote}')
+    lines = {}
+    for index in range(owners[start], owners[start + len(target) - 1] + 1):
+        x0, y0, x1, y1, _, block, line, _ = words[index]
+        box = fitz.Rect(x0, y0, x1, y1)
+        lines[block, line] = lines[block, line] | box if (block, line) in lines else box
+    return list(lines.values())
+
+
+def held_copy(case_root, key, metadata):
+    """Return the bytes of the case's own copy of a document; they must match its exhibit's SHA-256."""
+    if case_root is None:
+        raise ValueError(f'{key} is read from the case\'s copy: pass the case root as the second argument')
+    path = case_root / HELD_COPIES[key]
+    data = path.read_bytes()
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != metadata['sha256']:
+        raise ValueError(f'{key}: the case\'s copy {path} ({digest}) does not match its exhibit ({metadata["sha256"]}); nothing written')
+    print(f'Read {key} from the case\'s copy, SHA-256 verified.')
+    return data
+
+
 def fetch(cache_directory, key, metadata):
     """Return the document's bytes from the cache or its public URL; they must match the record."""
     cached = cache_directory / (key + '.pdf')
@@ -777,16 +945,18 @@ def fetch(cache_directory, key, metadata):
     return data
 
 
-def render(cache_directory):
+def render(cache_directory, case_root):
     documents = {}
     for key, metadata in DOCUMENTS.items():
-        documents[key] = fitz.open(stream=fetch(cache_directory, key, metadata), filetype='pdf')
+        data = held_copy(case_root, key, metadata) if key in HELD_COPIES else fetch(cache_directory, key, metadata)
+        documents[key] = fitz.open(stream=data, filetype='pdf')
         metadata['pageCount'] = len(documents[key])
 
     output = ROOT / 'patents/assets/sources'
     output.mkdir(parents=True, exist_ok=True)
     pages = {}
     scanned = []  # pages without a text layer, whose quotations OCR placed
+    by_words = []  # quotations the text search missed, placed by locate_in_words
     for key, printed_page, pdf_page, quotes in PAGES:
         page = documents[key][pdf_page - 1]
         page_label = printed_page if isinstance(printed_page, str) else None
@@ -804,6 +974,9 @@ def render(cache_directory):
                 quote, translation = quote  # a foreign-language passage with the researcher's translation
             if text_layer:
                 rectangles = one_rectangle_per_line(page.search_for(quote, flags=SEARCH_FLAGS))
+                if not rectangles:
+                    rectangles = locate_in_words(page, quote, page_id)
+                    by_words.append(f'{page_id} ({fragment_id})')
             else:
                 rectangles = locate_in_ocr_words(words, quote, page_id)
             if not rectangles:
@@ -838,7 +1011,11 @@ def render(cache_directory):
     print(f'Rendered {len(pages)} original pages with verified quotation coordinates.')
     for page_id in scanned:
         print(f'No text layer on {page_id}: its quotations were placed by the words Tesseract read.')
+    for placed in by_words:
+        print(f'Placed by the page\'s words, the text search having missed a line break: {placed}.')
 
 
 if __name__ == '__main__':
-    render(Path(sys.argv[1]))
+    if len(sys.argv) != 3:
+        sys.exit('Usage: render-source-pages.py <cache directory> <case root>')
+    render(Path(sys.argv[1]), Path(sys.argv[2]))

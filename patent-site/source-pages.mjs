@@ -325,6 +325,75 @@ export const sourceDocuments = {
     "sha256": "50352d684f5c2784543acaa520b6d884bb78e9878232be5e86fbbb914c568250",
     "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
     "pageCount": 7
+  },
+  "ovx-hotsdn": {
+    "reference": "R1(a)",
+    "title": "Al-Shabibi et al., OpenVirteX: Make Your Virtual SDNs Programmable",
+    "edition": "ACM HotSDN 2014, pp. 25–30 · 22 August 2014 · Publisher’s copy",
+    "url": "https://dl.acm.org/doi/pdf/10.1145/2620728.2620741",
+    "sha256": "1153905c6e7b4a25220a7fa45fb1d705c93441ebae5fea62e744ee7f422ab63e",
+    "sourceNote": "The publisher’s PDF, free to read in the ACM Digital Library. Printed pages 25–30.",
+    "pageCount": 6
+  },
+  "ovx-components": {
+    "reference": "R1(c)",
+    "title": "OpenVirteX documentation, pages Components and Operation and Subsystems",
+    "edition": "ovx.onlab.us · Wayback Machine captures of 22 November 2014",
+    "url": "https://web.archive.org/web/20141122081331/http://ovx.onlab.us/documentation/architecture/components/",
+    "sha256": "7b4105c391cbcefeac601727ff4cd472dcdc7595cc8549c93a6f2771b86b7753",
+    "sourceNote": "Print of the Wayback Machine capture of the page Components, 22 November 2014.",
+    "webPage": true,
+    "pageCount": 17
+  },
+  "ovx-port-stats": {
+    "reference": "R1(d)",
+    "title": "OpenVirteX source code, commit 78afebcd",
+    "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
+    "url": "https://github.com/opennetworkinglab/OpenVirteX/blob/78afebcd7445b44deaba56ac4bf92b8f1d20ea71/src/main/java/net/onrc/openvirtex/messages/statistics/OVXPortStatisticsRequest.java",
+    "sha256": "e7c549529e339d6d6ae76828e90960a08c1f5938c0f4ac3dfe19d2184368108a",
+    "sourceNote": "Print of the file OVXPortStatisticsRequest.java on GitHub at commit 78afebcd.",
+    "webPage": true,
+    "pageCount": 3
+  },
+  "ovx-flow-stats": {
+    "reference": "R1(d)",
+    "title": "OpenVirteX source code, commit 78afebcd",
+    "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
+    "url": "https://github.com/opennetworkinglab/OpenVirteX/blob/78afebcd7445b44deaba56ac4bf92b8f1d20ea71/src/main/java/net/onrc/openvirtex/messages/statistics/OVXFlowStatisticsRequest.java",
+    "sha256": "5d0ad591eab22dc6b1035f6a646516593a76e6e616637ef7ef92bfbadd33cb78",
+    "sourceNote": "Print of the file OVXFlowStatisticsRequest.java on GitHub at commit 78afebcd.",
+    "webPage": true,
+    "pageCount": 4
+  },
+  "ovx-physical-port": {
+    "reference": "R1(d)",
+    "title": "OpenVirteX source code, commit 78afebcd",
+    "edition": "github.com/opennetworkinglab/OpenVirteX · committed 16 May 2014 · pre-alpha 0.0.1 of 30 April 2014",
+    "url": "https://github.com/opennetworkinglab/OpenVirteX/blob/78afebcd7445b44deaba56ac4bf92b8f1d20ea71/src/main/java/net/onrc/openvirtex/elements/port/PhysicalPort.java",
+    "sha256": "c7d942a1c33710c6a14358d1a0b756be9fc9916ac49b9b92b23ce7aa06bb5498",
+    "sourceNote": "Print of the file PhysicalPort.java on GitHub at commit 78afebcd.",
+    "webPage": true,
+    "pageCount": 7
+  },
+  "delftvisor-design": {
+    "reference": "R2",
+    "title": "Delftvisor design note (TU Delft)",
+    "edition": "design/design.md at commit b1226578 · public on GitHub from 14 June 2017",
+    "url": "https://github.com/TUDelftNAS/Delftvisor/blob/b1226578c1822c27234b7e59084a64e53cf8f0fd/design/design.md",
+    "sha256": "b7f446bb7c35bce9004eb6ab2bed0ba60f3237fb75eab18866e5a13da20e56c0",
+    "sourceNote": "Print of the file design/design.md on GitHub at commit b1226578.",
+    "webPage": true,
+    "pageCount": 19
+  },
+  "morishima-949": {
+    "reference": "Morishima",
+    "title": "Morishima, JP 2001-255949 A (Toshiba)",
+    "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
+    "url": "https://patents.google.com/patent/JP2001255949A/en",
+    "sha256": "f67222a7e27fad553bc62d47ed263a07b3ae1c3cef44616728fa8c61c50f98bc",
+    "sourceNote": "Print of the Google Patents page of JP 2001-255949 A, with Google’s English machine translation of the Japanese publication.",
+    "webPage": true,
+    "pageCount": 9
   }
 };
 export const sourcePages = {
@@ -3904,5 +3973,456 @@ export const sourcePages = {
       }
     },
     "textLayer": false
+  },
+  "ovx-hotsdn-25": {
+    "document": "ovx-hotsdn",
+    "printedPage": 25,
+    "pdfPage": 1,
+    "image": "sources/ovx-hotsdn-25.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "platform": {
+        "quote": "We present OpenVirteX, a network virtualization platform that enables operators to create and manage virtual Software Defined Networks (vSDNs).",
+        "rects": [
+          [
+            8.7905,
+            28.2358,
+            39.0739,
+            1.1321
+          ],
+          [
+            8.7905,
+            29.5567,
+            39.0739,
+            1.1321
+          ],
+          [
+            8.7905,
+            30.8775,
+            21.8773,
+            1.1321
+          ]
+        ]
+      },
+      "hypervisor": {
+        "quote": "We present OVX as a network hypervisor that enables operators to provide this form of network virtualization to their customers.",
+        "rects": [
+          [
+            53.2317,
+            59.432,
+            37.6015,
+            1.1321
+          ],
+          [
+            51.7667,
+            60.7529,
+            39.0739,
+            1.1321
+          ],
+          [
+            51.7667,
+            62.0736,
+            6.9574,
+            1.1321
+          ]
+        ]
+      }
+    }
+  },
+  "ovx-components-7": {
+    "document": "ovx-components",
+    "printedPage": 7,
+    "pdfPage": 7,
+    "image": "sources/ovx-components-7.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "flowStats": {
+        "quote": "flowStats : Flow table, entries keyed by tenant",
+        "rects": [
+          [
+            75.5735,
+            21.8755,
+            10.2571,
+            1.5433
+          ],
+          [
+            13.6029,
+            23.8945,
+            26.5108,
+            1.4811
+          ]
+        ]
+      },
+      "portStats": {
+        "quote": "portStats : port statistics keyed by port number",
+        "rects": [
+          [
+            67.3108,
+            25.8527,
+            13.6885,
+            1.5433
+          ],
+          [
+            13.6029,
+            27.8718,
+            23.6473,
+            1.4811
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Components, p. 7 of the capture"
+  },
+  "ovx-components-9": {
+    "document": "ovx-components",
+    "printedPage": 9,
+    "pdfPage": 9,
+    "image": "sources/ovx-components-9.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "portMap": {
+        "quote": "The PhysicalPort maintains the mapping between it and the virtual ports that map to it in ovxPortMap. One PhysicalPort maps to at most one OVXPort per tenant network.",
+        "rects": [
+          [
+            71.2996,
+            48.3263,
+            12.9672,
+            1.4811
+          ],
+          [
+            10.1716,
+            50.315,
+            78.3276,
+            1.4811
+          ],
+          [
+            10.1716,
+            52.3036,
+            37.9544,
+            1.4811
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Components, p. 9 of the capture"
+  },
+  "ovx-port-stats-2": {
+    "document": "ovx-port-stats",
+    "printedPage": 2,
+    "pdfPage": 2,
+    "image": "sources/ovx-port-stats-2.png",
+    "width": 1680,
+    "height": 1299,
+    "fragments": {
+      "devirtualize": {
+        "quote": "public void devirtualizeStatistic(final OVXSwitch sw, final OVXStatisticsRequest msg)",
+        "rects": [
+          [
+            15.0479,
+            41.6497,
+            36.268,
+            1.7119
+          ],
+          [
+            12.3106,
+            44.1007,
+            29.4231,
+            1.7119
+          ]
+        ]
+      },
+      "portStat": {
+        "quote": "OVXPortStatisticsReply reply = p.getPhysicalPort().getParentSwitch().getPortStat(p.getPhysicalPort().getPortNumber());",
+        "rects": [
+          [
+            23.257,
+            56.3556,
+            34.2132,
+            1.7119
+          ],
+          [
+            28.7288,
+            58.8065,
+            12.3174,
+            1.7119
+          ],
+          [
+            28.7288,
+            61.2575,
+            34.2156,
+            1.7119
+          ]
+        ]
+      },
+      "index": {
+        "quote": "we index our port stats struct by physical port number (so this info is not lost) and we always rewrite the port num to the virtual port number.",
+        "rects": [
+          [
+            44.4629,
+            71.0614,
+            22.575,
+            1.7119
+          ],
+          [
+            26.6765,
+            73.5124,
+            38.3091,
+            1.7119
+          ],
+          [
+            26.6765,
+            75.9634,
+            38.9932,
+            1.7119
+          ]
+        ]
+      }
+    },
+    "pageLabel": "OVXPortStatisticsRequest.java, lines 21–57"
+  },
+  "ovx-flow-stats-3": {
+    "document": "ovx-flow-stats",
+    "printedPage": 3,
+    "pdfPage": 3,
+    "image": "sources/ovx-flow-stats-3.png",
+    "width": 1680,
+    "height": 1299,
+    "fragments": {
+      "reps": {
+        "quote": "List<OVXFlowStatisticsReply> reps = psw.getFlowStats(tid);",
+        "rects": [
+          [
+            23.257,
+            12.2379,
+            39.6909,
+            1.7119
+          ]
+        ]
+      }
+    },
+    "pageLabel": "OVXFlowStatisticsRequest.java, lines 58–94"
+  },
+  "ovx-physical-port-6": {
+    "document": "ovx-physical-port",
+    "printedPage": 6,
+    "pdfPage": 6,
+    "image": "sources/ovx-physical-port-6.png",
+    "width": 1680,
+    "height": 1299,
+    "fragments": {
+      "virtualPorts": {
+        "quote": "Gets list of virtual ports that map to this physical port for a given tenant ID. If tenant ID is null then returns all virtual ports that map to this port.",
+        "rects": [
+          [
+            17.0992,
+            14.6889,
+            47.2023,
+            1.7119
+          ],
+          [
+            15.7311,
+            17.1399,
+            49.9386,
+            1.7119
+          ],
+          [
+            15.7311,
+            19.5908,
+            10.2614,
+            1.7119
+          ]
+        ]
+      }
+    },
+    "pageLabel": "PhysicalPort.java, lines 169–205"
+  },
+  "delftvisor-design-13": {
+    "document": "delftvisor-design",
+    "printedPage": 13,
+    "pdfPage": 13,
+    "image": "sources/delftvisor-design-13.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "shared": {
+        "quote": "Port statistics can be tricky since on shared links the traffic caused by each slices would need to be isolated. This could be done by remembering which flows cause packets to be forwarded to a port and query their statistics instead and aggregate those.",
+        "rects": [
+          [
+            78.0714,
+            69.2006,
+            12.2129,
+            1.8096
+          ],
+          [
+            8.5784,
+            71.4733,
+            75.4312,
+            1.8096
+          ],
+          [
+            8.5784,
+            73.746,
+            82.6301,
+            1.8096
+          ],
+          [
+            8.5784,
+            76.0187,
+            52.5948,
+            1.8096
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Lines 372–373"
+  },
+  "morishima-949-1": {
+    "document": "morishima-949",
+    "printedPage": 1,
+    "pdfPage": 1,
+    "image": "sources/morishima-949-1.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "field": {
+        "quote": "The present invention relates to a photovoltaic power generation inverter device that performs a DC-AC power conversion operation by using a plurality of solar cell assemblies as inputs.",
+        "rects": [
+          [
+            34.1773,
+            82.6345,
+            51.4763,
+            0.856
+          ],
+          [
+            6.1683,
+            83.8972,
+            35.206,
+            0.856
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Print page 1"
+  },
+  "morishima-949-3": {
+    "document": "morishima-949",
+    "printedPage": 3,
+    "pdfPage": 3,
+    "image": "sources/morishima-949-3.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "terminals": {
+        "quote": "Each input terminal (33a, 33b), (33c, 33d) and (33e, 33f) are connected to the positive and negative output terminals of the solar cell strings 35, 36, 37, respectively.",
+        "rects": [
+          [
+            26.3553,
+            67.0411,
+            18.389,
+            0.856
+          ],
+          [
+            6.1683,
+            68.3037,
+            58.1255,
+            0.856
+          ]
+        ]
+      },
+      "choppers": {
+        "quote": "three boost chopper circuits 39a, 39b, 39c (corresponding to the DC power conversion circuit of the present invention) having the same circuit configuration and provided between the output terminals (34p, 34n) in one housing.",
+        "rects": [
+          [
+            9.2078,
+            82.5714,
+            75.0673,
+            0.856
+          ],
+          [
+            6.1683,
+            83.834,
+            30.6195,
+            0.856
+          ]
+        ]
+      },
+      "switch": {
+        "quote": "Although not shown, a switch for connecting the AC output of the photovoltaic power generation inverter device 21 to an AC power supply 32 which is a power system is provided.",
+        "rects": [
+          [
+            12.1006,
+            61.1699,
+            71.087,
+            0.856
+          ],
+          [
+            6.1683,
+            62.4325,
+            12.3181,
+            0.856
+          ]
+        ]
+      },
+      "modular": {
+        "quote": "Thus, the modularized DC power supply circuit 22 with multiple inputs and one output can be replaced as appropriate according to the number of solar cell strings connected to the solar power generation inverter device 21.",
+        "rects": [
+          [
+            53.4848,
+            83.834,
+            29.576,
+            0.856
+          ],
+          [
+            6.1683,
+            85.0967,
+            74.3374,
+            0.856
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Print page 3"
+  },
+  "morishima-949-6": {
+    "document": "morishima-949",
+    "printedPage": 6,
+    "pdfPage": 6,
+    "image": "sources/morishima-949-6.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "secures": {
+        "quote": "even when the output voltage of the solar cell strings 35, 36, and 37 is entirely reduced, such as in the morning and evening or on cloudy days, the control power supply circuit 28 secures a high input voltage",
+        "rects": [
+          [
+            46.7964,
+            61.1699,
+            36.4169,
+            0.856
+          ],
+          [
+            6.1683,
+            62.4325,
+            59.6646,
+            0.856
+          ]
+        ]
+      },
+      "highest": {
+        "quote": "Out of which the solar cell string outputting the highest voltage is operated.",
+        "rects": [
+          [
+            6.1683,
+            61.1699,
+            35.3289,
+            0.856
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Print page 6"
   }
 };

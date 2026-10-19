@@ -1,10 +1,12 @@
-"""Locating a quotation on a page without a text layer (render-source-pages.py's OCR path).
+"""Locating a quotation on a page (render-source-pages.py's OCR path and its word fallback) and reading a case copy.
 
 Run with the Python that runs the renderer (PyMuPDF and Tesseract installed):
 python -m unittest discover -s patent-site -p 'test_*.py'
 """
+import hashlib
 import importlib.util
 from pathlib import Path
+import tempfile
 import unittest
 
 import fitz
@@ -46,6 +48,42 @@ class OcrLocator(unittest.TestCase):
         with self.assertRaises(ValueError) as raised:
             renderer.locate_in_ocr_words(renderer.ocr_words(page), 'The hover control system uses an XYZ sensor arrangement.', 'test-1')
         self.assertTrue(str(raised.exception).startswith('Quotation not found by OCR on test-1'))
+
+
+class TextLayerLocator(unittest.TestCase):
+    def test_places_a_quotation_the_text_search_misses_at_a_hyphenated_line_break(self):
+        document = fitz.open()
+        page = document.new_page(width=595, height=842)
+        page.insert_text((60, 120), 'OpenVirteX is a network hypervisor that can create multiple vir-\ntual and programmable networks on top of a single physical one.', fontsize=11)
+        quote = 'create multiple virtual and programmable networks'
+        self.assertEqual(page.search_for(quote, flags=fitz.TEXT_DEHYPHENATE), [])
+        rectangles = renderer.locate_in_words(page, quote, 'test-1')
+        self.assertEqual(len(rectangles), 2)
+        first, second = rectangles
+        self.assertLess(first.y1, second.y0 + 1)
+        self.assertGreater(first.x0, 200)  # starts at "create", not at the start of the line
+
+    def test_raises_when_a_quotation_is_not_in_the_page_words(self):
+        document = fitz.open()
+        page = document.new_page(width=595, height=842)
+        page.insert_text((60, 120), 'OpenVirteX is a network hypervisor.', fontsize=11)
+        with self.assertRaises(ValueError) as raised:
+            renderer.locate_in_words(page, 'a slicing proxy', 'test-1')
+        self.assertTrue(str(raised.exception).startswith('Quotation not found on test-1'))
+
+
+class HeldCopy(unittest.TestCase):
+    def test_refuses_a_case_copy_whose_bytes_do_not_match_the_exhibit(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = root / renderer.HELD_COPIES['ovx-hotsdn']
+            path.parent.mkdir(parents=True)
+            path.write_bytes(b'%PDF-1.4 not the exhibit')
+            with self.assertRaises(ValueError) as raised:
+                renderer.held_copy(root, 'ovx-hotsdn', renderer.DOCUMENTS['ovx-hotsdn'])
+            self.assertIn('does not match its exhibit', str(raised.exception))
+            metadata = dict(renderer.DOCUMENTS['ovx-hotsdn'], sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+            self.assertEqual(renderer.held_copy(root, 'ovx-hotsdn', metadata), b'%PDF-1.4 not the exhibit')
 
 
 if __name__ == '__main__':

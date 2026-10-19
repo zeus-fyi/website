@@ -64,6 +64,8 @@ document.querySelectorAll('[data-evidence]').forEach(function (module) {
     module.querySelector('[data-source-kind]').textContent = 'Original reference · ' + view.reference;
     var original = module.querySelector('[data-original-pdf]');
     original.hidden = Boolean(view.unavailable); original.href = view.unavailable ? '' : view.originalUrl;
+    original.textContent = view.webPage ? 'Open original page' : 'Open original PDF';
+    imageError.textContent = 'The page image could not load. Open the original ' + (view.webPage ? 'page' : 'PDF') + ' below to inspect the reference.';
     enlarge.hidden = Boolean(view.unavailable);
     module.querySelector('[data-toggle-highlights]').hidden = Boolean(view.unavailable);
     module.querySelector('[data-archive-date]').textContent = view.unavailable ? UNAVAILABLE : view.sourceNote || ('Archived ' + view.archiveDate + ' from the manufacturer’s website.');
@@ -124,7 +126,9 @@ document.querySelectorAll('[data-evidence]').forEach(function (module) {
       return;
     }
     module.querySelector('[data-dialog-title]').textContent = currentView.reference + ' · ' + currentView.document + ' · ' + (currentView.pageLabel || 'p. ' + currentView.printedPage);
-    module.querySelector('[data-dialog-original]').href = currentView.originalUrl;
+    var dialogOriginal = module.querySelector('[data-dialog-original]');
+    dialogOriginal.href = currentView.originalUrl;
+    dialogOriginal.textContent = currentView.webPage ? 'Open original page' : 'Open original PDF';
     var host = module.querySelector('[data-dialog-page]');
     host.textContent = '';
     var page = makePage(currentView);
