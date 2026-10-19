@@ -6,6 +6,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent / 'patents'
+BANDS = {'A': (90, 100), 'B': (75, 89), 'C': (45, 74), 'D': (20, 44), 'E': (0, 19)}  # the band scale's score ranges
 
 class Page(HTMLParser):
     def __init__(self, path):
@@ -13,6 +14,7 @@ class Page(HTMLParser):
         self.path, self.ids, self.links, self.h1 = path, set(), [], 0
         self.title = self.description = self.canonical = False
         self.data = None
+        self.scores = []  # (id, aria-pressed) of each strip button, in page order
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -26,6 +28,8 @@ class Page(HTMLParser):
         for key in ('src', 'href'):
             if key in a:
                 self.links.append(a[key])
+        if tag == 'button' and 'data-score' in a:
+            self.scores.append((a['data-score'], a.get('aria-pressed')))
 
 pages = {}
 for path in sorted(ROOT.rglob('*.html')):
@@ -38,10 +42,15 @@ for path in sorted(ROOT.rglob('*.html')):
     data = re.search(r'<script type="application/json" data-evidence-data>(.*?)</script>', content, re.S)
     if data:
         evidence = json.loads(data[1])
-        assert len(evidence) == 9 and evidence['P2']['summary'] is True
-        assert 'C 50' in evidence['16c2']['label']
-        for record in evidence.values():
-            assert record.get('views') and record.get('limit')
+        assert [row for row, _ in parsed.scores] == list(evidence), (path, 'strip rows differ from the records')
+        pressed = [row for row, state in parsed.scores if state == 'true']
+        assert len(pressed) == 1 and evidence[pressed[0]]['label'].endswith(' · Weakest'), (path, 'one selected row, the weakest')
+        for row, record in evidence.items():
+            assert record.get('views') and record.get('limit') and record.get('mapping') and record.get('pinpoint'), (path, row)
+            kind, rated = record['label'].split(' · ')[:2]
+            assert kind.endswith(' ' + row) and kind.startswith('Claim-wide point' if record['summary'] else ('Preamble' if row.endswith('pre') else 'Limitation')), (path, row)
+            band, score = rated.split(' ')
+            assert band in BANDS and BANDS[band][0] <= int(score) <= BANDS[band][1], (path, row, rated)
             for view in record['views']:
                 assert view['fragments'] and view['pdfPage'] <= view['pageCount']
                 assert view['originalUrl'].endswith('#page=' + str(view['pdfPage']))
@@ -49,7 +58,11 @@ for path in sorted(ROOT.rglob('*.html')):
                 assert image.is_relative_to(ROOT.resolve()) and image.is_file()
                 assert image.read_bytes().startswith(b'\x89PNG\r\n\x1a\n')
                 for fragment in view['fragments']:
-                    assert fragment['quote'] and fragment['rects']
+                    assert fragment['quote']
+                    if view.get('highlights') is False:
+                        assert not fragment['rects'], (path, row, 'a scanned page carries no highlight')
+                    else:
+                        assert fragment['rects'], (path, row, 'a quote without its highlight')
                     for x, y, width, height in fragment['rects']:
                         assert 0 <= x < 100 and 0 <= y < 100
                         assert width > 0 and height > 0

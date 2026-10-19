@@ -1,5 +1,4 @@
 import path from 'node:path';
-import { evidence } from './evidence.mjs';
 import { sourceDocuments, sourcePages } from './source-pages.mjs';
 
 export const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
@@ -60,33 +59,56 @@ export function caseCard(c, item) {
   return `<article class="case-card"><p class="eyebrow">${escape(item.topic)}</p><h3><a href="${c.url('research/' + item.slug)}">${escape(item.title)}</a></h3><p class="case-meta">${escape(item.owner)} · ${escape(item.patent)} · Claim ${item.claim}</p><p>${escape(item.summary)}</p><a class="text-link" href="${c.url('research/' + item.slug)}">Read the research example</a></article>`;
 }
 
-export function evidenceView(c, { compact = false } = {}) {
-  const records = Object.fromEntries(Object.entries(evidence).map(([id, entry]) => [id, {
-    label: entry.label, title: entry.title, mapping: entry.mapping, limit: entry.limit,
+// The strip shows nine columns on a wide screen; a chart with more rows balances them over as
+// few rows as nine columns allow, one with fewer fills the width.
+export function stripColumns(count) {
+  return count > 9 ? Math.ceil(count / Math.ceil(count / 9)) : count;
+}
+
+// The label of a row: its kind, its id and its rating, "Weakest" on the selected row.
+export function rowLabel(id, entry, selected) {
+  const kind = entry.summary ? 'Claim-wide point' : id.endsWith('pre') ? 'Preamble' : 'Limitation';
+  return `${kind} ${id} · ${entry.rating}${id === selected ? ' · Weakest' : ''}`;
+}
+
+export function evidenceView(c, chart, { compact = false } = {}) {
+  const records = Object.fromEntries(Object.entries(chart.limitations).map(([id, entry]) => [id, {
+    label: rowLabel(id, entry, chart.selected), title: entry.title, mapping: entry.mapping, limit: entry.limit,
     pinpoint: entry.pinpoint, summary: Boolean(entry.summary),
+    ...(entry.note ? { note: entry.note } : {}),
     views: entry.sourceViews.map(([pageId, fragmentIds]) => {
       const page = sourcePages[pageId], doc = sourceDocuments[page.document];
       return { pageId, reference: doc.reference, document: doc.title, edition: doc.edition,
         archiveDate: doc.archiveDate, originalUrl: `${doc.url}#page=${page.pdfPage}`,
         printedPage: page.printedPage, pdfPage: page.pdfPage, pageCount: doc.pageCount,
         image: c.asset(page.image), width: page.width, height: page.height,
-        fragments: fragmentIds.map(fragmentId => page.fragments[fragmentId]) };
+        fragments: fragmentIds.map(fragmentId => page.fragments[fragmentId]),
+        ...(page.pageLabel ? { pageLabel: page.pageLabel } : {}),
+        ...(doc.sourceNote ? { sourceNote: doc.sourceNote } : {}),
+        ...(page.textLayer === false ? { highlights: false } : {}) };
     })
   }]));
-  const selected = records['16c2'], firstView = selected.views[0];
-  const scores = [['1pre','A',97,'Preamble'],['16a','A',95,'Monitoring'],['16b','A',97,'LED control'],['16c1','B',75,'Working'],['16c2','C',50,'Warnings'],['16c3','B',75,'Inverter error'],['16c4','B',75,'Grid error'],['16c5','B',75,'Off'],['P2','B',78,'Combination']];
-  const scoreButtons = scores.map(([id, grade, score, label]) => `<button type="button" class="score grade-${grade.toLowerCase()}" data-score="${id}" aria-pressed="${id === '16c2'}" aria-controls="evidence-detail" disabled><span>${id}</span><strong>${grade} <b>${score}</b></strong><small>${label}</small></button>`).join('');
-  const pageLabel = view => `Printed p. ${view.printedPage} · PDF page ${view.pdfPage} of ${view.pageCount}`;
+  const selected = records[chart.selected], firstView = selected.views[0];
+  const scores = Object.entries(chart.limitations).map(([id, entry]) => {
+    const [grade, score] = entry.rating.split(' ');
+    return [id, grade, Number(score), entry.short];
+  });
+  const scoreButtons = scores.map(([id, grade, score, label]) => `<button type="button" class="score grade-${grade.toLowerCase()}" data-score="${id}" aria-pressed="${id === chart.selected}" aria-controls="evidence-detail" disabled><span>${id}</span><strong>${grade} <b>${score}</b></strong><small>${escape(label)}</small></button>`).join('');
+  const columns = stripColumns(scores.length);
+  const printed = view => view.pageLabel || `Printed p. ${view.printedPage}`;
+  const pageLabel = view => `${printed(view)} · PDF page ${view.pdfPage} of ${view.pageCount}`;
+  const sourceNote = view => view.sourceNote || `Archived ${view.archiveDate} from the manufacturer’s website.`;
+  const pageNote = view => view.highlights === false ? 'Original document page. Highlights are not available for this scanned page; the quoted passage appears beside it.' : 'Original document page. Highlights identify the quoted passages.';
   const quotes = view => view.fragments.map(fragment => `<blockquote><p><mark>${escape(fragment.quote)}</mark></p></blockquote>`).join('');
-  const pageImage = view => `<div class="source-page" data-source-page><img data-source-image src="${escape(view.image)}" width="${view.width}" height="${view.height}" loading="lazy" alt="${escape(view.document)}, printed page ${view.printedPage}. The cited passages are highlighted; their text appears beside the page."><div class="source-highlights" data-source-highlights aria-hidden="true">${view.fragments.flatMap(fragment => fragment.rects.map(([x,y,w,h]) => `<span style="left:${x}%;top:${y}%;width:${w}%;height:${h}%"></span>`)).join('')}</div></div>`;
+  const pageImage = view => `<div class="source-page" data-source-page><img data-source-image src="${escape(view.image)}" width="${view.width}" height="${view.height}" loading="lazy" alt="${escape(view.document)}, ${view.pageLabel ? escape(view.pageLabel) : 'printed page ' + view.printedPage}. ${view.highlights === false ? 'The cited passage appears beside the page.' : 'The cited passages are highlighted; their text appears beside the page.'}"><div class="source-highlights" data-source-highlights aria-hidden="true">${view.fragments.flatMap(fragment => fragment.rects.map(([x,y,w,h]) => `<span style="left:${x}%;top:${y}%;width:${w}%;height:${h}%"></span>`)).join('')}</div></div>`;
   return `<section class="evidence-module${compact ? ' evidence-compact' : ''}" data-evidence aria-labelledby="evidence-heading">
-    <div class="section-heading"><div><p class="eyebrow">Inside a submitted claim chart</p><h2 id="evidence-heading">Every limitation. Its evidence. Its limits.</h2></div><p class="caption">CyboEnergy · US 9,331,488 B2<br>Claim 16 · Ground 2</p></div>
+    <div class="section-heading"><div><p class="eyebrow">Inside a submitted claim chart</p><h2 id="evidence-heading">Every limitation. Its evidence. Its limits.</h2></div><p class="caption">${chart.caption.map(escape).join('<br>')}</p></div>
     <p class="evidence-instruction">Select a limitation to inspect the original reference page and its highlighted evidence.</p>
-    <div class="score-strip" role="group" aria-label="Claim limitation assessments">${scoreButtons}</div>
+    <div class="score-strip" role="group" aria-label="Claim limitation assessments"${columns === 9 ? '' : ` style="--strip-columns:${columns}"`}>${scoreButtons}</div>
     <div class="score-legend"><span>A · Strong · 90–100</span><span>B · Strong combination · 75–89</span><span>C · Arguable · 45–74</span><span>D · Thin · 20–44</span><span>E · Weak · 0–19</span></div>
     <p class="visually-hidden" role="status" data-evidence-status></p>
     <div id="evidence-detail" class="evidence-spread">
-      <div class="evidence-reading"><p class="eyebrow" data-field="label">${selected.label}</p><h3 data-field="title">${selected.title}</h3><p data-field="mapping">${selected.mapping}</p><div class="source-quotation"><p class="eyebrow">Passages on the original page</p><div data-passages>${quotes(firstView)}</div><p class="caption" data-quote-reference>${firstView.reference} · ${firstView.document} · Printed p. ${firstView.printedPage}</p></div><div class="reading-note"><p class="eyebrow">What the score reflects</p><p data-field="limit">${selected.limit}</p></div><p class="caption" data-field="pinpoint">${selected.pinpoint}</p></div>
+      <div class="evidence-reading"><p class="eyebrow" data-field="label">${selected.label}</p><h3 data-field="title">${selected.title}</h3><p data-field="mapping">${selected.mapping}</p><div class="source-quotation"><p class="eyebrow">Passages on the original page</p><div data-passages>${quotes(firstView)}</div><p class="caption" data-quote-reference>${firstView.reference} · ${firstView.document} · ${printed(firstView)}</p></div><div class="reading-note"><p class="eyebrow">What the score reflects</p><p data-field="limit">${selected.limit}</p></div><p class="caption" data-field="pinpoint">${selected.pinpoint}</p></div>
       <figure class="source-viewer">
         <figcaption><p class="eyebrow" data-source-kind>Original reference · ${firstView.reference}</p><h3 data-document-title>${firstView.document}</h3><p class="caption" data-document-edition>${firstView.edition}</p></figcaption>
         <div class="source-page-tabs" data-source-pages role="group" aria-label="Cited source pages" hidden></div>
@@ -94,13 +116,13 @@ export function evidenceView(c, { compact = false } = {}) {
         <div data-page-host>${pageImage(firstView)}</div>
         <p class="caption source-image-error" data-image-error hidden>The page image could not load. Open the original PDF below to inspect the reference.</p>
         <div class="source-reference-links"><a data-original-pdf href="${escape(firstView.originalUrl)}" target="_blank" rel="noopener">Open original PDF</a><button type="button" data-toggle-highlights aria-pressed="true" hidden>Hide highlights</button></div>
-        <p class="caption" data-archive-date>Archived ${firstView.archiveDate} from the manufacturer’s website.</p>
-        <p class="source-viewer-note" data-source-note>Original document page. Highlights identify the quoted passages.</p>
+        <p class="caption" data-archive-date>${escape(sourceNote(firstView))}</p>
+        <p class="source-viewer-note" data-source-note>${pageNote(firstView)}</p>
       </figure>
     </div>
-    <p class="caption score-context">Recorded assessment: 15 October 2026. Scores assess the evidence for this ground; they are not probabilities of invalidity. P2 is the reason to combine, a claim-wide point.</p>
-    <noscript><p>The original warning-state reference page is shown above. ${compact ? 'Open the full case example for all limitation notes and source links.' : 'All limitation notes and source links are available below without JavaScript.'}</p></noscript>
-    ${compact ? '' : `<details class="reading-details"><summary>Read all limitation notes</summary><div class="all-notes">${scores.map(([id]) => `<article><h3>${escape(records[id].label)}</h3><p>${escape(records[id].mapping)}</p><p>${escape(records[id].limit)}</p><p class="caption">${escape(records[id].pinpoint)}</p><p class="note-source-links">${records[id].views.map(view => `<a href="${escape(view.originalUrl)}" target="_blank" rel="noopener">${view.reference} · Original p. ${view.printedPage}</a>`).join(' ')}</p></article>`).join('')}</div></details>`}
+    <p class="caption score-context">Recorded assessment: ${escape(chart.assessed)}. Scores assess the evidence for this ground; they are not probabilities of invalidity.${chart.pointsNote ? ' ' + escape(chart.pointsNote) : ''}</p>
+    <noscript><p>${escape(chart.staticNote)} ${compact ? 'Open the full case example for all limitation notes and source links.' : 'All limitation notes and source links are available below without JavaScript.'}</p></noscript>
+    ${compact ? '' : `<details class="reading-details"><summary>Read all limitation notes</summary><div class="all-notes">${scores.map(([id]) => `<article><h3>${escape(records[id].label)}</h3><p>${escape(records[id].mapping)}</p><p>${escape(records[id].limit)}</p><p class="caption">${escape(records[id].pinpoint)}</p><p class="note-source-links">${records[id].views.map(view => `<a href="${escape(view.originalUrl)}" target="_blank" rel="noopener">${view.reference} · ${view.pageLabel ? escape(view.pageLabel) : 'Original p. ' + view.printedPage}</a>`).join(' ')}</p></article>`).join('')}</div></details>`}
     <dialog class="source-dialog" aria-labelledby="source-dialog-title" data-source-dialog><header><div><p class="eyebrow">Original reference page</p><h2 id="source-dialog-title" data-dialog-title></h2></div><button type="button" data-close-dialog>Close</button></header><div class="dialog-toolbar"><a data-dialog-original target="_blank" rel="noopener">Open original PDF</a><button type="button" data-dialog-zoom aria-pressed="false">Zoom in</button><button type="button" data-dialog-highlights aria-pressed="true">Hide highlights</button></div><p class="caption dialog-instruction">Zoom in to read the page; scroll to inspect the highlighted passages.</p><div class="document-scroll" data-dialog-scroll tabindex="0" aria-label="Scrollable original document page"><div data-dialog-page></div></div></dialog>
     <script type="application/json" data-evidence-data>${JSON.stringify(records).replaceAll('<','\\u003c')}</script>
   </section>`;

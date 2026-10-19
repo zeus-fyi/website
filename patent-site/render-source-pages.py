@@ -1,18 +1,25 @@
 """Render cited PDF pages and locate quotation highlights in PDF coordinates.
 
-Pass a directory containing sma.pdf and sunways.pdf from the public archive URLs
-below. Originals must match their recorded SHA-256 before any assets are written.
+Pass a cache directory. Each document is fetched from its public URL into that
+directory unless the cached copy already matches its recorded SHA-256, and no
+asset is written for a document whose bytes do not match the record. The record
+is the case's exhibit hash where the case holds the same document. A quotation
+the script cannot find on its page is an error; the only exception is a scanned
+page with no text layer, which is rendered without highlights and marked so.
 Requires PyMuPDF; generated page images and metadata are committed with the site.
 """
 import hashlib
 import json
 from pathlib import Path
 import sys
+import urllib.request
 
 import fitz
 
 ROOT = Path(__file__).resolve().parent.parent
 IMAGE_WIDTH = 1680  # Sharp at 2x density in the page viewer, with room to enlarge.
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36'
+PATENT_NOTE = 'Public copy of the patent document as published by its patent office; served by Google Patents.'
 DOCUMENTS = {
     'sma': {
         'reference': 'R1',
@@ -33,6 +40,8 @@ DOCUMENTS = {
 }
 # Printed page, PDF page (one-based), and exact source quotations. Separately
 # selectable fragments let several limitations highlight the same original page.
+# A printed page given as text (such as "Columns 5–6") is the page's label where
+# the document prints no page number of its own; the page id then uses the PDF page.
 PAGES = [
     ('sma', 13, 13, {
         'tracker': 'Since each individual input has its own MPP tracker, the strings may differ in respect to the type of modules used and their alignment.',
@@ -64,25 +73,49 @@ PAGES = [
 ]
 
 
-def render(pdf_directory):
+def fetch(cache_directory, key, metadata):
+    """Return the document's bytes from the cache or its public URL; they must match the record."""
+    cached = cache_directory / (key + '.pdf')
+    if cached.is_file():
+        data = cached.read_bytes()
+        if hashlib.sha256(data).hexdigest() == metadata['sha256']:
+            return data
+        print(f'Cached {key}.pdf does not match its record; fetching again.')
+    request = urllib.request.Request(metadata['url'], headers={'User-Agent': USER_AGENT})
+    with urllib.request.urlopen(request, timeout=120) as response:
+        data = response.read()
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != metadata['sha256']:
+        raise ValueError(f'{key}: the public copy ({digest}) does not match the recorded edition ({metadata["sha256"]}); nothing written')
+    cache_directory.mkdir(parents=True, exist_ok=True)
+    cached.write_bytes(data)
+    print(f'Fetched {key}.pdf ({len(data)} bytes), SHA-256 verified.')
+    return data
+
+
+def render(cache_directory):
     documents = {}
     for key, metadata in DOCUMENTS.items():
-        data = (pdf_directory / (key + '.pdf')).read_bytes()
-        if hashlib.sha256(data).hexdigest() != metadata['sha256']:
-            raise ValueError('Original PDF does not match the cited edition: ' + key)
-        documents[key] = fitz.open(stream=data, filetype='pdf')
+        documents[key] = fitz.open(stream=fetch(cache_directory, key, metadata), filetype='pdf')
         metadata['pageCount'] = len(documents[key])
 
     output = ROOT / 'patents/assets/sources'
     output.mkdir(parents=True, exist_ok=True)
     pages = {}
+    scanned = []
     for key, printed_page, pdf_page, quotes in PAGES:
         page = documents[key][pdf_page - 1]
+        page_label = printed_page if isinstance(printed_page, str) else None
+        if page_label:
+            printed_page = pdf_page
         page_id = f'{key}-{printed_page}'
+        if page_id in pages:
+            raise ValueError('Page listed twice: ' + page_id)
+        text_layer = bool(page.get_text().strip())
         fragments = {}
         for fragment_id, quote in quotes.items():
-            rectangles = page.search_for(quote)
-            if not rectangles:
+            rectangles = page.search_for(quote) if text_layer else []
+            if text_layer and not rectangles:
                 raise ValueError(f'Quotation not found on {page_id}: {quote}')
             fragments[fragment_id] = {
                 'quote': quote,
@@ -100,12 +133,19 @@ def render(pdf_directory):
             'image': 'sources/' + page_id + '.png',
             'width': image.width, 'height': image.height, 'fragments': fragments,
         }
+        if page_label:
+            pages[page_id]['pageLabel'] = page_label
+        if not text_layer:
+            pages[page_id]['textLayer'] = False
+            scanned.append(page_id)
 
     target = ROOT / 'patent-site/source-pages.mjs'
     target.write_text('// Original page images and text coordinates; generated by render-source-pages.py.\n'
                       + 'export const sourceDocuments = ' + json.dumps(DOCUMENTS, indent=2, ensure_ascii=False) + ';\n'
                       + 'export const sourcePages = ' + json.dumps(pages, indent=2, ensure_ascii=False) + ';\n')
     print(f'Rendered {len(pages)} original pages with verified quotation coordinates.')
+    for page_id in scanned:
+        print(f'No text layer on {page_id}: rendered without highlights; its quotes are shown beside the page.')
 
 
 if __name__ == '__main__':
