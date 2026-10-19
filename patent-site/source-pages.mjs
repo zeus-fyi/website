@@ -171,6 +171,15 @@ export const sourceDocuments = {
     "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
     "pageCount": 14
   },
+  "muller-555": {
+    "reference": "Müller",
+    "title": "Müller, WO 2011/107555 A1 (SMA Solar Technology)",
+    "edition": "International application · Power inverter with multi-fed on-board power supply · Published 9 September 2011 · a scanned copy without a text layer",
+    "url": "https://patentimages.storage.googleapis.com/37/4e/ae/54955ecf82375b/WO2011107555A1.pdf",
+    "sha256": "652837ee09569be975fd5593a602858d9dc3a70d5a8b3c170f3c38343d02c4a0",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 24
+  },
   "suekane-344": {
     "reference": "Suekane",
     "title": "Suekane and Makitani, US 2011/0169344 A1",
@@ -2357,6 +2366,25 @@ export const sourcePages = {
       }
     },
     "pageLabel": "Columns 5–6"
+  },
+  "muller-555-10": {
+    "document": "muller-555",
+    "printedPage": 10,
+    "pdfPage": 11,
+    "image": "sources/muller-555-10.png",
+    "width": 1680,
+    "height": 2379,
+    "fragments": {
+      "links": {
+        "quote": "The on-board supply unit 14 takes electric energy both out of the DC voltage link 10 and the DC voltage link 6.",
+        "rects": []
+      },
+      "controller": {
+        "quote": "The on-board voltage rails 15 particularly serve for supplying electric energy to a controller 60 of the inverter 1",
+        "rects": []
+      }
+    },
+    "textLayer": false
   },
   "suekane-344-6": {
     "document": "suekane-344",

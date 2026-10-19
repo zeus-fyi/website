@@ -181,6 +181,14 @@ DOCUMENTS = {
         'sha256': '7c62ba923164bfb8fb4912a368e050bdc2328eb484673699c5081a685df65c3a',
         'sourceNote': PATENT_NOTE,
     },
+    'muller-555': {
+        'reference': 'Müller',
+        'title': 'Müller, WO 2011/107555 A1 (SMA Solar Technology)',
+        'edition': 'International application · Power inverter with multi-fed on-board power supply · Published 9 September 2011 · a scanned copy without a text layer',
+        'url': 'https://patentimages.storage.googleapis.com/37/4e/ae/54955ecf82375b/WO2011107555A1.pdf',
+        'sha256': '652837ee09569be975fd5593a602858d9dc3a70d5a8b3c170f3c38343d02c4a0',
+        'sourceNote': PATENT_NOTE,
+    },
     'suekane-344': {
         'reference': 'Suekane',
         'title': 'Suekane and Makitani, US 2011/0169344 A1',
@@ -377,10 +385,14 @@ PAGES = [
     ('nec-050', 'Columns 15–16', 20, {
         'estimate': 'Thus, by using this encoding technique, the theoretical minimum number of bits required for signalling a contiguous resource allocation can be estimated for different bandwidths as follows (where each frequency block is assumed to be 20 MHz):',
     }),
-    # CyboEnergy '489 (the Japanese primary, Morishima, has no public copy; Müller's WO is a scan whose page is still to be mapped).
+    # CyboEnergy '489 (the Japanese primary, Morishima, has no public copy; Müller's WO is a scan without a text layer).
     ('fornage-412', 'Columns 5–6', 12, {
         'threshold': 'At step 604, the method 600 performs calculations and checks if the input power is greater than a power threshold.',
         'microcontroller': 'those skilled in the art will realize that a microprocessor or microcontroller may also be used to generate the control signals in view of the DC current, DC voltage and AC phase.',
+    }),
+    ('muller-555', 10, 11, {
+        'links': 'The on-board supply unit 14 takes electric energy both out of the DC voltage link 10 and the DC voltage link 6.',
+        'controller': 'The on-board voltage rails 15 particularly serve for supplying electric energy to a controller 60 of the inverter 1',
     }),
     ('suekane-344', 'Publication page 6', 6, {
         'night': 'when it becomes less than the night time decision value, then power is supplied from the solar panel to the power circuit',

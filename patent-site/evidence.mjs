@@ -4,192 +4,946 @@
 // pinpoint and the original pages it opens (sourceViews: [pageId, [fragmentIds]] from source-pages.mjs).
 // A claim-wide point carries summary: true and may carry note, the sentence shown under its pages.
 export const caseEvidence = {
-  "cyboenergy-9331488": [{
-    "caption": [
-      "CyboEnergy · US 9,331,488 B2",
-      "Claim 16 · Ground 2"
-    ],
-    "assessed": "15 October 2026",
-    "pointsNote": "P2 is the reason to combine, a claim-wide point.",
-    "staticNote": "The original warning-state reference page is shown above.",
-    "selected": "16c2",
-    "limitations": {
-      "1pre": {
-        "rating": "A 97",
-        "short": "Preamble",
-        "title": "A method for indicating status.",
-        "mapping": "The SMA manual expressly describes operating modes displayed through LEDs on the inverter housing.",
-        "limit": "The recorded strength is A 97 for this element in both grounds. Coverage of this element does not resolve the separate single-LED question.",
-        "pinpoint": "SMA BEN082220 · §4 · Printed p. 16",
-        "sourceViews": [
-          [
-            "sma-16",
+  "cyboenergy-9331488": [
+    {
+      "caption": [
+        "CyboEnergy · US 9,331,488 B2",
+        "Claim 16 · Ground 2"
+      ],
+      "assessed": "15 October 2026",
+      "pointsNote": "P2 is the reason to combine, a claim-wide point.",
+      "staticNote": "The original warning-state reference page is shown above.",
+      "selected": "16c2",
+      "limitations": {
+        "1pre": {
+          "rating": "A 97",
+          "short": "Preamble",
+          "title": "A method for indicating status.",
+          "mapping": "The SMA manual expressly describes operating modes displayed through LEDs on the inverter housing.",
+          "limit": "The recorded strength is A 97 for this element in both grounds. Coverage of this element does not resolve the separate single-LED question.",
+          "pinpoint": "SMA BEN082220 · §4 · Printed p. 16",
+          "sourceViews": [
             [
-              "indicators"
+              "sma-16",
+              [
+                "indicators"
+              ]
             ]
           ]
-        ]
-      },
-      "16a": {
-        "rating": "A 95",
-        "short": "Monitoring",
-        "title": "Monitor each input channel.",
-        "mapping": "The manual describes separate inputs with individual MPP trackers, per-input faults and per-string measurements.",
-        "limit": "The complete mapping uses several passages. The research record separately addresses the meaning of “input channel”.",
-        "pinpoint": "SMA BEN082220 · Printed pp. 13, 23, 40, 44",
-        "sourceViews": [
-          [
-            "sma-13",
+        },
+        "16a": {
+          "rating": "A 95",
+          "short": "Monitoring",
+          "title": "Monitor each input channel.",
+          "mapping": "The manual describes separate inputs with individual MPP trackers, per-input faults and per-string measurements.",
+          "limit": "The complete mapping uses several passages. The research record separately addresses the meaning of “input channel”.",
+          "pinpoint": "SMA BEN082220 · Printed pp. 13, 23, 40, 44",
+          "sourceViews": [
             [
-              "tracker"
-            ]
-          ],
-          [
-            "sma-23",
+              "sma-13",
+              [
+                "tracker"
+              ]
+            ],
             [
-              "inputs"
-            ]
-          ],
-          [
-            "sma-40",
+              "sma-23",
+              [
+                "inputs"
+              ]
+            ],
             [
-              "measurement"
-            ]
-          ],
-          [
-            "sma-44",
+              "sma-40",
+              [
+                "measurement"
+              ]
+            ],
             [
-              "fault"
-            ]
-          ]
-        ]
-      },
-      "16b": {
-        "rating": "A 97",
-        "short": "LED control",
-        "title": "Indicate the monitored state.",
-        "mapping": "SMA expressly connects the device’s operating mode with the integrated LEDs.",
-        "limit": "This passage supports actuation of the indicators. Whether the claimed states appear on one system-status LED is assessed separately.",
-        "pinpoint": "SMA BEN082220 · §4 · Printed p. 16",
-        "sourceViews": [
-          [
-            "sma-16",
-            [
-              "actuation"
+              "sma-44",
+              [
+                "fault"
+              ]
             ]
           ]
-        ]
-      },
-      "16c1": {
-        "rating": "B 75",
-        "short": "Working",
-        "title": "The inverter is working.",
-        "mapping": "Sunways describes one combined red/green LED, continuously green during grid feeding. The chart combines that indication with SMA’s monitored-input architecture.",
-        "limit": "B 75 is the recorded strength of the combination, including its reason to combine. This source passage is one part of that ground.",
-        "pinpoint": "Sunways AT manual · §5.1 · Printed p. 27",
-        "sourceViews": [
-          [
-            "sunways-27",
+        },
+        "16b": {
+          "rating": "A 97",
+          "short": "LED control",
+          "title": "Indicate the monitored state.",
+          "mapping": "SMA expressly connects the device’s operating mode with the integrated LEDs.",
+          "limit": "This passage supports actuation of the indicators. Whether the claimed states appear on one system-status LED is assessed separately.",
+          "pinpoint": "SMA BEN082220 · §4 · Printed p. 16",
+          "sourceViews": [
             [
-              "combined",
-              "working"
+              "sma-16",
+              [
+                "actuation"
+              ]
             ]
           ]
-        ]
-      },
-      "16c2": {
-        "rating": "C 50",
-        "short": "Warnings",
-        "title": "Working, but with warnings.",
-        "mapping": "The manual describes continued grid feeding with a current, output or temperature limitation. Its separate red-flashing state states a warning, but does not say whether feeding continues.",
-        "limit": "This mapping depends on treating the operating limitation as a warning, the manual’s date evidence, and the reason to combine references. That uncertainty remains visible.",
-        "pinpoint": "Sunways AT manual · §5.1 · Printed p. 27",
-        "sourceViews": [
-          [
-            "sunways-27",
+        },
+        "16c1": {
+          "rating": "B 75",
+          "short": "Working",
+          "title": "The inverter is working.",
+          "mapping": "Sunways describes one combined red/green LED, continuously green during grid feeding. The chart combines that indication with SMA’s monitored-input architecture.",
+          "limit": "B 75 is the recorded strength of the combination, including its reason to combine. This source passage is one part of that ground.",
+          "pinpoint": "Sunways AT manual · §5.1 · Printed p. 27",
+          "sourceViews": [
             [
-              "warning",
-              "redWarning"
+              "sunways-27",
+              [
+                "combined",
+                "working"
+              ]
             ]
           ]
-        ]
-      },
-      "16c3": {
-        "rating": "B 75",
-        "short": "Inverter error",
-        "title": "The inverter has an error.",
-        "mapping": "The Sunways combined LED shows a continuously red error state. The chart also cites Fronius, Soladin and a Japanese reference for error indications.",
-        "limit": "The score includes the reason to combine these indications with SMA’s architecture. A single isolated passage is not the complete ground.",
-        "pinpoint": "Sunways AT manual · §5.1 · Printed p. 27",
-        "sourceViews": [
-          [
-            "sunways-27",
+        },
+        "16c2": {
+          "rating": "C 50",
+          "short": "Warnings",
+          "title": "Working, but with warnings.",
+          "mapping": "The manual describes continued grid feeding with a current, output or temperature limitation. Its separate red-flashing state states a warning, but does not say whether feeding continues.",
+          "limit": "This mapping depends on treating the operating limitation as a warning, the manual’s date evidence, and the reason to combine references. That uncertainty remains visible.",
+          "pinpoint": "Sunways AT manual · §5.1 · Printed p. 27",
+          "sourceViews": [
             [
-              "combined",
-              "error"
+              "sunways-27",
+              [
+                "warning",
+                "redWarning"
+              ]
             ]
           ]
-        ]
-      },
-      "16c4": {
-        "rating": "B 75",
-        "short": "Grid error",
-        "title": "The AC grid has an error.",
-        "mapping": "The Sunways display distinguishes an AC-network error. The chart relies on Soladin and the Japanese 366 publication for a grid-specific code on one LED.",
-        "limit": "The highlighted Sunways text describes a display code, not a distinct grid-error LED state. The other references supply that part of the combination.",
-        "pinpoint": "Sunways AT manual · §5.5 · Printed p. 38",
-        "sourceViews": [
-          [
-            "sunways-38",
+        },
+        "16c3": {
+          "rating": "B 75",
+          "short": "Inverter error",
+          "title": "The inverter has an error.",
+          "mapping": "The Sunways combined LED shows a continuously red error state. The chart also cites Fronius, Soladin and a Japanese reference for error indications.",
+          "limit": "The score includes the reason to combine these indications with SMA’s architecture. A single isolated passage is not the complete ground.",
+          "pinpoint": "Sunways AT manual · §5.1 · Printed p. 27",
+          "sourceViews": [
             [
-              "grid"
+              "sunways-27",
+              [
+                "combined",
+                "error"
+              ]
             ]
           ]
-        ]
-      },
-      "16c5": {
-        "rating": "B 75",
-        "short": "Off",
-        "title": "The inverter is off.",
-        "mapping": "Sunways identifies the unlit state as inactive night mode. The chart cites corresponding states in the Soladin and Fronius documents.",
-        "limit": "The recorded B 75 reflects the combined ground and its reason to combine, rather than this sentence alone.",
-        "pinpoint": "Sunways AT manual · §5.1 · Printed p. 27",
-        "sourceViews": [
-          [
-            "sunways-27",
+        },
+        "16c4": {
+          "rating": "B 75",
+          "short": "Grid error",
+          "title": "The AC grid has an error.",
+          "mapping": "The Sunways display distinguishes an AC-network error. The chart relies on Soladin and the Japanese 366 publication for a grid-specific code on one LED.",
+          "limit": "The highlighted Sunways text describes a display code, not a distinct grid-error LED state. The other references supply that part of the combination.",
+          "pinpoint": "Sunways AT manual · §5.5 · Printed p. 38",
+          "sourceViews": [
             [
-              "combined",
-              "off"
+              "sunways-38",
+              [
+                "grid"
+              ]
             ]
           ]
-        ]
-      },
-      "P2": {
-        "rating": "B 78",
-        "short": "Combination",
-        "title": "Why combine the references?",
-        "mapping": "The recorded rationale addresses putting SMA’s monitored operating states onto a single two-colour indicator. It is a claim-wide point, not an additional limitation.",
-        "limit": "The assessment records a three-reference combination. This point affects the 16c1–16c5 ratings and must be read with the complete rationale.",
-        "pinpoint": "Claim chart · Ground 2 · Combination rationale",
-        "summary": true,
-        "sourceViews": [
-          [
-            "sma-16",
+        },
+        "16c5": {
+          "rating": "B 75",
+          "short": "Off",
+          "title": "The inverter is off.",
+          "mapping": "Sunways identifies the unlit state as inactive night mode. The chart cites corresponding states in the Soladin and Fronius documents.",
+          "limit": "The recorded B 75 reflects the combined ground and its reason to combine, rather than this sentence alone.",
+          "pinpoint": "Sunways AT manual · §5.1 · Printed p. 27",
+          "sourceViews": [
             [
-              "indicators"
-            ]
-          ],
-          [
-            "sunways-27",
-            [
-              "combined",
-              "working"
+              "sunways-27",
+              [
+                "combined",
+                "off"
+              ]
             ]
           ]
-        ]
+        },
+        "P2": {
+          "rating": "B 78",
+          "short": "Combination",
+          "title": "Why combine the references?",
+          "mapping": "The recorded rationale addresses putting SMA’s monitored operating states onto a single two-colour indicator. It is a claim-wide point, not an additional limitation.",
+          "limit": "The assessment records a three-reference combination. This point affects the 16c1–16c5 ratings and must be read with the complete rationale.",
+          "pinpoint": "Claim chart · Ground 2 · Combination rationale",
+          "summary": true,
+          "sourceViews": [
+            [
+              "sma-16",
+              [
+                "indicators"
+              ]
+            ],
+            [
+              "sunways-27",
+              [
+                "combined",
+                "working"
+              ]
+            ]
+          ]
+        }
       }
     }
-  }],
+  ],
+  "gridscale-8842454": [
+    {
+      "caption": [
+        "GridScale Solutions · US 8,842,454 B2",
+        "Claim 1 · Anticipation · A, hold 79"
+      ],
+      "assessed": "19 October 2026",
+      "pointsNote": "The reference’s date is a claim-wide point scored at 100 and not shown.",
+      "staticNote": "The original page cited for the respective DC power sources is shown above.",
+      "selected": "1a",
+      "limitations": {
+        "1pre": {
+          "rating": "A 98",
+          "short": "Preamble",
+          "title": "An apparatus to deliver AC power.",
+          "mapping": "The 1998 power-supply patent describes supplies that give conditioned AC output power to computing or telecommunications systems, and a plurality of paralleled transverters each supplying a portion of that output.",
+          "limit": "Plain words, no open point. The reference issued more than a year before the priority date.",
+          "pinpoint": "R1 · US 5,764,503 A · Column 1, lines 6–11 · Column 7, lines 7–14 · FIG. 14",
+          "sourceViews": [
+            [
+              "brand-503-12",
+              [
+                "field"
+              ]
+            ],
+            [
+              "brand-503-15",
+              [
+                "plurality",
+                "parallel"
+              ]
+            ]
+          ]
+        },
+        "1a": {
+          "rating": "A 90",
+          "short": "Inverters",
+          "title": "Inverters, each fed by a respective DC power source.",
+          "mapping": "Each transverter’s voltage regulator outputs a regulated DC voltage to its own current-controlled AC voltage source, which takes DC input and produces AC output; three such sources have their outputs in parallel.",
+          "limit": "The weakest limitation, a live reading dispute: the owner reads “a respective DC power source” as an energy source of each inverter’s own, such as a photovoltaic array, while the reference’s regulators all draw on one utility. The answer is claim differentiation and the patent’s own usage; on the narrow reading the chart falls back to the backup ground below.",
+          "pinpoint": "R1 · Column 5, lines 59–67 · FIG. 11",
+          "sourceViews": [
+            [
+              "brand-503-14",
+              [
+                "regulator"
+              ]
+            ]
+          ]
+        },
+        "1b": {
+          "rating": "A 97",
+          "short": "Primary controller",
+          "title": "A primary control signal from the total current and voltage.",
+          "mapping": "Sensor 22 monitors the total voltage and total current on the paralleled output and feeds them back to the system control module, which forms the transverter control signal from them and a sine-wave reference.",
+          "limit": "The claim’s words, no open point.",
+          "pinpoint": "R1 · Column 6, lines 55–60 · FIGS. 13–14",
+          "sourceViews": [
+            [
+              "brand-503-14",
+              [
+                "sensor"
+              ]
+            ]
+          ]
+        },
+        "1c": {
+          "rating": "A 92",
+          "short": "Secondary controllers",
+          "title": "A secondary controller in each inverter.",
+          "mapping": "Every transverter receives the same control current over a series interconnection; in each, the transformer, its flux sensor and the switch controller turn that current into the transverter’s own switching signals.",
+          "limit": "A live reading dispute: the owner says the switch controller receives only a flux error and that a transformer is not a controller. The claim names no part of the controller that must receive the signal.",
+          "pinpoint": "R1 · Column 7, lines 16–20 · Column 6, lines 4–20 · FIG. 14",
+          "sourceViews": [
+            [
+              "brand-503-15",
+              [
+                "series",
+                "same"
+              ]
+            ],
+            [
+              "brand-503-14",
+              [
+                "receives",
+                "switching"
+              ]
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "arc-link-11563655": [
+    {
+      "caption": [
+        "Arc Link · US 11,563,655 B2",
+        "Claim 1 · Obviousness · C, hold 55"
+      ],
+      "assessed": "18 October 2026",
+      "pointsNote": "W1 is the reading of “statistics virtualization module” and W2 the treatment of the OpenVirteX record as one base; both are claim-wide points.",
+      "staticNote": "The original page cited for the shared-port computation is shown above.",
+      "selected": "1b",
+      "limitations": {
+        "1pre": {
+          "rating": "A 98",
+          "short": "Hypervisor",
+          "title": "A network hypervisor for SDN-based virtualization.",
+          "mapping": "OpenVirteX is presented as a network hypervisor that lets operators give their customers virtual software-defined networks; the patent itself names it as the prior network hypervisor.",
+          "limit": "Literal and in plain words; the date is undisputed.",
+          "pinpoint": "R1(b) · OpenVirteX, ONS 2014 · p. 1",
+          "sourceViews": [
+            [
+              "ovx-ons14-1",
+              [
+                "hypervisor"
+              ]
+            ]
+          ]
+        },
+        "1a": {
+          "rating": "A 94",
+          "short": "Statistics request",
+          "title": "Receives a tenant’s request for physical resource statistics.",
+          "mapping": "When a tenant controller sends a monitoring request, the hypervisor answers with translated monitoring information for that virtual network; OpenVirteX’s statistics code takes each tenant’s flow and port requests by its tenant id.",
+          "limit": "Literal. The owner can argue that a port or flow counter is not “individual physical resource consumption statistics”; the patent’s own usage settles it. Scored at W1.",
+          "pinpoint": "R1(e) · Flo-v, ACM CFI 2016 · p. 90",
+          "sourceViews": [
+            [
+              "flo-v-90",
+              [
+                "request"
+              ]
+            ]
+          ]
+        },
+        "1b": {
+          "rating": "C 60",
+          "short": "Shared or not",
+          "title": "Determine whether the resource is shared, and provide statistics accordingly.",
+          "mapping": "The hypervisor already keeps, per physical port, the tenants whose virtual ports map to it. The Delftvisor note says a tenant’s port statistics on a shared link must be isolated by aggregating its own flows; the ICC 2012 paper states the same computation for networks sharing links.",
+          "limit": "The weakest limitation. No reference before the critical date performs the determination inside a network hypervisor; the two-branch rule rests on the design note, the paper and the mapping OpenVirteX holds. Scored at W1.",
+          "pinpoint": "R2 · Delftvisor design note · lines 372–373 · R9 · ICC 2012 · Section V, p. 5",
+          "sourceViews": [
+            {
+              "reference": "R2",
+              "document": "Delftvisor design note (TU Delft)",
+              "edition": "design/design.md at commit b1226578 · public on GitHub from 14 June 2017",
+              "pageLabel": "Lines 372–373",
+              "citation": "Delftvisor, design/design.md, lines 372–373 (GitHub, commit b1226578)",
+              "quotes": [
+                "Port statistics can be tricky since on shared links the traffic caused by each slices would need to be isolated. This could be done by remembering which flows cause packets to be forwarded to a port and query their statistics instead and aggregate those."
+              ]
+            },
+            [
+              "skoldstrom-5",
+              [
+                "counters"
+              ]
+            ],
+            [
+              "skoldstrom-2",
+              [
+                "shared"
+              ]
+            ]
+          ]
+        },
+        "1c": {
+          "rating": "A 94",
+          "short": "Flow and port statistics",
+          "title": "Provides virtual flow entry and virtual port statistics.",
+          "mapping": "The module gives the tenant both its virtual flow-entry statistics and its virtual port statistics, each from the hypervisor’s statistics replies.",
+          "limit": "The conjunction of 1c1 and 1c2, rated at the lower of the two. Scored at W1.",
+          "pinpoint": "R1(e) · Flo-v · Section 3.2, p. 92 · R9 · Section V, p. 5",
+          "sourceViews": [
+            [
+              "flo-v-92",
+              [
+                "replier"
+              ]
+            ],
+            [
+              "skoldstrom-5",
+              [
+                "counters"
+              ]
+            ]
+          ]
+        },
+        "1c1": {
+          "rating": "A 95",
+          "short": "Flow statistics",
+          "title": "Virtual flow entry statistics for the tenant.",
+          "mapping": "The hypervisor answers a tenant’s flow-statistics request with the counters of that tenant’s own entries, re-virtualized to the tenant’s cookie and match; Flo-v describes the same reply over the physical switches mapped to the requested virtual switch.",
+          "limit": "Literal, at the cap W1 sets.",
+          "pinpoint": "R1(e) · Flo-v · Section 3.2, p. 92",
+          "sourceViews": [
+            [
+              "flo-v-92",
+              [
+                "replier"
+              ]
+            ]
+          ]
+        },
+        "1c2": {
+          "rating": "A 94",
+          "short": "Port statistics",
+          "title": "Virtual port statistics based on the physical resource.",
+          "mapping": "A virtual port’s statistics are the mapped physical port’s counters renumbered to the virtual port; on a shared port the design note and the ICC 2012 paper derive them from the flow entries forwarding to that port.",
+          "limit": "Literal. The owner can argue that “based on the at least one physical resource” asks for the shared-branch computation; the patent’s own two branches settle it. Scored at W1.",
+          "pinpoint": "R9 · ICC 2012 · Section V, p. 5",
+          "sourceViews": [
+            [
+              "skoldstrom-5",
+              [
+                "counters"
+              ]
+            ]
+          ]
+        },
+        "W1": {
+          "rating": "A 95",
+          "short": "Module reading",
+          "title": "How “statistics virtualization module” is read.",
+          "mapping": "Read with its ordinary meaning, as the chart argues. A tribunal may instead read “module” as a means-plus-function term, its structure then the two algorithms of the patent, which the combination follows.",
+          "limit": "A claim-wide point that limitations 1a, 1b, 1c, 1c1 and 1c2 depend on.",
+          "pinpoint": "Claim chart · Claim construction",
+          "summary": true,
+          "note": "W1 is the reading of the claim term the chart depends on. These original pages show the sources read under it.",
+          "sourceViews": [
+            [
+              "flo-v-90",
+              [
+                "role"
+              ]
+            ],
+            [
+              "ovx-ons14-1",
+              [
+                "hypervisor"
+              ]
+            ]
+          ]
+        },
+        "W2": {
+          "rating": "A 97",
+          "short": "One base",
+          "title": "The OpenVirteX record read as one base.",
+          "mapping": "The OpenVirteX papers, its 2014 documentation captures and its source code describe one hypervisor; Flo-v and a 2017 measurement paper describe its statistics handling in print, and the patent names OpenVirteX as its prior art.",
+          "limit": "The owner can answer that code is not a printed publication and that the documents are separate references; the behaviour relied on is also in the dated publications. Counted once for the chart.",
+          "pinpoint": "Claim chart · References",
+          "summary": true,
+          "note": "W2 is the treatment of the OpenVirteX record as one reference. These original pages show its printed publications.",
+          "sourceViews": [
+            [
+              "ovx-ons14-1",
+              [
+                "hypervisor"
+              ]
+            ],
+            [
+              "flo-v-90",
+              [
+                "request"
+              ]
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "sol-ip-10090894": [
+    {
+      "caption": [
+        "Sol IP · US 10,090,894 B2",
+        "Claim 7 · Obviousness · C, hold 41"
+      ],
+      "assessed": "18 October 2026",
+      "pointsNote": "W1 is the reading of the two signal fields and W2 the reading of the extended preamble as a training field; both are claim-wide points.",
+      "staticNote": "The original page cited for the CRC in the service field is shown above.",
+      "selected": "7f2",
+      "limitations": {
+        "7pre": {
+          "rating": "A 98",
+          "short": "Apparatus",
+          "title": "An apparatus.",
+          "mapping": "The radio of an IEEE 802.11n station: a host interface, a baseband processing module, memory, radio transmitters and antennas.",
+          "limit": "Literal and in plain words; the date is undisputed.",
+          "pinpoint": "Ref. 1 · US 2005/0181800 A1 · [0033] · FIG. 2",
+          "sourceViews": [
+            [
+              "broadcom-800-13",
+              [
+                "radio"
+              ]
+            ]
+          ]
+        },
+        "7a": {
+          "rating": "A 98",
+          "short": "Memory",
+          "title": "A memory.",
+          "mapping": "Memory 66, a single memory device or a plurality of memory devices.",
+          "limit": "Literal and in plain words.",
+          "pinpoint": "Ref. 1 · [0033]",
+          "sourceViews": [
+            [
+              "broadcom-800-13",
+              [
+                "memory"
+              ]
+            ]
+          ]
+        },
+        "7b": {
+          "rating": "A 97",
+          "short": "Processor",
+          "title": "A processor executing instructions from the memory.",
+          "mapping": "The baseband processing module, with the operational instructions stored in memory, executes the digital transmitter functions, formats the frame and sends it through the transmitter section.",
+          "limit": "A synonym of “processor”, no gap. The fields it generates and sends are rated at 7b1 to 7b5.",
+          "pinpoint": "Ref. 1 · [0033], [0065] · FIG. 10",
+          "sourceViews": [
+            [
+              "broadcom-800-13",
+              [
+                "instructions",
+                "functions"
+              ]
+            ],
+            [
+              "broadcom-800-16",
+              [
+                "format"
+              ]
+            ]
+          ]
+        },
+        "7b1": {
+          "rating": "B 85",
+          "short": "VHT-SIG A",
+          "title": "Generate a VHT-SIG A field.",
+          "mapping": "Signal field 142 is the first signal field, common to every receiver: it tells legacy devices the frame’s duration and the newer devices the channel usage and the number of transmit antennas.",
+          "limit": "Literal once the reading of the two signal fields holds; held to W1.",
+          "pinpoint": "Ref. 1 · [0065]",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "first"
+              ]
+            ]
+          ]
+        },
+        "7b2": {
+          "rating": "B 85",
+          "short": "VHT-SIG B",
+          "title": "Generate a VHT-SIG B field.",
+          "mapping": "Each additional signal field, one before each data unit, carries the rate, the length, the last-PSDU flag, the acknowledgement request and the error check for its own data unit.",
+          "limit": "Literal once the reading holds; held to W1.",
+          "pinpoint": "Ref. 1 · [0066]",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "additional"
+              ]
+            ]
+          ]
+        },
+        "7b3": {
+          "rating": "A 96",
+          "short": "Service field",
+          "title": "Generate a service field.",
+          "mapping": "Each data unit opens with the 802.11 Service field, and the transmitter scrambles the data; the Cisco patent’s prior-art figures show what that field holds.",
+          "limit": "The owner can argue that the reference names the field without describing it; the 802.11 Service field it names settles that.",
+          "pinpoint": "Ref. 1 · [0065] · Ref. 2 · Column 5, lines 64–67",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "format"
+              ]
+            ],
+            [
+              "cisco-530-13",
+              [
+                "psdu"
+              ]
+            ]
+          ]
+        },
+        "7b4": {
+          "rating": "A 97",
+          "short": "Data unit",
+          "title": "Generate a data unit.",
+          "mapping": "The PSDU of each Service/PSDU unit, made of data symbols, whose length the additional signal field counts in bytes.",
+          "limit": "Literal.",
+          "pinpoint": "Ref. 1 · [0064] · FIG. 8",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "symbols"
+              ]
+            ]
+          ]
+        },
+        "7b5": {
+          "rating": "B 85",
+          "short": "Send VHT-SIG A",
+          "title": "Transmit the VHT-SIG A field.",
+          "mapping": "Signal field 142 is among the fields of the transmitted frame, which the transmitter section converts into outbound RF signals.",
+          "limit": "Literal once signal field 142 is the VHT-SIG A field; held to W1.",
+          "pinpoint": "Ref. 1 · [0065] · FIG. 10",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "format"
+              ]
+            ]
+          ]
+        },
+        "7c": {
+          "rating": "B 80",
+          "short": "Training after A",
+          "title": "A training field after the VHT-SIG A field.",
+          "mapping": "The frame draws the signal field, then the extended preamble, whose format is the supplemental long training sequences drawn after the signal field.",
+          "limit": "Literal once both readings hold: W1 and W2.",
+          "pinpoint": "Ref. 1 · [0065] · FIGS. 8 and 10",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "format"
+              ]
+            ]
+          ]
+        },
+        "7d": {
+          "rating": "B 80",
+          "short": "B after training",
+          "title": "The VHT-SIG B field after the training field.",
+          "mapping": "The frame draws the extended preamble, then the first additional signal field; the supplemental long training sequences come before the high data signal field.",
+          "limit": "Held to W1 and W2.",
+          "pinpoint": "Ref. 1 · [0065] · FIG. 10",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "format"
+              ]
+            ]
+          ]
+        },
+        "7e": {
+          "rating": "B 85",
+          "short": "Service after B",
+          "title": "The service field after the VHT-SIG B field.",
+          "mapping": "Each additional signal field is followed by its data unit, which opens with the Service field.",
+          "limit": "Literal once the reading holds; held to W1.",
+          "pinpoint": "Ref. 1 · [0065] · FIG. 10",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "format"
+              ]
+            ]
+          ]
+        },
+        "7f": {
+          "rating": "A 95",
+          "short": "Data after service",
+          "title": "The data unit after the service field.",
+          "mapping": "In both references the PSDU follows the SERVICE field: the Cisco patent’s SIGNAL field, then the SERVICE field, then the remainder of the payload, the PSDU.",
+          "limit": "The owner can argue that the slash states no order; the 802.11 frame both references describe settles it.",
+          "pinpoint": "Ref. 1 · [0065] · Ref. 2 · Column 5, lines 42–46",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "format"
+              ]
+            ],
+            [
+              "cisco-530-13",
+              [
+                "psdu"
+              ]
+            ]
+          ]
+        },
+        "7f1": {
+          "rating": "B 85",
+          "short": "Length and tail",
+          "title": "Length bits and tail bits in the VHT-SIG B field.",
+          "mapping": "Each additional signal field carries a 12-bit length counting bytes of PSDU, and every coding option appends tail bits.",
+          "limit": "Literal once the reading holds; held to W1.",
+          "pinpoint": "Ref. 1 · [0069], [0072]–[0074]",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "bits"
+              ]
+            ]
+          ]
+        },
+        "7f2": {
+          "rating": "C 63",
+          "short": "Scrambler and CRC",
+          "title": "Scrambler bits and CRC bits in the service field.",
+          "mapping": "The Cisco patent’s SERVICE field holds the seven scrambler-initialization bits and, in its unused bits, a polynomial (CRC) check sequence protecting the SIGNAL field.",
+          "limit": "The weakest limitation. The reference is literal; the open point is the reason to put that check into the first reference’s frame, stated in the art but live against the first reference’s own 4-bit CRC in each signal field and the check protecting the legacy signal field rather than a second one.",
+          "pinpoint": "Ref. 2 · US 7,231,530 B1 · Column 9, lines 41–44",
+          "sourceViews": [
+            [
+              "cisco-530-15",
+              [
+                "crc"
+              ]
+            ]
+          ]
+        },
+        "W1": {
+          "rating": "B 85",
+          "short": "Signal fields",
+          "title": "How the two signal fields are read.",
+          "mapping": "VHT-SIG A and VHT-SIG B read as the patent defines them, a field of information common to every user frame and one of information required for each user, and the first reference’s signal field and additional signal fields as those fields.",
+          "limit": "The owner’s attacks: the 802.11ac names, the reading as the common and per-user fields of a multi-user transmission, the signal field as the legacy SIGNAL field, and the additional signal fields as burst headers. Seven limitations depend on this point.",
+          "pinpoint": "Claim chart · Claim construction",
+          "summary": true,
+          "note": "W1 is the reading of the two signal fields the chart depends on. These original pages show the fields read under it.",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "first",
+                "additional"
+              ]
+            ]
+          ]
+        },
+        "W2": {
+          "rating": "A 95",
+          "short": "Training field",
+          "title": "The extended preamble as a training field.",
+          "mapping": "The reference does not call its extended preamble a training field, but gives it the format whose cells after the signal field are the supplemental long training sequences.",
+          "limit": "“After” in claim 7 is not “immediately after”, so a MAC cell in one figure changes nothing. Limitations 7c and 7d depend on this point.",
+          "pinpoint": "Claim chart · Claim construction",
+          "summary": true,
+          "note": "W2 is the reading of the extended preamble as a training field. This original page shows the format it takes.",
+          "sourceViews": [
+            [
+              "broadcom-800-16",
+              [
+                "format"
+              ]
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "cyboenergy-9331489": [
+    {
+      "caption": [
+        "CyboEnergy · US 9,331,489 B2",
+        "Claim 14 · Obviousness · C, hold 41"
+      ],
+      "assessed": "18 October 2026",
+      "pointsNote": "P1 is the reason to combine, a claim-wide point. The chart labels claim 14’s preamble 1pre.",
+      "staticNote": "The original page cited for the switch of the supply onto the solar input is shown above.",
+      "selected": "14e",
+      "limitations": {
+        "1pre": {
+          "rating": "A 97",
+          "short": "Preamble",
+          "title": "A multi-channel solar power inverter.",
+          "mapping": "Morishima’s photovoltaic inverter converts DC to AC with several solar cell assemblies as inputs: three strings in the embodiment, each through its own boost chopper in one housing.",
+          "limit": "Literal and in plain words. The Japanese original has no public copy; the English print is quoted.",
+          "pinpoint": "Morishima · JP 2001-255949 A · [0001], [0030] · English print p. 1 and p. 3",
+          "sourceViews": [
+            {
+              "reference": "Morishima",
+              "document": "Morishima, JP 2001-255949 A (Toshiba)",
+              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
+              "pageLabel": "Print page 1",
+              "citation": "JP 2001-255949 A, Print page 1 (English print of the Japanese original)",
+              "quotes": [
+                "The present invention relates to a photovoltaic power generation inverter device that performs a DC-AC power conversion operation by using a plurality of solar cell assemblies as inputs."
+              ]
+            }
+          ]
+        },
+        "14a": {
+          "rating": "A 94",
+          "short": "Input channels",
+          "title": "At least two DC input channels with boost converters and measurement circuits.",
+          "mapping": "Each string is one input channel: its own pair of input terminals, its own boost chopper, a voltage detector and a current detector, and its own chopper control circuit.",
+          "limit": "Morishima names neither cables nor connectors; its own text settles both, the input terminals being the connectors and the wiring from the roof-mounted strings the cable. Narrow.",
+          "pinpoint": "Morishima · [0028], [0030]–[0033] · English print p. 3–4",
+          "sourceViews": [
+            {
+              "reference": "Morishima",
+              "document": "Morishima, JP 2001-255949 A (Toshiba)",
+              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
+              "pageLabel": "Print page 3",
+              "citation": "JP 2001-255949 A, Print page 3 (English print of the Japanese original)",
+              "quotes": [
+                "Each input terminal (33a, 33b), (33c, 33d) and (33e, 33f) are connected to the positive and negative output terminals of the solar cell strings 35, 36, 37, respectively.",
+                "three boost chopper circuits 39a, 39b, 39c (corresponding to the DC power conversion circuit of the present invention) having the same circuit configuration and provided between the output terminals (34p, 34n) in one housing."
+              ]
+            }
+          ]
+        },
+        "14b": {
+          "rating": "A 97",
+          "short": "AC output",
+          "title": "An AC output port to the grid.",
+          "mapping": "The full-bridge inverter’s AC output runs through a filter and a breaker to the power system, with a switch connecting it to that system.",
+          "limit": "Literal and in plain words.",
+          "pinpoint": "Morishima · [0027], [0036] · English print p. 3–4",
+          "sourceViews": [
+            {
+              "reference": "Morishima",
+              "document": "Morishima, JP 2001-255949 A (Toshiba)",
+              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
+              "pageLabel": "Print page 3",
+              "citation": "JP 2001-255949 A, Print page 3 (English print of the Japanese original)",
+              "quotes": [
+                "Although not shown, a switch for connecting the AC output of the photovoltaic power generation inverter device 21 to an AC power supply 32 which is a power system is provided."
+              ]
+            }
+          ]
+        },
+        "14c": {
+          "rating": "A 96",
+          "short": "DC combiner",
+          "title": "A DC power combiner joining the boost converters.",
+          "mapping": "All three choppers sit between their input terminals and one pair of output terminals, which the DC lines and a capacitor join to the inverter’s input: a supply circuit with multiple inputs and one output.",
+          "limit": "The owner can argue “combiner”, a word Morishima does not use; its own description, every chopper’s output joined into one output, settles it.",
+          "pinpoint": "Morishima · [0028], [0030], [0035] · English print p. 3–4",
+          "sourceViews": [
+            {
+              "reference": "Morishima",
+              "document": "Morishima, JP 2001-255949 A (Toshiba)",
+              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
+              "pageLabel": "Print page 3",
+              "citation": "JP 2001-255949 A, Print page 3 (English print of the Japanese original)",
+              "quotes": [
+                "Thus, the modularized DC power supply circuit 22 with multiple inputs and one output can be replaced as appropriate according to the number of solar cell strings connected to the solar power generation inverter device 21."
+              ]
+            }
+          ]
+        },
+        "14d": {
+          "rating": "B 82",
+          "short": "Microcontroller",
+          "title": "A microcontroller computing each channel’s power and choosing the mode.",
+          "mapping": "Morishima’s microcomputer receives each string’s measured voltage and current and computes each string’s power; Fornage’s microcontroller compares the computed input power with a power threshold and runs one power stage below it, the interleaved mode above it.",
+          "limit": "Rests on P1. Narrow open points: Fornage names its modes by topology, not “low power mode”, and Morishima’s string power multiplies the voltage by the reference current its loop holds the measured current to.",
+          "pinpoint": "Fornage · US 7,796,412 B2 · Column 6, lines 55–58 and 66–67",
+          "sourceViews": [
+            [
+              "fornage-412-12",
+              [
+                "threshold",
+                "microcontroller"
+              ]
+            ]
+          ]
+        },
+        "14e": {
+          "rating": "C 50",
+          "short": "DC supply",
+          "title": "A DC power supply fed from the channels, switched to a dedicated channel at low power.",
+          "mapping": "Müller feeds the on-board supply from the common DC link as well as the input links; Morishima’s supply powers the control circuit; Suekane’s controller computes the panel’s DC power and, below a predetermined value, switches its own supply onto the solar input.",
+          "limit": "The weakest limitation. The owner’s reading that the dedicated channel’s power must pass through the combiner is colourable, and Suekane’s own preference is a teaching-away argument; carried into Morishima’s microcomputer with Fornage’s threshold as the value, on P1.",
+          "pinpoint": "Suekane · US 2011/0169344 A1 · [0008], [0046] · Claim 1 · Müller · WO 2011/107555 A1 · p. 10, lines 3–4",
+          "sourceViews": [
+            [
+              "muller-555-10",
+              [
+                "links",
+                "controller"
+              ]
+            ],
+            [
+              "suekane-344-6",
+              [
+                "night"
+              ]
+            ],
+            [
+              "suekane-344-8",
+              [
+                "calculates"
+              ]
+            ],
+            [
+              "suekane-344-12",
+              [
+                "switch"
+              ]
+            ],
+            {
+              "reference": "Morishima",
+              "document": "Morishima, JP 2001-255949 A (Toshiba)",
+              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
+              "pageLabel": "Print page 6",
+              "citation": "JP 2001-255949 A, Print page 6 (English print of the Japanese original)",
+              "quotes": [
+                "even when the output voltage of the solar cell strings 35, 36, and 37 is entirely reduced, such as in the morning and evening or on cloudy days, the control power supply circuit 28 secures a high input voltage"
+              ]
+            }
+          ]
+        },
+        "P1": {
+          "rating": "B 85",
+          "short": "Combination",
+          "title": "Why combine the references?",
+          "mapping": "Fornage’s test of the computed input power against a power threshold, put into Morishima’s microcomputer, which already computes each string’s power and their sum: two grid-tied solar inverters of the same field, the reason stated in both.",
+          "limit": "Limitation 14d takes its low-power mode from this point and 14e its predetermined value.",
+          "pinpoint": "Claim chart · Combination rationale",
+          "summary": true,
+          "note": "P1 is the researcher’s combination rationale. These original pages show its cited sources.",
+          "sourceViews": [
+            [
+              "fornage-412-12",
+              [
+                "threshold"
+              ]
+            ],
+            {
+              "reference": "Morishima",
+              "document": "Morishima, JP 2001-255949 A (Toshiba)",
+              "edition": "Japanese patent application publication · Photovoltaic power generation inverter device · 21 September 2001 · quoted from the English machine-translation print",
+              "pageLabel": "Print page 6",
+              "citation": "JP 2001-255949 A, Print page 6 (English print of the Japanese original)",
+              "quotes": [
+                "even when the output voltage of the solar cell strings 35, 36, and 37 is entirely reduced, such as in the morning and evening or on cloudy days, the control power supply circuit 28 secures a high input voltage"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
   "nordicunmanned-2035276": [
     {
       "eyebrow": "Submitted claim chart · European patent",
@@ -669,7 +1423,7 @@ export const backupGrounds = {
           "url": "https://patents.google.com/patent/US20100057267A1/en"
         }
       ],
-      "verdict": "Filed with the submission on 9 October 2026 as the backup ground for limitation 1a, for the reading in which a respective DC power source must be an energy source such as a photovoltaic array. The research records no separate band or score for it.",
+      "verdict": "Filed with the submission on 9 October 2026 as the backup ground for limitation 1a, for the reading in which a respective DC power source must be an energy source such as a photovoltaic array. The re-score of 19 October 2026 rates this ground C, hold 62, its weakest limitation 1a at C 71; it stands below the anticipation unless that reading is adopted.",
       "rationale": "Both references coordinate several paralleled inverters on one AC output through a central controller fed by voltage and current sensing of the common output, with a local controller at each inverter. Substituting photovoltaic arrays for the utility-fed regulators as the per-inverter DC sources is the use of a known technique on a known device with predictable results.",
       "limitations": [
         {
@@ -714,252 +1468,6 @@ export const backupGrounds = {
 // rendered original pages it opens. A row becomes a chart row in caseEvidence once its rating and
 // its reading text ("What the score reflects") come from the re-score; nothing here renders.
 export const caseDrafts = {
-  "gridscale-8842454": {
-    "patent": "US 8,842,454 B2",
-    "claim": "1",
-    "paste": "PEARL_PASTE.md blocks [1pre], [1a], [1b], [1c] (filed 2026-10-06; the [1a] alternative block is the backup ground)",
-    "rows": {
-      "1pre": {
-        "pinpoint": "R1 · US 5,764,503 A · Column 1, lines 6–11 · Column 7, lines 7–14",
-        "sourceViews": [
-          [
-            "brand-503-12",
-            [
-              "field"
-            ]
-          ],
-          [
-            "brand-503-15",
-            [
-              "plurality",
-              "parallel"
-            ]
-          ]
-        ]
-      },
-      "1a": {
-        "pinpoint": "R1 · Column 5, lines 59–67 · FIG. 11",
-        "sourceViews": [
-          [
-            "brand-503-14",
-            [
-              "regulator"
-            ]
-          ]
-        ]
-      },
-      "1b": {
-        "pinpoint": "R1 · Column 6, lines 55–60 · FIGS. 13–14",
-        "sourceViews": [
-          [
-            "brand-503-14",
-            [
-              "sensor"
-            ]
-          ]
-        ]
-      },
-      "1c": {
-        "pinpoint": "R1 · Column 7, lines 16–20 · FIG. 14",
-        "sourceViews": [
-          [
-            "brand-503-15",
-            [
-              "series",
-              "same"
-            ]
-          ],
-          [
-            "brand-503-14",
-            [
-              "receives",
-              "switching"
-            ]
-          ]
-        ]
-      }
-    }
-  },
-  "sol-ip-10090894": {
-    "patent": "US 10,090,894 B2",
-    "claim": "7",
-    "paste": "PEARL_PASTE.md blocks 1–14 ([7pre] to [7f2])",
-    "rows": {
-      "7pre": {
-        "pinpoint": "Ref. 1 · US 2005/0181800 A1 · [0033]",
-        "sourceViews": [
-          [
-            "broadcom-800-13",
-            [
-              "radio"
-            ]
-          ]
-        ]
-      },
-      "7a": {
-        "pinpoint": "Ref. 1 · [0033]",
-        "sourceViews": [
-          [
-            "broadcom-800-13",
-            [
-              "memory"
-            ]
-          ]
-        ]
-      },
-      "7b": {
-        "pinpoint": "Ref. 1 · [0033], [0065] · FIG. 10",
-        "sourceViews": [
-          [
-            "broadcom-800-13",
-            [
-              "instructions",
-              "functions"
-            ]
-          ],
-          [
-            "broadcom-800-16",
-            [
-              "format"
-            ]
-          ]
-        ]
-      },
-      "7b1": {
-        "pinpoint": "Ref. 1 · [0065]",
-        "sourceViews": [
-          [
-            "broadcom-800-16",
-            [
-              "first"
-            ]
-          ]
-        ]
-      },
-      "7b2": {
-        "pinpoint": "Ref. 1 · [0066]",
-        "sourceViews": [
-          [
-            "broadcom-800-16",
-            [
-              "additional"
-            ]
-          ]
-        ]
-      },
-      "7b3": {
-        "pinpoint": "Ref. 1 · [0065] · Ref. 2 · Column 5, lines 64–67",
-        "sourceViews": [
-          [
-            "broadcom-800-16",
-            [
-              "format"
-            ]
-          ],
-          [
-            "cisco-530-13",
-            [
-              "psdu"
-            ]
-          ]
-        ]
-      },
-      "7b4": {
-        "pinpoint": "Ref. 1 · [0064]",
-        "sourceViews": [
-          [
-            "broadcom-800-16",
-            [
-              "symbols"
-            ]
-          ]
-        ]
-      },
-      "7b5": {
-        "pinpoint": "Ref. 1 · [0065] · FIG. 10",
-        "sourceViews": [
-          [
-            "broadcom-800-16",
-            [
-              "format"
-            ]
-          ]
-        ]
-      },
-      "7c": {
-        "pinpoint": "Ref. 1 · [0065] · FIGS. 8 and 10",
-        "sourceViews": [
-          [
-            "broadcom-800-16",
-            [
-              "format"
-            ]
-          ]
-        ]
-      },
-      "7d": {
-        "pinpoint": "Ref. 1 · [0065] · FIG. 10",
-        "sourceViews": [
-          [
-            "broadcom-800-16",
-            [
-              "format"
-            ]
-          ]
-        ]
-      },
-      "7e": {
-        "pinpoint": "Ref. 1 · [0065] · FIG. 10",
-        "sourceViews": [
-          [
-            "broadcom-800-16",
-            [
-              "format"
-            ]
-          ]
-        ]
-      },
-      "7f": {
-        "pinpoint": "Ref. 1 · [0065] · Ref. 2 · Column 5, lines 45–46",
-        "sourceViews": [
-          [
-            "broadcom-800-16",
-            [
-              "format"
-            ]
-          ],
-          [
-            "cisco-530-13",
-            [
-              "psdu"
-            ]
-          ]
-        ]
-      },
-      "7f1": {
-        "pinpoint": "Ref. 1 · [0069]",
-        "sourceViews": [
-          [
-            "broadcom-800-16",
-            [
-              "bits"
-            ]
-          ]
-        ]
-      },
-      "7f2": {
-        "pinpoint": "Ref. 2 · US 7,231,530 B1 · Column 9, lines 41–44",
-        "sourceViews": [
-          [
-            "cisco-530-15",
-            [
-              "crc"
-            ]
-          ]
-        ]
-      }
-    }
-  },
   "sol-ip-9900067": {
     "patent": "US 9,900,067 B2",
     "claim": "38",
@@ -1085,121 +1593,6 @@ export const caseDrafts = {
             "nec-050-20",
             [
               "estimate"
-            ]
-          ]
-        ]
-      }
-    }
-  },
-  "cyboenergy-9331489": {
-    "patent": "US 9,331,489 B2",
-    "claim": "14",
-    "paste": "PEARL_PASTE.md blocks 1–8 (1pre, 14a–14e); the Morishima rows (1pre, 14a–14c, 14e (ii)) have no public copy of the Japanese original and the Müller scan’s page is still to be mapped",
-    "rows": {
-      "14d": {
-        "pinpoint": "Fornage · US 7,796,412 B2 · Column 6, lines 55–58 and 66–67",
-        "sourceViews": [
-          [
-            "fornage-412-12",
-            [
-              "threshold",
-              "microcontroller"
-            ]
-          ]
-        ]
-      },
-      "14e": {
-        "pinpoint": "Suekane · US 2011/0169344 A1 · [0008], [0046] · Claim 1",
-        "sourceViews": [
-          [
-            "suekane-344-6",
-            [
-              "night"
-            ]
-          ],
-          [
-            "suekane-344-8",
-            [
-              "calculates"
-            ]
-          ],
-          [
-            "suekane-344-12",
-            [
-              "switch"
-            ]
-          ]
-        ]
-      }
-    }
-  },
-  "arc-link-11563655": {
-    "patent": "US 11,563,655 B2",
-    "claim": "1",
-    "paste": "PEARL_PASTE.md blocks [1pre], [1a], [1b(i)], [1b(ii)], [1c]/[1c1], [1c2]; the OpenVirteX documentation and code and the Delftvisor note are not public PDFs",
-    "rows": {
-      "1pre": {
-        "pinpoint": "R1(b) · OpenVirteX, ONS 2014 · p. 1",
-        "sourceViews": [
-          [
-            "ovx-ons14-1",
-            [
-              "hypervisor"
-            ]
-          ]
-        ]
-      },
-      "1a": {
-        "pinpoint": "R1(e) · Flo-v, ACM CFI 2016 · p. 90",
-        "sourceViews": [
-          [
-            "flo-v-90",
-            [
-              "request"
-            ]
-          ]
-        ]
-      },
-      "1b(i)": {
-        "pinpoint": "R9 · Sköldström and Yedavalli, IEEE ICC 2012 · Section III-A, p. 2",
-        "sourceViews": [
-          [
-            "skoldstrom-2",
-            [
-              "shared"
-            ]
-          ]
-        ]
-      },
-      "1b(ii)": {
-        "pinpoint": "R9 · Section V, p. 5",
-        "sourceViews": [
-          [
-            "skoldstrom-5",
-            [
-              "counters"
-            ]
-          ]
-        ]
-      },
-      "1c1": {
-        "pinpoint": "R1(e) · Flo-v · Section 3.2, p. 92",
-        "sourceViews": [
-          [
-            "flo-v-92",
-            [
-              "replier"
-            ]
-          ]
-        ]
-      },
-      "1c2": {
-        "pinpoint": "R9 · Section V, p. 5",
-        "sourceViews": [
-          [
-            "skoldstrom-5",
-            [
-              "counters"
             ]
           ]
         ]
