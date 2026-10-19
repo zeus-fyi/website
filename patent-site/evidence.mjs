@@ -563,10 +563,10 @@ export const caseEvidence = {
     {
       "caption": [
         "Sol IP · US 10,090,894 B2",
-        "Claim 7 · Obviousness · C, hold 41"
+        "Claim 7 · Obviousness · C, hold 38"
       ],
       "assessed": "18 October 2026",
-      "pointsNote": "W1 is the reading of the two signal fields and W2 the reading of the extended preamble as a training field; both are claim-wide points.",
+      "pointsNote": "W1 is the reading of the two signal fields and W2 the reading of the extended preamble as a training field; both are claim-wide points. Limitations 7f and 7f2 each rest on their own reason to combine the second reference, scored in their own rows.",
       "staticNote": "The original page cited for the CRC in the service field is shown above.",
       "selected": "7f2",
       "limitations": {
@@ -760,12 +760,12 @@ export const caseEvidence = {
           ]
         },
         "7f": {
-          "rating": "A 95",
+          "rating": "B 88",
           "short": "Data after service",
           "title": "The data unit after the service field.",
-          "mapping": "In both references the PSDU follows the SERVICE field: the Cisco patent’s SIGNAL field, then the SERVICE field, then the remainder of the payload, the PSDU.",
-          "limit": "The owner can argue that the slash states no order; the 802.11 frame both references describe settles it.",
-          "pinpoint": "Ref. 1 · [0065] · Ref. 2 · Column 5, lines 42–46",
+          "mapping": "The first reference names its data units after the 802.11 fields, Service and PSDU, in no stated order. The Cisco patent states the order in the 802.11 frame it labels prior art: the SIGNAL field, then the SERVICE field, then the remainder of the payload, the PSDU.",
+          "limit": "A partner’s literal disclosure, combined for a reason stated in the art: the first reference builds its 802.11n frame on the 802.11a/g frame, and the Cisco patent applies to OFDM 802.11 formats “or derivatives thereof”. The reason is its own open point, reading the first reference’s units in the order of the 802.11 frame, rated 88. The owner’s answer, that the slash states no order and the burst is its own format, is a reading dispute, not a teaching-away. Not A: the first reference does not state the order.",
+          "pinpoint": "Ref. 1 · [0065], [0059]–[0060] · Ref. 2 · FIG. 2A–2B · Column 5, lines 42–46 and 23–25",
           "sourceViews": [
             [
               "broadcom-800-16",
@@ -2292,7 +2292,7 @@ export const backupGrounds = {
           "url": "https://patents.google.com/patent/US20110002319A1/en"
         }
       ],
-      "verdict": "Rated C, hold 39, in the re-score of 18 October 2026. It holds under the owner’s multi-user reading of the two signal fields as well as the patent’s own, so the two reading points of the submitted chart drop out, and it adds the reason to combine the Philips publication with the Broadcom frame, a three-reference chart against which the owner has colourable answers. The weakest limitation stays 7f2 at C 63.",
+      "verdict": "Rated C, hold 37, in the re-score of 18 October 2026. It holds under the owner’s multi-user reading of the two signal fields as well as the patent’s own, so the two reading points of the submitted chart drop out, and it adds the reason to combine the Philips publication with the Broadcom frame, a three-reference chart against which the owner has colourable answers. The weakest limitation stays 7f2 at C 63.",
       "rationale": "The Philips publication states the known goal, multi-user MIMO transmissions in WLANs under the IEEE 802.11 standards where the known systems were single-user, and answers it by dividing the transmission settings into a common signal field for all receivers and a signal field per user stream, sent after the multi-user training field so that each receiver decodes its own once it has estimated its channel. The places were already in the Broadcom frame: one signal field for every receiver, the extended preamble, then one additional signal field before each data unit.",
       "limitations": [
         {
