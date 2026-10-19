@@ -25,6 +25,8 @@ jobs:
       - run: npm run check:patents
       - run: node --test patent-site/dom.test.mjs
       - run: git diff --exit-code -- patents/
+      # The home page and the CyboEnergy ’488 page stay byte-for-byte as on main.
+      - run: git fetch --depth=1 origin main && npm run check:patents:frozen
       - run: npx playwright install --with-deps chromium firefox webkit
       - run: npm run test:patents
       - uses: actions/upload-artifact@v4

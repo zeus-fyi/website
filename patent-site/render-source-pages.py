@@ -622,6 +622,28 @@ PAGES = [
 ]
 
 
+def one_rectangle_per_line(rectangles):
+    """Merge the pieces of a hit that lie on one text line into their union.
+
+    PyMuPDF 1.28 returns a rectangle per text span (a bold "2:" and the words after it are two),
+    where the release that rendered the first pages returned one per line of text; the union is
+    the same highlight either way and keeps the recorded coordinates stable across releases. Two
+    consecutive pieces are on one line when their vertical extent is the same and the gap between
+    them is no wider than the line is high (a word space); the cells of a table row, separated by
+    more, stay separate rectangles, in the order the search returns them, as the first render left
+    them.
+    """
+    lines = []
+    for rectangle in rectangles:
+        previous = lines[-1] if lines else None
+        if (previous is not None and abs(previous.y0 - rectangle.y0) < 0.5 and abs(previous.y1 - rectangle.y1) < 0.5
+                and rectangle.x0 - previous.x1 <= max(previous.height, rectangle.height)):
+            lines[-1] = previous | rectangle
+        else:
+            lines.append(fitz.Rect(rectangle))
+    return lines
+
+
 def fetch(cache_directory, key, metadata):
     """Return the document's bytes from the cache or its public URL; they must match the record."""
     cached = cache_directory / (key + '.pdf')
@@ -666,7 +688,7 @@ def render(cache_directory):
             translation = None
             if isinstance(quote, tuple):
                 quote, translation = quote  # a foreign-language passage with the researcher's translation
-            rectangles = page.search_for(quote, flags=SEARCH_FLAGS) if text_layer else []
+            rectangles = one_rectangle_per_line(page.search_for(quote, flags=SEARCH_FLAGS)) if text_layer else []
             if text_layer and not rectangles:
                 raise ValueError(f'Quotation not found on {page_id}: {quote}')
             fragments[fragment_id] = {
