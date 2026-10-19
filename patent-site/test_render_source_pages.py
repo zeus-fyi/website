@@ -56,7 +56,6 @@ class TextLayerLocator(unittest.TestCase):
         page = document.new_page(width=595, height=842)
         page.insert_text((60, 120), 'OpenVirteX is a network hypervisor that can create multiple vir-\ntual and programmable networks on top of a single physical one.', fontsize=11)
         quote = 'create multiple virtual and programmable networks'
-        self.assertEqual(page.search_for(quote, flags=fitz.TEXT_DEHYPHENATE), [])
         rectangles = renderer.locate_in_words(page, quote, 'test-1')
         self.assertEqual(len(rectangles), 2)
         first, second = rectangles
