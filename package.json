@@ -5,6 +5,7 @@
   "scripts": {
     "build:patents": "node patent-site/build.mjs",
     "check:patents": "python3 patent-site/check.py",
+    "check:patents:frozen": "git diff --exit-code origin/main -- patents/index.html patents/research/cyboenergy-9331488/",
     "test:patents": "playwright test",
     "test:patents:dom": "node --test patent-site/dom.test.mjs"
   },

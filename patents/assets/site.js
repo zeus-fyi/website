@@ -6,20 +6,29 @@ document.querySelectorAll('[data-evidence]').forEach(function (module) {
   try { records = JSON.parse(module.querySelector('[data-evidence-data]').textContent); }
   catch (_) { return; }
   var buttons = module.querySelectorAll('[data-score]');
-  var currentRecord, currentView, highlightsVisible = true;
+  var currentId, currentRecord, currentView, highlightsVisible = true;
   var dialog = module.querySelector('[data-source-dialog]');
   var enlarge = module.querySelector('[data-enlarge]');
   var pageTabs = module.querySelector('[data-source-pages]');
   var imageError = module.querySelector('[data-image-error]');
+  var UNAVAILABLE = 'The original page is not publicly available.';
   function makePage(view) {
     var page = document.createElement('div');
+    if (view.unavailable) {
+      page.className = 'source-unavailable';
+      page.setAttribute('data-source-unavailable', '');
+      var line = document.createElement('p'), cite = document.createElement('p');
+      line.textContent = UNAVAILABLE; cite.className = 'caption'; cite.textContent = view.citation;
+      page.appendChild(line); page.appendChild(cite);
+      return page;
+    }
     page.className = 'source-page';
     page.setAttribute('data-source-page', '');
     var image = document.createElement('img');
     image.setAttribute('data-source-image', '');
     image.width = view.width; image.height = view.height;
     image.loading = 'lazy';
-    image.alt = view.document + ', printed page ' + view.printedPage + '. The cited passages are highlighted; their text appears beside the page.';
+    image.alt = view.document + ', ' + (view.pageLabel || 'printed page ' + view.printedPage) + '. ' + (view.highlights === false ? 'The cited passage appears beside the page.' : 'The cited passages are highlighted; their text appears beside the page.');
     image.addEventListener('error', function () { imageError.hidden = false; });
     image.src = view.image;
     page.appendChild(image);
@@ -51,32 +60,41 @@ document.querySelectorAll('[data-evidence]').forEach(function (module) {
     currentView = view;
     module.querySelector('[data-document-title]').textContent = view.document;
     module.querySelector('[data-document-edition]').textContent = view.edition;
-    module.querySelector('[data-page-label]').textContent = 'Printed p. ' + view.printedPage + ' · PDF page ' + view.pdfPage + ' of ' + view.pageCount;
+    module.querySelector('[data-page-label]').textContent = view.unavailable ? view.citation : (view.pageLabel || 'Printed p. ' + view.printedPage) + ' · PDF page ' + view.pdfPage + ' of ' + view.pageCount;
     module.querySelector('[data-source-kind]').textContent = 'Original reference · ' + view.reference;
-    module.querySelector('[data-original-pdf]').href = view.originalUrl;
-    module.querySelector('[data-archive-date]').textContent = 'Archived ' + view.archiveDate + ' from the manufacturer’s website.';
-    module.querySelector('[data-quote-reference]').textContent = view.reference + ' · ' + view.document + ' · Printed p. ' + view.printedPage;
-    module.querySelector('[data-source-note]').textContent = currentRecord.summary
-      ? 'P2 is the researcher’s combination rationale. These original pages show its cited sources.'
-      : 'Original document page. Highlights identify the quoted passages.';
+    var original = module.querySelector('[data-original-pdf]');
+    original.hidden = Boolean(view.unavailable); original.href = view.unavailable ? '' : view.originalUrl;
+    enlarge.hidden = Boolean(view.unavailable);
+    module.querySelector('[data-toggle-highlights]').hidden = Boolean(view.unavailable) || view.highlights === false;
+    module.querySelector('[data-archive-date]').textContent = view.unavailable ? UNAVAILABLE : view.sourceNote || ('Archived ' + view.archiveDate + ' from the manufacturer’s website.');
+    module.querySelector('[data-quote-reference]').textContent = view.reference + ' · ' + view.document + ' · ' + (view.unavailable ? view.citation : view.pageLabel || 'Printed p. ' + view.printedPage);
+    module.querySelector('[data-source-note]').textContent = currentRecord.note || (currentRecord.summary
+      ? currentId + ' is the researcher’s combination rationale. These original pages show its cited sources.'
+      : view.unavailable
+        ? 'The quoted passage is shown with its citation. ' + UNAVAILABLE
+        : view.highlights === false
+          ? 'Original document page. Highlights are not available for this scanned page; the quoted passage appears beside it.'
+          : 'Original document page. Highlights identify the quoted passages.');
     var passages = module.querySelector('[data-passages]');
     passages.textContent = '';
     view.fragments.forEach(function (fragment) {
       var quote = document.createElement('blockquote'), p = document.createElement('p'), mark = document.createElement('mark');
       mark.textContent = fragment.quote;
-      p.appendChild(mark); quote.appendChild(p); passages.appendChild(quote);
+      p.appendChild(mark); quote.appendChild(p);
+      if (fragment.translation) { var translation = document.createElement('p'); translation.className = 'caption'; translation.textContent = fragment.translation; quote.appendChild(translation); }
+      passages.appendChild(quote);
     });
     var host = module.querySelector('[data-page-host]');
     host.textContent = ''; imageError.hidden = true;
     host.appendChild(makePage(view));
     pageTabs.querySelectorAll('button').forEach(function (button, buttonIndex) { button.setAttribute('aria-pressed', String(buttonIndex === index)); });
     updateHighlights();
-    module.querySelector('[data-evidence-status]').textContent = currentRecord.label + '. ' + view.reference + ', printed page ' + view.printedPage + '.';
+    module.querySelector('[data-evidence-status]').textContent = currentRecord.label + '. ' + view.reference + ', ' + (view.unavailable ? view.citation : view.pageLabel || 'printed page ' + view.printedPage) + '.';
   }
   function select(id) {
     var record = records[id];
     if (!record) return;
-    currentRecord = record;
+    currentId = id; currentRecord = record;
     module.querySelectorAll('[data-field]').forEach(function (field) {
       field.textContent = record[field.getAttribute('data-field')] || '';
     });
@@ -84,8 +102,8 @@ document.querySelectorAll('[data-evidence]').forEach(function (module) {
     record.views.forEach(function (view, index) {
       var button = document.createElement('button');
       button.type = 'button';
-      button.textContent = view.reference + ' · p. ' + view.printedPage;
-      button.setAttribute('aria-label', view.reference + ', ' + view.document + ', printed page ' + view.printedPage);
+      button.textContent = view.reference + ' · ' + (view.pageLabel || 'p. ' + view.printedPage);
+      button.setAttribute('aria-label', view.reference + ', ' + view.document + ', ' + (view.unavailable ? view.citation : view.pageLabel || 'printed page ' + view.printedPage));
       button.addEventListener('click', function () { showView(index); });
       pageTabs.appendChild(button);
     });
@@ -98,16 +116,16 @@ document.querySelectorAll('[data-evidence]').forEach(function (module) {
     button.disabled = false;
   });
   module.querySelectorAll('[data-toggle-highlights], [data-dialog-highlights]').forEach(function (button) {
-    button.hidden = false;
     button.addEventListener('click', function () { highlightsVisible = !highlightsVisible; updateHighlights(); });
   });
-  enlarge.hidden = false;
+  module.querySelector('[data-dialog-highlights]').hidden = false;
   enlarge.addEventListener('click', function () {
+    if (currentView.unavailable) return;
     if (typeof dialog.showModal !== 'function') {
       window.open(currentView.image, '_blank', 'noopener');
       return;
     }
-    module.querySelector('[data-dialog-title]').textContent = currentView.reference + ' · ' + currentView.document + ' · p. ' + currentView.printedPage;
+    module.querySelector('[data-dialog-title]').textContent = currentView.reference + ' · ' + currentView.document + ' · ' + (currentView.pageLabel || 'p. ' + currentView.printedPage);
     module.querySelector('[data-dialog-original]').href = currentView.originalUrl;
     var host = module.querySelector('[data-dialog-page]');
     host.textContent = '';
@@ -129,8 +147,8 @@ document.querySelectorAll('[data-evidence]').forEach(function (module) {
     event.currentTarget.textContent = zoomed ? 'Fit page' : 'Zoom in';
     event.currentTarget.setAttribute('aria-pressed', String(zoomed));
     var scroll = module.querySelector('[data-dialog-scroll]');
-    if (zoomed) {
-      var page = host.querySelector('[data-source-page]'), rect = currentView.fragments[0].rects[0];
+    var page = host.querySelector('[data-source-page]'), rect = zoomed && currentView.fragments[0] && currentView.fragments[0].rects[0];
+    if (rect) {
       scroll.scrollLeft = (rect[0] + rect[2] / 2) / 100 * page.clientWidth - scroll.clientWidth / 2;
       scroll.scrollTop = (rect[1] + rect[3] / 2) / 100 * page.clientHeight - scroll.clientHeight / 2;
     } else { scroll.scrollTop = 0; scroll.scrollLeft = 0; }
@@ -140,7 +158,8 @@ document.querySelectorAll('[data-evidence]').forEach(function (module) {
     document.documentElement.classList.remove('source-dialog-open');
     enlarge.focus();
   });
-  select('16c2');
+  var initial = module.querySelector('[data-score][aria-pressed="true"]');
+  select(initial ? initial.getAttribute('data-score') : buttons[0].getAttribute('data-score'));
 });
 
 var inquiry = document.querySelector('[data-inquiry]');

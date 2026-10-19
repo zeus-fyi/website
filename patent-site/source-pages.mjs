@@ -17,6 +17,314 @@ export const sourceDocuments = {
     "url": "https://web.archive.org/web/20100525025008id_/http://www.sunways.eu/static/sites/default/downloads/en/products/solar-inverters/at/Sunways_SI_AT_Manual_GB_09-07.pdf",
     "sha256": "c9ed5494a3c6f747aa4ddb96416afc388f03c3fc7557c157bd17fae6cb18909b",
     "pageCount": 74
+  },
+  "brand-503": {
+    "reference": "R1",
+    "title": "Brand et al., US 5,764,503 A",
+    "edition": "United States patent · Digital Equipment Corporation · Issued 9 June 1998",
+    "url": "https://patentimages.storage.googleapis.com/6b/a1/06/6702d1cc15910b/US5764503.pdf",
+    "sha256": "b53b8b8a2f2e32f529f5844f5f2d3b8728de5574ce259b4d28ebe8317852e4b4",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 19
+  },
+  "starmac-iros": {
+    "reference": "R10",
+    "title": "STARMAC: Multi-Agent Quadrotor Testbed Control Design",
+    "edition": "Waslander, Hoffmann, Jang and Tomlin · IEEE/RSJ IROS 2005, Edmonton, 2–6 August 2005 · Authors’ copy",
+    "url": "https://people.eecs.berkeley.edu/~tomlin/papers/conferences/whjt05_iros.pdf",
+    "sha256": "e4275469658105d0836475a6c1f0bc196ac26b68554ce3690857858aab4ef7d9",
+    "sourceNote": "Authors’ copy of the conference paper, hosted on the authors’ university pages. Printed pages 468–473.",
+    "pageCount": 6
+  },
+  "starmac-dasc": {
+    "reference": "R10-DASC",
+    "title": "The Stanford Testbed of Autonomous Rotorcraft for Multi Agent Control (STARMAC)",
+    "edition": "Hoffmann et al. · 23rd Digital Avionics Systems Conference, Salt Lake City, 24–28 October 2004 · Authors’ copy",
+    "url": "https://people.eecs.berkeley.edu/~tomlin/papers/conferences/hrwdjt04_dasc.pdf",
+    "sha256": "d91b5addc85ea20a868fea83aafa5e8869217fdd3d3c2015304cdec16873f735",
+    "sourceNote": "Authors’ copy of the conference paper, hosted on the authors’ university pages. Printed pages 12.E.4-1 to 12.E.4-10.",
+    "pageCount": 10
+  },
+  "kinoshita-383": {
+    "reference": "R2",
+    "title": "Kinoshita, US 5,071,383",
+    "edition": "United States patent · Radio-controlled flying apparatus · Issued 10 December 1991",
+    "url": "https://patentimages.storage.googleapis.com/61/a9/f1/3216608039ca31/US5071383A.pdf",
+    "sha256": "b623b885c32875d808576e977ad486da87712922b6277a351b01b92b7b3e5673",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 12
+  },
+  "spirov-357": {
+    "reference": "R5",
+    "title": "Spirov and Pedersen, WO 2004/101357 A2",
+    "edition": "International application · Homeostatic flying hovercraft · Published 25 November 2004",
+    "url": "https://patentimages.storage.googleapis.com/03/d0/57/31e28c8fc701c9/WO2004101357A2.pdf",
+    "sha256": "ca91783b160f73f0cac018b11e0eb4ebecf58c6054b55994d31e18d8cace221c",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 57
+  },
+  "louvel-921": {
+    "reference": "R1",
+    "title": "Louvel, US 2002/0104921 A1",
+    "edition": "United States patent application publication · Electrical remote-control and remote-power flying saucer · 8 August 2002",
+    "url": "https://patentimages.storage.googleapis.com/b7/ab/e2/52a8a6f7cfe2c8/US20020104921A1.pdf",
+    "sha256": "8b167c5323a9eca8fbab616e6005584df76a20fe66a44c3503bff3b6141789eb",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 12
+  },
+  "pauli-916": {
+    "reference": "R3",
+    "title": "Pauli, DE 102 56 916 A1",
+    "edition": "German patent application · Hubschrauber · Published 9 September 2004 · German original; the translation is the researcher’s",
+    "url": "https://patentimages.storage.googleapis.com/0c/7b/a9/b2ee4ce66c257a/DE10256916A1.pdf",
+    "sha256": "684522301247997ac22e76b815638e5354fdba53a21ccd25699ea3263774efad",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 8
+  },
+  "ge-267": {
+    "reference": "A-3",
+    "title": "Liu, Garces and Bose, US 2010/0057267 A1",
+    "edition": "United States patent application publication · General Electric · 4 March 2010",
+    "url": "https://patentimages.storage.googleapis.com/5e/a2/b1/153837f1d1e33a/US20100057267A1.pdf",
+    "sha256": "1cb0b0fb8b06afe59a3488fc45941c8c5b97849aead59a7abea2155b2f4ab735",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 14
+  },
+  "broadcom-800": {
+    "reference": "Ref. 1",
+    "title": "Trachewsky, Kondylis and Bagchi, US 2005/0181800 A1",
+    "edition": "United States patent application publication · Signaling format for WLANs · 18 August 2005",
+    "url": "https://patentimages.storage.googleapis.com/c5/ec/3f/6d06966c707172/US20050181800A1.pdf",
+    "sha256": "bd8f9a684beee7142c7654087efd4a35575e4ca333b935e4edd36e5e3abbf4a2",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 18
+  },
+  "cisco-530": {
+    "reference": "Ref. 2",
+    "title": "Miller et al., US 7,231,530 B1",
+    "edition": "United States patent · Cisco Technology · Issued 12 June 2007",
+    "url": "https://patentimages.storage.googleapis.com/92/d0/f6/43ee750455ca74/US7231530.pdf",
+    "sha256": "e6d1fc0a4748f1d98ae3ca1da22f8f8422dffb5f2afe72f6ad20ecb9d4feb22c",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 22
+  },
+  "broadcom-017": {
+    "reference": "Ref. 2",
+    "title": "Hansen, Moorti and Trachewsky, US 2006/0182017 A1",
+    "edition": "United States patent application publication · Compromise greenfield preambles for 802.11n · 17 August 2006",
+    "url": "https://patentimages.storage.googleapis.com/54/d9/00/e935141e38a0ad/US20060182017A1.pdf",
+    "sha256": "cc6e165b82443fa2c80310859d9ab0eb1834e07b150acdc3ff0a1bb2fcb5c0a7",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 27
+  },
+  "broadcom-870": {
+    "reference": "Ref. 3",
+    "title": "Kim, US 2008/0014870 A1",
+    "edition": "United States patent application publication · Explicit feedback with sounding packet · 17 January 2008",
+    "url": "https://patentimages.storage.googleapis.com/92/13/5b/e2b3ae539c5894/US20080014870A1.pdf",
+    "sha256": "8249ebc9fabbf8e734efaf436cadc123315154fdbc23c967d35decc04f69a9dd",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 26
+  },
+  "airgo-474": {
+    "reference": "Ref. 6",
+    "title": "van Zelst, Jones and van Nee, US 2005/0286474 A1",
+    "edition": "United States patent application publication · Airgo Networks · 29 December 2005",
+    "url": "https://patentimages.storage.googleapis.com/2c/1c/0e/f3bc516e333d69/US20050286474A1.pdf",
+    "sha256": "309a2c8ae54d3a2d48b30c493eb1f7947a7c870bd12e03b9d2fbedd352f0a37c",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 26
+  },
+  "intel-314": {
+    "reference": "Ref. 8",
+    "title": "Maheshwari, Boariu and Wei, US 2010/0008314 A1",
+    "edition": "United States patent application publication · Nokia Siemens Networks · 14 January 2010",
+    "url": "https://patentimages.storage.googleapis.com/16/77/ed/0102a198fd548b/US20100008314A1.pdf",
+    "sha256": "71b2d6335954a9679a3c86558860aa589a6c2b99f60a5e9fc186a73a3e34ed0e",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 21
+  },
+  "ts25222": {
+    "reference": "Ref. 11",
+    "title": "3GPP TS 25.222 V8.2.0, Multiplexing and channel coding (TDD)",
+    "edition": "Published by ETSI as ETSI TS 125 222 V8.2.0 · October 2008",
+    "url": "https://www.etsi.org/deliver/etsi_ts/125200_125299/125222/08.02.00_60/ts_125222v080200p.pdf",
+    "sha256": "309048523c5967e49fb14fdac2f52901d7f67a3c94800f9ec9be4bb93810ec01",
+    "sourceNote": "Public copy of the specification as ETSI publishes it.",
+    "pageCount": 96
+  },
+  "nec-050": {
+    "reference": "Ref. 13",
+    "title": "US 8,532,050 B2",
+    "edition": "United States patent · NEC · Issued 10 September 2013",
+    "url": "https://patentimages.storage.googleapis.com/ed/da/7c/47fee279caa662/US8532050.pdf",
+    "sha256": "8b639195130f6dce135e4e6a99aa836b472aa451d0b189d5126fed01aedc9815",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 25
+  },
+  "fornage-412": {
+    "reference": "Fornage",
+    "title": "Fornage, US 7,796,412 B2",
+    "edition": "United States patent · Enphase Energy · Issued 14 September 2010",
+    "url": "https://patentimages.storage.googleapis.com/25/22/da/27fe1dde3d7baa/US7796412.pdf",
+    "sha256": "7c62ba923164bfb8fb4912a368e050bdc2328eb484673699c5081a685df65c3a",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 14
+  },
+  "muller-555": {
+    "reference": "Müller",
+    "title": "Müller, WO 2011/107555 A1 (SMA Solar Technology)",
+    "edition": "International application · Power inverter with multi-fed on-board power supply · Published 9 September 2011 · a scanned copy without a text layer",
+    "url": "https://patentimages.storage.googleapis.com/37/4e/ae/54955ecf82375b/WO2011107555A1.pdf",
+    "sha256": "652837ee09569be975fd5593a602858d9dc3a70d5a8b3c170f3c38343d02c4a0",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 24
+  },
+  "suekane-344": {
+    "reference": "Suekane",
+    "title": "Suekane and Makitani, US 2011/0169344 A1",
+    "edition": "United States patent application publication · Utility interconnection and inverter device · 14 July 2011",
+    "url": "https://patentimages.storage.googleapis.com/08/fe/21/7a4cfcc39ec654/US20110169344A1.pdf",
+    "sha256": "f4ceb3891a61f09e9830a0cfd62bb99022a0d02a88d712140be385ff23afeeb9",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 12
+  },
+  "ovx-ons14": {
+    "reference": "R1(b)",
+    "title": "OpenVirteX: A Network Hypervisor",
+    "edition": "Al-Shabibi et al. · Open Networking Summit 2014 · USENIX",
+    "url": "https://www.usenix.org/system/files/conference/ons2014/ons2014-paper-al_shabibi.pdf",
+    "sha256": "16e95b0d6a96cdb7fafae4a10be7c13910e3ad56491ec44d1cb7d5d0b1a533f9",
+    "sourceNote": "Public copy of the paper as USENIX publishes it.",
+    "pageCount": 2
+  },
+  "flo-v": {
+    "reference": "R1(e)",
+    "title": "Flo-v: Low Overhead Network Monitoring Framework in Virtualized Software Defined Networks",
+    "edition": "Yang, Lee, Jeong and Yoo · ACM CFI ’16, Nanjing, 15–17 June 2016 · Publisher’s copy",
+    "archiveDate": "5 June 2020",
+    "url": "https://web.archive.org/web/20200605012653id_/https://dl.acm.org/doi/pdf/10.1145/2935663.2935677?download=true",
+    "sha256": "1eb2a7b9febf6ce63fb32a6191c25a72dc819e951fb51ce7635197f6f975650d",
+    "sourceNote": "Archived 5 June 2020 from the publisher’s website. Printed pages 90–94.",
+    "pageCount": 5
+  },
+  "skoldstrom": {
+    "reference": "R9",
+    "title": "Network Virtualization and Resource Allocation in OpenFlow-based Wide Area Networks",
+    "edition": "Sköldström and Yedavalli · IEEE ICC 2012, Ottawa, 10–15 June 2012 · Authors’ copy",
+    "archiveDate": "21 April 2024",
+    "url": "https://web.archive.org/web/20240421163547id_/https://www.ericsson.com/4ac618/assets/local/reports-papers/research-papers/network-virtualization-and-resource-allocation-in-oenflow-based-wide-area-networks.pdf",
+    "sha256": "55c3858510bf48dec169c4a0e0ab22ff98e4e86aa0c854aa7fc121b1b03db81a",
+    "sourceNote": "Authors’ copy, archived 21 April 2024 from the research-papers page of one author’s employer.",
+    "pageCount": 5
+  },
+  "liebert-235": {
+    "reference": "B",
+    "title": "Blair et al., US 7,453,235 B2",
+    "edition": "United States patent · Liebert Corporation · Issued 18 November 2008",
+    "url": "https://patentimages.storage.googleapis.com/d2/fb/3b/8ed0e68ac317a6/US7453235.pdf",
+    "sha256": "1b3baeda973025df2096ba5e9c1e61e87957ec679482ba803c4c73550db3315e",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 33
+  },
+  "mitsubishi-987": {
+    "reference": "C",
+    "title": "Mitsubishi Electric, US 7,485,987 B2",
+    "edition": "United States patent · Issued 3 February 2009",
+    "url": "https://patentimages.storage.googleapis.com/d3/86/9f/eb8623797cf6b0/US7485987.pdf",
+    "sha256": "33622746b5180c78a9d5a792ea0f2b7e58a776ffc81c7c6b0fe0a793ec3ad2ab",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 26
+  },
+  "abb-323": {
+    "reference": "C",
+    "title": "ABB, US 2011/0222323 A1",
+    "edition": "United States patent application publication · the national stage of WO 2009/087063 A1 · 15 September 2011",
+    "url": "https://patentimages.storage.googleapis.com/6b/4c/a7/94277c92066059/US20110222323A1.pdf",
+    "sha256": "e26978239fe0bf0e490304d1b9f4a558a91529da1369639410b2368cce8b5fec",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 10
+  },
+  "ge-271": {
+    "reference": "G",
+    "title": "Garces, Liu, deRooij and Bose, US 2010/0067271 A1",
+    "edition": "United States patent application publication · General Electric · 18 March 2010",
+    "url": "https://patentimages.storage.googleapis.com/96/de/27/a48bf4cde5ae13/US20100067271A1.pdf",
+    "sha256": "3e489edd0a96e89c0ff3a6cc2aa5906fb40a97648843315f9dd89a8607721658",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 8
+  },
+  "abb-297": {
+    "reference": "E",
+    "title": "Stulz et al., US 7,499,297 B2",
+    "edition": "United States patent · ABB Schweiz · Issued 3 March 2009",
+    "url": "https://patentimages.storage.googleapis.com/9e/d9/c6/4b9eae7b1899dd/US7499297.pdf",
+    "sha256": "f8003643eebaff7b4053421f9eb58c88f6ca2786f24d65e584877c9e160c6335",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 15
+  },
+  "nippon-149": {
+    "reference": "F",
+    "title": "Mizuno, Takaesu and Ishii, JP 2006-320149 A",
+    "edition": "Japanese patent application publication · Nippon Oil · 24 November 2006 · Japanese original with the researcher’s translation",
+    "url": "https://patentimages.storage.googleapis.com/5f/9c/83/57399ac1a43633/JP2006320149A.pdf",
+    "sha256": "6ac382e29c6c612c3e9bd69c0dcc8b2bf108e6315954dd0e59ddaccbefabefa0",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 12
+  },
+  "em-032": {
+    "reference": "H",
+    "title": "Peterson, US 6,850,032 B1",
+    "edition": "United States patent · E and M Power · Issued 1 February 2005",
+    "url": "https://patentimages.storage.googleapis.com/21/4d/06/ebf14c87b8bebb/US6850032.pdf",
+    "sha256": "782b871ba65321d375ccd9041e6c1c3f963a5560db9123b5ae6e1dff59928041",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 32
+  },
+  "philips-319": {
+    "reference": "Ref. 3",
+    "title": "Husen, Serbetli and Wang, US 2011/0002319 A1",
+    "edition": "United States patent application publication · Koninklijke Philips Electronics · 6 January 2011",
+    "url": "https://patentimages.storage.googleapis.com/30/50/71/a20e1a5a86a206/US20110002319A1.pdf",
+    "sha256": "0782a44c4e5d97a32a2bd987e4b7c33ea16a745a825ef44f01914a2adc7b854f",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 10
+  },
+  "ralink-232": {
+    "reference": "Window",
+    "title": "Ralink Technology, US 2011/0280232 A1",
+    "edition": "United States patent application publication · 17 November 2011",
+    "url": "https://patentimages.storage.googleapis.com/91/24/68/9fa681d0aa01a0/US20110280232A1.pdf",
+    "sha256": "3ed92e3189eaece3c52dd15cd37f9db8a2c284f207675acbee571c05b613ced9",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 12
+  },
+  "liu-280": {
+    "reference": "Window",
+    "title": "Liu and Zhang, US 2011/0103280 A1",
+    "edition": "United States patent application publication · 5 May 2011",
+    "url": "https://patentimages.storage.googleapis.com/b2/83/f8/6df2aca3b3dbb5/US20110103280A1.pdf",
+    "sha256": "34d03dda1ed48c08f311a210693c6abe31e8cd98eea466c4fb3b7b4bb7efa803",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 28
+  },
+  "nicira-118": {
+    "reference": "R6",
+    "title": "Nicira, US 2015/0312118 A1",
+    "edition": "United States patent application publication · 29 October 2015",
+    "url": "https://patentimages.storage.googleapis.com/aa/c2/19/02077a5bc3f2da/US20150312118A1.pdf",
+    "sha256": "36c366b6993f5cd4ae237e2e9f3b1469255a253b81830170c37c7f12a3e48659",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 34
+  },
+  "wobben-910": {
+    "reference": "R6",
+    "title": "Wobben, US 2005/0061910 A1",
+    "edition": "United States patent application publication · Aircraft · 24 March 2005",
+    "url": "https://patentimages.storage.googleapis.com/a6/6c/17/d5d41326bbd45b/US20050061910A1.pdf",
+    "sha256": "50352d684f5c2784543acaa520b6d884bb78e9878232be5e86fbbb914c568250",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 7
   }
 };
 export const sourcePages = {
@@ -340,5 +648,3191 @@ export const sourcePages = {
         ]
       }
     }
+  },
+  "brand-503-12": {
+    "document": "brand-503",
+    "printedPage": 12,
+    "pdfPage": 12,
+    "image": "sources/brand-503-12.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "field": {
+        "quote": "This invention relates to the field of electrical power supplies and, more particularly, power supplies which",
+        "rects": [
+          [
+            10.819,
+            17.0388,
+            38.1465,
+            1.9372
+          ],
+          [
+            9.3103,
+            18.1034,
+            35.5603,
+            1.9372
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 1–2"
+  },
+  "brand-503-14": {
+    "document": "brand-503",
+    "printedPage": 14,
+    "pdfPage": 14,
+    "image": "sources/brand-503-14.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "regulator": {
+        "quote": "Voltage regulator 208 does filtering, power factor correction and ultimately outputs a regulated DC voltage 210 (in the preferred embodiment +/-200 volts) to current controlled AC voltage source 212.",
+        "rects": [
+          [
+            8.8793,
+            83.0699,
+            39.2371,
+            1.9502
+          ],
+          [
+            8.8793,
+            84.2869,
+            39.1954,
+            1.9476
+          ],
+          [
+            8.8362,
+            85.5671,
+            39.3233,
+            1.9521
+          ],
+          [
+            8.8793,
+            86.7796,
+            15.7759,
+            1.9437
+          ]
+        ]
+      },
+      "sensor": {
+        "quote": "Current voltage sensor 22 monitors the total voltage and total current being supplied by one (or more) transverters operating in a particular voltage phase. The monitored voltage sense 26 and monitored current sense 24 are fed back to system control module 18 as hereinbefore described.",
+        "rects": [
+          [
+            84.569,
+            75.9815,
+            5.7143,
+            1.943
+          ],
+          [
+            50.6034,
+            77.1822,
+            39.6244,
+            1.9424
+          ],
+          [
+            50.6034,
+            78.3603,
+            39.7414,
+            1.9476
+          ],
+          [
+            50.6034,
+            79.5114,
+            39.7845,
+            1.9502
+          ],
+          [
+            50.6034,
+            80.833,
+            39.7629,
+            1.8848
+          ],
+          [
+            50.6034,
+            82.1161,
+            29.9138,
+            1.6296
+          ]
+        ]
+      },
+      "receives": {
+        "quote": "Current controlled voltage source 212 receives transverter control current 20, as an input 214 having a return 216.",
+        "rects": [
+          [
+            25.2586,
+            86.7796,
+            22.9167,
+            1.9437
+          ],
+          [
+            8.8793,
+            88.0561,
+            39.3678,
+            1.9424
+          ],
+          [
+            8.8362,
+            89.2055,
+            13.319,
+            2.0012
+          ]
+        ]
+      },
+      "switching": {
+        "quote": "FET switch controller 224, controls FET switch assemblies 226, 228, 230 and 232 which generate current through secondary winding 219 such that the flux in transformer 218 maintains balance.",
+        "rects": [
+          [
+            61.681,
+            28.8495,
+            29.1236,
+            1.6819
+          ],
+          [
+            50.9483,
+            29.9099,
+            39.5636,
+            1.943
+          ],
+          [
+            50.9483,
+            31.034,
+            39.5043,
+            1.9424
+          ],
+          [
+            50.9052,
+            32.3598,
+            23.0172,
+            1.5765
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 5–6"
+  },
+  "brand-503-15": {
+    "document": "brand-503",
+    "printedPage": 15,
+    "pdfPage": 15,
+    "image": "sources/brand-503-15.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "plurality": {
+        "quote": "In FIG. 14, a plurality 248 of transverters",
+        "rects": [
+          [
+            20.9483,
+            17.206,
+            26.6379,
+            1.9372
+          ]
+        ]
+      },
+      "parallel": {
+        "quote": "on the same power source voltage phase, are interconnected such that their outputs 249 are in parallel",
+        "rects": [
+          [
+            8.7931,
+            19.6048,
+            39.5659,
+            1.8848
+          ],
+          [
+            8.8362,
+            20.8457,
+            27.931,
+            1.9372
+          ]
+        ]
+      },
+      "series": {
+        "quote": "However, transverter control signal 20 is fed to and through plurality 248 over series interconnection 250",
+        "rects": [
+          [
+            11.5517,
+            28.2219,
+            36.796,
+            1.9372
+          ],
+          [
+            8.7069,
+            29.4157,
+            38.125,
+            1.8848
+          ]
+        ]
+      },
+      "same": {
+        "quote": "such that each of the transverters of plurality 248 receive the same transverter",
+        "rects": [
+          [
+            33.5776,
+            30.7529,
+            14.6839,
+            1.5707
+          ],
+          [
+            8.6638,
+            31.8593,
+            38.9224,
+            1.8848
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 7–8"
+  },
+  "starmac-iros-468": {
+    "document": "starmac-iros",
+    "printedPage": 468,
+    "pdfPage": 1,
+    "image": "sources/starmac-iros-468.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "vehicle": {
+        "quote": "The base vehicle for STARMAC is a four rotor aircraft with fixed pitch blades, referred to as a quadrotor, or an X4-flyer.",
+        "rects": [
+          [
+            35.1835,
+            52.735,
+            14.7941,
+            1.2361
+          ],
+          [
+            10.4412,
+            54.2179,
+            39.534,
+            1.2361
+          ],
+          [
+            10.4412,
+            55.7019,
+            27.6451,
+            1.2361
+          ]
+        ]
+      },
+      "hover": {
+        "quote": "The first major milestone for STARMAC was autonomous hover control, with closed loop control of attitude, altitude and position. Using inertial sensing, the attitude of the aircraft is simple to control, by applying small variations in the relative speeds of the blades.",
+        "rects": [
+          [
+            54.3516,
+            35.1178,
+            37.9304,
+            1.2361
+          ],
+          [
+            52.752,
+            36.6018,
+            39.5359,
+            1.2361
+          ],
+          [
+            52.752,
+            38.0847,
+            39.5354,
+            1.2361
+          ],
+          [
+            52.752,
+            39.5676,
+            39.541,
+            1.2361
+          ],
+          [
+            52.752,
+            41.0516,
+            22.2878,
+            1.2361
+          ]
+        ]
+      }
+    }
+  },
+  "starmac-iros-470": {
+    "document": "starmac-iros",
+    "printedPage": 470,
+    "pdfPage": 3,
+    "image": "sources/starmac-iros-470.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "loops": {
+        "quote": "Applying the concept of spectral separation, inner loop control of attitude and altitude is performed by commanding motor voltages, and outer loop position control is performed by commanding attitude requests for the inner loop.",
+        "rects": [
+          [
+            12.0409,
+            18.2422,
+            37.9374,
+            1.2361
+          ],
+          [
+            10.4413,
+            19.7251,
+            39.5279,
+            1.2361
+          ],
+          [
+            10.4413,
+            21.2091,
+            39.5322,
+            1.2361
+          ],
+          [
+            10.4413,
+            22.692,
+            33.3333,
+            1.2361
+          ]
+        ]
+      }
+    }
+  },
+  "starmac-dasc-1": {
+    "document": "starmac-dasc",
+    "printedPage": 1,
+    "pdfPage": 1,
+    "image": "sources/starmac-dasc-1.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "frame": {
+        "quote": "The quadrotor helicopter, or X4 flyer, has four fixed-pitch rotors mounted at the four ends of a simple cross frame.",
+        "rects": [
+          [
+            12.9412,
+            69.6131,
+            33.9467,
+            1.5347
+          ],
+          [
+            9.4118,
+            71.204,
+            34.488,
+            1.5347
+          ],
+          [
+            9.4118,
+            72.8024,
+            14.0114,
+            1.5347
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Printed p. 12.E.4-1"
+  },
+  "starmac-dasc-4": {
+    "document": "starmac-dasc",
+    "printedPage": 4,
+    "pdfPage": 4,
+    "image": "sources/starmac-dasc-4.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "pwm": {
+        "quote": "The Control PIC is connected to each of the motors via PWM outputs",
+        "rects": [
+          [
+            42.7664,
+            16.4996,
+            3.2426,
+            1.5347
+          ],
+          [
+            9.4118,
+            18.0904,
+            36.8376,
+            1.5347
+          ],
+          [
+            9.4118,
+            19.6889,
+            10.024,
+            1.5347
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Printed p. 12.E.4-4"
+  },
+  "starmac-dasc-8": {
+    "document": "starmac-dasc",
+    "printedPage": 8,
+    "pdfPage": 8,
+    "image": "sources/starmac-dasc-8.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "onboard": {
+        "quote": "This controller was implemented in floating point onboard the X4 flyer.",
+        "rects": [
+          [
+            31.7662,
+            45.7268,
+            14.3216,
+            1.5347
+          ],
+          [
+            9.4118,
+            47.3253,
+            37.357,
+            1.5347
+          ]
+        ]
+      },
+      "thrust": {
+        "quote": "The control inputs for each rotor corresponding to pitch, roll and yaw are computed separately, and then added to the altitude input and the nominal thrust to yield the net thrust value for each rotor.",
+        "rects": [
+          [
+            9.4118,
+            48.9161,
+            36.4485,
+            1.5347
+          ],
+          [
+            9.4118,
+            50.5146,
+            35.3352,
+            1.5347
+          ],
+          [
+            9.4118,
+            52.1131,
+            34.7917,
+            1.5347
+          ],
+          [
+            9.4118,
+            53.7115,
+            34.8427,
+            1.5347
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Printed p. 12.E.4-8"
+  },
+  "kinoshita-383-11": {
+    "document": "kinoshita-383",
+    "printedPage": 11,
+    "pdfPage": 11,
+    "image": "sources/kinoshita-383-11.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "opposite": {
+        "quote": "The variable speed motors are attached to propellers 18 and 24 which rotate in opposite directions.",
+        "rects": [
+          [
+            53.5776,
+            72.1551,
+            36.1077,
+            1.4194
+          ],
+          [
+            51.2931,
+            73.3037,
+            30.7327,
+            1.4869
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 3–4"
+  },
+  "kinoshita-383-12": {
+    "document": "kinoshita-383",
+    "printedPage": 12,
+    "pdfPage": 12,
+    "image": "sources/kinoshita-383-12.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "independent": {
+        "quote": "being rotated in opposite directions, each of said propellers being rotated at a rotational speed independent of the other propeller",
+        "rects": [
+          [
+            24.181,
+            60.3225,
+            26.9788,
+            1.5782
+          ],
+          [
+            15.7759,
+            61.6843,
+            35.444,
+            1.4311
+          ],
+          [
+            15.7759,
+            62.7842,
+            27.9612,
+            1.6318
+          ]
+        ]
+      },
+      "speed": {
+        "quote": "each of said propellers being rotated at a rotational speed independent of the other propeller",
+        "rects": [
+          [
+            15.7759,
+            61.6843,
+            35.444,
+            1.4311
+          ],
+          [
+            15.7759,
+            62.7842,
+            27.9612,
+            1.6318
+          ]
+        ]
+      },
+      "shaft": {
+        "quote": "said second propeller securely attached to a rod shaft which extends longitudinally through said sleeve shaft",
+        "rects": [
+          [
+            15.7759,
+            73.1416,
+            35.5316,
+            1.4463
+          ],
+          [
+            15.7759,
+            74.3135,
+            35.3448,
+            1.5794
+          ],
+          [
+            15.7328,
+            75.6083,
+            8.319,
+            1.538
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 5–6"
+  },
+  "spirov-357-19": {
+    "document": "spirov-357",
+    "printedPage": 19,
+    "pdfPage": 20,
+    "image": "sources/spirov-357-19.png",
+    "width": 1680,
+    "height": 2378,
+    "fragments": {
+      "pair": {
+        "quote": "In an alternate embodiment that provides for more efficiency, each of the ducted fans 40 has two counter-rotating multi-bladed units.",
+        "rects": []
+      }
+    },
+    "textLayer": false
+  },
+  "louvel-921-1": {
+    "document": "louvel-921",
+    "printedPage": 1,
+    "pdfPage": 7,
+    "image": "sources/louvel-921-1.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "aircraft": {
+        "quote": "The invention is an aircraft, remotely controlled",
+        "rects": [
+          [
+            16.5948,
+            66.0014,
+            32.8879,
+            1.9372
+          ]
+        ]
+      },
+      "powered": {
+        "quote": "powered by propellers driven by electric motors, whose characteristics enable this device to perform",
+        "rects": [
+          [
+            26.9397,
+            67.1242,
+            23.4052,
+            1.8848
+          ],
+          [
+            10.7328,
+            68.5367,
+            39.3103,
+            1.7801
+          ],
+          [
+            10.7328,
+            69.5811,
+            5.1724,
+            1.8848
+          ]
+        ]
+      },
+      "propellers": {
+        "quote": "the aircraft includes four propellers (10), (11), (12), (13) with vertical axis, that provides the lift thrust.",
+        "rects": [
+          [
+            89.4828,
+            75.6498,
+            2.5287,
+            1.9372
+          ],
+          [
+            52.7586,
+            76.8448,
+            39.4289,
+            1.9895
+          ],
+          [
+            52.6724,
+            78.0886,
+            26.4224,
+            1.8848
+          ]
+        ]
+      },
+      "independent": {
+        "quote": "Each propeller is driven independently by an",
+        "rects": [
+          [
+            58.75,
+            81.1228,
+            29.0517,
+            1.9372
+          ]
+        ]
+      },
+      "motor": {
+        "quote": "The propeller (10) is driven by the motor (20).",
+        "rects": [
+          [
+            60.0862,
+            82.3826,
+            31.2931,
+            1.9895
+          ]
+        ]
+      },
+      "frame": {
+        "quote": "The frame that bears the motors is made of two rectangular boards (30) and (31), arranged in a vertical plane and that intersect in the central part of the aircraft.",
+        "rects": [
+          [
+            58.5776,
+            88.0205,
+            33.5776,
+            1.9372
+          ],
+          [
+            52.7155,
+            89.1217,
+            39.3588,
+            1.9895
+          ],
+          [
+            52.7155,
+            90.452,
+            37.5,
+            1.8848
+          ]
+        ]
+      }
+    }
+  },
+  "louvel-921-2": {
+    "document": "louvel-921",
+    "printedPage": 2,
+    "pdfPage": 8,
+    "image": "sources/louvel-921-2.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "sensors": {
+        "quote": "The aircraft is fitted with three attitude sensors whose purpose is to provide information for the closed loop control.",
+        "rects": [
+          [
+            58.5776,
+            17.5392,
+            33.5776,
+            1.9372
+          ],
+          [
+            52.6724,
+            18.7535,
+            39.4073,
+            1.8848
+          ],
+          [
+            52.7155,
+            20.2089,
+            4.9138,
+            1.466
+          ]
+        ]
+      },
+      "boards": {
+        "quote": "The board (30) bears the motors (10) and (12). The other board (31) bears the motors (11) and (13)",
+        "rects": [
+          [
+            16.6379,
+            12.8347,
+            33.6351,
+            1.9895
+          ],
+          [
+            10.7328,
+            14.0377,
+            30.1034,
+            1.9895
+          ]
+        ]
+      }
+    }
+  },
+  "louvel-921-3": {
+    "document": "louvel-921",
+    "printedPage": 3,
+    "pdfPage": 9,
+    "image": "sources/louvel-921-3.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "pwm": {
+        "quote": "The function of the control unit (3) is to control the speed of each electric motor by adjusting the current in each of them by a pulse width modulation (PWM) current drive.",
+        "rects": [
+          [
+            16.5948,
+            26.1856,
+            33.477,
+            1.9895
+          ],
+          [
+            10.7328,
+            27.3619,
+            39.4935,
+            1.8848
+          ],
+          [
+            10.7328,
+            28.5871,
+            38.6638,
+            1.9895
+          ]
+        ]
+      }
+    }
+  },
+  "louvel-921-4": {
+    "document": "louvel-921",
+    "printedPage": 4,
+    "pdfPage": 10,
+    "image": "sources/louvel-921-4.png",
+    "width": 1680,
+    "height": 2468,
+    "fragments": {
+      "loop": {
+        "quote": "When there is no action on the handle, the control loop uses the data coming from the various sensors (61), (62) and (63) to converge towards the horizontal normal attitude of the aircraft and to cancel the yaw movement.",
+        "rects": [
+          [
+            16.6379,
+            54.7165,
+            33.5037,
+            1.9372
+          ],
+          [
+            10.7328,
+            55.8539,
+            39.319,
+            1.9895
+          ],
+          [
+            10.7328,
+            57.1005,
+            39.5115,
+            1.9895
+          ],
+          [
+            10.7759,
+            58.3742,
+            37.1121,
+            1.8848
+          ]
+        ]
+      },
+      "tilt": {
+        "quote": "If the information supplied by the sensor (61) indicates that the aircraft is tilting towards the right side, then the correction consists in increasing the speed of the propeller 11, decreasing the speed of the propeller 13, meanwhile the speeds of the propellers 10 and 12 remain unchanged.",
+        "rects": [
+          [
+            58.6207,
+            25.7495,
+            33.4698,
+            1.9895
+          ],
+          [
+            52.7155,
+            27.0364,
+            39.3017,
+            1.8848
+          ],
+          [
+            52.7155,
+            28.2443,
+            39.3534,
+            1.8848
+          ],
+          [
+            52.7155,
+            29.3538,
+            39.3534,
+            1.8848
+          ],
+          [
+            52.7586,
+            30.6763,
+            39.4109,
+            1.8848
+          ],
+          [
+            52.6724,
+            31.7215,
+            7.3707,
+            1.8848
+          ]
+        ]
+      }
+    }
+  },
+  "pauli-916-2": {
+    "document": "pauli-916",
+    "printedPage": 2,
+    "pdfPage": 2,
+    "image": "sources/pauli-916-2.png",
+    "width": 1680,
+    "height": 2378,
+    "fragments": {
+      "opposite": {
+        "quote": "Der obere und untere Propeller werden zur gegengesetzten Rotation unabhängig voneinander durch entsprechende Triebwerke gebracht.",
+        "translation": "The upper and lower propellers are driven to opposite rotation, independently of each other, by respective engines.",
+        "rects": [
+          [
+            57.4744,
+            32.1131,
+            33.4932,
+            1.3201
+          ],
+          [
+            51.4282,
+            33.5382,
+            39.5406,
+            1.3201
+          ],
+          [
+            51.4282,
+            34.9634,
+            31.6971,
+            1.3201
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 2"
+  },
+  "ge-267-8": {
+    "document": "ge-267",
+    "printedPage": 8,
+    "pdfPage": 8,
+    "image": "sources/ge-267-8.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "stages": {
+        "quote": "Typical PV inverters employ two stages for power processing with the first stage configured for providing a constant DC voltage and the second stage configured for converting the constant DC voltage to AC current.",
+        "rects": [
+          [
+            12.7734,
+            31.3845,
+            35.75,
+            1.9465
+          ],
+          [
+            12.7344,
+            32.7036,
+            36.1133,
+            1.9465
+          ],
+          [
+            12.7734,
+            33.9397,
+            35.7161,
+            1.9465
+          ],
+          [
+            12.7734,
+            35.2752,
+            21.8359,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 8"
+  },
+  "broadcom-800-13": {
+    "document": "broadcom-800",
+    "printedPage": 13,
+    "pdfPage": 13,
+    "image": "sources/broadcom-800-13.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "radio": {
+        "quote": "Radio, or station, 60 includes a host interface 62, a baseband processing module 64, memory 66, a plurality of radio frequency (RF) transmitters 68-72, a transmit/receive (T/R) module 74, a plurality of antennas 82-86",
+        "rects": [
+          [
+            18.2031,
+            44.8102,
+            30.3125,
+            2.0006
+          ],
+          [
+            12.7344,
+            45.999,
+            35.8789,
+            1.9465
+          ],
+          [
+            12.7734,
+            47.2717,
+            35.6665,
+            2.0546
+          ],
+          [
+            12.7734,
+            48.4995,
+            27.9167,
+            2.1087
+          ]
+        ]
+      },
+      "memory": {
+        "quote": "The memory 66 may be a single memory device or a plurality of memory devices.",
+        "rects": [
+          [
+            23.9453,
+            76.2472,
+            24.7461,
+            1.9465
+          ],
+          [
+            12.7734,
+            77.5201,
+            24.8828,
+            1.9465
+          ]
+        ]
+      },
+      "instructions": {
+        "quote": "in combination with operational instructions",
+        "rects": [
+          [
+            35.7422,
+            51.1347,
+            12.793,
+            1.9465
+          ],
+          [
+            12.7734,
+            52.3147,
+            13.7109,
+            1.9465
+          ]
+        ]
+      },
+      "functions": {
+        "quote": "execute digital receiver functions and digital transmitter functions",
+        "rects": [
+          [
+            39.375,
+            52.3147,
+            9.0513,
+            1.9465
+          ],
+          [
+            12.7734,
+            53.6398,
+            29.8125,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 13"
+  },
+  "broadcom-800-16": {
+    "document": "broadcom-800",
+    "printedPage": 16,
+    "pdfPage": 16,
+    "image": "sources/broadcom-800-16.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "format": {
+        "quote": "a legacy preamble 140, a signal field 142, an extended preamble 144, a plurality of additional signal fields 146, 150, 154, a plurality of data units (Service/PSDU) 148, 152",
+        "rects": [
+          [
+            80.7812,
+            25.7651,
+            5.7422,
+            1.9465
+          ],
+          [
+            50.8203,
+            27.0439,
+            35.6934,
+            1.9465
+          ],
+          [
+            50.8594,
+            28.3217,
+            35.6641,
+            1.9465
+          ],
+          [
+            50.7812,
+            29.5812,
+            27.5928,
+            2.0546
+          ]
+        ]
+      },
+      "first": {
+        "quote": "The signal field 142 is further used to inform the newer devices (e.g., the IEEE 802.11n compliant devices) of the channel usage for 802.11n transmission and the number of transmit antennas for the transmission.",
+        "rects": [
+          [
+            62.3828,
+            37.2027,
+            24.0234,
+            1.9465
+          ],
+          [
+            50.8203,
+            38.3694,
+            35.7726,
+            2.0546
+          ],
+          [
+            50.8203,
+            39.6842,
+            35.7813,
+            2.0546
+          ],
+          [
+            50.8203,
+            41.0824,
+            31.9531,
+            1.5139
+          ]
+        ]
+      },
+      "additional": {
+        "quote": "The additional signal fields 146, 150, 154 indicate the rate/mode, the length (in bytes) of the frame, the last PSDU in the frame (or burst), whether a PSDU immediate ACK is required, and error checking capabilities.",
+        "rects": [
+          [
+            56.1328,
+            42.8425,
+            30.3369,
+            2.0006
+          ],
+          [
+            50.8203,
+            44.0433,
+            35.6348,
+            2.0546
+          ],
+          [
+            50.8203,
+            45.3759,
+            35.7639,
+            2.0546
+          ],
+          [
+            50.7812,
+            46.5345,
+            29.2578,
+            1.9465
+          ]
+        ]
+      },
+      "symbols": {
+        "quote": "The data portion 108 includes a plurality of data symbols 165, 167, 169 as previously described.",
+        "rects": [
+          [
+            72.8516,
+            20.1254,
+            13.6979,
+            1.9465
+          ],
+          [
+            50.8203,
+            21.3996,
+            35.6836,
+            1.9465
+          ],
+          [
+            50.8203,
+            22.6066,
+            12.5781,
+            1.9465
+          ]
+        ]
+      },
+      "bits": {
+        "quote": "to convey the rate/mode (6 bits), length (12 bits), last PSDU (1 bit), immediate ACK (1 bit), CRC (4 bits), with 2-6 bits reserved",
+        "rects": [
+          [
+            67.2656,
+            86.348,
+            19.1341,
+            2.0546
+          ],
+          [
+            50.8203,
+            87.6502,
+            35.5547,
+            2.0546
+          ],
+          [
+            50.8594,
+            88.9214,
+            20.4688,
+            2.0546
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 16"
+  },
+  "cisco-530-13": {
+    "document": "cisco-530",
+    "printedPage": 13,
+    "pdfPage": 13,
+    "image": "sources/cisco-530-13.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "psdu": {
+        "quote": "The remainder of the modulated payload, called the PLCP Service Data Unit (PSDU)",
+        "rects": [
+          [
+            12.7734,
+            65.5091,
+            36.0254,
+            1.9465
+          ],
+          [
+            12.8125,
+            66.7546,
+            15.0279,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 5–6"
+  },
+  "cisco-530-15": {
+    "document": "cisco-530",
+    "printedPage": 15,
+    "pdfPage": 15,
+    "image": "sources/cisco-530-15.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "crc": {
+        "quote": "the integrity of at least one bit of the PLCP header, e.g., the SIGNAL field, is verified using a polynomial (CRC) check sequence located in at least one bit of the SERVICE field.",
+        "rects": [
+          [
+            46.0937,
+            60.6432,
+            2.3958,
+            1.9465
+          ],
+          [
+            12.7734,
+            61.8796,
+            35.7161,
+            1.9465
+          ],
+          [
+            12.8125,
+            63.1389,
+            35.8125,
+            1.9465
+          ],
+          [
+            12.8125,
+            64.4458,
+            33.4375,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 9–10"
+  },
+  "broadcom-017-15": {
+    "document": "broadcom-017",
+    "printedPage": 15,
+    "pdfPage": 15,
+    "image": "sources/broadcom-017-15.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "transceiver": {
+        "quote": "FIG. 2a is an exemplary block diagram of a transceiver which may be utilized in accordance with an embodiment of the invention.",
+        "rects": [
+          [
+            56.2891,
+            31.2843,
+            30.2734,
+            2.0006
+          ],
+          [
+            50.7812,
+            32.6792,
+            35.8789,
+            1.9465
+          ],
+          [
+            50.8203,
+            34.0218,
+            17.5,
+            1.5139
+          ]
+        ]
+      },
+      "processor": {
+        "quote": "The transceiver 274 may comprise a processor 282, a receiver 284, and a transmitter 286.",
+        "rects": [
+          [
+            54.4922,
+            38.8975,
+            32.1094,
+            1.9465
+          ],
+          [
+            50.8203,
+            40.2646,
+            21.2891,
+            1.8384
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 15"
+  },
+  "broadcom-017-18": {
+    "document": "broadcom-017",
+    "printedPage": 18,
+    "pdfPage": 18,
+    "image": "sources/broadcom-017-18.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "preamble": {
+        "quote": "The preamble and header 402 may comprise a legacy short training field (L-STF) 404, a legacy long training field (L-LTF) 406, a legacy signal field (L-SIG) 408, a high throughput signal field (HT-SIG) 410",
+        "rects": [
+          [
+            25.5859,
+            48.8632,
+            23.0859,
+            2.0006
+          ],
+          [
+            12.7734,
+            50.1108,
+            35.7487,
+            1.9465
+          ],
+          [
+            12.7734,
+            51.3785,
+            35.7422,
+            1.9465
+          ],
+          [
+            12.7734,
+            52.6362,
+            29.9902,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 18"
+  },
+  "broadcom-870-16": {
+    "document": "broadcom-870",
+    "printedPage": 16,
+    "pdfPage": 16,
+    "image": "sources/broadcom-870-16.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "memory": {
+        "quote": "The memory 272 may comprise suitable logic, circuitry, and/or code that may be utilized to enable storage and/or retrieval of data and/or code.",
+        "rects": [
+          [
+            18.125,
+            15.8657,
+            30.2279,
+            1.9465
+          ],
+          [
+            12.7734,
+            17.1835,
+            35.7254,
+            1.9465
+          ],
+          [
+            12.7734,
+            18.4954,
+            21.8359,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 16"
+  },
+  "airgo-474-16": {
+    "document": "airgo-474",
+    "printedPage": 16,
+    "pdfPage": 16,
+    "image": "sources/airgo-474-16.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "siso": {
+        "quote": "2) Extended SISO in multiple 20 MHz channels (e.g., 40, 60, 80, or 100 MHz channels)",
+        "rects": [
+          [
+            18.125,
+            76.8499,
+            30.4102,
+            2.0546
+          ],
+          [
+            12.7734,
+            78.1282,
+            23.8672,
+            2.0546
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 16"
+  },
+  "airgo-474-18": {
+    "document": "airgo-474",
+    "printedPage": 18,
+    "pdfPage": 18,
+    "image": "sources/airgo-474-18.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "copy": {
+        "quote": "the transmitter transmits an identical copy of the preamble and signal field in each 20 MHz channel used by that transmitter",
+        "rects": [
+          [
+            18.7891,
+            40.3438,
+            29.6354,
+            1.9465
+          ],
+          [
+            12.7734,
+            41.5558,
+            35.8789,
+            1.9465
+          ],
+          [
+            12.7734,
+            42.8665,
+            8.9062,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 18"
+  },
+  "airgo-474-21": {
+    "document": "airgo-474",
+    "printedPage": 21,
+    "pdfPage": 21,
+    "image": "sources/airgo-474-21.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "legacy": {
+        "quote": "in combination form a legacy 802.11a/g preamble portion",
+        "rects": [
+          [
+            23.8672,
+            89.5644,
+            24.6658,
+            1.9465
+          ],
+          [
+            12.7734,
+            90.8271,
+            9.9609,
+            1.9465
+          ],
+          [
+            73.9062,
+            15.7526,
+            12.6953,
+            1.9465
+          ],
+          [
+            50.8594,
+            16.8657,
+            21.289,
+            2.0006
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 21"
+  },
+  "airgo-474-22": {
+    "document": "airgo-474",
+    "printedPage": 22,
+    "pdfPage": 22,
+    "image": "sources/airgo-474-22.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "bits": {
+        "quote": "Signal field 1600 includes 48 bits, of which 6 bits are used to indicate the mode, 16 bits are used to indicate the length, 16 bits are used for CRC for error checking, 1 bit is used to indicate the last PSDU of frame",
+        "rects": [
+          [
+            75.8203,
+            20.6827,
+            10.791,
+            2.0546
+          ],
+          [
+            50.8203,
+            22.1434,
+            35.6771,
+            1.8384
+          ],
+          [
+            50.8203,
+            23.3346,
+            35.7422,
+            1.9465
+          ],
+          [
+            50.8203,
+            24.5927,
+            35.6348,
+            1.9465
+          ],
+          [
+            50.8594,
+            25.901,
+            8.8216,
+            1.8384
+          ]
+        ]
+      },
+      "reserved": {
+        "quote": "1 bit is used to indicate the last PSDU of frame, 3 bits are reserved bits, and 6 bits are set to zero",
+        "rects": [
+          [
+            67.7344,
+            24.5927,
+            18.7207,
+            1.9465
+          ],
+          [
+            50.8594,
+            25.901,
+            35.5273,
+            1.8384
+          ],
+          [
+            50.8203,
+            27.1119,
+            2.5,
+            1.9465
+          ]
+        ]
+      },
+      "tail": {
+        "quote": "3 bits are reserved bits, and 6 bits are set to zero to allow the convolutional encoder as specified in the 802.11a standard to return to the zero state.",
+        "rects": [
+          [
+            60.625,
+            25.901,
+            25.7617,
+            1.8384
+          ],
+          [
+            50.8203,
+            27.1119,
+            35.6641,
+            1.9465
+          ],
+          [
+            50.8203,
+            28.4764,
+            26.0156,
+            1.5139
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 22"
+  },
+  "intel-314-15": {
+    "document": "intel-314",
+    "printedPage": 15,
+    "pdfPage": 15,
+    "image": "sources/intel-314-15.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "select": {
+        "quote": "the size of the burst length field 404 may be selected by determining the frequency or bandwidth used for communication with the MS.",
+        "rects": [
+          [
+            32.0703,
+            89.6384,
+            16.4779,
+            1.9465
+          ],
+          [
+            12.7734,
+            90.8093,
+            35.8008,
+            1.9465
+          ],
+          [
+            12.7344,
+            92.2642,
+            30.4297,
+            1.5139
+          ]
+        ]
+      },
+      "savings": {
+        "quote": "a minimum of 8 bits is needed to represent all possible available 192 resource blocks (a savings of 2 bits compared to the 802.16e 10 bit reference).",
+        "rects": [
+          [
+            59.4922,
+            27.2335,
+            26.9011,
+            1.9465
+          ],
+          [
+            50.8203,
+            28.4752,
+            35.6152,
+            1.9465
+          ],
+          [
+            50.8203,
+            29.7455,
+            24.7656,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 15"
+  },
+  "ts25222-62": {
+    "document": "ts25222",
+    "printedPage": 62,
+    "pdfPage": 63,
+    "image": "sources/ts25222-62.png",
+    "width": 1680,
+    "height": 2378,
+    "fragments": {
+      "tbs": {
+        "quote": "Transport-block size information (m bits where m = 6 for 1.28 Mcps TDD and m = 9 for 3.84 Mcps TDD / 7.68Mcps TDD):",
+        "rects": [
+          [
+            14.292,
+            74.836,
+            72.2761,
+            1.1829
+          ],
+          [
+            14.2925,
+            76.2041,
+            11.5981,
+            1.1829
+          ]
+        ]
+      }
+    }
+  },
+  "nec-050-20": {
+    "document": "nec-050",
+    "printedPage": 20,
+    "pdfPage": 20,
+    "image": "sources/nec-050-20.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "estimate": {
+        "quote": "Thus, by using this encoding technique, the theoretical minimum number of bits required for signalling a contiguous resource allocation can be estimated for different bandwidths as follows (where each frequency block is assumed to be 20 MHz):",
+        "rects": [
+          [
+            52.2656,
+            20.7186,
+            34.1938,
+            1.9465
+          ],
+          [
+            50.8203,
+            22.0587,
+            35.7149,
+            1.9465
+          ],
+          [
+            50.8203,
+            23.5673,
+            35.75,
+            1.5139
+          ],
+          [
+            50.8203,
+            24.7755,
+            35.8008,
+            1.9465
+          ],
+          [
+            50.8203,
+            26.1536,
+            3.7891,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 15–16"
+  },
+  "fornage-412-12": {
+    "document": "fornage-412",
+    "printedPage": 12,
+    "pdfPage": 12,
+    "image": "sources/fornage-412-12.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "threshold": {
+        "quote": "At step 604, the method 600 performs calculations and checks if the input power is greater than a power threshold.",
+        "rects": [
+          [
+            50.8203,
+            92.1277,
+            35.7487,
+            1.9465
+          ],
+          [
+            50.8203,
+            93.3458,
+            29.8828,
+            1.9465
+          ]
+        ]
+      },
+      "microcontroller": {
+        "quote": "those skilled in the art will realize that a microprocessor or microcontroller may also be used to generate the control signals in view of the DC current, DC voltage and AC phase.",
+        "rects": [
+          [
+            66.7187,
+            78.3555,
+            19.7823,
+            1.8384
+          ],
+          [
+            50.7812,
+            79.4918,
+            35.625,
+            1.9465
+          ],
+          [
+            50.8203,
+            80.7789,
+            36.0547,
+            1.9465
+          ],
+          [
+            50.8203,
+            81.9632,
+            13.0078,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 5–6"
+  },
+  "muller-555-10": {
+    "document": "muller-555",
+    "printedPage": 10,
+    "pdfPage": 11,
+    "image": "sources/muller-555-10.png",
+    "width": 1680,
+    "height": 2379,
+    "fragments": {
+      "links": {
+        "quote": "The on-board supply unit 14 takes electric energy both out of the DC voltage link 10 and the DC voltage link 6.",
+        "rects": []
+      },
+      "controller": {
+        "quote": "The on-board voltage rails 15 particularly serve for supplying electric energy to a controller 60 of the inverter 1",
+        "rects": []
+      }
+    },
+    "textLayer": false
+  },
+  "suekane-344-6": {
+    "document": "suekane-344",
+    "printedPage": 6,
+    "pdfPage": 6,
+    "image": "sources/suekane-344-6.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "night": {
+        "quote": "when it becomes less than the night time decision value, then power is supplied from the solar panel to the power circuit",
+        "rects": [
+          [
+            71.1328,
+            27.2528,
+            15.4492,
+            1.9465
+          ],
+          [
+            50.7812,
+            28.521,
+            35.7161,
+            1.9465
+          ],
+          [
+            50.8594,
+            29.7728,
+            17.5439,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 6"
+  },
+  "suekane-344-8": {
+    "document": "suekane-344",
+    "printedPage": 8,
+    "pdfPage": 8,
+    "image": "sources/suekane-344-8.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "calculates": {
+        "quote": "calculates the DC power from the DC voltage and the DC current that have been detected",
+        "rects": [
+          [
+            42.1094,
+            70.5976,
+            6.3164,
+            1.5139
+          ],
+          [
+            12.7344,
+            71.7273,
+            35.7129,
+            1.9465
+          ],
+          [
+            12.7344,
+            72.9747,
+            10.5946,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 8"
+  },
+  "suekane-344-12": {
+    "document": "suekane-344",
+    "printedPage": 12,
+    "pdfPage": 12,
+    "image": "sources/suekane-344-12.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "switch": {
+        "quote": "changes over the first switch from closed to open, when the power detected by the power detection unit becomes less than a night time decision value for deciding that it is night time",
+        "rects": [
+          [
+            12.7734,
+            14.4862,
+            35.7161,
+            1.9465
+          ],
+          [
+            12.7734,
+            15.7553,
+            35.8008,
+            1.9465
+          ],
+          [
+            12.7734,
+            16.9768,
+            34.4375,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 12"
+  },
+  "ovx-ons14-1": {
+    "document": "ovx-ons14",
+    "printedPage": 1,
+    "pdfPage": 1,
+    "image": "sources/ovx-ons14-1.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "hypervisor": {
+        "quote": "Here we present OpenVirteX, a network hypervisor that enables operators to provide this form of network virtualization to their customers.",
+        "rects": [
+          [
+            10.3521,
+            42.1012,
+            82.9646,
+            1.2579
+          ],
+          [
+            7.9998,
+            43.4849,
+            10.5665,
+            1.2579
+          ]
+        ]
+      }
+    }
+  },
+  "flo-v-90": {
+    "document": "flo-v",
+    "printedPage": 90,
+    "pdfPage": 1,
+    "image": "sources/flo-v-90.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "request": {
+        "quote": "a network hypervisor provides the controller with translated monitoring information",
+        "rects": [
+          [
+            70.8217,
+            34.3367,
+            20.0176,
+            1.1321
+          ],
+          [
+            51.7667,
+            35.6575,
+            36.5512,
+            1.1321
+          ]
+        ]
+      },
+      "role": {
+        "quote": "a network hypervisor plays a key role in",
+        "rects": [
+          [
+            28.0229,
+            32.1982,
+            19.8404,
+            1.1321
+          ],
+          [
+            8.7905,
+            33.519,
+            7.0867,
+            1.1321
+          ]
+        ]
+      }
+    }
+  },
+  "flo-v-92": {
+    "document": "flo-v",
+    "printedPage": 92,
+    "pdfPage": 3,
+    "image": "sources/flo-v-92.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "replier": {
+        "quote": "Flo-v’s statistics replier determines the corresponding physical switches",
+        "rects": [
+          [
+            37.0918,
+            30.2204,
+            10.7772,
+            1.1321
+          ],
+          [
+            8.7905,
+            31.5411,
+            36.4912,
+            1.1321
+          ]
+        ]
+      }
+    }
+  },
+  "skoldstrom-1": {
+    "document": "skoldstrom",
+    "printedPage": 1,
+    "pdfPage": 1,
+    "image": "sources/skoldstrom-1.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "translation": {
+        "quote": "Essential to the virtualization process is a translation unit that maps identifiers between the real physical network and the virtual ones, similar to a memory management unit in a computer or one of many kinds of hypervisors used on virtual machine hosts.",
+        "rects": [
+          [
+            63.942,
+            61.5354,
+            28.0564,
+            1.2579
+          ],
+          [
+            50.976,
+            63.045,
+            41.0225,
+            1.2579
+          ],
+          [
+            50.976,
+            64.5544,
+            41.0225,
+            1.2579
+          ],
+          [
+            50.976,
+            66.0639,
+            41.0225,
+            1.2579
+          ],
+          [
+            50.976,
+            67.5734,
+            16.8127,
+            1.2579
+          ]
+        ]
+      }
+    }
+  },
+  "skoldstrom-2": {
+    "document": "skoldstrom",
+    "printedPage": 2,
+    "pdfPage": 2,
+    "image": "sources/skoldstrom-2.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "shared": {
+        "quote": "With encapsulation, each VN in the network is assigned a link-local encapsulation ID, called a Virtual Network ID (VNID), a MPLS label for example, to which the VN traffic will be mapped and encapsulated when it traverses a shared link.",
+        "rects": [
+          [
+            52.6039,
+            27.888,
+            39.3946,
+            1.2579
+          ],
+          [
+            50.976,
+            29.3976,
+            41.0225,
+            1.2579
+          ],
+          [
+            50.976,
+            30.9071,
+            41.0224,
+            1.2579
+          ],
+          [
+            50.976,
+            32.4166,
+            41.0225,
+            1.2579
+          ],
+          [
+            50.976,
+            33.926,
+            2.9399,
+            1.2579
+          ]
+        ]
+      }
+    }
+  },
+  "skoldstrom-5": {
+    "document": "skoldstrom",
+    "printedPage": 5,
+    "pdfPage": 5,
+    "image": "sources/skoldstrom-5.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "counters": {
+        "quote": "For example, for statistics monitoring, per-VN port counters could be implemented through per-VN FlowTable entries [15].",
+        "rects": [
+          [
+            23.3588,
+            7.3737,
+            25.6635,
+            1.2579
+          ],
+          [
+            7.9998,
+            8.8831,
+            41.0225,
+            1.2579
+          ],
+          [
+            7.9998,
+            10.3927,
+            15.4811,
+            1.2579
+          ]
+        ]
+      }
+    }
+  },
+  "liebert-235-24": {
+    "document": "liebert-235",
+    "printedPage": 24,
+    "pdfPage": 24,
+    "image": "sources/liebert-235-24.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "modular": {
+        "quote": "The modular design provides expandability and redundancy. Frame 1 can accommodate multiple power modules.",
+        "rects": [
+          [
+            68.5937,
+            44.0569,
+            17.9297,
+            1.9465
+          ],
+          [
+            50.8203,
+            45.3117,
+            35.8594,
+            1.9465
+          ],
+          [
+            50.8203,
+            46.5745,
+            14.6875,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 1–2"
+  },
+  "liebert-235-25": {
+    "document": "liebert-235",
+    "printedPage": 25,
+    "pdfPage": 25,
+    "image": "sources/liebert-235-25.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "modules": {
+        "quote": "The power modules 4 receive AC power from the utility input 7 and convert it to DC power, which is used to charge the batteries",
+        "rects": [
+          [
+            22.1484,
+            44.2203,
+            26.4551,
+            1.9465
+          ],
+          [
+            12.7344,
+            45.4682,
+            35.7031,
+            1.9465
+          ],
+          [
+            12.7734,
+            46.7033,
+            11.25,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 3–4"
+  },
+  "liebert-235-26": {
+    "document": "liebert-235",
+    "printedPage": 26,
+    "pdfPage": 26,
+    "image": "sources/liebert-235-26.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "controller": {
+        "quote": "The power module control system is schematically depicted in FIG. 4. The primary control element is controller 100",
+        "rects": [
+          [
+            14.2578,
+            56.7721,
+            34.2518,
+            1.9465
+          ],
+          [
+            12.7734,
+            58.1118,
+            35.7304,
+            1.9465
+          ],
+          [
+            12.8516,
+            59.3636,
+            1.8457,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 5–6"
+  },
+  "liebert-235-27": {
+    "document": "liebert-235",
+    "printedPage": 27,
+    "pdfPage": 27,
+    "image": "sources/liebert-235-27.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "power": {
+        "quote": "then determines the appropriate output per module and sends instructions to modules, which adjust their individual outputs accordingly.",
+        "rects": [
+          [
+            15.8594,
+            52.273,
+            32.7995,
+            1.9465
+          ],
+          [
+            12.8125,
+            53.6116,
+            35.625,
+            1.9465
+          ],
+          [
+            12.7734,
+            54.7974,
+            11.8359,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 7–8"
+  },
+  "mitsubishi-987-18": {
+    "document": "mitsubishi-987",
+    "printedPage": 18,
+    "pdfPage": 18,
+    "image": "sources/mitsubishi-987-18.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "supply": {
+        "quote": "The single-phase inverters 4 each have an independent DC power supply 6 and output terminals 91, 92 from which a voltage of the DC power supply 6 is output during a desired period of time",
+        "rects": [
+          [
+            14.2578,
+            64.2839,
+            34.5703,
+            1.9465
+          ],
+          [
+            12.7734,
+            65.5767,
+            35.7812,
+            1.9465
+          ],
+          [
+            12.7734,
+            66.7899,
+            35.7701,
+            1.9465
+          ],
+          [
+            12.7734,
+            68.0267,
+            8.3203,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 3–4"
+  },
+  "mitsubishi-987-23": {
+    "document": "mitsubishi-987",
+    "printedPage": 23,
+    "pdfPage": 23,
+    "image": "sources/mitsubishi-987-23.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "inverter": {
+        "quote": "a power converting device of a third embodiment described below is used as a system interconnection inverter for converting DC power fed from a DC power source into AC power and thereby connecting the DC power source to a power system.",
+        "rects": [
+          [
+            43.125,
+            19.7456,
+            5.5469,
+            1.9465
+          ],
+          [
+            12.7734,
+            21.1071,
+            35.5469,
+            1.9465
+          ],
+          [
+            12.7344,
+            22.4102,
+            36.1133,
+            1.9465
+          ],
+          [
+            12.7734,
+            23.7267,
+            35.8984,
+            1.9465
+          ],
+          [
+            12.7344,
+            24.9527,
+            35.0781,
+            1.9465
+          ]
+        ]
+      },
+      "cpu": {
+        "quote": "designated by the numeral 10 is a CPU, and designated by the numeral 60a are peripheral circuits of the CPU 10.",
+        "rects": [
+          [
+            36.8359,
+            43.1724,
+            11.6667,
+            1.9465
+          ],
+          [
+            12.7734,
+            44.4872,
+            35.7292,
+            1.9465
+          ],
+          [
+            12.7344,
+            45.7139,
+            19.0625,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 13–14"
+  },
+  "abb-323-7": {
+    "document": "abb-323",
+    "printedPage": 7,
+    "pdfPage": 7,
+    "image": "sources/abb-323-7.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "distributed": {
+        "quote": "The basic principle of this control method is to perform switching of the submodules according to a pulsewidth modulation (PWM) in a distributed manner rather than in a centralized manner",
+        "rects": [
+          [
+            27.0703,
+            17.2328,
+            21.3728,
+            1.9465
+          ],
+          [
+            12.7734,
+            18.4582,
+            35.7639,
+            1.9465
+          ],
+          [
+            12.7344,
+            19.8624,
+            35.931,
+            1.9465
+          ],
+          [
+            12.7734,
+            21.2646,
+            20.0056,
+            1.8384
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 7"
+  },
+  "ge-271-6": {
+    "document": "ge-271",
+    "printedPage": 6,
+    "pdfPage": 6,
+    "image": "sources/ge-271-6.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "system": {
+        "quote": "FIG. 1 illustrates one embodiment of a distributed solar power generation system according to an aspect of the present technique.",
+        "rects": [
+          [
+            24.4141,
+            52.7274,
+            24.1406,
+            1.9465
+          ],
+          [
+            12.7734,
+            53.8506,
+            35.8984,
+            1.9465
+          ],
+          [
+            12.7734,
+            55.1426,
+            18.4766,
+            1.9465
+          ]
+        ]
+      },
+      "modules": {
+        "quote": "In the illustrated embodiment, the inverters 14 and 16 are coupled together to form a first phase A (18), a second phase B (20), and a third phase C (22).",
+        "rects": [
+          [
+            12.8125,
+            64.2949,
+            35.6901,
+            1.8384
+          ],
+          [
+            12.7734,
+            65.4232,
+            35.789,
+            1.9465
+          ],
+          [
+            12.8125,
+            66.6998,
+            19.3359,
+            1.9465
+          ]
+        ]
+      },
+      "sensing": {
+        "quote": "In another embodiment, the sensing device 34 may be a current transformer configured to sense overall load current from all three phases at node 24.",
+        "rects": [
+          [
+            16.8359,
+            87.0752,
+            31.7773,
+            1.9465
+          ],
+          [
+            12.7734,
+            88.35,
+            35.7143,
+            1.9465
+          ],
+          [
+            12.7734,
+            89.5567,
+            19.4531,
+            1.9465
+          ]
+        ]
+      },
+      "pwm": {
+        "quote": "Further, inverters may include pulse width modulators and control circuitry configured to receive reactive power commands.",
+        "rects": [
+          [
+            81.3281,
+            56.3582,
+            5.0976,
+            1.9465
+          ],
+          [
+            50.8203,
+            57.6247,
+            35.6696,
+            1.9465
+          ],
+          [
+            50.8203,
+            58.8269,
+            33.5156,
+            1.9465
+          ]
+        ]
+      },
+      "coupled": {
+        "quote": "the optimization controller 36 may be individually coupled to each of the inverters (14, 16, and 28).",
+        "rects": [
+          [
+            54.1406,
+            55.0166,
+            32.3405,
+            1.9465
+          ],
+          [
+            50.8203,
+            56.3582,
+            29.8828,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 6"
+  },
+  "abb-297-10": {
+    "document": "abb-297",
+    "printedPage": 10,
+    "pdfPage": 10,
+    "image": "sources/abb-297-10.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "field": {
+        "quote": "Polyphase converter circuits relating to the field of power electronics are disclosed.",
+        "rects": [
+          [
+            14.2969,
+            30.1941,
+            34.3672,
+            1.9465
+          ],
+          [
+            12.7734,
+            31.6279,
+            14.6094,
+            1.5139
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 1–2"
+  },
+  "abb-297-11": {
+    "document": "abb-297",
+    "printedPage": 11,
+    "pdfPage": 11,
+    "image": "sources/abb-297-11.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "element": {
+        "quote": "each converter circuit element 1 having a rectifier unit 2, a DC voltage circuit 3 which is connected to the rectifier unit 2 and an inverter unit 4",
+        "rects": [
+          [
+            22.3437,
+            80.7887,
+            26.2109,
+            1.9465
+          ],
+          [
+            12.7734,
+            82.0902,
+            35.6445,
+            1.9465
+          ],
+          [
+            12.7344,
+            83.4461,
+            22.4609,
+            1.5139
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 3–4"
+  },
+  "abb-297-13": {
+    "document": "abb-297",
+    "printedPage": 13,
+    "pdfPage": 13,
+    "image": "sources/abb-297-13.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "higher": {
+        "quote": "Furthermore, a higher-order controller unit 21 is provided which is connected to each local controller unit 20.",
+        "rects": [
+          [
+            61.4453,
+            87.1003,
+            25.0586,
+            1.9465
+          ],
+          [
+            50.8203,
+            88.3577,
+            35.6836,
+            1.9465
+          ],
+          [
+            50.8203,
+            89.6091,
+            1.7969,
+            1.9465
+          ]
+        ]
+      },
+      "local": {
+        "quote": "In the exemplary converter circuit shown in FIG. 3, each inverter unit 4 has an associated local controller unit 20, drivable power semiconductor switches S1, S2, S3, S4, S5, S6 of the inverter unit 4 being connected to the associated local controller unit 20.",
+        "rects": [
+          [
+            52.3047,
+            82.0733,
+            34.2578,
+            1.9465
+          ],
+          [
+            50.8203,
+            83.3858,
+            35.651,
+            1.8384
+          ],
+          [
+            50.8203,
+            84.6111,
+            35.7812,
+            1.9465
+          ],
+          [
+            50.8203,
+            85.856,
+            35.6406,
+            1.9465
+          ],
+          [
+            50.8203,
+            87.1003,
+            10.2344,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 7–8"
+  },
+  "nippon-149-2": {
+    "document": "nippon-149",
+    "printedPage": 2,
+    "pdfPage": 2,
+    "image": "sources/nippon-149-2.png",
+    "width": 1680,
+    "height": 2376,
+    "fragments": {
+      "claim": {
+        "quote": "分散電源からの電力を受けて交流電力を出力する複数のパワーコンディショナと",
+        "translation": "a plurality of power conditioners that receive power from distributed power sources and output AC power",
+        "rects": [
+          [
+            11.5327,
+            12.8022,
+            72.1458,
+            1.1285
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 2"
+  },
+  "nippon-149-5": {
+    "document": "nippon-149",
+    "printedPage": 5,
+    "pdfPage": 5,
+    "image": "sources/nippon-149-5.png",
+    "width": 1680,
+    "height": 2376,
+    "fragments": {
+      "communication": {
+        "quote": "通信部４０は、受信した制御信号をコントローラ２５ に転送し、コントローラ２５から受け取った状態信号をマスタコントローラ３２に送信す る。",
+        "translation": "The communication unit 40 transfers the received control signal to the controller 25 and sends the status signal received from the controller 25 to the master controller 32.",
+        "rects": [
+          [
+            41.7683,
+            75.0223,
+            47.9573,
+            1.1285
+          ],
+          [
+            9.517,
+            76.7506,
+            80.2086,
+            1.1285
+          ],
+          [
+            9.517,
+            78.4789,
+            3.6117,
+            1.1285
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 5"
+  },
+  "nippon-149-6": {
+    "document": "nippon-149",
+    "printedPage": 6,
+    "pdfPage": 6,
+    "image": "sources/nippon-149-6.png",
+    "width": 1680,
+    "height": 2376,
+    "fragments": {
+      "master": {
+        "quote": "マスタコントローラ３２は、並列接続点Ａと配電盤１３との間の交流電力線３４での各 線間の電圧を計測する電圧センサ４１と、交流電力線３４の各線に流れる電流を計測する 電流センサ４２と",
+        "translation": "The master controller 32 has a voltage sensor 41 that measures the voltage between the lines of the AC power line 34 between the parallel connection point A and the switchboard 13, a current sensor 42 that measures the current flowing in each line of the AC power line 34",
+        "rects": [
+          [
+            11.5327,
+            31.8139,
+            78.1929,
+            1.1285
+          ],
+          [
+            9.517,
+            33.5422,
+            80.2086,
+            1.1285
+          ],
+          [
+            9.517,
+            35.2705,
+            15.7059,
+            1.1285
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 6"
+  },
+  "em-032-21": {
+    "document": "em-032",
+    "printedPage": 21,
+    "pdfPage": 21,
+    "image": "sources/em-032-21.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "system": {
+        "quote": "The generator system 100 preferably includes a polyphase machine 102, such as a PMA, a polyphase inverter 104, a plurality of single-phase inverters 106A, 106B, and 106C",
+        "rects": [
+          [
+            77.3828,
+            11.3403,
+            9.171,
+            1.9465
+          ],
+          [
+            50.8203,
+            12.5437,
+            35.6934,
+            1.9465
+          ],
+          [
+            50.8203,
+            13.7579,
+            35.8594,
+            1.9465
+          ],
+          [
+            50.8203,
+            15.0049,
+            27.3516,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 7–8"
+  },
+  "em-032-23": {
+    "document": "em-032",
+    "printedPage": 23,
+    "pdfPage": 23,
+    "image": "sources/em-032-23.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "inputs": {
+        "quote": "signals indicative of the respective voltages across the shunt capacitors (C) of the single-phase inverters 106A, 106B, and 106C and across the shunt capacitors (C) of the polyphase inverter 104 (these signals are collectively labeled Vout)",
+        "rects": [
+          [
+            71.4453,
+            76.9261,
+            15.0521,
+            2.0546
+          ],
+          [
+            50.8203,
+            78.1516,
+            35.6771,
+            2.0546
+          ],
+          [
+            50.8203,
+            79.5232,
+            35.625,
+            1.9465
+          ],
+          [
+            50.8203,
+            80.7051,
+            35.6641,
+            2.0546
+          ],
+          [
+            50.8203,
+            81.9577,
+            21.8425,
+            2.0546
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 11–12"
+  },
+  "em-032-25": {
+    "document": "em-032",
+    "printedPage": 25,
+    "pdfPage": 25,
+    "image": "sources/em-032-25.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "command": {
+        "quote": "The command signal Cmd3 (which is utilized to control the polyphase inverter 104)",
+        "rects": [
+          [
+            52.2656,
+            83.2869,
+            34.2745,
+            2.0546
+          ],
+          [
+            50.8203,
+            84.4574,
+            16.4062,
+            2.0546
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 15–16"
+  },
+  "philips-319-7": {
+    "document": "philips-319",
+    "printedPage": 7,
+    "pdfPage": 7,
+    "image": "sources/philips-319-7.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "common": {
+        "quote": "information relevant for all receivers",
+        "rects": [
+          [
+            16.3189,
+            76.7442,
+            21.3568,
+            1.9465
+          ]
+        ]
+      },
+      "amount": {
+        "quote": "the amount of the user data transmitted in the stream",
+        "rects": [
+          [
+            46.0937,
+            60.0842,
+            2.3958,
+            1.9465
+          ],
+          [
+            12.7734,
+            61.537,
+            27.2879,
+            1.5139
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 7"
+  },
+  "philips-319-8": {
+    "document": "philips-319",
+    "printedPage": 8,
+    "pdfPage": 8,
+    "image": "sources/philips-319-8.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "user": {
+        "quote": "user-stream specific settings and may be different for each user (receiver)",
+        "rects": [
+          [
+            26.5625,
+            74.3352,
+            22.1484,
+            1.9465
+          ],
+          [
+            15.6641,
+            75.6991,
+            21.2926,
+            1.9465
+          ]
+        ]
+      },
+      "sequential": {
+        "quote": "The above fields can be transmitted sequentially over the channel.",
+        "rects": [
+          [
+            18.125,
+            56.5494,
+            30.3581,
+            1.9465
+          ],
+          [
+            12.7734,
+            57.9309,
+            9.9219,
+            1.5139
+          ]
+        ]
+      },
+      "training": {
+        "quote": "A MU training field 140",
+        "rects": [
+          [
+            19.6484,
+            61.721,
+            14.1797,
+            1.9465
+          ]
+        ]
+      },
+      "after": {
+        "quote": "can happen only after the MU training field 140",
+        "rects": [
+          [
+            25.0,
+            80.6325,
+            23.4619,
+            1.9465
+          ],
+          [
+            15.7031,
+            82.0521,
+            5.2734,
+            1.5139
+          ]
+        ]
+      },
+      "streams": {
+        "quote": "The number of USERSIG fields 150 is dependent on the number of spatial streams 160 (USER1 to USERn data) in the MU-MIMO transmissions.",
+        "rects": [
+          [
+            18.0859,
+            85.834,
+            30.5859,
+            1.9465
+          ],
+          [
+            12.7344,
+            87.1255,
+            35.8008,
+            1.9465
+          ],
+          [
+            12.7344,
+            88.3472,
+            17.5781,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 8"
+  },
+  "ralink-232-11": {
+    "document": "ralink-232",
+    "printedPage": 11,
+    "pdfPage": 11,
+    "image": "sources/ralink-232-11.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "order": {
+        "quote": "Arrange the L-TF field, the L-SIG field, the first VHT-SIG field, the VHT-STF field, the at least one VHT-LTF field and the second VHT-SIG field sequentially.",
+        "rects": [
+          [
+            62.2266,
+            49.5072,
+            24.1211,
+            2.0006
+          ],
+          [
+            50.7812,
+            50.901,
+            35.8724,
+            1.8384
+          ],
+          [
+            50.8203,
+            52.068,
+            34.4531,
+            1.9465
+          ]
+        ]
+      },
+      "length": {
+        "quote": "the length information, the CRC check, or tail bits",
+        "rects": [
+          [
+            46.0937,
+            46.2187,
+            2.3958,
+            1.9465
+          ],
+          [
+            12.7734,
+            47.4774,
+            26.9531,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 11"
+  },
+  "liu-280-21": {
+    "document": "liu-280",
+    "printedPage": 21,
+    "pdfPage": 21,
+    "image": "sources/liu-280-21.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "specific": {
+        "quote": "the VHT-SIGB 80 includes information specific to a client station",
+        "rects": [
+          [
+            20.3906,
+            70.3636,
+            28.0127,
+            1.9465
+          ],
+          [
+            12.7344,
+            71.6078,
+            10.0391,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 21"
+  },
+  "liu-280-24": {
+    "document": "liu-280",
+    "printedPage": 24,
+    "pdfPage": 24,
+    "image": "sources/liu-280-24.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "verification": {
+        "quote": "so that a receiving device can check whether a scrambler seed 304 also included in the service field 300 is correct",
+        "rects": [
+          [
+            46.6016,
+            80.7085,
+            1.875,
+            1.9465
+          ],
+          [
+            12.7344,
+            82.0818,
+            35.8594,
+            1.9465
+          ],
+          [
+            12.7734,
+            83.3227,
+            28.5107,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 24"
+  },
+  "nicira-118-25": {
+    "document": "nicira-118",
+    "printedPage": 25,
+    "pdfPage": 25,
+    "image": "sources/nicira-118-25.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "exporters": {
+        "quote": "statistics relating to one logical port can come from two flow stats exporters 125 and 130 on the two separate PFEs 115 and 120",
+        "rects": [
+          [
+            33.2812,
+            28.426,
+            15.3255,
+            1.9465
+          ],
+          [
+            12.7734,
+            29.6378,
+            35.8984,
+            1.9465
+          ],
+          [
+            12.8125,
+            30.9494,
+            24.5898,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 25"
+  },
+  "wobben-910-4": {
+    "document": "wobben-910",
+    "printedPage": 4,
+    "pdfPage": 4,
+    "image": "sources/wobben-910-4.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "control": {
+        "quote": "the aircraft according to the invention has a device for automatic control of the flight attitude and/or the flight altitude.",
+        "rects": [
+          [
+            78.9844,
+            26.0032,
+            7.4805,
+            2.0006
+          ],
+          [
+            50.8594,
+            27.3521,
+            35.6752,
+            1.9465
+          ],
+          [
+            50.8203,
+            28.619,
+            27.5,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 4"
+  },
+  "wobben-910-5": {
+    "document": "wobben-910",
+    "printedPage": 5,
+    "pdfPage": 5,
+    "image": "sources/wobben-910-5.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "inverter": {
+        "quote": "Associated with each motor 10 is an inverter 14 which permits individual actuation of each motor 10.",
+        "rects": [
+          [
+            18.125,
+            45.2648,
+            30.4883,
+            2.0006
+          ],
+          [
+            12.7344,
+            46.514,
+            30.9375,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 5"
+  },
+  "spirov-357-9": {
+    "document": "spirov-357",
+    "printedPage": 9,
+    "pdfPage": 10,
+    "image": "sources/spirov-357-9.png",
+    "width": 1680,
+    "height": 2378,
+    "fragments": {
+      "hover": {
+        "quote": "The hover control system uses an XYZ sensor arrangement and associated control circuitry that dynamically determines an inertial gravitational reference for use in automatically and continuously determine the speed needed for each fan in order to keep the craft at a desired orientation.",
+        "rects": []
+      }
+    },
+    "textLayer": false
   }
 };
