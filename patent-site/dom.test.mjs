@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { JSDOM } from 'jsdom';
 import { cases } from './cases.mjs';
-import { caseEvidence, backupGrounds } from './evidence.mjs';
+import { caseEvidence, backupGrounds, caseDrafts } from './evidence.mjs';
 import { sourceDocuments, sourcePages } from './source-pages.mjs';
 import { UNAVAILABLE } from './components.mjs';
 const script = await readFile(new URL('../patents/assets/site.js',import.meta.url),'utf8');
@@ -101,6 +101,21 @@ for (const [slug, grounds] of Object.entries(backupGrounds)) {
     dom.window.close();
   });
 }
+test('every prepared draft row and backup limitation points at a rendered page and its fragments',()=>{
+  for(const [slug,draft] of Object.entries(caseDrafts)) for(const [id,row] of Object.entries(draft.rows)){
+    assert.ok(row.pinpoint.length>8,slug+' '+id);
+    for(const [pageId,fragmentIds] of row.sourceViews){
+      assert.ok(sourcePages[pageId],slug+' '+id+' '+pageId);
+      for(const f of fragmentIds) assert.ok(sourcePages[pageId].fragments[f],slug+' '+id+' '+pageId+' '+f);
+    }
+  }
+  for(const grounds of Object.values(backupGrounds)) for(const ground of grounds) for(const limitation of ground.limitations){
+    if(limitation.pageId){
+      assert.ok(sourcePages[limitation.pageId],limitation.pageId);
+      for(const f of limitation.fragmentIds) assert.equal(sourcePages[limitation.pageId].fragments[f].quote,limitation.quote,ground.label+' '+limitation.id);
+    }
+  }
+});
 test('the ’488 chart: the weakest row, the combination point and the highlight toggle',async()=>{
   const dom=await open('research/cyboenergy-9331488/'),d=dom.window.document;
   assert.equal(d.querySelectorAll('[data-score]').length,9);

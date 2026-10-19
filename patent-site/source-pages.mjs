@@ -80,6 +80,134 @@ export const sourceDocuments = {
     "sha256": "684522301247997ac22e76b815638e5354fdba53a21ccd25699ea3263774efad",
     "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
     "pageCount": 8
+  },
+  "ge-267": {
+    "reference": "A-3",
+    "title": "Liu, Garces and Bose, US 2010/0057267 A1",
+    "edition": "United States patent application publication · General Electric · 4 March 2010",
+    "url": "https://patentimages.storage.googleapis.com/5e/a2/b1/153837f1d1e33a/US20100057267A1.pdf",
+    "sha256": "1cb0b0fb8b06afe59a3488fc45941c8c5b97849aead59a7abea2155b2f4ab735",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 14
+  },
+  "broadcom-800": {
+    "reference": "Ref. 1",
+    "title": "Trachewsky, Kondylis and Bagchi, US 2005/0181800 A1",
+    "edition": "United States patent application publication · Signaling format for WLANs · 18 August 2005",
+    "url": "https://patentimages.storage.googleapis.com/c5/ec/3f/6d06966c707172/US20050181800A1.pdf",
+    "sha256": "bd8f9a684beee7142c7654087efd4a35575e4ca333b935e4edd36e5e3abbf4a2",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 18
+  },
+  "cisco-530": {
+    "reference": "Ref. 2",
+    "title": "Miller et al., US 7,231,530 B1",
+    "edition": "United States patent · Cisco Technology · Issued 12 June 2007",
+    "url": "https://patentimages.storage.googleapis.com/92/d0/f6/43ee750455ca74/US7231530.pdf",
+    "sha256": "e6d1fc0a4748f1d98ae3ca1da22f8f8422dffb5f2afe72f6ad20ecb9d4feb22c",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 22
+  },
+  "broadcom-017": {
+    "reference": "Ref. 2",
+    "title": "Hansen, Moorti and Trachewsky, US 2006/0182017 A1",
+    "edition": "United States patent application publication · Compromise greenfield preambles for 802.11n · 17 August 2006",
+    "url": "https://patentimages.storage.googleapis.com/54/d9/00/e935141e38a0ad/US20060182017A1.pdf",
+    "sha256": "cc6e165b82443fa2c80310859d9ab0eb1834e07b150acdc3ff0a1bb2fcb5c0a7",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 27
+  },
+  "broadcom-870": {
+    "reference": "Ref. 3",
+    "title": "Kim, US 2008/0014870 A1",
+    "edition": "United States patent application publication · Explicit feedback with sounding packet · 17 January 2008",
+    "url": "https://patentimages.storage.googleapis.com/92/13/5b/e2b3ae539c5894/US20080014870A1.pdf",
+    "sha256": "8249ebc9fabbf8e734efaf436cadc123315154fdbc23c967d35decc04f69a9dd",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 26
+  },
+  "airgo-474": {
+    "reference": "Ref. 6",
+    "title": "van Zelst, Jones and van Nee, US 2005/0286474 A1",
+    "edition": "United States patent application publication · Airgo Networks · 29 December 2005",
+    "url": "https://patentimages.storage.googleapis.com/2c/1c/0e/f3bc516e333d69/US20050286474A1.pdf",
+    "sha256": "309a2c8ae54d3a2d48b30c493eb1f7947a7c870bd12e03b9d2fbedd352f0a37c",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 26
+  },
+  "intel-314": {
+    "reference": "Ref. 8",
+    "title": "US 2010/0008314 A1",
+    "edition": "United States patent application publication · 14 January 2010",
+    "url": "https://patentimages.storage.googleapis.com/16/77/ed/0102a198fd548b/US20100008314A1.pdf",
+    "sha256": "71b2d6335954a9679a3c86558860aa589a6c2b99f60a5e9fc186a73a3e34ed0e",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 21
+  },
+  "ts25222": {
+    "reference": "Ref. 11",
+    "title": "3GPP TS 25.222 V8.2.0, Multiplexing and channel coding (TDD)",
+    "edition": "Published by ETSI as ETSI TS 125 222 V8.2.0 · October 2008",
+    "url": "https://www.etsi.org/deliver/etsi_ts/125200_125299/125222/08.02.00_60/ts_125222v080200p.pdf",
+    "sha256": "309048523c5967e49fb14fdac2f52901d7f67a3c94800f9ec9be4bb93810ec01",
+    "sourceNote": "Public copy of the specification as ETSI publishes it.",
+    "pageCount": 96
+  },
+  "nec-050": {
+    "reference": "Ref. 13",
+    "title": "US 8,532,050 B2",
+    "edition": "United States patent · NEC · Issued 10 September 2013",
+    "url": "https://patentimages.storage.googleapis.com/ed/da/7c/47fee279caa662/US8532050.pdf",
+    "sha256": "8b639195130f6dce135e4e6a99aa836b472aa451d0b189d5126fed01aedc9815",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 25
+  },
+  "fornage-412": {
+    "reference": "Fornage",
+    "title": "Fornage, US 7,796,412 B2",
+    "edition": "United States patent · Enphase Energy · Issued 14 September 2010",
+    "url": "https://patentimages.storage.googleapis.com/25/22/da/27fe1dde3d7baa/US7796412.pdf",
+    "sha256": "7c62ba923164bfb8fb4912a368e050bdc2328eb484673699c5081a685df65c3a",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 14
+  },
+  "suekane-344": {
+    "reference": "Suekane",
+    "title": "Suekane and Makitani, US 2011/0169344 A1",
+    "edition": "United States patent application publication · Utility interconnection and inverter device · 14 July 2011",
+    "url": "https://patentimages.storage.googleapis.com/08/fe/21/7a4cfcc39ec654/US20110169344A1.pdf",
+    "sha256": "f4ceb3891a61f09e9830a0cfd62bb99022a0d02a88d712140be385ff23afeeb9",
+    "sourceNote": "Public copy of the patent document as published by its patent office; served by Google Patents.",
+    "pageCount": 12
+  },
+  "ovx-ons14": {
+    "reference": "R1(b)",
+    "title": "OpenVirteX: A Network Hypervisor",
+    "edition": "Al-Shabibi et al. · Open Networking Summit 2014 · USENIX",
+    "url": "https://www.usenix.org/system/files/conference/ons2014/ons2014-paper-al_shabibi.pdf",
+    "sha256": "16e95b0d6a96cdb7fafae4a10be7c13910e3ad56491ec44d1cb7d5d0b1a533f9",
+    "sourceNote": "Public copy of the paper as USENIX publishes it.",
+    "pageCount": 2
+  },
+  "flo-v": {
+    "reference": "R1(e)",
+    "title": "Flo-v: Low Overhead Network Monitoring Framework in Virtualized Software Defined Networks",
+    "edition": "Yang, Lee, Jeong and Yoo · ACM CFI ’16, Nanjing, 15–17 June 2016 · Publisher’s copy",
+    "archiveDate": "5 June 2020",
+    "url": "https://web.archive.org/web/20200605012653id_/https://dl.acm.org/doi/pdf/10.1145/2935663.2935677?download=true",
+    "sha256": "1eb2a7b9febf6ce63fb32a6191c25a72dc819e951fb51ce7635197f6f975650d",
+    "sourceNote": "Archived 5 June 2020 from the publisher’s website. Printed pages 90–94.",
+    "pageCount": 5
+  },
+  "skoldstrom": {
+    "reference": "R9",
+    "title": "Network Virtualization and Resource Allocation in OpenFlow-based Wide Area Networks",
+    "edition": "Sköldström and Yedavalli · IEEE ICC 2012, Ottawa, 10–15 June 2012 · Authors’ copy",
+    "archiveDate": "21 April 2024",
+    "url": "https://web.archive.org/web/20240421163547id_/https://www.ericsson.com/4ac618/assets/local/reports-papers/research-papers/network-virtualization-and-resource-allocation-in-oenflow-based-wide-area-networks.pdf",
+    "sha256": "55c3858510bf48dec169c4a0e0ab22ff98e4e86aa0c854aa7fc121b1b03db81a",
+    "sourceNote": "Authors’ copy, archived 21 April 2024 from the research-papers page of one author’s employer.",
+    "pageCount": 5
   }
 };
 export const sourcePages = {
@@ -1348,5 +1476,1213 @@ export const sourcePages = {
       }
     },
     "pageLabel": "Publication page 2"
+  },
+  "ge-267-8": {
+    "document": "ge-267",
+    "printedPage": 8,
+    "pdfPage": 8,
+    "image": "sources/ge-267-8.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "stages": {
+        "quote": "Typical PV inverters employ two stages for power processing with the first stage configured for providing a constant DC voltage and the second stage configured for converting the constant DC voltage to AC current.",
+        "rects": [
+          [
+            12.7734,
+            31.3845,
+            35.75,
+            1.9465
+          ],
+          [
+            12.7344,
+            32.7036,
+            36.1133,
+            1.9465
+          ],
+          [
+            12.7734,
+            33.9397,
+            35.7161,
+            1.9465
+          ],
+          [
+            12.7734,
+            35.2752,
+            21.8359,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 8"
+  },
+  "broadcom-800-13": {
+    "document": "broadcom-800",
+    "printedPage": 13,
+    "pdfPage": 13,
+    "image": "sources/broadcom-800-13.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "radio": {
+        "quote": "Radio, or station, 60 includes a host interface 62, a baseband processing module 64, memory 66, a plurality of radio frequency (RF) transmitters 68-72, a transmit/receive (T/R) module 74, a plurality of antennas 82-86",
+        "rects": [
+          [
+            18.2031,
+            44.8102,
+            30.3125,
+            2.0006
+          ],
+          [
+            12.7344,
+            45.999,
+            35.8789,
+            1.9465
+          ],
+          [
+            12.7734,
+            47.2717,
+            35.6665,
+            2.0546
+          ],
+          [
+            12.7734,
+            48.4995,
+            27.9167,
+            2.1087
+          ]
+        ]
+      },
+      "memory": {
+        "quote": "The memory 66 may be a single memory device or a plurality of memory devices.",
+        "rects": [
+          [
+            23.9453,
+            76.2472,
+            24.7461,
+            1.9465
+          ],
+          [
+            12.7734,
+            77.5201,
+            24.8828,
+            1.9465
+          ]
+        ]
+      },
+      "instructions": {
+        "quote": "in combination with operational instructions",
+        "rects": [
+          [
+            35.7422,
+            51.1347,
+            12.793,
+            1.9465
+          ],
+          [
+            12.7734,
+            52.3147,
+            13.7109,
+            1.9465
+          ]
+        ]
+      },
+      "functions": {
+        "quote": "execute digital receiver functions and digital transmitter functions",
+        "rects": [
+          [
+            39.375,
+            52.3147,
+            9.0513,
+            1.9465
+          ],
+          [
+            12.7734,
+            53.6398,
+            29.8125,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 13"
+  },
+  "broadcom-800-16": {
+    "document": "broadcom-800",
+    "printedPage": 16,
+    "pdfPage": 16,
+    "image": "sources/broadcom-800-16.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "format": {
+        "quote": "a legacy preamble 140, a signal field 142, an extended preamble 144, a plurality of additional signal fields 146, 150, 154, a plurality of data units (Service/PSDU) 148, 152",
+        "rects": [
+          [
+            80.7812,
+            25.7651,
+            5.7422,
+            1.9465
+          ],
+          [
+            50.8203,
+            27.0439,
+            35.6934,
+            1.9465
+          ],
+          [
+            50.8594,
+            28.3217,
+            1.1719,
+            1.9465
+          ],
+          [
+            52.3047,
+            28.3217,
+            5.4688,
+            1.9465
+          ],
+          [
+            58.0859,
+            28.3217,
+            8.4297,
+            1.9465
+          ],
+          [
+            66.7969,
+            28.3217,
+            8.0338,
+            1.9465
+          ],
+          [
+            75.1953,
+            28.3217,
+            11.3281,
+            1.9465
+          ],
+          [
+            50.7812,
+            29.5812,
+            27.5928,
+            2.0546
+          ]
+        ]
+      },
+      "first": {
+        "quote": "The signal field 142 is further used to inform the newer devices (e.g., the IEEE 802.11n compliant devices) of the channel usage for 802.11n transmission and the number of transmit antennas for the transmission.",
+        "rects": [
+          [
+            62.3828,
+            37.2027,
+            24.0234,
+            1.9465
+          ],
+          [
+            50.8203,
+            38.3694,
+            35.7726,
+            2.0546
+          ],
+          [
+            50.8203,
+            39.6842,
+            35.7813,
+            2.0546
+          ],
+          [
+            50.8203,
+            41.0824,
+            31.9531,
+            1.5139
+          ]
+        ]
+      },
+      "additional": {
+        "quote": "The additional signal fields 146, 150, 154 indicate the rate/mode, the length (in bytes) of the frame, the last PSDU in the frame (or burst), whether a PSDU immediate ACK is required, and error checking capabilities.",
+        "rects": [
+          [
+            56.1328,
+            42.8425,
+            30.3369,
+            2.0006
+          ],
+          [
+            50.8203,
+            44.0433,
+            35.6348,
+            2.0546
+          ],
+          [
+            50.8203,
+            45.3759,
+            35.7639,
+            2.0546
+          ],
+          [
+            50.7812,
+            46.5345,
+            29.2578,
+            1.9465
+          ]
+        ]
+      },
+      "symbols": {
+        "quote": "The data portion 108 includes a plurality of data symbols 165, 167, 169 as previously described.",
+        "rects": [
+          [
+            72.8516,
+            20.1254,
+            13.6979,
+            1.9465
+          ],
+          [
+            50.8203,
+            21.3996,
+            12.6606,
+            1.9465
+          ],
+          [
+            63.8281,
+            21.3996,
+            22.6758,
+            1.9465
+          ],
+          [
+            50.8203,
+            22.6066,
+            12.5781,
+            1.9465
+          ]
+        ]
+      },
+      "bits": {
+        "quote": "to convey the rate/mode (6 bits), length (12 bits), last PSDU (1 bit), immediate ACK (1 bit), CRC (4 bits), with 2-6 bits reserved",
+        "rects": [
+          [
+            67.2656,
+            86.348,
+            19.1341,
+            2.0546
+          ],
+          [
+            50.8203,
+            87.6502,
+            35.5547,
+            2.0546
+          ],
+          [
+            50.8594,
+            88.9214,
+            20.4688,
+            2.0546
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 16"
+  },
+  "cisco-530-13": {
+    "document": "cisco-530",
+    "printedPage": 13,
+    "pdfPage": 13,
+    "image": "sources/cisco-530-13.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "psdu": {
+        "quote": "The remainder of the modulated payload, called the PLCP Service Data Unit (PSDU)",
+        "rects": [
+          [
+            12.7734,
+            65.5091,
+            36.0254,
+            1.9465
+          ],
+          [
+            12.8125,
+            66.7546,
+            15.0279,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 5–6"
+  },
+  "cisco-530-15": {
+    "document": "cisco-530",
+    "printedPage": 15,
+    "pdfPage": 15,
+    "image": "sources/cisco-530-15.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "crc": {
+        "quote": "the integrity of at least one bit of the PLCP header, e.g., the SIGNAL field, is verified using a polynomial (CRC) check sequence located in at least one bit of the SERVICE field.",
+        "rects": [
+          [
+            46.0937,
+            60.6432,
+            2.3958,
+            1.9465
+          ],
+          [
+            12.7734,
+            61.8796,
+            35.7161,
+            1.9465
+          ],
+          [
+            12.8125,
+            63.1389,
+            35.8125,
+            1.9465
+          ],
+          [
+            12.8125,
+            64.4458,
+            33.4375,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 9–10"
+  },
+  "broadcom-017-15": {
+    "document": "broadcom-017",
+    "printedPage": 15,
+    "pdfPage": 15,
+    "image": "sources/broadcom-017-15.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "transceiver": {
+        "quote": "FIG. 2a is an exemplary block diagram of a transceiver which may be utilized in accordance with an embodiment of the invention.",
+        "rects": [
+          [
+            56.2891,
+            31.2843,
+            7.4609,
+            2.0006
+          ],
+          [
+            64.1016,
+            31.2843,
+            22.4609,
+            2.0006
+          ],
+          [
+            50.7812,
+            32.6792,
+            35.8789,
+            1.9465
+          ],
+          [
+            50.8203,
+            34.0218,
+            17.5,
+            1.5139
+          ]
+        ]
+      },
+      "processor": {
+        "quote": "The transceiver 274 may comprise a processor 282, a receiver 284, and a transmitter 286.",
+        "rects": [
+          [
+            54.4922,
+            38.8975,
+            32.1094,
+            1.9465
+          ],
+          [
+            50.8203,
+            40.2646,
+            21.2891,
+            1.8384
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 15"
+  },
+  "broadcom-017-18": {
+    "document": "broadcom-017",
+    "printedPage": 18,
+    "pdfPage": 18,
+    "image": "sources/broadcom-017-18.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "preamble": {
+        "quote": "The preamble and header 402 may comprise a legacy short training field (L-STF) 404, a legacy long training field (L-LTF) 406, a legacy signal field (L-SIG) 408, a high throughput signal field (HT-SIG) 410",
+        "rects": [
+          [
+            25.5859,
+            48.8632,
+            23.0859,
+            2.0006
+          ],
+          [
+            12.7734,
+            50.1108,
+            35.7487,
+            1.9465
+          ],
+          [
+            12.7734,
+            51.3785,
+            35.7422,
+            1.9465
+          ],
+          [
+            12.7734,
+            52.6362,
+            29.9902,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 18"
+  },
+  "broadcom-870-16": {
+    "document": "broadcom-870",
+    "printedPage": 16,
+    "pdfPage": 16,
+    "image": "sources/broadcom-870-16.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "memory": {
+        "quote": "The memory 272 may comprise suitable logic, circuitry, and/or code that may be utilized to enable storage and/or retrieval of data and/or code.",
+        "rects": [
+          [
+            18.125,
+            15.8657,
+            30.2279,
+            1.9465
+          ],
+          [
+            12.7734,
+            17.1835,
+            35.7254,
+            1.9465
+          ],
+          [
+            12.7734,
+            18.4954,
+            21.8359,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 16"
+  },
+  "airgo-474-16": {
+    "document": "airgo-474",
+    "printedPage": 16,
+    "pdfPage": 16,
+    "image": "sources/airgo-474-16.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "siso": {
+        "quote": "2) Extended SISO in multiple 20 MHz channels (e.g., 40, 60, 80, or 100 MHz channels)",
+        "rects": [
+          [
+            18.125,
+            76.8499,
+            30.4102,
+            2.0546
+          ],
+          [
+            12.7734,
+            78.1282,
+            23.8672,
+            2.0546
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 16"
+  },
+  "airgo-474-18": {
+    "document": "airgo-474",
+    "printedPage": 18,
+    "pdfPage": 18,
+    "image": "sources/airgo-474-18.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "copy": {
+        "quote": "the transmitter transmits an identical copy of the preamble and signal field in each 20 MHz channel used by that transmitter",
+        "rects": [
+          [
+            18.7891,
+            40.3438,
+            29.6354,
+            1.9465
+          ],
+          [
+            12.7734,
+            41.5558,
+            35.8789,
+            1.9465
+          ],
+          [
+            12.7734,
+            42.8665,
+            8.9062,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 18"
+  },
+  "airgo-474-21": {
+    "document": "airgo-474",
+    "printedPage": 21,
+    "pdfPage": 21,
+    "image": "sources/airgo-474-21.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "legacy": {
+        "quote": "in combination form a legacy 802.11a/g preamble portion",
+        "rects": [
+          [
+            23.8672,
+            89.5644,
+            24.6658,
+            1.9465
+          ],
+          [
+            12.7734,
+            90.8271,
+            9.9609,
+            1.9465
+          ],
+          [
+            73.9062,
+            15.7526,
+            12.6953,
+            1.9465
+          ],
+          [
+            50.8594,
+            16.8657,
+            21.289,
+            2.0006
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 21"
+  },
+  "airgo-474-22": {
+    "document": "airgo-474",
+    "printedPage": 22,
+    "pdfPage": 22,
+    "image": "sources/airgo-474-22.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "bits": {
+        "quote": "Signal field 1600 includes 48 bits, of which 6 bits are used to indicate the mode, 16 bits are used to indicate the length, 16 bits are used for CRC for error checking, 1 bit is used to indicate the last PSDU of frame",
+        "rects": [
+          [
+            75.8203,
+            20.6827,
+            10.791,
+            2.0546
+          ],
+          [
+            50.8203,
+            22.1434,
+            35.6771,
+            1.8384
+          ],
+          [
+            50.8203,
+            23.3346,
+            35.7422,
+            1.9465
+          ],
+          [
+            50.8203,
+            24.5927,
+            35.6348,
+            1.9465
+          ],
+          [
+            50.8594,
+            25.901,
+            8.8216,
+            1.8384
+          ]
+        ]
+      },
+      "reserved": {
+        "quote": "1 bit is used to indicate the last PSDU of frame, 3 bits are reserved bits, and 6 bits are set to zero",
+        "rects": [
+          [
+            67.7344,
+            24.5927,
+            18.7207,
+            1.9465
+          ],
+          [
+            50.8594,
+            25.901,
+            35.5273,
+            1.8384
+          ],
+          [
+            50.8203,
+            27.1119,
+            2.5,
+            1.9465
+          ]
+        ]
+      },
+      "tail": {
+        "quote": "3 bits are reserved bits, and 6 bits are set to zero to allow the convolutional encoder as specified in the 802.11a standard to return to the zero state.",
+        "rects": [
+          [
+            60.625,
+            25.901,
+            25.7617,
+            1.8384
+          ],
+          [
+            50.8203,
+            27.1119,
+            35.6641,
+            1.9465
+          ],
+          [
+            50.8203,
+            28.4764,
+            26.0156,
+            1.5139
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 22"
+  },
+  "intel-314-15": {
+    "document": "intel-314",
+    "printedPage": 15,
+    "pdfPage": 15,
+    "image": "sources/intel-314-15.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "select": {
+        "quote": "the size of the burst length field 404 may be selected by determining the frequency or bandwidth used for communication with the MS.",
+        "rects": [
+          [
+            32.0703,
+            89.6384,
+            16.4779,
+            1.9465
+          ],
+          [
+            12.7734,
+            90.8093,
+            35.8008,
+            1.9465
+          ],
+          [
+            12.7344,
+            92.2642,
+            30.4297,
+            1.5139
+          ]
+        ]
+      },
+      "savings": {
+        "quote": "a minimum of 8 bits is needed to represent all possible available 192 resource blocks (a savings of 2 bits compared to the 802.16e 10 bit reference).",
+        "rects": [
+          [
+            59.4922,
+            27.2335,
+            26.9011,
+            1.9465
+          ],
+          [
+            50.8203,
+            28.4752,
+            35.6152,
+            1.9465
+          ],
+          [
+            50.8203,
+            29.7455,
+            24.7656,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 15"
+  },
+  "ts25222-62": {
+    "document": "ts25222",
+    "printedPage": 62,
+    "pdfPage": 63,
+    "image": "sources/ts25222-62.png",
+    "width": 1680,
+    "height": 2378,
+    "fragments": {
+      "tbs": {
+        "quote": "Transport-block size information (m bits where m = 6 for 1.28 Mcps TDD and m = 9 for 3.84 Mcps TDD / 7.68Mcps TDD):",
+        "rects": [
+          [
+            14.292,
+            74.836,
+            72.2761,
+            1.1829
+          ],
+          [
+            14.2925,
+            76.2041,
+            11.5981,
+            1.1829
+          ]
+        ]
+      }
+    }
+  },
+  "nec-050-20": {
+    "document": "nec-050",
+    "printedPage": 20,
+    "pdfPage": 20,
+    "image": "sources/nec-050-20.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "estimate": {
+        "quote": "Thus, by using this encoding technique, the theoretical minimum number of bits required for signalling a contiguous resource allocation can be estimated for different bandwidths as follows (where each frequency block is assumed to be 20 MHz):",
+        "rects": [
+          [
+            52.2656,
+            20.7186,
+            34.1938,
+            1.9465
+          ],
+          [
+            50.8203,
+            22.0587,
+            35.7149,
+            1.9465
+          ],
+          [
+            50.8203,
+            23.5673,
+            35.75,
+            1.5139
+          ],
+          [
+            50.8203,
+            24.7755,
+            35.8008,
+            1.9465
+          ],
+          [
+            50.8203,
+            26.1536,
+            3.7891,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 15–16"
+  },
+  "fornage-412-12": {
+    "document": "fornage-412",
+    "printedPage": 12,
+    "pdfPage": 12,
+    "image": "sources/fornage-412-12.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "threshold": {
+        "quote": "At step 604, the method 600 performs calculations and checks if the input power is greater than a power threshold.",
+        "rects": [
+          [
+            50.8203,
+            92.1277,
+            35.7487,
+            1.9465
+          ],
+          [
+            50.8203,
+            93.3458,
+            29.8828,
+            1.9465
+          ]
+        ]
+      },
+      "microcontroller": {
+        "quote": "those skilled in the art will realize that a microprocessor or microcontroller may also be used to generate the control signals in view of the DC current, DC voltage and AC phase.",
+        "rects": [
+          [
+            66.7187,
+            78.3555,
+            19.7823,
+            1.8384
+          ],
+          [
+            50.7812,
+            79.4918,
+            35.625,
+            1.9465
+          ],
+          [
+            50.8203,
+            80.7789,
+            36.0547,
+            1.9465
+          ],
+          [
+            50.8203,
+            81.9632,
+            13.0078,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Columns 5–6"
+  },
+  "suekane-344-6": {
+    "document": "suekane-344",
+    "printedPage": 6,
+    "pdfPage": 6,
+    "image": "sources/suekane-344-6.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "night": {
+        "quote": "when it becomes less than the night time decision value, then power is supplied from the solar panel to the power circuit",
+        "rects": [
+          [
+            71.1328,
+            27.2528,
+            15.4492,
+            1.9465
+          ],
+          [
+            50.7812,
+            28.521,
+            35.7161,
+            1.9465
+          ],
+          [
+            50.8594,
+            29.7728,
+            17.5439,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 6"
+  },
+  "suekane-344-8": {
+    "document": "suekane-344",
+    "printedPage": 8,
+    "pdfPage": 8,
+    "image": "sources/suekane-344-8.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "calculates": {
+        "quote": "calculates the DC power from the DC voltage and the DC current that have been detected",
+        "rects": [
+          [
+            42.1094,
+            70.5976,
+            6.3164,
+            1.5139
+          ],
+          [
+            12.7344,
+            71.7273,
+            35.7129,
+            1.9465
+          ],
+          [
+            12.7344,
+            72.9747,
+            10.5946,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 8"
+  },
+  "suekane-344-12": {
+    "document": "suekane-344",
+    "printedPage": 12,
+    "pdfPage": 12,
+    "image": "sources/suekane-344-12.png",
+    "width": 1680,
+    "height": 2166,
+    "fragments": {
+      "switch": {
+        "quote": "changes over the first switch from closed to open, when the power detected by the power detection unit becomes less than a night time decision value for deciding that it is night time",
+        "rects": [
+          [
+            12.7734,
+            14.4862,
+            35.7161,
+            1.9465
+          ],
+          [
+            12.7734,
+            15.7553,
+            35.8008,
+            1.9465
+          ],
+          [
+            12.7734,
+            16.9768,
+            34.4375,
+            1.9465
+          ]
+        ]
+      }
+    },
+    "pageLabel": "Publication page 12"
+  },
+  "ovx-ons14-1": {
+    "document": "ovx-ons14",
+    "printedPage": 1,
+    "pdfPage": 1,
+    "image": "sources/ovx-ons14-1.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "hypervisor": {
+        "quote": "Here we present OpenVirteX, a network hypervisor that enables operators to provide this form of network virtualization to their customers.",
+        "rects": [
+          [
+            10.3521,
+            42.1012,
+            82.9646,
+            1.2579
+          ],
+          [
+            7.9998,
+            43.4849,
+            10.5665,
+            1.2579
+          ]
+        ]
+      }
+    }
+  },
+  "flo-v-90": {
+    "document": "flo-v",
+    "printedPage": 90,
+    "pdfPage": 1,
+    "image": "sources/flo-v-90.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "request": {
+        "quote": "a network hypervisor provides the controller with translated monitoring information",
+        "rects": [
+          [
+            70.8217,
+            34.3367,
+            20.0176,
+            1.1321
+          ],
+          [
+            51.7667,
+            35.6575,
+            36.5512,
+            1.1321
+          ]
+        ]
+      },
+      "role": {
+        "quote": "a network hypervisor plays a key role in",
+        "rects": [
+          [
+            28.0229,
+            32.1982,
+            19.8404,
+            1.1321
+          ],
+          [
+            8.7905,
+            33.519,
+            7.0867,
+            1.1321
+          ]
+        ]
+      }
+    }
+  },
+  "flo-v-92": {
+    "document": "flo-v",
+    "printedPage": 92,
+    "pdfPage": 3,
+    "image": "sources/flo-v-92.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "replier": {
+        "quote": "Flo-v’s statistics replier determines the corresponding physical switches",
+        "rects": [
+          [
+            37.0918,
+            30.2204,
+            10.7772,
+            1.1321
+          ],
+          [
+            8.7905,
+            31.5411,
+            36.4912,
+            1.1321
+          ]
+        ]
+      }
+    }
+  },
+  "skoldstrom-1": {
+    "document": "skoldstrom",
+    "printedPage": 1,
+    "pdfPage": 1,
+    "image": "sources/skoldstrom-1.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "translation": {
+        "quote": "Essential to the virtualization process is a translation unit that maps identifiers between the real physical network and the virtual ones, similar to a memory management unit in a computer or one of many kinds of hypervisors used on virtual machine hosts.",
+        "rects": [
+          [
+            63.942,
+            61.5354,
+            28.0564,
+            1.2579
+          ],
+          [
+            50.976,
+            63.045,
+            41.0225,
+            1.2579
+          ],
+          [
+            50.976,
+            64.5544,
+            41.0225,
+            1.2579
+          ],
+          [
+            50.976,
+            66.0639,
+            41.0225,
+            1.2579
+          ],
+          [
+            50.976,
+            67.5734,
+            16.8127,
+            1.2579
+          ]
+        ]
+      }
+    }
+  },
+  "skoldstrom-2": {
+    "document": "skoldstrom",
+    "printedPage": 2,
+    "pdfPage": 2,
+    "image": "sources/skoldstrom-2.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "shared": {
+        "quote": "With encapsulation, each VN in the network is assigned a link-local encapsulation ID, called a Virtual Network ID (VNID), a MPLS label for example, to which the VN traffic will be mapped and encapsulated when it traverses a shared link.",
+        "rects": [
+          [
+            52.6039,
+            27.888,
+            39.3946,
+            1.2579
+          ],
+          [
+            50.976,
+            29.3976,
+            41.0225,
+            1.2579
+          ],
+          [
+            50.976,
+            30.9071,
+            41.0224,
+            1.2579
+          ],
+          [
+            50.976,
+            32.4166,
+            41.0225,
+            1.2579
+          ],
+          [
+            50.976,
+            33.926,
+            2.9399,
+            1.2579
+          ]
+        ]
+      }
+    }
+  },
+  "skoldstrom-5": {
+    "document": "skoldstrom",
+    "printedPage": 5,
+    "pdfPage": 5,
+    "image": "sources/skoldstrom-5.png",
+    "width": 1680,
+    "height": 2175,
+    "fragments": {
+      "counters": {
+        "quote": "For example, for statistics monitoring, per-VN port counters could be implemented through per-VN FlowTable entries [15].",
+        "rects": [
+          [
+            23.3588,
+            7.3737,
+            25.6635,
+            1.2579
+          ],
+          [
+            7.9998,
+            8.8831,
+            41.0225,
+            1.2579
+          ],
+          [
+            7.9998,
+            10.3927,
+            15.4811,
+            1.2579
+          ]
+        ]
+      }
+    }
   }
 };

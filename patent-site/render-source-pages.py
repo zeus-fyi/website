@@ -97,6 +97,125 @@ DOCUMENTS = {
         'sha256': '684522301247997ac22e76b815638e5354fdba53a21ccd25699ea3263774efad',
         'sourceNote': PATENT_NOTE,
     },
+    # GridScale: the GE reference of the filed backup ground for limitation 1a.
+    'ge-267': {
+        'reference': 'A-3',
+        'title': 'Liu, Garces and Bose, US 2010/0057267 A1',
+        'edition': 'United States patent application publication · General Electric · 4 March 2010',
+        'url': 'https://patentimages.storage.googleapis.com/5e/a2/b1/153837f1d1e33a/US20100057267A1.pdf',
+        'sha256': '1cb0b0fb8b06afe59a3488fc45941c8c5b97849aead59a7abea2155b2f4ab735',
+        'sourceNote': PATENT_NOTE,
+    },
+    # Sol IP, US 10,090,894 B2 claim 7: the submitted chart's two references.
+    'broadcom-800': {
+        'reference': 'Ref. 1',
+        'title': 'Trachewsky, Kondylis and Bagchi, US 2005/0181800 A1',
+        'edition': 'United States patent application publication · Signaling format for WLANs · 18 August 2005',
+        'url': 'https://patentimages.storage.googleapis.com/c5/ec/3f/6d06966c707172/US20050181800A1.pdf',
+        'sha256': 'bd8f9a684beee7142c7654087efd4a35575e4ca333b935e4edd36e5e3abbf4a2',
+        'sourceNote': PATENT_NOTE,
+    },
+    'cisco-530': {
+        'reference': 'Ref. 2',
+        'title': 'Miller et al., US 7,231,530 B1',
+        'edition': 'United States patent · Cisco Technology · Issued 12 June 2007',
+        'url': 'https://patentimages.storage.googleapis.com/92/d0/f6/43ee750455ca74/US7231530.pdf',
+        'sha256': 'e6d1fc0a4748f1d98ae3ca1da22f8f8422dffb5f2afe72f6ad20ecb9d4feb22c',
+        'sourceNote': PATENT_NOTE,
+    },
+    # Sol IP, US 9,900,067 B2 claim 38: the submitted chart's references.
+    'broadcom-017': {
+        'reference': 'Ref. 2',
+        'title': 'Hansen, Moorti and Trachewsky, US 2006/0182017 A1',
+        'edition': 'United States patent application publication · Compromise greenfield preambles for 802.11n · 17 August 2006',
+        'url': 'https://patentimages.storage.googleapis.com/54/d9/00/e935141e38a0ad/US20060182017A1.pdf',
+        'sha256': 'cc6e165b82443fa2c80310859d9ab0eb1834e07b150acdc3ff0a1bb2fcb5c0a7',
+        'sourceNote': PATENT_NOTE,
+    },
+    'broadcom-870': {
+        'reference': 'Ref. 3',
+        'title': 'Kim, US 2008/0014870 A1',
+        'edition': 'United States patent application publication · Explicit feedback with sounding packet · 17 January 2008',
+        'url': 'https://patentimages.storage.googleapis.com/92/13/5b/e2b3ae539c5894/US20080014870A1.pdf',
+        'sha256': '8249ebc9fabbf8e734efaf436cadc123315154fdbc23c967d35decc04f69a9dd',
+        'sourceNote': PATENT_NOTE,
+    },
+    'airgo-474': {
+        'reference': 'Ref. 6',
+        'title': 'van Zelst, Jones and van Nee, US 2005/0286474 A1',
+        'edition': 'United States patent application publication · Airgo Networks · 29 December 2005',
+        'url': 'https://patentimages.storage.googleapis.com/2c/1c/0e/f3bc516e333d69/US20050286474A1.pdf',
+        'sha256': '309a2c8ae54d3a2d48b30c493eb1f7947a7c870bd12e03b9d2fbedd352f0a37c',
+        'sourceNote': PATENT_NOTE,
+    },
+    'intel-314': {
+        'reference': 'Ref. 8',
+        'title': 'US 2010/0008314 A1',
+        'edition': 'United States patent application publication · 14 January 2010',
+        'url': 'https://patentimages.storage.googleapis.com/16/77/ed/0102a198fd548b/US20100008314A1.pdf',
+        'sha256': '71b2d6335954a9679a3c86558860aa589a6c2b99f60a5e9fc186a73a3e34ed0e',
+        'sourceNote': PATENT_NOTE,
+    },
+    'ts25222': {
+        'reference': 'Ref. 11',
+        'title': '3GPP TS 25.222 V8.2.0, Multiplexing and channel coding (TDD)',
+        'edition': 'Published by ETSI as ETSI TS 125 222 V8.2.0 · October 2008',
+        'url': 'https://www.etsi.org/deliver/etsi_ts/125200_125299/125222/08.02.00_60/ts_125222v080200p.pdf',
+        'sha256': '309048523c5967e49fb14fdac2f52901d7f67a3c94800f9ec9be4bb93810ec01',
+        'sourceNote': 'Public copy of the specification as ETSI publishes it.',
+    },
+    'nec-050': {
+        'reference': 'Ref. 13',
+        'title': 'US 8,532,050 B2',
+        'edition': 'United States patent · NEC · Issued 10 September 2013',
+        'url': 'https://patentimages.storage.googleapis.com/ed/da/7c/47fee279caa662/US8532050.pdf',
+        'sha256': '8b639195130f6dce135e4e6a99aa836b472aa451d0b189d5126fed01aedc9815',
+        'sourceNote': PATENT_NOTE,
+    },
+    # CyboEnergy, US 9,331,489 B2 claim 14: the submitted chart's English references.
+    'fornage-412': {
+        'reference': 'Fornage',
+        'title': 'Fornage, US 7,796,412 B2',
+        'edition': 'United States patent · Enphase Energy · Issued 14 September 2010',
+        'url': 'https://patentimages.storage.googleapis.com/25/22/da/27fe1dde3d7baa/US7796412.pdf',
+        'sha256': '7c62ba923164bfb8fb4912a368e050bdc2328eb484673699c5081a685df65c3a',
+        'sourceNote': PATENT_NOTE,
+    },
+    'suekane-344': {
+        'reference': 'Suekane',
+        'title': 'Suekane and Makitani, US 2011/0169344 A1',
+        'edition': 'United States patent application publication · Utility interconnection and inverter device · 14 July 2011',
+        'url': 'https://patentimages.storage.googleapis.com/08/fe/21/7a4cfcc39ec654/US20110169344A1.pdf',
+        'sha256': 'f4ceb3891a61f09e9830a0cfd62bb99022a0d02a88d712140be385ff23afeeb9',
+        'sourceNote': PATENT_NOTE,
+    },
+    # Arc Link, US 11,563,655 B2 claim 1: the submitted chart's printed publications.
+    'ovx-ons14': {
+        'reference': 'R1(b)',
+        'title': 'OpenVirteX: A Network Hypervisor',
+        'edition': 'Al-Shabibi et al. · Open Networking Summit 2014 · USENIX',
+        'url': 'https://www.usenix.org/system/files/conference/ons2014/ons2014-paper-al_shabibi.pdf',
+        'sha256': '16e95b0d6a96cdb7fafae4a10be7c13910e3ad56491ec44d1cb7d5d0b1a533f9',
+        'sourceNote': 'Public copy of the paper as USENIX publishes it.',
+    },
+    'flo-v': {
+        'reference': 'R1(e)',
+        'title': 'Flo-v: Low Overhead Network Monitoring Framework in Virtualized Software Defined Networks',
+        'edition': 'Yang, Lee, Jeong and Yoo · ACM CFI ’16, Nanjing, 15–17 June 2016 · Publisher’s copy',
+        'archiveDate': '5 June 2020',
+        'url': 'https://web.archive.org/web/20200605012653id_/https://dl.acm.org/doi/pdf/10.1145/2935663.2935677?download=true',
+        'sha256': '1eb2a7b9febf6ce63fb32a6191c25a72dc819e951fb51ce7635197f6f975650d',
+        'sourceNote': 'Archived 5 June 2020 from the publisher’s website. Printed pages 90–94.',
+    },
+    'skoldstrom': {
+        'reference': 'R9',
+        'title': 'Network Virtualization and Resource Allocation in OpenFlow-based Wide Area Networks',
+        'edition': 'Sköldström and Yedavalli · IEEE ICC 2012, Ottawa, 10–15 June 2012 · Authors’ copy',
+        'archiveDate': '21 April 2024',
+        'url': 'https://web.archive.org/web/20240421163547id_/https://www.ericsson.com/4ac618/assets/local/reports-papers/research-papers/network-virtualization-and-resource-allocation-in-oenflow-based-wide-area-networks.pdf',
+        'sha256': '55c3858510bf48dec169c4a0e0ab22ff98e4e86aa0c854aa7fc121b1b03db81a',
+        'sourceNote': 'Authors’ copy, archived 21 April 2024 from the research-papers page of one author’s employer.',
+    },
 }
 # Printed page, PDF page (one-based), and exact source quotations. Separately
 # selectable fragments let several limitations highlight the same original page.
@@ -198,6 +317,99 @@ PAGES = [
     ('pauli-916', 'Publication page 2', 2, {
         'opposite': ('Der obere und untere Propeller werden zur gegengesetzten Rotation unabhängig voneinander durch entsprechende Triebwerke gebracht.',
                      'The upper and lower propellers are driven to opposite rotation, independently of each other, by respective engines.'),
+    }),
+    # GridScale's filed backup ground for 1a: the GE reference ([0002] is the span its OCR layer carries).
+    ('ge-267', 'Publication page 8', 8, {
+        'stages': 'Typical PV inverters employ two stages for power processing with the first stage configured for providing a constant DC voltage and the second stage configured for converting the constant DC voltage to AC current.',
+    }),
+    # Sol IP '894. The '800 publication's OCR layer capitalises some words and drops some spaces; spans avoid them.
+    ('broadcom-800', 'Publication page 13', 13, {
+        'radio': 'Radio, or station, 60 includes a host interface 62, a baseband processing module 64, memory 66, a plurality of radio frequency (RF) transmitters 68-72, a transmit/receive (T/R) module 74, a plurality of antennas 82-86',
+        'memory': 'The memory 66 may be a single memory device or a plurality of memory devices.',
+        'instructions': 'in combination with operational instructions',
+        'functions': 'execute digital receiver functions and digital transmitter functions',
+    }),
+    ('broadcom-800', 'Publication page 16', 16, {
+        'format': 'a legacy preamble 140, a signal field 142, an extended preamble 144, a plurality of additional signal fields 146, 150, 154, a plurality of data units (Service/PSDU) 148, 152',
+        'first': 'The signal field 142 is further used to inform the newer devices (e.g., the IEEE 802.11n compliant devices) of the channel usage for 802.11n transmission and the number of transmit antennas for the transmission.',
+        'additional': 'The additional signal fields 146, 150, 154 indicate the rate/mode, the length (in bytes) of the frame, the last PSDU in the frame (or burst), whether a PSDU immediate ACK is required, and error checking capabilities.',
+        'symbols': 'The data portion 108 includes a plurality of data symbols 165, 167, 169 as previously described.',
+        'bits': 'to convey the rate/mode (6 bits), length (12 bits), last PSDU (1 bit), immediate ACK (1 bit), CRC (4 bits), with 2-6 bits reserved',
+    }),
+    ('cisco-530', 'Columns 5–6', 13, {
+        'psdu': 'The remainder of the modulated payload, called the PLCP Service Data Unit (PSDU)',
+    }),
+    ('cisco-530', 'Columns 9–10', 15, {
+        'crc': 'the integrity of at least one bit of the PLCP header, e.g., the SIGNAL field, is verified using a polynomial (CRC) check sequence located in at least one bit of the SERVICE field.',
+    }),
+    # Sol IP '067.
+    ('broadcom-017', 'Publication page 15', 15, {
+        'transceiver': 'FIG. 2a is an exemplary block diagram of a transceiver which may be utilized in accordance with an embodiment of the invention.',
+        'processor': 'The transceiver 274 may comprise a processor 282, a receiver 284, and a transmitter 286.',
+    }),
+    ('broadcom-017', 'Publication page 18', 18, {
+        'preamble': 'The preamble and header 402 may comprise a legacy short training field (L-STF) 404, a legacy long training field (L-LTF) 406, a legacy signal field (L-SIG) 408, a high throughput signal field (HT-SIG) 410',
+    }),
+    ('broadcom-870', 'Publication page 16', 16, {
+        'memory': 'The memory 272 may comprise suitable logic, circuitry, and/or code that may be utilized to enable storage and/or retrieval of data and/or code.',
+    }),
+    ('airgo-474', 'Publication page 16', 16, {
+        'siso': '2) Extended SISO in multiple 20 MHz channels (e.g., 40, 60, 80, or 100 MHz channels)',
+    }),
+    ('airgo-474', 'Publication page 18', 18, {
+        'copy': 'the transmitter transmits an identical copy of the preamble and signal field in each 20 MHz channel used by that transmitter',
+    }),
+    ('airgo-474', 'Publication page 21', 21, {
+        'legacy': 'in combination form a legacy 802.11a/g preamble portion',
+    }),
+    ('airgo-474', 'Publication page 22', 22, {
+        'bits': 'Signal field 1600 includes 48 bits, of which 6 bits are used to indicate the mode, 16 bits are used to indicate the length, 16 bits are used for CRC for error checking, 1 bit is used to indicate the last PSDU of frame',
+        'reserved': '1 bit is used to indicate the last PSDU of frame, 3 bits are reserved bits, and 6 bits are set to zero',
+        'tail': '3 bits are reserved bits, and 6 bits are set to zero to allow the convolutional encoder as specified in the 802.11a standard to return to the zero state.',
+    }),
+    ('intel-314', 'Publication page 15', 15, {
+        'select': 'the size of the burst length field 404 may be selected by determining the frequency or bandwidth used for communication with the MS.',
+        'savings': 'a minimum of 8 bits is needed to represent all possible available 192 resource blocks (a savings of 2 bits compared to the 802.16e 10 bit reference).',
+    }),
+    ('ts25222', 62, 63, {
+        'tbs': 'Transport-block size information (m bits where m = 6 for 1.28 Mcps TDD and m = 9 for 3.84 Mcps TDD / 7.68Mcps TDD):',
+    }),
+    ('nec-050', 'Columns 15–16', 20, {
+        'estimate': 'Thus, by using this encoding technique, the theoretical minimum number of bits required for signalling a contiguous resource allocation can be estimated for different bandwidths as follows (where each frequency block is assumed to be 20 MHz):',
+    }),
+    # CyboEnergy '489 (the Japanese primary, Morishima, has no public copy; Müller's WO is a scan whose page is still to be mapped).
+    ('fornage-412', 'Columns 5–6', 12, {
+        'threshold': 'At step 604, the method 600 performs calculations and checks if the input power is greater than a power threshold.',
+        'microcontroller': 'those skilled in the art will realize that a microprocessor or microcontroller may also be used to generate the control signals in view of the DC current, DC voltage and AC phase.',
+    }),
+    ('suekane-344', 'Publication page 6', 6, {
+        'night': 'when it becomes less than the night time decision value, then power is supplied from the solar panel to the power circuit',
+    }),
+    ('suekane-344', 'Publication page 8', 8, {
+        'calculates': 'calculates the DC power from the DC voltage and the DC current that have been detected',
+    }),
+    ('suekane-344', 'Publication page 12', 12, {
+        'switch': 'changes over the first switch from closed to open, when the power detected by the power detection unit becomes less than a night time decision value for deciding that it is night time',
+    }),
+    # Arc Link.
+    ('ovx-ons14', 1, 1, {
+        'hypervisor': 'Here we present OpenVirteX, a network hypervisor that enables operators to provide this form of network virtualization to their customers.',
+    }),
+    ('flo-v', 90, 1, {
+        'request': 'a network hypervisor provides the controller with translated monitoring information',
+        'role': 'a network hypervisor plays a key role in',
+    }),
+    ('flo-v', 92, 3, {
+        'replier': 'Flo-v’s statistics replier determines the corresponding physical switches',
+    }),
+    ('skoldstrom', 1, 1, {
+        'translation': 'Essential to the virtualization process is a translation unit that maps identifiers between the real physical network and the virtual ones, similar to a memory management unit in a computer or one of many kinds of hypervisors used on virtual machine hosts.',
+    }),
+    ('skoldstrom', 2, 2, {
+        'shared': 'With encapsulation, each VN in the network is assigned a link-local encapsulation ID, called a Virtual Network ID (VNID), a MPLS label for example, to which the VN traffic will be mapped and encapsulated when it traverses a shared link.',
+    }),
+    ('skoldstrom', 5, 5, {
+        'counters': 'For example, for statistics monitoring, per-VN port counters could be implemented through per-VN FlowTable entries [15].',
     }),
 ]
 

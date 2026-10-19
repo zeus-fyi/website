@@ -654,4 +654,556 @@ export const caseEvidence = {
 // label, title, references [{title, url}], the recorded verdict in plain words, an optional rationale,
 // and per limitation its claim text, the quoted passage, its pinpoint and the original document
 // (pageId + fragmentIds for a rendered page, or url for the document).
-export const backupGrounds = {};
+export const backupGrounds = {
+  "gridscale-8842454": [
+    {
+      "label": "Backup ground for 1a",
+      "title": "Obviousness over US 5,764,503 A in view of US 2010/0057267 A1 (General Electric)",
+      "references": [
+        {
+          "title": "US 5,764,503 A (Brand et al., Digital Equipment Corporation)",
+          "url": "https://patents.google.com/patent/US5764503A/en"
+        },
+        {
+          "title": "US 2010/0057267 A1 (Liu, Garces and Bose, General Electric)",
+          "url": "https://patents.google.com/patent/US20100057267A1/en"
+        }
+      ],
+      "verdict": "Filed with the submission on 9 October 2026 as the backup ground for limitation 1a, for the reading in which a respective DC power source must be an energy source such as a photovoltaic array. The research records no separate band or score for it.",
+      "rationale": "Both references coordinate several paralleled inverters on one AC output through a central controller fed by voltage and current sensing of the common output, with a local controller at each inverter. Substituting photovoltaic arrays for the utility-fed regulators as the per-inverter DC sources is the use of a known technique on a known device with predictable results.",
+      "limitations": [
+        {
+          "id": "1a",
+          "text": "A plurality of inverters configured to receive DC power from a respective DC power source and respectively provide AC power to an AC load.",
+          "quote": "a plurality of PV subsystems 42, each subsystem having at least one PV array 12 and a PV inverter 10 operable to supply electrical power to a utility grid 14",
+          "pinpoint": "US 2010/0057267 A1 · [0032] · FIG. 2",
+          "url": "https://patentimages.storage.googleapis.com/5e/a2/b1/153837f1d1e33a/US20100057267A1.pdf#page=9",
+          "note": "The PV arrays 12 are the respective DC power sources of the paralleled inverters; US 5,764,503 A supplies every other limitation as charted above."
+        },
+        {
+          "id": "1a",
+          "text": "The two-stage inverter of the GE reference.",
+          "quote": "Typical PV inverters employ two stages for power processing with the first stage configured for providing a constant DC voltage and the second stage configured for converting the constant DC voltage to AC current.",
+          "pinpoint": "US 2010/0057267 A1 · [0002]",
+          "pageId": "ge-267-8",
+          "fragmentIds": [
+            "stages"
+          ]
+        },
+        {
+          "id": "1b",
+          "text": "Collective sensing of the inverters’ output by the central controller.",
+          "quote": "The PV system central controller 44 further comprises power sensors 54, such as voltage and current sensors, which are configured to sense collective power output of the PV subsystems 42.",
+          "pinpoint": "US 2010/0057267 A1 · [0033] · FIG. 2",
+          "url": "https://patentimages.storage.googleapis.com/5e/a2/b1/153837f1d1e33a/US20100057267A1.pdf#page=9"
+        },
+        {
+          "id": "1c",
+          "text": "A local controller at each inverter under the central command.",
+          "quote": "Each PV subsystem 42 may include, for example, an adaptive controller operable to implement a control algorithm configured to determine a power level command of its corresponding PV inverter 10.",
+          "pinpoint": "US 2010/0057267 A1 · [0035]",
+          "url": "https://patentimages.storage.googleapis.com/5e/a2/b1/153837f1d1e33a/US20100057267A1.pdf#page=10"
+        }
+      ]
+    }
+  ]
+};
+
+// Prepared, not yet shown: for each existing case whose chart is still being re-scored, the rows of
+// its submitted chart (the PEARL_PASTE.md blocks named in "paste"), each with its pinpoint and the
+// rendered original pages it opens. A row becomes a chart row in caseEvidence once its rating and
+// its reading text ("What the score reflects") come from the re-score; nothing here renders.
+export const caseDrafts = {
+  "gridscale-8842454": {
+    "patent": "US 8,842,454 B2",
+    "claim": "1",
+    "paste": "PEARL_PASTE.md blocks [1pre], [1a], [1b], [1c] (filed 2026-10-06; the [1a] alternative block is the backup ground)",
+    "rows": {
+      "1pre": {
+        "pinpoint": "R1 · US 5,764,503 A · Column 1, lines 6–11 · Column 7, lines 7–14",
+        "sourceViews": [
+          [
+            "brand-503-12",
+            [
+              "field"
+            ]
+          ],
+          [
+            "brand-503-15",
+            [
+              "plurality",
+              "parallel"
+            ]
+          ]
+        ]
+      },
+      "1a": {
+        "pinpoint": "R1 · Column 5, lines 59–67 · FIG. 11",
+        "sourceViews": [
+          [
+            "brand-503-14",
+            [
+              "regulator"
+            ]
+          ]
+        ]
+      },
+      "1b": {
+        "pinpoint": "R1 · Column 6, lines 55–60 · FIGS. 13–14",
+        "sourceViews": [
+          [
+            "brand-503-14",
+            [
+              "sensor"
+            ]
+          ]
+        ]
+      },
+      "1c": {
+        "pinpoint": "R1 · Column 7, lines 16–20 · FIG. 14",
+        "sourceViews": [
+          [
+            "brand-503-15",
+            [
+              "series",
+              "same"
+            ]
+          ],
+          [
+            "brand-503-14",
+            [
+              "receives",
+              "switching"
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  "sol-ip-10090894": {
+    "patent": "US 10,090,894 B2",
+    "claim": "7",
+    "paste": "PEARL_PASTE.md blocks 1–14 ([7pre] to [7f2])",
+    "rows": {
+      "7pre": {
+        "pinpoint": "Ref. 1 · US 2005/0181800 A1 · [0033]",
+        "sourceViews": [
+          [
+            "broadcom-800-13",
+            [
+              "radio"
+            ]
+          ]
+        ]
+      },
+      "7a": {
+        "pinpoint": "Ref. 1 · [0033]",
+        "sourceViews": [
+          [
+            "broadcom-800-13",
+            [
+              "memory"
+            ]
+          ]
+        ]
+      },
+      "7b": {
+        "pinpoint": "Ref. 1 · [0033], [0065] · FIG. 10",
+        "sourceViews": [
+          [
+            "broadcom-800-13",
+            [
+              "instructions",
+              "functions"
+            ]
+          ],
+          [
+            "broadcom-800-16",
+            [
+              "format"
+            ]
+          ]
+        ]
+      },
+      "7b1": {
+        "pinpoint": "Ref. 1 · [0065]",
+        "sourceViews": [
+          [
+            "broadcom-800-16",
+            [
+              "first"
+            ]
+          ]
+        ]
+      },
+      "7b2": {
+        "pinpoint": "Ref. 1 · [0066]",
+        "sourceViews": [
+          [
+            "broadcom-800-16",
+            [
+              "additional"
+            ]
+          ]
+        ]
+      },
+      "7b3": {
+        "pinpoint": "Ref. 1 · [0065] · Ref. 2 · Column 5, lines 64–67",
+        "sourceViews": [
+          [
+            "broadcom-800-16",
+            [
+              "format"
+            ]
+          ],
+          [
+            "cisco-530-13",
+            [
+              "psdu"
+            ]
+          ]
+        ]
+      },
+      "7b4": {
+        "pinpoint": "Ref. 1 · [0064]",
+        "sourceViews": [
+          [
+            "broadcom-800-16",
+            [
+              "symbols"
+            ]
+          ]
+        ]
+      },
+      "7b5": {
+        "pinpoint": "Ref. 1 · [0065] · FIG. 10",
+        "sourceViews": [
+          [
+            "broadcom-800-16",
+            [
+              "format"
+            ]
+          ]
+        ]
+      },
+      "7c": {
+        "pinpoint": "Ref. 1 · [0065] · FIGS. 8 and 10",
+        "sourceViews": [
+          [
+            "broadcom-800-16",
+            [
+              "format"
+            ]
+          ]
+        ]
+      },
+      "7d": {
+        "pinpoint": "Ref. 1 · [0065] · FIG. 10",
+        "sourceViews": [
+          [
+            "broadcom-800-16",
+            [
+              "format"
+            ]
+          ]
+        ]
+      },
+      "7e": {
+        "pinpoint": "Ref. 1 · [0065] · FIG. 10",
+        "sourceViews": [
+          [
+            "broadcom-800-16",
+            [
+              "format"
+            ]
+          ]
+        ]
+      },
+      "7f": {
+        "pinpoint": "Ref. 1 · [0065] · Ref. 2 · Column 5, lines 45–46",
+        "sourceViews": [
+          [
+            "broadcom-800-16",
+            [
+              "format"
+            ]
+          ],
+          [
+            "cisco-530-13",
+            [
+              "psdu"
+            ]
+          ]
+        ]
+      },
+      "7f1": {
+        "pinpoint": "Ref. 1 · [0069]",
+        "sourceViews": [
+          [
+            "broadcom-800-16",
+            [
+              "bits"
+            ]
+          ]
+        ]
+      },
+      "7f2": {
+        "pinpoint": "Ref. 2 · US 7,231,530 B1 · Column 9, lines 41–44",
+        "sourceViews": [
+          [
+            "cisco-530-15",
+            [
+              "crc"
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  "sol-ip-9900067": {
+    "patent": "US 9,900,067 B2",
+    "claim": "38",
+    "paste": "PEARL_PASTE.md blocks 5–15 ([38pre] to [38h], the Ref. 8 and Ref. 11 blocks) and block 20 (Ref. 13)",
+    "rows": {
+      "38pre": {
+        "pinpoint": "Ref. 2 · US 2006/0182017 A1 · [0037]",
+        "sourceViews": [
+          [
+            "broadcom-017-15",
+            [
+              "transceiver"
+            ]
+          ]
+        ]
+      },
+      "38a": {
+        "pinpoint": "Ref. 2 · [0037]",
+        "sourceViews": [
+          [
+            "broadcom-017-15",
+            [
+              "processor"
+            ]
+          ]
+        ]
+      },
+      "38b": {
+        "pinpoint": "Ref. 3 · US 2008/0014870 A1 · [0041]",
+        "sourceViews": [
+          [
+            "broadcom-870-16",
+            [
+              "memory"
+            ]
+          ]
+        ]
+      },
+      "38c": {
+        "pinpoint": "Ref. 6 · US 2005/0286474 A1 · [0042], [0071]",
+        "sourceViews": [
+          [
+            "airgo-474-16",
+            [
+              "siso"
+            ]
+          ],
+          [
+            "airgo-474-18",
+            [
+              "copy"
+            ]
+          ]
+        ]
+      },
+      "38d": {
+        "pinpoint": "Ref. 6 · [0101] · FIG. 13 · Ref. 2 · [0061] · FIG. 4a",
+        "sourceViews": [
+          [
+            "airgo-474-21",
+            [
+              "legacy"
+            ]
+          ],
+          [
+            "broadcom-017-18",
+            [
+              "preamble"
+            ]
+          ]
+        ]
+      },
+      "38e": {
+        "pinpoint": "Ref. 6 · [0110] · FIG. 18",
+        "sourceViews": [
+          [
+            "airgo-474-22",
+            [
+              "bits"
+            ]
+          ]
+        ]
+      },
+      "38f": {
+        "pinpoint": "Ref. 6 · [0110] · FIG. 18",
+        "sourceViews": [
+          [
+            "airgo-474-22",
+            [
+              "reserved"
+            ]
+          ]
+        ]
+      },
+      "38g": {
+        "pinpoint": "Ref. 6 · [0110] · FIG. 18",
+        "sourceViews": [
+          [
+            "airgo-474-22",
+            [
+              "tail"
+            ]
+          ]
+        ]
+      },
+      "38h": {
+        "pinpoint": "Ref. 8 · [0033], [0034] · Ref. 11 · TS 25.222 · 4.6, p. 62 · Ref. 13 · Column 16, lines 9–14",
+        "sourceViews": [
+          [
+            "intel-314-15",
+            [
+              "select",
+              "savings"
+            ]
+          ],
+          [
+            "ts25222-62",
+            [
+              "tbs"
+            ]
+          ],
+          [
+            "nec-050-20",
+            [
+              "estimate"
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  "cyboenergy-9331489": {
+    "patent": "US 9,331,489 B2",
+    "claim": "14",
+    "paste": "PEARL_PASTE.md blocks 1–8 (1pre, 14a–14e); the Morishima rows (1pre, 14a–14c, 14e (ii)) have no public copy of the Japanese original and the Müller scan’s page is still to be mapped",
+    "rows": {
+      "14d": {
+        "pinpoint": "Fornage · US 7,796,412 B2 · Column 6, lines 55–58 and 66–67",
+        "sourceViews": [
+          [
+            "fornage-412-12",
+            [
+              "threshold",
+              "microcontroller"
+            ]
+          ]
+        ]
+      },
+      "14e": {
+        "pinpoint": "Suekane · US 2011/0169344 A1 · [0008], [0046] · Claim 1",
+        "sourceViews": [
+          [
+            "suekane-344-6",
+            [
+              "night"
+            ]
+          ],
+          [
+            "suekane-344-8",
+            [
+              "calculates"
+            ]
+          ],
+          [
+            "suekane-344-12",
+            [
+              "switch"
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  "arc-link-11563655": {
+    "patent": "US 11,563,655 B2",
+    "claim": "1",
+    "paste": "PEARL_PASTE.md blocks [1pre], [1a], [1b(i)], [1b(ii)], [1c]/[1c1], [1c2]; the OpenVirteX documentation and code and the Delftvisor note are not public PDFs",
+    "rows": {
+      "1pre": {
+        "pinpoint": "R1(b) · OpenVirteX, ONS 2014 · p. 1",
+        "sourceViews": [
+          [
+            "ovx-ons14-1",
+            [
+              "hypervisor"
+            ]
+          ]
+        ]
+      },
+      "1a": {
+        "pinpoint": "R1(e) · Flo-v, ACM CFI 2016 · p. 90",
+        "sourceViews": [
+          [
+            "flo-v-90",
+            [
+              "request"
+            ]
+          ]
+        ]
+      },
+      "1b(i)": {
+        "pinpoint": "R9 · Sköldström and Yedavalli, IEEE ICC 2012 · Section III-A, p. 2",
+        "sourceViews": [
+          [
+            "skoldstrom-2",
+            [
+              "shared"
+            ]
+          ]
+        ]
+      },
+      "1b(ii)": {
+        "pinpoint": "R9 · Section V, p. 5",
+        "sourceViews": [
+          [
+            "skoldstrom-5",
+            [
+              "counters"
+            ]
+          ]
+        ]
+      },
+      "1c1": {
+        "pinpoint": "R1(e) · Flo-v · Section 3.2, p. 92",
+        "sourceViews": [
+          [
+            "flo-v-92",
+            [
+              "replier"
+            ]
+          ]
+        ]
+      },
+      "1c2": {
+        "pinpoint": "R9 · Section V, p. 5",
+        "sourceViews": [
+          [
+            "skoldstrom-5",
+            [
+              "counters"
+            ]
+          ]
+        ]
+      }
+    }
+  }
+};
