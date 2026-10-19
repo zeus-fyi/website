@@ -2742,8 +2742,7 @@ export const backupGrounds = {
           "pageId": "spirov-357-9",
           "fragmentIds": [
             "hover"
-          ],
-          "note": "A scanned page: the quote is shown beside it without highlights."
+          ]
         },
         {
           "id": "1b to 1e",

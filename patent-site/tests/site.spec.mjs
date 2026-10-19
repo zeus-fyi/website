@@ -41,19 +41,17 @@ for(const [slug,charts] of Object.entries(caseEvidence)){
             await image.scrollIntoViewIfNeeded();
             await expect(image).toBeVisible();
             await expect.poll(()=>image.evaluate(el=>el.complete&&el.naturalWidth>0),{message:pageId+' image must load'}).toBe(true);
+            for(const f of fragmentIds) expect(source.fragments[f].rects.length,pageId+' '+f+': every quoted passage is highlighted').toBeGreaterThan(0);
             await expect(module.locator('[data-page-host] [data-source-highlights] span')).toHaveCount(rects.length);
-            if(rects.length){
-              const alignment=await module.locator('[data-page-host] [data-source-page]').evaluate(el=>{
-                const image=el.querySelector('img').getBoundingClientRect();
-                return [...el.querySelectorAll('[data-source-highlights] span')].every(mark=>{
-                  const r=mark.getBoundingClientRect(),x=parseFloat(mark.style.left)/100,y=parseFloat(mark.style.top)/100;
-                  return Math.abs(r.left-image.left-x*image.width)<1 && Math.abs(r.top-image.top-y*image.height)<1 && r.right<=image.right+1 && r.bottom<=image.bottom+1;
-                });
+            await expect(module.locator('[data-toggle-highlights]')).toBeVisible();
+            const alignment=await module.locator('[data-page-host] [data-source-page]').evaluate(el=>{
+              const image=el.querySelector('img').getBoundingClientRect();
+              return [...el.querySelectorAll('[data-source-highlights] span')].every(mark=>{
+                const r=mark.getBoundingClientRect(),x=parseFloat(mark.style.left)/100,y=parseFloat(mark.style.top)/100;
+                return Math.abs(r.left-image.left-x*image.width)<1 && Math.abs(r.top-image.top-y*image.height)<1 && r.right<=image.right+1 && r.bottom<=image.bottom+1;
               });
-              expect(alignment,pageId+': highlights must stay aligned with the original page').toBe(true);
-            } else {
-              await expect(module.locator('[data-source-note]')).toContainText(entry.note||'Highlights are not available for this scanned page');
-            }
+            });
+            expect(alignment,pageId+': highlights must stay aligned with the original page').toBe(true);
           }
         }
         await module.locator('.reading-details > summary').first().click();

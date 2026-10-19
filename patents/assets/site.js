@@ -28,7 +28,7 @@ document.querySelectorAll('[data-evidence]').forEach(function (module) {
     image.setAttribute('data-source-image', '');
     image.width = view.width; image.height = view.height;
     image.loading = 'lazy';
-    image.alt = view.document + ', ' + (view.pageLabel || 'printed page ' + view.printedPage) + '. ' + (view.highlights === false ? 'The cited passage appears beside the page.' : 'The cited passages are highlighted; their text appears beside the page.');
+    image.alt = view.document + ', ' + (view.pageLabel || 'printed page ' + view.printedPage) + '. ' + 'The cited passages are highlighted; their text appears beside the page.';
     image.addEventListener('error', function () { imageError.hidden = false; });
     image.src = view.image;
     page.appendChild(image);
@@ -65,16 +65,14 @@ document.querySelectorAll('[data-evidence]').forEach(function (module) {
     var original = module.querySelector('[data-original-pdf]');
     original.hidden = Boolean(view.unavailable); original.href = view.unavailable ? '' : view.originalUrl;
     enlarge.hidden = Boolean(view.unavailable);
-    module.querySelector('[data-toggle-highlights]').hidden = Boolean(view.unavailable) || view.highlights === false;
+    module.querySelector('[data-toggle-highlights]').hidden = Boolean(view.unavailable);
     module.querySelector('[data-archive-date]').textContent = view.unavailable ? UNAVAILABLE : view.sourceNote || ('Archived ' + view.archiveDate + ' from the manufacturer’s website.');
     module.querySelector('[data-quote-reference]').textContent = view.reference + ' · ' + view.document + ' · ' + (view.unavailable ? view.citation : view.pageLabel || 'Printed p. ' + view.printedPage);
     module.querySelector('[data-source-note]').textContent = currentRecord.note || (currentRecord.summary
       ? currentId + ' is the researcher’s combination rationale. These original pages show its cited sources.'
       : view.unavailable
         ? 'The quoted passage is shown with its citation. ' + UNAVAILABLE
-        : view.highlights === false
-          ? 'Original document page. Highlights are not available for this scanned page; the quoted passage appears beside it.'
-          : 'Original document page. Highlights identify the quoted passages.');
+        : 'Original document page. Highlights identify the quoted passages.');
     var passages = module.querySelector('[data-passages]');
     passages.textContent = '';
     view.fragments.forEach(function (fragment) {

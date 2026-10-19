@@ -3,14 +3,24 @@
 Pass a cache directory. Each document is fetched from its public URL into that
 directory unless the cached copy already matches its recorded SHA-256, and no
 asset is written for a document whose bytes do not match the record. The record
-is the case's exhibit hash where the case holds the same document. A quotation
-the script cannot find on its page is an error; the only exception is a scanned
-page with no text layer, which is rendered without highlights and marked so.
-Requires PyMuPDF; generated page images and metadata are committed with the site.
+is the case's exhibit hash where the case holds the same document. Every
+quotation is located on its page and highlighted: by PyMuPDF's text search where
+the page has a text layer, and on a scanned page without one by the words
+Tesseract reads and their boxes (locate_in_ocr_words states the matching rule).
+A quotation the script cannot place is an error, scanned page or not, and
+source-pages.mjs is not written. Requires PyMuPDF, and Tesseract with its English data for scanned pages;
+generated page images and metadata are committed with the site. The tests in
+test_render_source_pages.py run with the same Python:
+python -m unittest discover -s patent-site -p 'test_*.py'.
 """
+import csv
+import difflib
 import hashlib
+import io
 import json
 from pathlib import Path
+import shutil
+import subprocess
 import sys
 import urllib.request
 
@@ -21,6 +31,8 @@ IMAGE_WIDTH = 1680  # Sharp at 2x density in the page viewer, with room to enlar
 # Ligatures (fi, ff) are expanded and hyphenated line breaks joined, so a quote matches the words as printed.
 SEARCH_FLAGS = fitz.TEXT_DEHYPHENATE | fitz.TEXT_MEDIABOX_CLIP
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36'
+OCR_DPI = 300  # Resolution of the page image Tesseract reads to place a quotation on a scanned page.
+OCR_SIMILARITY = 0.75  # How alike (difflib ratio) an OCR word must be to the quoted word to count as a misread of it.
 PATENT_NOTE = 'Public copy of the patent document as published by its patent office; served by Google Patents.'
 DOCUMENTS = {
     'sma': {
@@ -644,6 +656,107 @@ def one_rectangle_per_line(rectangles):
     return lines
 
 
+def ocr_token(word):
+    """A word as the OCR locator compares it: case-folded, with only its letters and digits."""
+    return ''.join(character for character in word.casefold() if character.isalnum())
+
+
+def ocr_words(page):
+    """Read a page that has no text layer with Tesseract; return its words in reading order.
+
+    Each word is (token, [(line, rectangle)]), the rectangle in page coordinates and the line
+    Tesseract's (block, paragraph, line) key. A word cut by a hyphen at the end of a line is joined
+    with the first word of the next line, as TEXT_DEHYPHENATE joins it on a page with a text layer;
+    the joined word keeps both boxes. Tesseract only finds where the words are: the quotation shown
+    on the site stays the recorded text.
+    """
+    tesseract = shutil.which('tesseract')
+    if tesseract is None:
+        raise RuntimeError('Tesseract is required to locate quotations on a page without a text layer')
+    image = page.get_pixmap(matrix=fitz.Matrix(OCR_DPI / 72, OCR_DPI / 72), alpha=False)
+    result = subprocess.run([tesseract, 'stdin', 'stdout', '-l', 'eng', 'tsv'], input=image.tobytes('png'),
+                            capture_output=True)
+    if result.returncode != 0:
+        raise RuntimeError('Tesseract failed: ' + result.stderr.decode('utf-8', 'replace'))
+    rows = csv.DictReader(io.StringIO(result.stdout.decode('utf-8')), delimiter='\t', quoting=csv.QUOTE_NONE)
+    scale_x, scale_y = page.rect.width / image.width, page.rect.height / image.height
+    words = []
+    hyphenated = False
+    for row in rows:
+        if row['level'] != '5' or not ocr_token(row['text']):
+            continue
+        line = (row['block_num'], row['par_num'], row['line_num'])
+        left, top, width, height = (int(row[key]) for key in ('left', 'top', 'width', 'height'))
+        box = (line, fitz.Rect(left * scale_x, top * scale_y, (left + width) * scale_x, (top + height) * scale_y))
+        if hyphenated and words[-1][1][-1][0] != line:
+            token, boxes = words[-1]
+            words[-1] = (token + ocr_token(row['text']), boxes + [box])
+        else:
+            words.append((ocr_token(row['text']), [box]))
+        hyphenated = row['text'].endswith('-')
+    return words
+
+
+def locate_in_ocr_words(words, quote, page_id):
+    """Find a quotation among a scanned page's OCR words; return one rectangle per line it covers.
+
+    The quotation's words are aligned in order with the page's words, compared as ocr_token makes
+    them. A word OCR read differently still matches when difflib rates the two at least
+    OCR_SIMILARITY alike (a misread); a quoted word OCR did not read, and a word OCR read inside the
+    passage that the quotation lacks, are each skipped. Misreads and skips together may number at
+    most one in ten of the quotation's words, rounded up. More than that, or a second place on the
+    page that also fits, is an error.
+    """
+    quoted = [token for token in (ocr_token(word) for word in quote.split()) if token]
+    if not quoted:
+        raise ValueError(f'Quotation without words on {page_id}: {quote}')
+    allowed = (len(quoted) + 9) // 10
+
+    def substitution(a, b):
+        if a == b:
+            return 0
+        return 1 if difflib.SequenceMatcher(None, a, b).ratio() >= OCR_SIMILARITY else None
+
+    # cost[i][j]: fewest misreads and skips aligning the first i quoted words so that the j-th page word ends them.
+    columns = len(words) + 1
+    cost = [[0] * columns] + [[i] + [0] * len(words) for i in range(1, len(quoted) + 1)]
+    for i in range(1, len(quoted) + 1):
+        for j in range(1, columns):
+            options = [cost[i - 1][j] + 1, cost[i][j - 1] + 1]
+            step = substitution(quoted[i - 1], words[j - 1][0])
+            if step is not None:
+                options.append(cost[i - 1][j - 1] + step)
+            cost[i][j] = min(options)
+
+    def placement(end):
+        """The page words the quotation's alignment ending at word `end` covers, first to last."""
+        i, j, aligned = len(quoted), end, []
+        while i > 0:
+            step = substitution(quoted[i - 1], words[j - 1][0]) if j > 0 else None
+            if step is not None and cost[i][j] == cost[i - 1][j - 1] + step:
+                aligned.append(j - 1)
+                i, j = i - 1, j - 1
+            elif cost[i][j] == cost[i - 1][j] + 1:
+                i -= 1
+            else:
+                j -= 1
+        return (min(aligned), max(aligned)) if aligned else None
+
+    best = min(range(1, columns), key=lambda end: cost[len(quoted)][end], default=None)
+    if best is None or cost[len(quoted)][best] > allowed or placement(best) is None:
+        raise ValueError(f'Quotation not found by OCR on {page_id}: {quote}')
+    first, last = placement(best)
+    for end in range(1, columns):
+        other = placement(end) if cost[len(quoted)][end] <= allowed else None
+        if other and (other[1] < first or other[0] > last):
+            raise ValueError(f'Quotation found by OCR at two places on {page_id}: {quote}')
+    lines = {}
+    for _, boxes in words[first:last + 1]:
+        for line, box in boxes:
+            lines[line] = lines[line] | box if line in lines else fitz.Rect(box)
+    return list(lines.values())
+
+
 def fetch(cache_directory, key, metadata):
     """Return the document's bytes from the cache or its public URL; they must match the record."""
     cached = cache_directory / (key + '.pdf')
@@ -673,7 +786,7 @@ def render(cache_directory):
     output = ROOT / 'patents/assets/sources'
     output.mkdir(parents=True, exist_ok=True)
     pages = {}
-    scanned = []
+    scanned = []  # pages without a text layer, whose quotations OCR placed
     for key, printed_page, pdf_page, quotes in PAGES:
         page = documents[key][pdf_page - 1]
         page_label = printed_page if isinstance(printed_page, str) else None
@@ -683,13 +796,17 @@ def render(cache_directory):
         if page_id in pages:
             raise ValueError('Page listed twice: ' + page_id)
         text_layer = bool(page.get_text().strip())
+        words = None if text_layer else ocr_words(page)
         fragments = {}
         for fragment_id, quote in quotes.items():
             translation = None
             if isinstance(quote, tuple):
                 quote, translation = quote  # a foreign-language passage with the researcher's translation
-            rectangles = one_rectangle_per_line(page.search_for(quote, flags=SEARCH_FLAGS)) if text_layer else []
-            if text_layer and not rectangles:
+            if text_layer:
+                rectangles = one_rectangle_per_line(page.search_for(quote, flags=SEARCH_FLAGS))
+            else:
+                rectangles = locate_in_ocr_words(words, quote, page_id)
+            if not rectangles:
                 raise ValueError(f'Quotation not found on {page_id}: {quote}')
             fragments[fragment_id] = {
                 'quote': quote,
@@ -720,7 +837,7 @@ def render(cache_directory):
                       + 'export const sourcePages = ' + json.dumps(pages, indent=2, ensure_ascii=False) + ';\n')
     print(f'Rendered {len(pages)} original pages with verified quotation coordinates.')
     for page_id in scanned:
-        print(f'No text layer on {page_id}: rendered without highlights; its quotes are shown beside the page.')
+        print(f'No text layer on {page_id}: its quotations were placed by the words Tesseract read.')
 
 
 if __name__ == '__main__':

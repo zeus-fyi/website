@@ -1227,7 +1227,20 @@ export const sourcePages = {
     "fragments": {
       "pair": {
         "quote": "In an alternate embodiment that provides for more efficiency, each of the ducted fans 40 has two counter-rotating multi-bladed units.",
-        "rects": []
+        "rects": [
+          [
+            16.0081,
+            38.1875,
+            69.9194,
+            1.7384
+          ],
+          [
+            9.6371,
+            41.0088,
+            35.0806,
+            1.4819
+          ]
+        ]
       }
     },
     "textLayer": false
@@ -2401,11 +2414,43 @@ export const sourcePages = {
     "fragments": {
       "links": {
         "quote": "The on-board supply unit 14 takes electric energy both out of the DC voltage link 10 and the DC voltage link 6.",
-        "rects": []
+        "rects": [
+          [
+            49.4745,
+            22.273,
+            41.1884,
+            1.2279
+          ],
+          [
+            12.0453,
+            25.2713,
+            49.5958,
+            1.2279
+          ]
+        ]
       },
       "controller": {
         "quote": "The on-board voltage rails 15 particularly serve for supplying electric energy to a controller 60 of the inverter 1",
-        "rects": []
+        "rects": [
+          [
+            79.426,
+            34.2947,
+            11.156,
+            0.9709
+          ],
+          [
+            11.9644,
+            37.3215,
+            78.7793,
+            1.2279
+          ],
+          [
+            12.1261,
+            40.3198,
+            1.2126,
+            1.1136
+          ]
+        ]
       }
     },
     "textLayer": false
@@ -3830,7 +3875,32 @@ export const sourcePages = {
     "fragments": {
       "hover": {
         "quote": "The hover control system uses an XYZ sensor arrangement and associated control circuitry that dynamically determines an inertial gravitational reference for use in automatically and continuously determine the speed needed for each fan in order to keep the craft at a desired orientation.",
-        "rects": []
+        "rects": [
+          [
+            54.7581,
+            28.8401,
+            31.25,
+            1.3394
+          ],
+          [
+            9.5968,
+            31.234,
+            76.3306,
+            1.3394
+          ],
+          [
+            9.5968,
+            33.5993,
+            76.4516,
+            1.4249
+          ],
+          [
+            9.5968,
+            36.0502,
+            48.0242,
+            1.3109
+          ]
+        ]
       }
     },
     "textLayer": false

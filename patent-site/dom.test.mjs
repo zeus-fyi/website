@@ -57,11 +57,12 @@ for (const [route, charts] of chartPages) {
           assert.equal(m.querySelector('[data-original-pdf]').hidden,false,pageId);
           assert.equal(m.querySelector('[data-page-label]').textContent,(page.pageLabel||'Printed p. '+page.printedPage)+' · PDF page '+page.pdfPage+' of '+doc.pageCount);
           assert.deepEqual([...m.querySelectorAll('[data-passages] mark')].map(x=>x.textContent),fragmentIds.map(f=>page.fragments[f].quote));
+          fragmentIds.forEach(f=>assert.ok(page.fragments[f].rects.length,pageId+' '+f+': every quoted passage is highlighted, a page without a text layer too'));
           const rects=fragmentIds.flatMap(f=>page.fragments[f].rects);
           assert.equal(m.querySelectorAll('[data-page-host] [data-source-highlights] span').length,rects.length,pageId);
+          assert.equal(m.querySelector('[data-toggle-highlights]').hidden,false,pageId);
           if(entry.note) assert.equal(note,entry.note,id);
           else if(entry.summary) assert.ok(note.includes(id+' is the researcher’s combination rationale'),id);
-          else if(page.textLayer===false) assert.ok(note.includes('Highlights are not available for this scanned page'),pageId);
           else assert.ok(note.includes('Highlights identify the quoted passages'),pageId);
           assert.equal(m.querySelector('[data-archive-date]').textContent,doc.sourceNote||'Archived '+doc.archiveDate+' from the manufacturer’s website.',pageId);
         });
