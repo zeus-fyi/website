@@ -293,7 +293,7 @@ export const caseEvidence = {
       ],
       "assessed": "18 October 2026",
       "pointsNote": "W1 is the reading of “statistics virtualization module” and W2 the treatment of the OpenVirteX record as one base; both are claim-wide points.",
-      "staticNote": "The original page cited for the shared-port computation is shown above.",
+      "staticNote": "The passage cited for the shared-port computation is shown above with its citation; its source is not a public page.",
       "selected": "1b",
       "limitations": {
         "1pre": {
@@ -766,7 +766,7 @@ export const caseEvidence = {
         "Claim 14 · Obviousness · C, hold 41"
       ],
       "assessed": "18 October 2026",
-      "pointsNote": "P1 is the reason to combine, a claim-wide point. The chart labels claim 14’s preamble 1pre.",
+      "pointsNote": "P1 is the reason to combine, a claim-wide point.",
       "staticNote": "The original page cited for the switch of the supply onto the solar input is shown above.",
       "selected": "14e",
       "limitations": {
