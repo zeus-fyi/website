@@ -1,5 +1,73 @@
 import {test,expect} from '@playwright/test';
 import {pages} from '../pages.mjs';
+import {caseEvidence,backupGrounds} from '../evidence.mjs';
+import {sourcePages} from '../source-pages.mjs';
+// Every case page with chart data: each chart's strip, each row's source page and its highlights.
+for(const [slug,charts] of Object.entries(caseEvidence)){
+  for(const width of [390,1280]){
+    test(`charts of ${slug}: every row opens its source page with aligned highlights at ${width}px`,async({page})=>{
+      await page.setViewportSize({width,height:950});
+      await page.goto('/research/'+slug+'/');
+      await expect(page.locator('section.evidence-module')).toHaveCount(charts.length);
+      for(const [index,chart] of charts.entries()){
+        const module=page.locator('section.evidence-module').nth(index), rows=Object.keys(chart.limitations);
+        await expect(module.locator('[data-score]')).toHaveCount(rows.length);
+        await expect(module.locator(`[data-score="${chart.selected}"]`)).toHaveAttribute('aria-pressed','true');
+        for(const id of rows){
+          const entry=chart.limitations[id], button=module.locator(`[data-score="${id}"]`);
+          await button.scrollIntoViewIfNeeded();
+          await button.click();
+          await expect(button).toHaveAttribute('aria-pressed','true');
+          await expect(module.locator('[data-field="label"]')).toContainText(id+' · '+entry.rating);
+          await expect(module.locator('[data-field="pinpoint"]')).toHaveText(entry.pinpoint);
+          expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),id+' must not overflow').toBe(true);
+          const tabs=module.locator('[data-source-pages] button');
+          await expect(tabs).toHaveCount(entry.sourceViews.length);
+          for(const [viewIndex,view] of entry.sourceViews.entries()){
+            if(viewIndex>0) await tabs.nth(viewIndex).click();
+            if(!Array.isArray(view)){
+              await expect(module.locator('[data-page-host] [data-source-unavailable]')).toContainText('The original page is not publicly available.');
+              await expect(module.locator('[data-page-host] [data-source-unavailable]')).toContainText(view.citation);
+              await expect(module.locator('[data-passages] mark')).toHaveCount(view.quotes.length);
+              await expect(module.locator('[data-original-pdf]')).toBeHidden();
+              await expect(module.locator('[data-enlarge]')).toBeHidden();
+              continue;
+            }
+            const [pageId,fragmentIds]=view, source=sourcePages[pageId], rects=fragmentIds.flatMap(f=>source.fragments[f].rects);
+            const image=module.locator('[data-page-host] [data-source-image]');
+            expect((await image.getAttribute('src')).endsWith('/'+source.image),pageId+' image').toBe(true);
+            expect((await module.locator('[data-original-pdf]').getAttribute('href')).endsWith('#page='+source.pdfPage),pageId+' original link').toBe(true);
+            await expect(module.locator('[data-passages] mark')).toHaveCount(fragmentIds.length);
+            await image.scrollIntoViewIfNeeded();
+            await expect(image).toBeVisible();
+            await expect.poll(()=>image.evaluate(el=>el.complete&&el.naturalWidth>0),{message:pageId+' image must load'}).toBe(true);
+            await expect(module.locator('[data-page-host] [data-source-highlights] span')).toHaveCount(rects.length);
+            if(rects.length){
+              const alignment=await module.locator('[data-page-host] [data-source-page]').evaluate(el=>{
+                const image=el.querySelector('img').getBoundingClientRect();
+                return [...el.querySelectorAll('[data-source-highlights] span')].every(mark=>{
+                  const r=mark.getBoundingClientRect(),x=parseFloat(mark.style.left)/100,y=parseFloat(mark.style.top)/100;
+                  return Math.abs(r.left-image.left-x*image.width)<1 && Math.abs(r.top-image.top-y*image.height)<1 && r.right<=image.right+1 && r.bottom<=image.bottom+1;
+                });
+              });
+              expect(alignment,pageId+': highlights must stay aligned with the original page').toBe(true);
+            } else {
+              await expect(module.locator('[data-source-note]')).toContainText('Highlights are not available for this scanned page');
+            }
+          }
+        }
+        await module.locator('.reading-details > summary').first().click();
+        await expect(module.locator('.all-notes article')).toHaveCount(rows.length);
+      }
+      for(const ground of backupGrounds[slug]||[]){
+        const section=page.locator(`[data-backup-ground="${ground.label}"]`);
+        await section.locator('summary').click();
+        await expect(section.locator('article')).toHaveCount(ground.limitations.length);
+        expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),ground.label+' must not overflow').toBe(true);
+      }
+    });
+  }
+}
 const widths=[320,390,768,1024,1440];
 for(const width of widths){
   test(`all pages fit ${width}px and load without errors`,async({page})=>{

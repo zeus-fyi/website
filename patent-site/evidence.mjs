@@ -1,10 +1,10 @@
-// Claim-chart data of the interactive evidence module, one entry per case page that shows it.
-// A case without an entry shows its static excerpt. Each limitation or claim-wide point: its
+// Claim-chart data of the interactive evidence module: for each case page that shows it, the list
+// of its charts (one per submitted chart). A case without an entry shows its static excerpt. Each limitation or claim-wide point: its
 // rating on the band scale ("C 50"), the short label of its strip button, the reading text, the
 // pinpoint and the original pages it opens (sourceViews: [pageId, [fragmentIds]] from source-pages.mjs).
 // A claim-wide point carries summary: true and may carry note, the sentence shown under its pages.
 export const caseEvidence = {
-  "cyboenergy-9331488": {
+  "cyboenergy-9331488": [{
     "caption": [
       "CyboEnergy · US 9,331,488 B2",
       "Claim 16 · Ground 2"
@@ -189,5 +189,11 @@ export const caseEvidence = {
         ]
       }
     }
-  }
+  }]
 };
+
+// The backup and alternative grounds recorded beside each submitted chart (CHART.md of the case):
+// label, title, references [{title, url}], the recorded verdict in plain words, an optional rationale,
+// and per limitation its claim text, the quoted passage, its pinpoint and the original document
+// (pageId + fragmentIds for a rendered page, or url for the document).
+export const backupGrounds = {};
