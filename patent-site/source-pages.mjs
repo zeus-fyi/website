@@ -1139,11 +1139,11 @@ export const sourcePages = {
     },
     "textLayer": false
   },
-  "louvel-921-7": {
+  "louvel-921-1": {
     "document": "louvel-921",
-    "printedPage": 7,
+    "printedPage": 1,
     "pdfPage": 7,
-    "image": "sources/louvel-921-7.png",
+    "image": "sources/louvel-921-1.png",
     "width": 1680,
     "height": 2468,
     "fragments": {
@@ -1249,14 +1249,13 @@ export const sourcePages = {
           ]
         ]
       }
-    },
-    "pageLabel": "Publication page 7"
+    }
   },
-  "louvel-921-8": {
+  "louvel-921-2": {
     "document": "louvel-921",
-    "printedPage": 8,
+    "printedPage": 2,
     "pdfPage": 8,
-    "image": "sources/louvel-921-8.png",
+    "image": "sources/louvel-921-2.png",
     "width": 1680,
     "height": 2468,
     "fragments": {
@@ -1300,14 +1299,13 @@ export const sourcePages = {
           ]
         ]
       }
-    },
-    "pageLabel": "Publication page 8"
+    }
   },
-  "louvel-921-9": {
+  "louvel-921-3": {
     "document": "louvel-921",
-    "printedPage": 9,
+    "printedPage": 3,
     "pdfPage": 9,
-    "image": "sources/louvel-921-9.png",
+    "image": "sources/louvel-921-3.png",
     "width": 1680,
     "height": 2468,
     "fragments": {
@@ -1334,14 +1332,13 @@ export const sourcePages = {
           ]
         ]
       }
-    },
-    "pageLabel": "Publication page 9"
+    }
   },
-  "louvel-921-10": {
+  "louvel-921-4": {
     "document": "louvel-921",
-    "printedPage": 10,
+    "printedPage": 4,
     "pdfPage": 10,
-    "image": "sources/louvel-921-10.png",
+    "image": "sources/louvel-921-4.png",
     "width": 1680,
     "height": 2468,
     "fragments": {
@@ -1421,8 +1418,7 @@ export const sourcePages = {
           ]
         ]
       }
-    },
-    "pageLabel": "Publication page 10"
+    }
   },
   "pauli-916-2": {
     "document": "pauli-916",

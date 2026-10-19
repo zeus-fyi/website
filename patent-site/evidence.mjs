@@ -392,7 +392,7 @@ export const caseEvidence = {
           "pinpoint": "R1 · US 2002/0104921 A1 · [0007]",
           "sourceViews": [
             [
-              "louvel-921-7",
+              "louvel-921-1",
               [
                 "aircraft",
                 "powered"
@@ -409,13 +409,13 @@ export const caseEvidence = {
           "pinpoint": "R1 · [0042], [0091]",
           "sourceViews": [
             [
-              "louvel-921-8",
+              "louvel-921-2",
               [
                 "sensors"
               ]
             ],
             [
-              "louvel-921-10",
+              "louvel-921-4",
               [
                 "loop"
               ]
@@ -431,7 +431,7 @@ export const caseEvidence = {
           "pinpoint": "R1 · [0029]",
           "sourceViews": [
             [
-              "louvel-921-7",
+              "louvel-921-1",
               [
                 "propellers"
               ]
@@ -447,14 +447,14 @@ export const caseEvidence = {
           "pinpoint": "R1 · [0030], [0061]",
           "sourceViews": [
             [
-              "louvel-921-7",
+              "louvel-921-1",
               [
                 "independent",
                 "motor"
               ]
             ],
             [
-              "louvel-921-9",
+              "louvel-921-3",
               [
                 "pwm"
               ]
@@ -514,7 +514,7 @@ export const caseEvidence = {
               ]
             ],
             [
-              "louvel-921-9",
+              "louvel-921-3",
               [
                 "pwm"
               ]
@@ -530,13 +530,13 @@ export const caseEvidence = {
           "pinpoint": "R1 · [0031], [0032]",
           "sourceViews": [
             [
-              "louvel-921-7",
+              "louvel-921-1",
               [
                 "frame"
               ]
             ],
             [
-              "louvel-921-8",
+              "louvel-921-2",
               [
                 "boards"
               ]
@@ -552,7 +552,7 @@ export const caseEvidence = {
           "pinpoint": "R1 · [0032]",
           "sourceViews": [
             [
-              "louvel-921-8",
+              "louvel-921-2",
               [
                 "boards"
               ]
@@ -584,7 +584,7 @@ export const caseEvidence = {
           "pinpoint": "R1 · [0100] · R2 · Column 5, lines 4–7",
           "sourceViews": [
             [
-              "louvel-921-10",
+              "louvel-921-4",
               [
                 "tilt"
               ]

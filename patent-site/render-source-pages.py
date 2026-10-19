@@ -295,7 +295,7 @@ PAGES = [
     ('spirov-357', 19, 20, {
         'pair': 'In an alternate embodiment that provides for more efficiency, each of the ducted fans 40 has two counter-rotating multi-bladed units.',
     }),
-    ('louvel-921', 'Publication page 7', 7, {
+    ('louvel-921', 1, 7, {
         'aircraft': 'The invention is an aircraft, remotely controlled',
         'powered': 'powered by propellers driven by electric motors, whose characteristics enable this device to perform',
         'propellers': 'the aircraft includes four propellers (10), (11), (12), (13) with vertical axis, that provides the lift thrust.',
@@ -303,14 +303,14 @@ PAGES = [
         'motor': 'The propeller (10) is driven by the motor (20).',
         'frame': 'The frame that bears the motors is made of two rectangular boards (30) and (31), arranged in a vertical plane and that intersect in the central part of the aircraft.',
     }),
-    ('louvel-921', 'Publication page 8', 8, {
+    ('louvel-921', 2, 8, {
         'sensors': 'The aircraft is fitted with three attitude sensors whose purpose is to provide information for the closed loop control.',
         'boards': 'The board (30) bears the motors (10) and (12). The other board (31) bears the motors (11) and (13)',
     }),
-    ('louvel-921', 'Publication page 9', 9, {
+    ('louvel-921', 3, 9, {
         'pwm': 'The function of the control unit (3) is to control the speed of each electric motor by adjusting the current in each of them by a pulse width modulation (PWM) current drive.',
     }),
-    ('louvel-921', 'Publication page 10', 10, {
+    ('louvel-921', 4, 10, {
         'loop': 'When there is no action on the handle, the control loop uses the data coming from the various sensors (61), (62) and (63) to converge towards the horizontal normal attitude of the aircraft and to cancel the yaw movement.',
         'tilt': 'If the information supplied by the sensor (61) indicates that the aircraft is tilting towards the right side, then the correction consists in increasing the speed of the propeller 11, decreasing the speed of the propeller 13, meanwhile the speeds of the propellers 10 and 12 remain unchanged.',
     }),
