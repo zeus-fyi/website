@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { JSDOM } from 'jsdom';
 import { cases } from './cases.mjs';
-import { caseEvidence, backupGrounds, caseDrafts } from './evidence.mjs';
+import { caseEvidence, backupGrounds } from './evidence.mjs';
 import { sourceDocuments, sourcePages } from './source-pages.mjs';
 import { UNAVAILABLE } from './components.mjs';
 const script = await readFile(new URL('../patents/assets/site.js',import.meta.url),'utf8');
@@ -101,11 +101,15 @@ for (const [slug, grounds] of Object.entries(backupGrounds)) {
     dom.window.close();
   });
 }
-test('every prepared draft row and backup limitation points at a rendered page and its fragments',()=>{
-  for(const [slug,draft] of Object.entries(caseDrafts)) for(const [id,row] of Object.entries(draft.rows)){
+test('every chart row and backup limitation points at a rendered page and its fragments',()=>{
+  for(const [slug,charts] of Object.entries(caseEvidence)) for(const chart of charts) for(const [id,row] of Object.entries(chart.limitations)){
     assert.ok(row.pinpoint.length>8,slug+' '+id);
-    for(const [pageId,fragmentIds] of row.sourceViews){
+    assert.ok(row.sourceViews.length>0,slug+' '+id);
+    for(const view of row.sourceViews){
+      if(!Array.isArray(view)){ assert.ok(view.citation&&view.quotes.length>0,slug+' '+id); continue; }
+      const [pageId,fragmentIds]=view;
       assert.ok(sourcePages[pageId],slug+' '+id+' '+pageId);
+      assert.ok(fragmentIds.length>0,slug+' '+id+' '+pageId);
       for(const f of fragmentIds) assert.ok(sourcePages[pageId].fragments[f],slug+' '+id+' '+pageId+' '+f);
     }
   }

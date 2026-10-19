@@ -759,6 +759,232 @@ export const caseEvidence = {
       }
     }
   ],
+  "sol-ip-9900067": [
+    {
+      "caption": [
+        "Sol IP · US 9,900,067 B2",
+        "Claim 38 · Obviousness · C, hold 22"
+      ],
+      "assessed": "18 October 2026",
+      "pointsNote": "P1 is the reason to combine and P2 the reading of “subsequent to”; both are claim-wide points.",
+      "staticNote": "The original pages cited for the sizing of the length field are shown above.",
+      "selected": "38h",
+      "limitations": {
+        "38pre": {
+          "rating": "A 97",
+          "short": "Preamble",
+          "title": "A communication device.",
+          "mapping": "Airgo’s extended transmitter, which sends the multi-channel packets, is the device; Broadcom’s 802.11n transceiver and Syafei’s four-stream 80 MHz transmitter are the same kind of device.",
+          "limit": "Literal and in plain words.",
+          "pinpoint": "Ref. 2 · US 2006/0182017 A1 · [0037]",
+          "sourceViews": [
+            [
+              "broadcom-017-15",
+              [
+                "transceiver"
+              ]
+            ]
+          ]
+        },
+        "38a": {
+          "rating": "B 87",
+          "short": "Processor",
+          "title": "A processor.",
+          "mapping": "Airgo’s charted text names no processor. Broadcom’s transceiver comprises a processor, and its MIMO transmitter a processor and a memory: two 802.11n transceivers of the same field.",
+          "limit": "Literal in the combined references; rests on P1, the reason to build Airgo’s packets on the Broadcom transceivers.",
+          "pinpoint": "Ref. 2 · [0037]",
+          "sourceViews": [
+            [
+              "broadcom-017-15",
+              [
+                "processor"
+              ]
+            ]
+          ]
+        },
+        "38b": {
+          "rating": "B 78",
+          "short": "Memory",
+          "title": "A memory storing the program instructions.",
+          "mapping": "Broadcom’s memory stores and retrieves data and code, and its computer program, when loaded and executed, controls the system so that it carries out the methods described: both transceivers run their physical layer from code in memory.",
+          "limit": "Three references for a generic limitation: each text is partial alone, and neither says that the memory holds the instructions that make the device send the two control fields. Rests on P1.",
+          "pinpoint": "Ref. 3 · US 2008/0014870 A1 · [0041]",
+          "sourceViews": [
+            [
+              "broadcom-870-16",
+              [
+                "memory"
+              ]
+            ]
+          ]
+        },
+        "38c": {
+          "rating": "A 95",
+          "short": "First control field",
+          "title": "A first control field over a band that is a multiple of 20 MHz.",
+          "mapping": "Airgo’s extended packets use multiple 20 MHz channels, 40, 60, 80 or 100 MHz, and the transmitter sends an identical copy of the preamble and signal field in each 20 MHz channel: the legacy signal field is a first control field over a band of 40 to 100 MHz.",
+          "limit": "Literal. The owner can argue that “a first frequency band” is one channel, not several 20 MHz channels; Airgo’s own “40, 60, 80, or 100 MHz channels” settles it, and Syafei’s single 80 MHz channel backs it.",
+          "pinpoint": "Ref. 6 · US 2005/0286474 A1 · [0042], [0071]",
+          "sourceViews": [
+            [
+              "airgo-474-16",
+              [
+                "siso"
+              ]
+            ],
+            [
+              "airgo-474-18",
+              [
+                "copy"
+              ]
+            ]
+          ]
+        },
+        "38d": {
+          "rating": "B 86",
+          "short": "Second control field",
+          "title": "A second control field over the same band.",
+          "mapping": "Syafei sends the VHT-SIG, a second signal field of 48 bits, right after the HT-SIG on the same 80 MHz channel; Airgo draws its extended signal field after the legacy one, and Broadcom’s HT-SIG after the L-SIG is the same structure at 20 or 40 MHz.",
+          "limit": "Literal in the combined reference; rests on P1. Airgo alone ties its second field to the 40–100 MHz packets only through the copy of the preamble and signal field in each 20 MHz channel, an inference the owner can contest.",
+          "pinpoint": "Ref. 6 · [0101] · FIG. 13 · Ref. 2 · [0061] · FIG. 4a",
+          "sourceViews": [
+            [
+              "airgo-474-21",
+              [
+                "legacy"
+              ]
+            ],
+            [
+              "broadcom-017-18",
+              [
+                "preamble"
+              ]
+            ]
+          ]
+        },
+        "38e": {
+          "rating": "A 93",
+          "short": "Length indicator",
+          "title": "A first indicator of the length of the user data that follows.",
+          "mapping": "Airgo’s modified signal field gives 16 of its 48 bits to the length; the 802.11n second signal fields carry the PSDU length the same way, and Syafei’s VHT-SIG1 gives 17 of its 24 bits to the length of the data that follows.",
+          "limit": "Literal. Open point: Airgo’s drawn field is tied to its extended signal field by description, not by numeral, which the reference’s own words settle.",
+          "pinpoint": "Ref. 6 · [0110] · FIG. 18",
+          "sourceViews": [
+            [
+              "airgo-474-22",
+              [
+                "bits"
+              ]
+            ]
+          ]
+        },
+        "38f": {
+          "rating": "C 68",
+          "short": "Reserved bits",
+          "title": "Reserved bits after the length indicator.",
+          "mapping": "Airgo’s field has three reserved bits after the 16-bit length, with the one-bit last-PSDU flag between; Syafei’s VHT-SIG and the Broadcom and Sony 802.11n layouts keep the same order.",
+          "limit": "Literal under the plain reading of “subsequent to”, after rather than immediately after; rests on P2. Under “immediately subsequent” no layout before the date meets it.",
+          "pinpoint": "Ref. 6 · [0110] · FIG. 18",
+          "sourceViews": [
+            [
+              "airgo-474-22",
+              [
+                "reserved"
+              ]
+            ]
+          ]
+        },
+        "38g": {
+          "rating": "C 68",
+          "short": "Tail bits",
+          "title": "Tail bits after the reserved bits.",
+          "mapping": "Airgo’s six tail bits come after the reserved bits with the CRC between them; every charted signal field, Syafei’s included, ends in the six convolutional tail bits in that order.",
+          "limit": "Literal under the plain reading; rests on P2. The text lists the fields adjacent and the drawing is decisive; under “immediately subsequent” none meets it.",
+          "pinpoint": "Ref. 6 · [0110] · FIG. 18",
+          "sourceViews": [
+            [
+              "airgo-474-22",
+              [
+                "tail"
+              ]
+            ]
+          ]
+        },
+        "38h": {
+          "rating": "C 52",
+          "short": "Fewer bits at 40 MHz",
+          "title": "Fewer length bits at 40 MHz than at a wider band.",
+          "mapping": "No document before the contest date gives one WLAN length field fewer bits at 40 MHz than above it. NEC’s LTE-Advanced proposal evaluates the sizing rule at the claim’s own bandwidths, 15 bits at 40 MHz against 16, 17 and 18 above it; Nokia Siemens and 3GPP state the rule in WiMAX and UTRA control fields; Syafei gives the WLAN reason and the 802.11 standard its own precedent.",
+          "limit": "The weakest limitation, a coin flip: an obviousness argument across standards. The rule references outside WLAN meet the owner’s analogous-art replies, the WLAN art of the time kept the field fixed, and the step is an inferred multi-reference combination.",
+          "pinpoint": "Ref. 8 · [0033], [0034] · Ref. 11 · TS 25.222 · 4.6, p. 62 · Ref. 13 · Column 16, lines 9–14",
+          "sourceViews": [
+            [
+              "intel-314-15",
+              [
+                "select",
+                "savings"
+              ]
+            ],
+            [
+              "ts25222-62",
+              [
+                "tbs"
+              ]
+            ],
+            [
+              "nec-050-20",
+              [
+                "estimate"
+              ]
+            ]
+          ]
+        },
+        "P1": {
+          "rating": "B 88",
+          "short": "Combination",
+          "title": "Why combine the references?",
+          "mapping": "The reason to build Airgo’s 40–100 MHz packets on the 802.11n transceivers and second-signal-field layouts of Broadcom and Sony, and with Syafei’s two signal fields, is stated in the art of one field: Airgo names its second field an “11n Signal Field”, Syafei keeps the HT-SIG for backward compatibility with 802.11n, and all are dated before the contest date.",
+          "limit": "Limitations 38a, 38b and 38d rest on this point; the owner’s answer is hindsight.",
+          "pinpoint": "Claim chart · Combination rationale",
+          "summary": true,
+          "note": "P1 is the researcher’s combination rationale. These original pages show its cited sources.",
+          "sourceViews": [
+            [
+              "airgo-474-22",
+              [
+                "bits"
+              ]
+            ],
+            [
+              "broadcom-017-15",
+              [
+                "transceiver"
+              ]
+            ]
+          ]
+        },
+        "P2": {
+          "rating": "C 70",
+          "short": "“Subsequent to”",
+          "title": "How “subsequent to” is read.",
+          "mapping": "Read by its plain meaning, after rather than immediately after: claim 38 does not say “immediately”, and the applicant wrote “in order” and “consists of” where it wanted sequence and size. Under “immediately subsequent” every layout before the date fails, with a last-PSDU bit between the length and the reserved bits and the CRC between the reserved bits and the tail.",
+          "limit": "Limitations 38f and 38g rest on this point. The owner’s reading is colourable: the patent’s own field puts length, reserved and tail bits side by side because it moves the CRC to the service field, a choice claim 38 does not recite.",
+          "pinpoint": "Claim chart · Claim construction",
+          "summary": true,
+          "note": "P2 is the reading of “subsequent to” that limitations 38f and 38g depend on. This original page shows the layout read under it.",
+          "sourceViews": [
+            [
+              "airgo-474-22",
+              [
+                "reserved",
+                "tail"
+              ]
+            ]
+          ]
+        }
+      }
+    }
+  ],
   "cyboenergy-9331489": [
     {
       "caption": [
@@ -1461,142 +1687,4 @@ export const backupGrounds = {
       ]
     }
   ]
-};
-
-// Prepared, not yet shown: for each existing case whose chart is still being re-scored, the rows of
-// its submitted chart (the PEARL_PASTE.md blocks named in "paste"), each with its pinpoint and the
-// rendered original pages it opens. A row becomes a chart row in caseEvidence once its rating and
-// its reading text ("What the score reflects") come from the re-score; nothing here renders.
-export const caseDrafts = {
-  "sol-ip-9900067": {
-    "patent": "US 9,900,067 B2",
-    "claim": "38",
-    "paste": "PEARL_PASTE.md blocks 5–15 ([38pre] to [38h], the Ref. 8 and Ref. 11 blocks) and block 20 (Ref. 13)",
-    "rows": {
-      "38pre": {
-        "pinpoint": "Ref. 2 · US 2006/0182017 A1 · [0037]",
-        "sourceViews": [
-          [
-            "broadcom-017-15",
-            [
-              "transceiver"
-            ]
-          ]
-        ]
-      },
-      "38a": {
-        "pinpoint": "Ref. 2 · [0037]",
-        "sourceViews": [
-          [
-            "broadcom-017-15",
-            [
-              "processor"
-            ]
-          ]
-        ]
-      },
-      "38b": {
-        "pinpoint": "Ref. 3 · US 2008/0014870 A1 · [0041]",
-        "sourceViews": [
-          [
-            "broadcom-870-16",
-            [
-              "memory"
-            ]
-          ]
-        ]
-      },
-      "38c": {
-        "pinpoint": "Ref. 6 · US 2005/0286474 A1 · [0042], [0071]",
-        "sourceViews": [
-          [
-            "airgo-474-16",
-            [
-              "siso"
-            ]
-          ],
-          [
-            "airgo-474-18",
-            [
-              "copy"
-            ]
-          ]
-        ]
-      },
-      "38d": {
-        "pinpoint": "Ref. 6 · [0101] · FIG. 13 · Ref. 2 · [0061] · FIG. 4a",
-        "sourceViews": [
-          [
-            "airgo-474-21",
-            [
-              "legacy"
-            ]
-          ],
-          [
-            "broadcom-017-18",
-            [
-              "preamble"
-            ]
-          ]
-        ]
-      },
-      "38e": {
-        "pinpoint": "Ref. 6 · [0110] · FIG. 18",
-        "sourceViews": [
-          [
-            "airgo-474-22",
-            [
-              "bits"
-            ]
-          ]
-        ]
-      },
-      "38f": {
-        "pinpoint": "Ref. 6 · [0110] · FIG. 18",
-        "sourceViews": [
-          [
-            "airgo-474-22",
-            [
-              "reserved"
-            ]
-          ]
-        ]
-      },
-      "38g": {
-        "pinpoint": "Ref. 6 · [0110] · FIG. 18",
-        "sourceViews": [
-          [
-            "airgo-474-22",
-            [
-              "tail"
-            ]
-          ]
-        ]
-      },
-      "38h": {
-        "pinpoint": "Ref. 8 · [0033], [0034] · Ref. 11 · TS 25.222 · 4.6, p. 62 · Ref. 13 · Column 16, lines 9–14",
-        "sourceViews": [
-          [
-            "intel-314-15",
-            [
-              "select",
-              "savings"
-            ]
-          ],
-          [
-            "ts25222-62",
-            [
-              "tbs"
-            ]
-          ],
-          [
-            "nec-050-20",
-            [
-              "estimate"
-            ]
-          ]
-        ]
-      }
-    }
-  }
 };
