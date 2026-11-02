@@ -1,0 +1,20 @@
+name: Dockingbird product site
+on:
+  pull_request:
+    paths: ['dockingbird/**', '.github/workflows/dockingbird-site.yml']
+  push:
+    branches: [main]
+    paths: ['dockingbird/**', '.github/workflows/dockingbird-site.yml']
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test dockingbird/tests/*.test.mjs
+      - run: node --check dockingbird/public/assets/site.js
+      - run: node dockingbird/build.mjs

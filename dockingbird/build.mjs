@@ -1,0 +1,10 @@
+import { cp, mkdir, rm, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+const root = new URL('./', import.meta.url);
+const output = new URL('./dist/', root);
+await rm(output, { recursive: true, force: true });
+await mkdir(output, { recursive: true });
+await cp(new URL('./public/', root), output, { recursive: true });
+await cp(new URL('./worker.mjs', root), new URL('_worker.js', output));
+await writeFile(new URL('_routes.json', output), JSON.stringify({ version: 1, include: ['/*'], exclude: [] }, null, 2) + '\n');
+console.log(`Dockingbird built: ${fileURLToPath(output)}`);
