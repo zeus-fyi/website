@@ -9,5 +9,12 @@
     "binding": "ASSETS",
     "run_worker_first": true,
     "not_found_handling": "404-page"
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "WAITLIST_DB",
+      "database_name": "dockingbird-waitlist",
+      "database_id": "f4cef27e-245b-410f-adab-2e053e5b3f1f"
+    }
+  ]
 }
