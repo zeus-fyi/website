@@ -4,11 +4,24 @@ const MAX_EMAIL_LENGTH = 254;
 const VERIFY_TIMEOUT_MS = 10000;
 const CONSENT_VERSION = 'early-access-v1';
 const UNAVAILABLE = 'The waitlist is temporarily unavailable. Please try again soon.';
+// Hash of the Google tag initialization block shared by the public HTML pages.
+const ANALYTICS_SCRIPT_HASH = 'sha256-jYHg7tXSuuVUqjy+JeRT8vyG97+Spkw5IFHdQEBbmrw=';
 const SECURITY_HEADERS = {
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
-  'Content-Security-Policy': "default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+  'Content-Security-Policy': [
+    "default-src 'self'",
+    `script-src 'self' '${ANALYTICS_SCRIPT_HASH}' https://challenges.cloudflare.com https://www.googletagmanager.com`,
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com",
+    "connect-src 'self' https://challenges.cloudflare.com https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com",
+    "frame-src https://challenges.cloudflare.com https://www.googletagmanager.com",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+  ].join('; '),
 };
 
 function json(body, status = 200, extraHeaders = {}) {
