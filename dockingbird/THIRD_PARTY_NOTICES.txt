@@ -1,6 +1,8 @@
 Brand SVG assets
 
-Claude, Codex, Docker, and Git SVGs are vendored from https://github.com/pheralb/svgl/tree/main/static/library (claude-ai-icon.svg, codex_light.svg, docker.svg, git.svg). Their original colors and artwork are preserved.
+The Codex label uses the official ChatGPT/OpenAI Blossom SVG from https://chatgpt.com/cdn/assets/favicon.6a33781f61.svg, linked by https://chatgpt.com/. Its vector artwork and viewBox are unchanged; the favicon color-scheme rule is replaced with a fixed black fill for this light page. OpenAI and ChatGPT marks belong to OpenAI and are subject to https://openai.com/brand/.
+
+Claude, Docker, and Git SVGs are vendored from https://github.com/pheralb/svgl/tree/main/static/library (claude-ai-icon.svg, docker.svg, git.svg). Their original colors and artwork are preserved.
 
 MIT License
 
