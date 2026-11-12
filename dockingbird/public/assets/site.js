@@ -1,160 +1,157 @@
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const detail = document.querySelector('#agent-detail');
-const detailTag = document.querySelector('#agent-tag');
-const agents = {
-  coordinator: ['Coordinator', 'splits the work, routes questions, and keeps the team moving.', 'TEAM CONTEXT'],
-  api: ['API builder', 'works in a private clone, claiming the paths it needs before submitting changes.', 'ISOLATED WORKSPACE'],
-  interface: ['Interface builder', 'uses the shared API contract to build in parallel with the backend agent.', 'DIRECT HANDOFFS'],
-  review: ['Review & test agents', 'inspect the implementation and send findings back to the coordinator.', 'INDEPENDENT CHECKS'],
+// Site icons are SVG assets. Do not use emoji or Unicode icon characters.
+const mediaRoot = '/assets/media/';
+const captureUrl = name => `${mediaRoot}${name.includes('.') ? name : `${name}.webp`}`;
+const clips = {
+  "hero-coordination": {
+    "title": "One project. Five agents.",
+    "duration": "24 seconds",
+    "speed": "5× time-lapse",
+    "caption": "Sample shelf project. Dockingbird 0.15.37 / GUI 0.1.20. Accelerated recording; not a speed benchmark.",
+    "transcript": "The coordinator delegates Catalog.titles() to builder-1 and a CLI list command to builder-2. Builder-2 asks for the method’s signature and return value. Builder-1 answers and publishes its commit. Both builders send their commits to the coordinator, which requests review and tests. Its summary reports both commits with no review findings and passing tests. The reviewer and tester are bus agents listed in the sidebar, not terminal panes."
+  },
+  "agent-handoff": {
+    "title": "A direct handoff between builders",
+    "duration": "14 seconds",
+    "speed": "3.5× time-lapse",
+    "caption": "Same sample session as the coordination video. The task explicitly asks the builders to agree on the interface.",
+    "transcript": "Builder-2 asks builder-1 for the exact signature and return value of Catalog.titles(). Builder-1 replies: titles(self) returns a list of title and shelf-name pairs, sorted by title and shelf name. It then publishes its commit and sends the SHA. Each builder’s report lists the exchange; the coordinator records the result and requests review and tests. These are the agents’ summaries of their messages."
+  },
+  "configuration-patterns": {
+    "title": "Reusable configuration, in the product",
+    "duration": "54 seconds",
+    "speed": "Natural speed",
+    "caption": "Sample configurations created for the capture, not shipped presets. Dockingbird 0.15.37.",
+    "transcript": "The sample repository contains build, review and test configurations. The build config selects Claude Code, model and effort, role instructions, allowed network destinations, an environment variable, and turn and session limits. A Claude Code repository hook runs tests after edits. The config list shows the commands and their scope. Turning repository trust off disables the relevant harness arguments and environment settings; turning trust on restores them. The help screen lists the repository’s commands. This walkthrough shows configuration rather than a running agent; the separate effective-settings still shows a running coordinator."
+  },
+  "metrics-visibility": {
+    "title": "Agent status and session metrics",
+    "duration": "50 seconds",
+    "speed": "Natural speed",
+    "caption": "A short sample session. Costs are Claude Code’s estimates, not billing data. Availability varies by harness.",
+    "transcript": "Dockingbird status lists five agents with their models, effort, state and context use. It shows waiting deliveries and one question from test-1 about adding pytest as a development dependency. The questions command lists the choices. Fleet scrape prints session metrics for the Claude Code tester and Codex reviewer. Context tokens, model tokens and compactions are available for both bus agents. Claude Code also reports estimated cost and API retries; Codex does not. Terminal agents expose context but not these model-usage series. Missing series are absent, not zero. The measurement window is the current agent process or thread."
+  },
+  "fleet-placement": {
+    "title": "From a memory hold to running work",
+    "duration": "22 seconds",
+    "speed": "2.5× time-lapse",
+    "caption": "One demo worker host. Placeholder leases run sleep. The capture demonstrates memory admission, not automatic host provisioning.",
+    "transcript": "The operator submits a lease requiring 10 GiB of memory, which runs on mac-2. A second lease requires 8 GiB but the host has only 4096 MiB left. The queue keeps it pending, and fleet why reports memory_reserved: has 4096 MiB, needs 8192. The operator cancels the first lease. Once its reservation is released, the scheduler admits the second lease on mac-2. The demo host’s idle-cores threshold was lowered for the capture."
+  },
+  "fleet-controls": {
+    "title": "Drain a host, keep existing work running",
+    "duration": "15 seconds",
+    "speed": "3× time-lapse",
+    "caption": "One demo worker host with placeholder leases. Drain blocks new work across the host’s fleet projects.",
+    "transcript": "The operator drains mac-2. Its running lease continues while a new lease waits with a draining hold reason. Fleet why confirms the reason. The operator undrains the host, and the waiting lease is admitted alongside the first. Draining does not stop or move existing work. Priority changes, pause and resume are not shown in this clip."
+  }
 };
-let walkthrough;
-let walkthroughStep = 0;
-const playButton = document.querySelector('#play-demo');
-const stage = document.querySelector('.product-stage');
 
-function selectAgent(name) {
-  const [title, description, tag] = agents[name];
-  const strong = document.createElement('strong');
-  strong.textContent = title;
-  detail.replaceChildren(strong, document.createTextNode(` ${description}`));
-  detailTag.textContent = tag;
-  document.querySelectorAll('[data-agent]').forEach(button => {
-    const selected = button.dataset.agent === name;
-    button.classList.toggle('selected', selected);
-    button.setAttribute('aria-pressed', String(selected));
-  });
-}
-
-function stopWalkthrough() {
-  window.clearInterval(walkthrough);
-  walkthrough = undefined;
-  stage.classList.remove('is-playing');
-  playButton.setAttribute('aria-pressed', 'false');
-  playButton.textContent = '▷ Play walkthrough';
-}
-
-function activateTab(button, group) {
-  group.querySelectorAll('[role="tab"]').forEach(tab => {
-    const selected = button === tab;
-    tab.setAttribute('aria-selected', String(selected));
-    tab.tabIndex = selected ? 0 : -1;
-    const panel = document.getElementById(tab.getAttribute('aria-controls'));
-    if (group.classList.contains('demo-tabs')) panel.hidden = !selected;
-  });
-}
-
-document.querySelectorAll('[role="tablist"]').forEach(group => {
-  group.addEventListener('keydown', event => {
-    const tabs = [...group.querySelectorAll('[role="tab"]')];
+// Each tab selects a real screenshot; hidden captures are loaded on demand.
+document.querySelectorAll('[data-gallery]').forEach(gallery => {
+  const tabs = [...gallery.querySelectorAll('[role="tab"]')];
+  const panel = gallery.querySelector('[role="tabpanel"]');
+  function selectTab(selected) {
+    tabs.forEach(tab => {
+      tab.setAttribute('aria-selected', String(tab === selected));
+      tab.tabIndex = tab === selected ? 0 : -1;
+    });
+    const src = captureUrl(selected.dataset.image);
+    const image = panel.querySelector('img');
+    image.width = Number(selected.dataset.width);
+    image.height = Number(selected.dataset.height);
+    image.src = src;
+    image.alt = selected.dataset.alt;
+    const source = panel.querySelector('source');
+    source.width = Number(selected.dataset.mobileWidth);
+    source.height = Number(selected.dataset.mobileHeight);
+    const mobile = selected.dataset.mobile || selected.dataset.image;
+    source.srcset = captureUrl(mobile);
+    panel.querySelectorAll('[data-expand]').forEach(link => { link.href = src; });
+    panel.querySelector('.capture-image').setAttribute('aria-label', `Expand ${selected.dataset.alt}`);
+    panel.setAttribute('aria-labelledby', selected.id);
+    gallery.dataset.current = selected.dataset.image;
+  }
+  tabs.forEach(tab => tab.addEventListener('click', () => selectTab(tab)));
+  gallery.querySelector('[role="tablist"]').addEventListener('keydown', event => {
     const current = tabs.indexOf(document.activeElement);
     if (current < 0) return;
-    const vertical = group.getAttribute('aria-orientation') === 'vertical';
-    const forward = vertical ? 'ArrowDown' : 'ArrowRight';
-    const backward = vertical ? 'ArrowUp' : 'ArrowLeft';
-    let index;
-    if (event.key === forward) index = (current + 1) % tabs.length;
-    if (event.key === backward) index = (current - 1 + tabs.length) % tabs.length;
-    if (event.key === 'Home') index = 0;
-    if (event.key === 'End') index = tabs.length - 1;
-    if (index === undefined) return;
+    let next;
+    if (event.key === 'ArrowRight') next = (current + 1) % tabs.length;
+    if (event.key === 'ArrowLeft') next = (current - 1 + tabs.length) % tabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = tabs.length - 1;
+    if (next === undefined) return;
     event.preventDefault();
-    tabs[index].focus();
-    tabs[index].click();
+    tabs[next].focus();
+    selectTab(tabs[next]);
   });
 });
 
-document.querySelectorAll('.demo-tabs [role="tab"]').forEach(button => {
-  button.addEventListener('click', () => {
-    stopWalkthrough();
-    activateTab(button, button.parentElement);
-  });
-});
-document.querySelectorAll('[data-agent]').forEach(button => {
-  button.addEventListener('click', () => {
-    stopWalkthrough();
-    selectAgent(button.dataset.agent);
-  });
-});
-playButton.addEventListener('click', () => {
-  if (walkthrough) return stopWalkthrough();
-  activateTab(document.querySelector('#swarm-tab'), document.querySelector('.demo-tabs'));
-  const names = Object.keys(agents);
-  walkthroughStep = 0;
-  selectAgent(names[walkthroughStep]);
-  stage.classList.add('is-playing');
-  playButton.setAttribute('aria-pressed', 'true');
-  playButton.textContent = 'Ⅱ Pause walkthrough';
-  walkthrough = window.setInterval(() => {
-    walkthroughStep += 1;
-    if (walkthroughStep >= names.length) return stopWalkthrough();
-    selectAgent(names[walkthroughStep]);
-  }, 3000);
-});
-document.addEventListener('visibilitychange', () => { if (document.hidden) stopWalkthrough(); });
-reduceMotion.addEventListener('change', () => { if (reduceMotion.matches) stopWalkthrough(); });
-if ('IntersectionObserver' in window) {
-  new IntersectionObserver(entries => {
-    if (!entries[0].isIntersecting) stopWalkthrough();
-  }).observe(stage);
+const dialog = document.querySelector('#media-dialog');
+const mediaContent = document.querySelector('#media-content');
+const mediaTitle = document.querySelector('#media-title');
+const mediaCaption = document.querySelector('#media-caption');
+const transcript = document.querySelector('#media-transcript');
+const original = document.querySelector('#media-original');
+let mediaTrigger;
+function openMedia(trigger, element, title, caption, text = '') {
+  mediaTrigger = trigger;
+  mediaTitle.textContent = title;
+  mediaCaption.textContent = caption;
+  transcript.hidden = !text;
+  transcript.open = false;
+  transcript.querySelector('p').textContent = text;
+  original.href = trigger.href;
+  mediaContent.replaceChildren(element);
+  dialog.showModal();
+  document.body.classList.add('media-open');
 }
-
-const patterns = {
-  feature: {
-    file: 'builder.toml',
-    lines: ['# A specialist in your feature swarm', 'harness = "claude"', 'workspace = "repo"', 'mode = "bus"', 'tools = "full"', 'instructions = "prompts/builder.md"', 'repo_settings = true', '', '[env]', 'APP_ENV = "development"'],
-    description: 'Pair builders with separate review and test agents. Each receives its role instructions and project context.',
-  },
-  review: {
-    file: 'reviewer.toml',
-    lines: ['# A focused second perspective', 'harness = "codex"', 'workspace = "repo"', 'mode = "bus"', 'tools = "bus"', 'instructions = "prompts/reviewer.md"', 'repo_settings = true', '', 'harness_args = [', '  "-c", "model_reasoning_effort=high"', ']'],
-    description: 'Use a dedicated review prompt and higher reasoning effort. Report findings through the bus without granting publication tools.',
-  },
-  research: {
-    file: 'researcher.toml',
-    lines: ['# Explore and return the evidence', 'harness = "claude"', 'workspace = "scratch"', 'mode = "bus"', 'tools = "bus"', 'instructions = "prompts/researcher.md"', 'skill = "skills/investigate.md"', '', 'harness_args = ["--effort", "high"]'],
-    description: 'Give an investigator a scratch workspace, a repeatable research skill, and clear reporting instructions. No repository is required.',
-  },
-};
-
-function highlightLine(line) {
-  const fragment = document.createDocumentFragment();
-  if (line.startsWith('#')) {
-    const comment = document.createElement('span');
-    comment.className = 'code-comment';
-    comment.textContent = line;
-    fragment.append(comment);
-    return fragment;
-  }
-  const pieces = line.split('"');
-  pieces.forEach((piece, i) => {
-    const span = document.createElement('span');
-    span.className = i % 2 ? 'code-string' : 'code-key';
-    span.textContent = i % 2 ? `"${piece}"` : piece;
-    fragment.append(span);
-  });
-  return fragment;
-}
-document.querySelectorAll('[data-pattern]').forEach(button => {
-  button.addEventListener('click', () => {
-    activateTab(button, button.parentElement);
-    const pattern = patterns[button.dataset.pattern];
-    document.querySelector('#pattern-filename').textContent = pattern.file;
-    document.querySelector('#pattern-explanation').textContent = pattern.description;
-    document.querySelector('#pattern-panel').setAttribute('aria-labelledby', button.id);
-    const code = document.querySelector('#pattern-code');
-    code.replaceChildren();
-    pattern.lines.forEach((line, index) => {
-      if (index) code.append(document.createTextNode('\n'));
-      code.append(highlightLine(line));
-    });
+document.querySelectorAll('[data-expand]').forEach(link => {
+  link.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (typeof dialog.showModal !== 'function') return;
+    event.preventDefault();
+    const figure = link.closest('figure');
+    const preview = figure.querySelector('img');
+    const img = document.createElement('img');
+    img.src = link.href;
+    img.alt = preview.alt;
+    const gallery = link.closest('[data-gallery]');
+    const title = gallery ? gallery.querySelector('[aria-selected="true"]').textContent : 'Direct handoff';
+    openMedia(link, img, title, preview.alt);
   });
 });
-
-document.querySelector('#queue-demo').addEventListener('click', event => {
-  const button = event.currentTarget;
-  const expanded = button.getAttribute('aria-expanded') === 'true';
-  button.setAttribute('aria-expanded', String(!expanded));
-  document.querySelector('#queue-explanation').hidden = expanded;
+document.querySelectorAll('[data-video]').forEach(link => {
+  link.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (typeof dialog.showModal !== 'function') return;
+    event.preventDefault();
+    const id = link.dataset.video;
+    const clip = clips[id];
+    const video = document.createElement('video');
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+    video.poster = `${mediaRoot}${id}-poster.webp`;
+    video.src = link.href;
+    video.setAttribute('aria-label', clip.title);
+    video.setAttribute('aria-describedby', 'media-caption media-transcript');
+    openMedia(link, video, clip.title, `${clip.duration} · ${clip.speed}. ${clip.caption}`, clip.transcript);
+    // Playback starts only in response to the visitor's explicit Watch action.
+    video.play().catch(() => { /* Native controls remain available. */ });
+  });
+});
+dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
+dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+dialog.addEventListener('close', () => {
+  const video = mediaContent.querySelector('video');
+  if (video) { video.pause(); video.removeAttribute('src'); video.load(); }
+  mediaContent.replaceChildren();
+  document.body.classList.remove('media-open');
+  mediaTrigger?.focus();
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) mediaContent.querySelector('video')?.pause();
 });
 
 const form = document.querySelector('#waitlist-form');
@@ -235,7 +232,7 @@ form.addEventListener('submit', async event => {
   } finally {
     submitting = false;
     submit.disabled = subscribed;
-    submit.textContent = subscribed ? 'You’re on the list ✓' : 'Join the waitlist ↗';
+    submit.textContent = subscribed ? 'You’re on the list' : 'Join the waitlist';
     if (!subscribed && widgetId !== undefined && token) {
       token = '';
       window.turnstile.reset(widgetId);
