@@ -4,6 +4,8 @@
 
 The project owner supplied six product recording sets for this website. They were recorded November 11, 2026, with Dockingbird 0.15.37 and dockingbird-gui 0.1.20. The MP4 clips are included byte-for-byte. Most stills and posters are lossless WebP versions of the supplied PNGs; the status frame uses the original PNG embedded in an SVG viewport, as described below. No product text or status colors were reconstructed. The original archive and long source recordings are not republished here.
 
+The complete media set was recovered from `docs/plans/marketing-product-media-assets.zip` in `zeus-fyi/dockingbird` at source commit `625413678f537a87d1ab0f87195d6b007c4ec443`. All six MP4 hashes match the source files. All 19 WebPs are pixel-identical to their supplied PNGs and match the original website checksum manifest (Pillow lossless WebP, method 6). The status SVG embeds the original PNG byte-for-byte; its checksum below identifies the recovered SVG serialization.
+
 ## Use and limitations
 
 | Scene | Website use | Required context |
@@ -31,8 +33,8 @@ Copy was checked against the customer-facing Dockingbird SDK documentation:
 
 - `npm test`: 14 passing tests, including the waitlist backend, local media references, and the no-emoji rule.
 - `node --check public/assets/site.js`, `npm run build`, and `git diff --check`: passing.
-- Chrome: desktop review plus 320, 390 and 768-pixel iframe layouts; no horizontal overflow. Phone layout uses the supplied coordinator and swarm crops. Safari and Firefox were not run in this environment.
-- All six clips reached playable state with their expected durations. Checked gallery keyboard selection, expanded captures, transcripts, Escape/close, focus restoration, and unloading video after close.
+- Chrome: 320, 390, 768, 1024 and 1440-pixel viewport checks; all 12 gallery selections and expansions at each width retain natural image proportions, complete borders, inset spacing and no horizontal overflow. Phone layout uses the supplied coordinator and swarm crops. Safari and Firefox were not run in this environment.
+- All six clips played and supported seeking with their expected durations; all posters decoded. Checked gallery arrow/Home/End keys, expanded captures, transcripts, Escape/close, focus restoration, and unloading video after close. No videos load before a Watch action.
 - Checked required-email validation and recovery from an unavailable waitlist endpoint. No live signup was submitted. D1 and Turnstile backend behavior remains covered by the existing tests.
 - Main body text contrast is 6.54:1 on the page and 5.89:1 on the configuration background. Primary button text is 7.79:1. These measurements cover site typography, not text embedded in product captures.
 
@@ -60,7 +62,7 @@ All paths below are relative to `public/assets/media/`. Checksums identify the e
 | `configuration.webp` | 2817 x 1544 | `bab62127e6f8431dea5826a4799eafb249a888cf794397935f89c74c0f85f513` |
 | `effective-settings.webp` | 3270 x 1580 | `7da764f9b83a8879639d042e7ca079c0d66bc94247a0705eab5e57e2952446a5` |
 | `repository-trust.webp` | 2822 x 979 | `0b53d4d24935206f9aaa3a90251ecd6929d0c342bf641126bea259a95c5fb837` |
-| `agent-status.svg` | 2040 x 1280 viewport | `325a9a7b3e81da447f34611380c06fffbe5bf1ffe0edb11474129b842715ba36` |
+| `agent-status.svg` | 2040 x 1280 viewport | `c7485d2460e71d1ee42d99baefae1ac8c313731fcd6557d4676dee8c1d7638de` |
 | `agent-metrics.webp` | 3140 x 680 | `ad5c6aa495bb24975d006221c1ed6cd5c54c36993eaeda338c28b2cbaca8b44e` |
 | `fleet-pending.webp` | 2600 x 1010 | `9533b6b08f746c2fa897efc08cf4e9944e25656d27aa710fe3c7d05b851132d7` |
 | `fleet-admitted.webp` | 2600 x 1010 | `d4c1729f7c477299461f1979e7854d46c0003eb0bbcf167aca9cdd4b444f9ef6` |
